@@ -1,0 +1,209 @@
+﻿<?php
+
+mb_internal_encoding("UTF-8");
+
+include './config-default.php';
+include './config.php';
+
+if ($debug == 1)
+{
+	error_reporting(-1);
+	ini_set('error_reporting', E_ALL);
+	ini_set('display_errors', 1);
+} else {
+	error_reporting(0);
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+}
+
+include './functions_db.php';
+include './functions_mail.php';
+include './functions_forms.php';
+include './functions_actions.php';
+
+
+//##############################
+//
+//   SPRACH-AUSWAHL
+//
+//#############################
+
+function readcsv($file) {
+	$file_handle = fopen($file, 'r');
+	if (empty($file_handle)) { echo 'Error opening file '.$file.'.'; };
+	while (!feof($file_handle) ) {
+		$lines[] = fgetcsv($file_handle, 2048, ',');
+	}
+	fclose($file_handle);
+	return $lines;
+}
+
+function getLabel($lang)
+{
+	$t_data = readcsv('uebersetzung.csv');
+	$t_lang = 1;
+
+	$i = 0;
+	foreach ($t_data[0] as $spalte){
+		if ($spalte === $lang){
+			$t_lang = $i;
+		}
+		$i = $i + 1;
+	}
+
+	foreach ($t_data as $tstring) {
+		if ($tstring[$t_lang] != '') {
+			$ret[str_replace(' ', '', $tstring[0])] = $tstring[$t_lang];
+		} else {
+			$ret[str_replace(' ', '', $tstring[0])] = $tstring[1];
+		}
+	}
+	asort($ret);
+	return $ret;
+}
+
+function setLanguage($sprache)
+{
+	// Zuordnung von Locale-Strings und Übergabe an selectLanguage
+	if (strlen(strstr($sprache,'en'))>0){
+		echo '<div align="left">';
+		$ret = getLabel('en');//include './sprachen/englisch.php';
+	} elseif (strlen(strstr($sprache,'de'))>0){
+		//include './sprachen/deutsch.php';
+		echo '<div align="left">';
+		$ret = getLabel('de');
+	} elseif (strlen(strstr($sprache,'fr'))>0){
+		echo '<div align="left">';
+		$ret = getLabel('fr');//include './sprachen/franzoesisch.php';
+	} elseif (strlen(strstr($sprache,'fa'))>0){
+		echo '<div align="right">';
+		$ret = getLabel('fa');//include './sprachen/persisch.php';
+	} elseif (strlen(strstr($sprache,'ar'))>0){
+		echo '<div align="right">';
+		$ret = getLabel('ar');//include './sprachen/arabisch.php';
+	} elseif (strlen(strstr($sprache,'es'))>0){
+		echo '<div align="left">';
+		$ret = getLabel('es');//include './sprachen/spanisch.php';
+	} else {
+		echo '<div align="left">';
+		$ret = getLabel('de');//include './sprachen/deutsch.php';
+	}
+	return $ret;
+}
+
+
+//##############################
+//
+//   LOG-FILE
+//
+//#############################
+
+function createLog()
+{
+	$logFile = $GLOBALS['logfile'];
+	$fh = fopen($logFile, 'w');
+
+	if ($fh != false){
+		fwrite($fh, date("Y-m-d H:i",time())." Log-File created\n");
+		fclose($fh);
+		$ret = true;
+	} else {
+		$ret = false;
+	}
+	return $ret;
+}
+
+function writeLog($string)
+{
+	$ret = -1;
+	$logFile = $GLOBALS['logfile'];
+	$fh = fopen($logFile, 'a');
+	if ($fh != false){
+		if (fwrite($fh, date("Y-m-d H:i",time())." ".$string."\n") == false){
+			if ($GLOBALS['debug'] == 1)
+			{
+				echo "<p>Error: open Logfile</p>";
+			}
+		}
+		fclose($fh);
+	} else {
+		if ($GLOBALS['debug'] == 1)
+		{
+			echo "<p>Error: open Logfile</p>";
+		}
+	}
+}
+
+//##############################
+//
+//   REMINDER
+//
+//#############################
+
+function reminder_notReleased($label)
+{
+	$db_erg = db_getReminderDatasetsNotReleased();
+
+	if ($db_erg != false)
+	{
+		writeLog('REMINDER NOT RELEASED'.$db_erg);
+		while (($zeile = mysql_fetch_array ( ($db_erg) )))
+		{
+			$label = setLanguage($zeile["lang"]);
+			$sprache = strip_tags($label['lang']);
+			$name = $zeile[$GLOBALS['db_colName_name']];
+			$id = $zeile[$GLOBALS['db_colName_id']];
+			$hash = $zeile[$GLOBALS['db_colName_hash']];
+			$to = $zeile[$GLOBALS['db_colName_email']];
+			$subject = "Reminder first: ";
+
+			$body = "Reminder Body";
+			$gesendet = send_notification_add($email, $name, $id, $hash, $label);
+			//$gesendet = sendEmail($to, $subject, $body);
+			writeLog('REMINDER NOT RELEASED Email senden id:'.$id.' gesendet:'.$gesendet);
+		}
+	}
+	mysql_free_result($db_erg);
+}
+
+function reminder_Released($label)
+{
+	$db_erg = db_getReminderDatasetsReleased();
+	if ($db_erg != false)
+	{
+		writeLog('REMINDER CYCLIC '.$db_erg);
+		while (($zeile = mysql_fetch_array ( ($db_erg) )))
+		{
+			$label = setLanguage($zeile["lang"]);
+			$sprache = strip_tags($label['lang']);
+			$name = $zeile[$GLOBALS['db_colName_name']];
+			$id = $zeile[$GLOBALS['db_colName_id']];
+			$hash = $zeile[$GLOBALS['db_colName_hash']];
+			$to = $zeile[$GLOBALS['db_colName_email']];
+			$subject = "Reminder Released: ";
+
+			$body = "Reminder Body";
+			$gesendet = send_reminder($to, $name, $id, $hash, $label);
+			//$gesendet = sendEmail($to, $subject, $body, $label);
+			writeLog('REMINDER CYCLIC E-Mail senden id:'.$id.' gesendet:'.$gesendet);
+		}
+	}
+	mysql_free_result($db_erg);
+}
+
+function scheduleReminder($label)
+{
+	if (file_exists($GLOBALS['logfile'])){
+		if (date("n",time()) != date("n",filemtime($GLOBALS['logfile'])))
+		{
+			reminder_Released($label);
+		}
+		if (date("W",time()) != date("W",filemtime($GLOBALS['logfile'])))
+		{
+			reminder_notReleased($label);
+		}
+	} else {
+		createLog();
+	}
+}
+?>
