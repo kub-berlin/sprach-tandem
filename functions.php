@@ -18,7 +18,7 @@ if ($debug == 1)
 	ini_set('display_startup_errors', 1);
 }
 
-include './functions_db2.php';
+include './functions_db.php';
 include './functions_mail.php';
 include './functions_forms.php';
 include './functions_actions.php';
@@ -70,27 +70,26 @@ function setLanguage($sprache)
 	// Zuordnung von Locale-Strings und Übergabe an selectLanguage
 	if (strlen(strstr($sprache,'en'))>0){
 		echo '<div align="left">';
-		$ret = getLabel('en');//include './sprachen/englisch.php';
+		$ret = getLabel('en');
 	} elseif (strlen(strstr($sprache,'de'))>0){
-		//include './sprachen/deutsch.php';
 		echo '<div align="left">';
 		$ret = getLabel('de');
 
 	} elseif (strlen(strstr($sprache,'fr'))>0){
 		echo '<div align="left">';
-		$ret = getLabel('fr');//include './sprachen/franzoesisch.php';
+		$ret = getLabel('fr');
 	} elseif (strlen(strstr($sprache,'fa'))>0){
 		echo '<div align="right">';
-		$ret = getLabel('fa');//include './sprachen/persisch.php';
+		$ret = getLabel('fa');
 	} elseif (strlen(strstr($sprache,'ar'))>0){
 		echo '<div align="right">';
-		$ret = getLabel('ar');//include './sprachen/arabisch.php';
+		$ret = getLabel('ar');
 	} elseif (strlen(strstr($sprache,'es'))>0){
 		echo '<div align="left">';
-		$ret = getLabel('es');//include './sprachen/spanisch.php';
+		$ret = getLabel('es');
 	} else {
 		echo '<div align="left">';
-		$ret = getLabel('de');//include './sprachen/deutsch.php';
+		$ret = getLabel('de');
 	}
 	return $ret;
 }
@@ -162,7 +161,6 @@ function reminder_notReleased($label)
 
 			$body = "Reminder Body";
 			$gesendet = send_notification_add($email, $name, $id, $hash, $label);
-			//$gesendet = sendEmail($to, $subject, $body);
 			writeLog('REMINDER NOT RELEASED Email senden id:'.$id.' gesendet:'.$gesendet);
 		}
 	}
@@ -190,7 +188,6 @@ function reminder_Released($label)
 
 			$body = "Reminder Body";
 			$gesendet = send_reminder($to, $name, $id, $hash, $label);
-			//$gesendet = sendEmail($to, $subject, $body, $label);
 			writeLog('REMINDER CYCLIC E-Mail senden id:'.$id.' gesendet:'.$gesendet);
 		}
 	}

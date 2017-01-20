@@ -2,15 +2,6 @@
 
 include './functions.php';
 
-/*echo '<style type="text/css">';
-echo '@charset "UTF-8";';
-echo '@import "./style.css"';
-echo '</style>';
-
-echo '<div class=tandem_body>';*/
-
-//$label = setLanguage(htmlentities($_GET["lang"]));
-
 echo "<p> Verbinde mit MySQL-Server...";
 $server = db_connectDB();
 if ($server > 0)

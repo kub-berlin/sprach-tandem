@@ -37,7 +37,7 @@ function actionTable($label)
 	//===================
 	// Tabelle
 
-	echo '<table class=tandem_table>';//' border="1" cellpadding="5" cellspacing="0" bordercolordark="#a1a1a1" bordercolorlight="#a1a1a1" style="font-family:Arial; font-size:14">';
+	echo '<table class=tandem_table>';
 	echo '<colgroup id="col1"><col><col><col></colgroup>
 				<colgroup id="col2"><col></colgroup>
 				<colgroup id="col3"><col></colgroup>';
@@ -491,19 +491,11 @@ function actionDelete($label)
 	}
 
 	echo '<h3><img src="./images/trash.svg" width=20px height=20px>'.sprintf($label["deleteDataset_Title"], $GLOBALS['organisationName'])."</h3>";
-	/*if (!isset( $_GET["ok"] )){
-		$_GET["ok"] = 0;
-		$ok = 0;
-	} else
-	{
-		$ok = strip_tags(htmlentities($_GET["ok"]));
-	}*/
 	if (isset($_GET["tid"]) and isset($_GET["a"]))
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
 
-		//echo '<font face="Arial" size="2">';
 		if ( is_numeric($id) )
 		{
 			if ($ok != 0)
@@ -515,7 +507,6 @@ function actionDelete($label)
 					echo '<td>'.$label['deleteDataset'].'</td></tr>';
 					echo '</table>';
 					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					//echo '<p><button type="submit">'.$label["zurueck"].'</button></p>';
 					echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
 					echo '</form>';
 				} else
@@ -525,15 +516,12 @@ function actionDelete($label)
 					echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
 					echo '</table>';
 					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					//echo '<p><button type="submit">'.$label["zurueck"].'</button></p>';
 					echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
 					echo '</form>';
 				}
 			} else
 			{
 				echo '<form action="index.php?action=delete&ok=1&tid='.$id.'&a='.$hash.'&lang='.$label['lang'].'" method="POST" >';
-				//echo '<>'.sprintf($label['deleteDataset_Title'], $GLOBALS['organisationName']).'?</p>';
-				//echo '<p> <input type="submit" name="delete" value="'.$label['deleteDataset_button_yes'].'" /> <input type="submit" name="delete" value="'.$label['deleteDataset_button_no'].'" /></p>';
 				echo '<p><button type="submit" name="delete" value="'.$label['deleteDataset_button_yes'].'" class="button_image"><div id="image_button_yes">'.$label['deleteDataset_button_yes'].'</div></button>';
 				echo '<button type="submit" name="delete" value="'.$label['deleteDataset_button_no'].'" class="button_image"><div id="image_button_no">'.$label['deleteDataset_button_no'].'</div></button></p>';
 				echo '</form>';
@@ -572,8 +560,6 @@ function actionRelease($label)
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
-
-		//echo '<font face="Arial" size="2">';
 
 		if ( is_numeric($id) )
 		{
@@ -744,7 +730,6 @@ function actionReport($label)
 				echo '<td>'.$label['Report_nichtGesendet'].'</td></tr>';
 				echo '</table>';
 			}
-			//echo '</br><a href=index.php?lang='.$label['lang'].'>'.$label['zurueck'].'</a>';
 			mysql_free_result ( $db_erg );
 		}
 	}

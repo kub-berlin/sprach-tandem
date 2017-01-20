@@ -1,6 +1,5 @@
 <?php
 
-//include('Mail.php');
 require_once 'Mail.php';
 
 /* ===================================
@@ -16,16 +15,8 @@ function isValidEmail($email) {
 
 function sendEmail($to, $subject, $body, $replyto)
 {
-
-	/*echo "<p>to: ".$to."</p>";
-	echo "<p>subject: ".$subject."</p>";
-	echo "<p>body: ".$body."</p>";
-	echo "<p>replyto: ".$replyto."</p>";
-	*/
 	$ret = 0;
 	$from = 'noreply@'.$GLOBALS['domain'];
-	//$mail = mail($to , $subject , $body, 'From: '.$from."\n".'Reply-To: '.$replyto."\nMIME-Version: 1.0\nContent-type: text/plain; charset=UTF-8\n");
-	//$mail = mail($to , $subject , $body, 'From: '.$GLOBALS["organisationName"].' <'.$from.">\n".'BCC: robert.vietzke@posteo.de'."\n".'Reply-To: '.$replyto."\nMIME-Version: 1.0\nContent-type: text/plain; charset=UTF-8\n");
 	$mail = mail($to , ($subject) , ($body), 'From: '.$GLOBALS["organisationName"].' <'.$from.">\n".'BCC: sprachtandem@kub-berlin.org'."\n".'Reply-To: '.$replyto."\nMIME-Version: 1.0\nContent-type: text/plain; charset=UTF-8\n");
 	if (PEAR::isError($mail)) {
 		if ($GLOBALS['debug'] == 1)
@@ -66,7 +57,6 @@ function send_notification_report($to, $name, $email, $text, $name_reported, $id
 {
 	$subject = sprintf($label["Report_email_subject"], $GLOBALS["organisationName"]);
 	$body = sprintf($label["Report_email"], $name, $email, $text, $name_reported, $id_reported, $text_reported);
-	//$name."\n".$email."\n\n".$text;
 
 	$gesendet = sendEmail($to, $subject, $body, $email);
 	writeLog('send_notification_report: Email senden: '.$gesendet);

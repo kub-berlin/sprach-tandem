@@ -10,7 +10,6 @@ function addTandemForm($label, $caller)
 {
 	if ($_POST['send'] == "cancel")
 	{
-		//echo 'Location: index.php?action=table&lang='.$label["lang"];
 		header('Location: index.php?action=table&lang='.$label["lang"]);
 	}
 
@@ -92,7 +91,6 @@ function addTandemForm($label, $caller)
 	echo '<table  class=form_table>'; //; font-size:14
 	echo '<tr><td valign="top"><input value="ja" name="datenschutz[]" type="Checkbox"></td><td><font color="black">'.sprintf($label['Add_datenschutz'], $GLOBALS["organisationName"]).'</td></tr>';
 	echo '</table><br/>';
- 	//echo '<p> <input type="submit" value="'.($label['Add_senden']).'" /></p>';
 	echo '<p><button type="submit" name="send" value="cancel" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label['zurueck'].'</div></button>    ';
 	echo '<button type="submit" name="send" value="send" class="button_image"><div id="image_button_send">'.$label['Add_senden'].'</div></button></p>';
  	echo '</form>';
@@ -125,8 +123,6 @@ function sendMessageForm($label, $caller)
 		$_POST["text"] = "";
 	}
 
-	/*if ( $_POST['name'] == "" OR $_POST['email'] == "" OR $_POST['text'] == "" OR $_POST['geschlecht'] == "" OR $_POST['alter'] == "" OR $_POST['ort'] == "" OR $_POST['datenschutz'][0] != 'ja'OR strpos($_POST['email'], "@") === false OR strpos($_POST['email'], ".") === false)
-	{*/
     // Formulareintragungen liegen (noch) nicht vor
 		echo '<form action="'.htmlentities($caller).'" method="POST" >';
 		echo '<p class=form_above>'.($label['View_Form_ausfuellen']).'</p>';
@@ -148,7 +144,6 @@ function sendMessageForm($label, $caller)
 		echo '<p><button type="submit" class="button_image"><div id="image_button_send">'.$label['View_Form_senden'].'</div></button></p>';
 		echo '</form>';
 		echo '</div>';
-	//}
 }
 
 
@@ -200,7 +195,6 @@ function filterLanguageForm($label, $caller)
 	echo '</th>';
 
 	echo '<th>';
-	//echo '<p><button type="submit" id="filter_button"><img src="./images/funnel.svg" width=14px height=14px> '..'</button></p>';
 	echo '<p><button type="submit" class="button_image"><div id="image_button_filter">'.$label['Table_filtern'].'</div></button></p>';
 	echo '</th></tr>';
 	echo '</table>';
@@ -240,10 +234,8 @@ function reportForm($label, $caller)
 	echo '<table>';
 	echo '<br />';
 	echo '<p><button type="submit" name="send" value="send" class="button_image"><div id="image_button_send">'.$label['Report_Form_senden'].'</div></button></p>';
-	//echo '<p><button type="submit" class="button_image"><div id="image_button_send">'.$label['Report_Form_senden'].'</div></button></p>';
 	echo '</form>';
 	echo '</div>';
-	//}
 }
 
 ?>
