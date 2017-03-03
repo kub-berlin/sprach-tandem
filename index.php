@@ -14,12 +14,11 @@ TO DOS
 
 */
 
+echo '<!DOCTYPE html>' . "\n";
 echo '<meta http-equiv="content-type" content="text/html; charset=utf-8" />';
+echo '<meta charset="utf-8" />';
+echo '<link rel="stylesheet" type="text/css" href="./style.css" />';
 
-echo '<style type="text/css">';
-echo '@charset "UTF-8";';
-echo '@import "./style.css"';
-echo '</style>';
 mb_internal_encoding("UTF-8");
 include './functions.php';
 echo '<div class=tandem_body>';
