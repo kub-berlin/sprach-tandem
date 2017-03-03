@@ -396,28 +396,20 @@ function actionRelease($label)
 
 function actionStatistic($label)
 {
-
-	echo '<h3>Statistik</h3>';
-	echo '<p><a href="index.php?action=stat&t=year">dieses Jahr</a></p>';
-	echo '<p><a href="index.php?action=stat&t=always">Immer</a></p>';
-	echo '<p>folgende Sprach-Tandem Anzeigen wurden eingetragen: </p>';
-	echo '<table class=tandem_table><th>Angebotene Sprache</th><th>Gesuchte Sprache</th><th>Anzahl der Anzeigen</th><th>Antworten</th>';
-	//echo 't: '.$_GET["t"];
 	$db_erg = db_get_langPairs($GLOBALS['server'], $_GET["t"] === "year");
-	$sum_sum = 0;
+	$sum_replies = 0;
 	$sum_count = 0;
+	$sums = array();
 
 	foreach ($db_erg as $zeile)
 	{
-		$sum = db_sum_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']]);
-		$sum_sum = $sum_sum + $sum;
-		$count = db_count_langPairs($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']]);
-		$sum_count = $sum_count + $count;
-		echo '<tr><td>'.$label[$zeile[$GLOBALS['db_colName_spracheAng']]].'</td><td>'.$label[$zeile[$GLOBALS['db_colName_spracheGes']]].'</td>'.
-		'<td>'.$zeile['count'].'</td><td>'.($_GET["t"] === "year" ? "?" : $sum).'</td></tr>';
+		$_replies = db_sum_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']]);
+		$replies[] = $_replies;
+		$sum_replies += $_replies;
+		$sum_count += $zeile['count'];
 	}
-	echo '</table>';
-	echo '<p>Insgesamt wurden '.$sum_count.' Anzeigen aufgegeben und '.$sum_sum.' mal geantwortet</p>';
+
+	include 'partials/stat.php';
 }
 
 //##############################
