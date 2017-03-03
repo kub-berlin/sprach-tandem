@@ -125,40 +125,10 @@ function actionView($label)
 	if ( ! count($db_erg) > 0 OR ! is_numeric($id))
 	{
 		echo "<p>Error: Data not found.</p>";
-	}	else
+	} else
 	{
 		$zeile = $db_erg[0];
 
-		echo '<h3>'. html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . '</h3>';
-		echo '<table>';
-		echo '<colgroup id="form_col1"><col></colgroup>	<colgroup id="form_col2"><col></colgroup>';
-		echo '<tr><td><b>'.$label['View_alter'].':</b></td><td>'. $zeile[$GLOBALS['db_colName_alter']] . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_geschlecht'].':</b></td><td>'. html_entity_decode($zeile[$GLOBALS['db_colName_geschlecht']]) . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_spracheAng'].': </b></td><td>'. $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])] . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_spracheGes'].': </b></td><td>'. $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])] . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_skills'].':</b></td><td>';
-		if ($zeile[$GLOBALS['db_colName_skills']] == 0){
-			echo $label['View_skills_0'];
-		} elseif ($zeile[$GLOBALS['db_colName_skills']] == 1){
-			echo $label['View_skills_1'];
-		} elseif ($zeile[$GLOBALS['db_colName_skills']] == 2){
-			echo $label['View_skills_2'];
-		} elseif ($zeile[$GLOBALS['db_colName_skills']] == 3){
-			echo $label['View_skills_3'];
-		}
-		echo '</td></tr>';
-		echo '<tr><td><b>'.$label['View_ort'].': </b></td><td>'. html_entity_decode($zeile[$GLOBALS['db_colName_ort']]) . '</td></tr>';
-		echo '<tr><td valign="top"><b>'.$label['View_beschreibung'].': </b></td><td><textarea '.(($label["lang"] == 'fa' or $label["lang"] == 'ar') ? 'dir="rtl"' : '').' name="lizenz" cols="50" rows="10" readonly style="width: 100%" >'. html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]) .'</textarea></td></tr>';
-		echo '<tr><td></td><td align="right"><a href=index.php?action=report&lang='.$label['lang'].'&tid='.$id.'><img src="./images/megaphone.svg" width=15px height=15px> '.$label['View_AnzeigeMelden'].'</a></td></tr>';
-		echo '</table>';
-		echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-		echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
-		echo '</form>';
-		echo "<hr>";
-
-		//=======================
-		// Formular
-		//
 		if (isset($_POST['name']) OR isset($_POST['email']) OR isset($_POST['geschlecht']) OR
 				isset($_POST['alter']) OR isset($_POST['ort']) OR isset($_POST['datenschutz']))
 		{
@@ -176,12 +146,8 @@ function actionView($label)
 		} else {
 			$senden = false;
 		}
-		echo '<h3><img src="./images/chat.svg" width=20px height=20px> '.$label['View_Form_nachrichtAn'].''. $zeile[$GLOBALS['db_colName_name']].' </h3>';
-		if ($senden == false)
-		{
-			sendMessageForm($label, "index.php?action=view&lang=".$label['lang']."&tid=".$id);
-		} else
-		{
+
+		if ($senden){
 			$name = strip_tags($_POST['name']);
 			$geschlecht = strip_tags($_POST['geschlecht']);
 			$alter = strip_tags($_POST['alter']);
@@ -191,25 +157,16 @@ function actionView($label)
 
 			$label_mail = setLanguage($zeile['lang']);
 
- 			$to = $zeile[$GLOBALS['db_colName_email']];
+			$to = $zeile[$GLOBALS['db_colName_email']];
 
 			$gesendet = send_notification_view($to, $zeile[$GLOBALS['db_colName_name']], $name, $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']], $alter, $geschlecht, $ort, $email, $text, $label_mail);
 
 			if ($gesendet == 1){
-				echo '<table>';
-				echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
-				echo '<td>'.$label['View_gesendet'].'</td></tr>';
-				echo '</table>';
-
 				db_incr_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_id']]);
-			} else {
-				echo '<table>';
-				echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="OK, " width=20px height=20px></td>';
-				echo '<td>'.$label['View_nichtGesendet'].'</td></tr>';
-				echo '</table>';
-
 			}
 		}
+
+		include 'partials/view.php';
 	}
 }
 
