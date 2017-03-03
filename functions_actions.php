@@ -96,22 +96,9 @@ function actionAdd($label){
 				$gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
 				$_SESSION['form_submitted'] = true;
 				if ($gesendet == 1){
-					echo '<table>';
-					echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
-					//echo '<tr><td valign="top"><img src="./images/check.svg" alt="Bild"></td>';
-					echo '<td>'.$label['Add_gesendet'].'</td></tr>';
-					echo '</table>';
-					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
-					echo '</form>';
+					include 'partials/form_add_success.php';
 				} else {
-					echo '<table>';
-					echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="Bild"></td>';
-					echo '<td>'.$label['Add_nichtGesendet'].'</td></tr>';
-					echo '</table>';
-					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
-					echo '</form>';
+					include 'partials/form_add_error.php';
 				}
 			}
 		}
