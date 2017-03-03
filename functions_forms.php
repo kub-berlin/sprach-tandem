@@ -22,27 +22,8 @@ function sendMessageForm($label, $caller)
 {
 	setDefaultParams(array('name', 'alter', 'email', 'email_nochmal', 'ort', 'geschlecht', 'text'));
 
-    // Formulareintragungen liegen (noch) nicht vor
-		echo '<form action="'.htmlentities($caller).'" method="POST" >';
-		echo '<p class=form_above>'.($label['View_Form_ausfuellen']).'</p>';
-		echo '<table  class=form_table>';
-		echo '<colgroup id="form_col1"><col></colgroup>	<colgroup id="form_col2"><col></colgroup>';
-		echo '<tr><td>'.$label['View_Form_name'].':</td> <td><input type="text" name="name" value="'.htmlentities($_POST['name']).'"/></td></tr>';
-		echo '<tr><td>'.$label['View_Form_geschlecht'].':</td> <td><input type="text" name="geschlecht" value="'.htmlentities($_POST['geschlecht']).'"/></td></tr>';
-		echo '<tr><td>'.$label['View_Form_alter'].':</td> <td><input type="text" name="alter" value="'.htmlentities($_POST['alter']).'" /></td></tr>';
-		echo '<tr><td>'.$label['View_Form_ort'].':</td> <td><input type="text" name="ort" value="'.htmlentities($_POST['ort']).'" /></td></tr>';
-		echo '<tr><td>'.$label['View_Form_email'].':</td> <td><input type="text" name="email" value="'.htmlentities($_POST['email']).'" /></td></tr>';
-		echo '<tr><td>'.$label['View_Form_email_nochmal'].':</td> <td><input type="text" name="email_nochmal" value="'.htmlentities($_POST['email_nochmal']).'" /></td></tr>';
-		echo '<tr class=areYouHuman><td>NICHT ausfüllen/do NOT fill in:</td> <td><input type="text" name="areYouHuman" Value="'.htmlentities($_POST['areYouHuman']).'" /></td></tr>';
-		echo '<tr><td valign="top">'.$label['View_Form_text'].':</td> <td> <textarea name="text" cols="50" rows="10" style="width: 100%" >'.htmlentities($_POST['text']).'</textarea> </td></tr>';
-		echo '</table>';
-		echo '<table>';
-		echo '<tr><td valign="top"><input value="ja" name="datenschutz[]" type="Checkbox"></td><td><font color="black">'.sprintf($label['View_datenschutz'], $GLOBALS["organisationName"]).'</td></tr><br/> ';
-		echo '</table>';
-		echo '<br />';
-		echo '<p><button type="submit" class="button_image"><div id="image_button_send">'.$label['View_Form_senden'].'</div></button></p>';
-		echo '</form>';
-		echo '</div>';
+	// Formulareintragungen liegen (noch) nicht vor
+	include 'partials/form_send_message.php';
 }
 
 
