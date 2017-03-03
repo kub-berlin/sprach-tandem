@@ -29,11 +29,10 @@ $showTitle = false;
 //#############################
 
 // DATABASE CONNECTION
-$mysql_server = 'localhost';
-$mysql_username = 'username';
-$mysql_password = 'password';
-
-$db_name = 'sprachtandem';
+$db_dsn = 'sqlite:db.sqlite';
+// $db_dsn = 'mysql:host=localhost;dbname=sprachtandem';
+$db_username = null;
+$db_password = null;
 
 // TABLE DEFINITION
 $db_table_name = 'sprachtandem';
