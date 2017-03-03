@@ -39,6 +39,10 @@ function setDefaultParams($params) {
 	}
 }
 
+function e($s) {
+	echo htmlspecialchars($s);
+}
+
 //##############################
 //
 //   SPRACH-AUSWAHL
