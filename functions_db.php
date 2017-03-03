@@ -12,7 +12,6 @@ function db_connectDB()
 	try {
 		$pdo = new PDO('mysql:host='.$GLOBALS['mysql_server'].';dbname='.$GLOBALS['db_name'],$GLOBALS['mysql_username'], $GLOBALS['mysql_password']);
 		$ret = $pdo;
-		mysql_set_charset('utf8',$server);
 		$pdo->query("SET NAMES UTF8");
 	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
@@ -29,7 +28,6 @@ function db_connectDB()
 function db_disconnectDB($pdo)
 {
 	$pdo = null;
-	//$ret = mysql_close($server);
 	return 1;
 }
 
@@ -298,7 +296,6 @@ function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $sprach
 		$ret = false;
 	}
 
-	//$id = mysql_insert_id();
 	return $ret;
 }
 
@@ -327,7 +324,6 @@ function db_delete_DataSet($pdo, $id, $hash)
 	{
 		$match = 0;
 	}
-	//mysql_free_result($db_erg);
 
 	if ($match == 1)
 	{
@@ -377,8 +373,6 @@ function db_release_DataSet($pdo, $id, $hash)
 	} catch (PDOException $e) {
 		$match = 0;
 	}
-
-	mysql_free_result($db_erg);
 
 	if ($match == 1)
 	{

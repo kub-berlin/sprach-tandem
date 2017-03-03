@@ -164,7 +164,6 @@ function reminder_notReleased($label)
 			writeLog('REMINDER NOT RELEASED Email senden id:'.$id.' gesendet:'.$gesendet);
 		}
 	}
-	mysql_free_result ( $db_erg );
 }
 
 function reminder_Released($label)
@@ -191,7 +190,6 @@ function reminder_Released($label)
 			writeLog('REMINDER CYCLIC E-Mail senden id:'.$id.' gesendet:'.$gesendet);
 		}
 	}
-	mysql_free_result ( $db_erg );
 }
 
 

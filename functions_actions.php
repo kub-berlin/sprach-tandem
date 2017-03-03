@@ -64,8 +64,6 @@ function actionTable($label)
 	echo "</table>";
 	echo "</form>";
 
-	mysql_free_result ( $db_erg );
-
 	$anzahl = db_countTableData($GLOBALS['server'], $filterAng, $filterGes, $label);
 
 	// PAGES
@@ -344,8 +342,6 @@ function actionView($label)
 				echo '</table>';
 
 			}
-
-			mysql_free_result ( $db_erg );
 		}
 	}
 	echo '</div>';
@@ -729,7 +725,6 @@ function actionReport($label)
 				echo '<td>'.$label['Report_nichtGesendet'].'</td></tr>';
 				echo '</table>';
 			}
-			mysql_free_result ( $db_erg );
 		}
 	}
 	echo '</div>';
