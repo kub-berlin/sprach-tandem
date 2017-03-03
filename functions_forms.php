@@ -29,6 +29,9 @@ function sendMessageForm($label, $caller)
 
 function filterLanguageForm($label, $caller)
 {
+	$filterAng = isset($_GET['filterAng']) ? $_GET['filterAng'] : $label['Table_filter_alle'];
+	$filterGes = isset($_GET['filterGes']) ? $_GET['filterGes'] : $label['Table_filter_alle'];
+
 	$db_erg_ang = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheAng']);
 	$langs_ang = array();
 	foreach ($db_erg_ang as $zeile) {

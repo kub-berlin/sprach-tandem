@@ -9,7 +9,7 @@
 				<select name="filterAng">
 					<option><?php echo $label['Table_filter_alle'] ?></option>
 					<?php foreach ($langs_ang as $key) : ?>
-						<option value="<?php echo $key ?>"><?php echo $label[$key] ?></option>
+						<option value="<?php echo $key ?>" <?php if ($filterAng == $key) : ?>selected<?php endif?>><?php echo $label[$key] ?></option>
 					<?php endforeach ?>
 				</select>
 			</th>
@@ -17,7 +17,7 @@
 				<select name="filterGes">
 					<option><?php echo $label['Table_filter_alle'] ?></option>
 					<?php foreach ($langs_ges as $key) : ?>
-						<option value="<?php echo $key ?>"><?php echo $label[$key] ?></option>
+						<option value="<?php echo $key ?>" <?php if ($filterGes == $key) : ?>selected<?php endif?>><?php echo $label[$key] ?></option>
 					<?php endforeach ?>
 				</select>
 			</th>
