@@ -16,7 +16,7 @@ function actionTable($label)
 		echo '<div dir="ltr">';
 	}
 
-	$page = (isset($_GET["page"]) or $page != '') ? htmlentities($_GET["page"]): 0;
+	$page = (isset($_GET["page"]) and $page != '') ? htmlentities($_GET["page"]): 0;
 
 	// ======================================
 	//  TEXT ÜBER DER TABELLE

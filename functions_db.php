@@ -11,18 +11,15 @@ function db_connectDB()
 	//  Connect to DB
 	try {
 		$pdo = new PDO('mysql:host='.$GLOBALS['mysql_server'].';dbname='.$GLOBALS['db_name'],$GLOBALS['mysql_username'], $GLOBALS['mysql_password']);
-		$ret = $pdo;
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$pdo->query("SET NAMES UTF8");
+		return $pdo;
 	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
 			echo "<p>in function db_connectDB:".$e->getMessage()."</p>";
 		}
-		writeLog('DB CONNECT: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
-		$ret = -1;
+		writeLog('DB CONNECT: ERROR MESSAGE: '.$e->getMessage());
 	}
-	return $ret;
 }
 
 
@@ -109,12 +106,11 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 		`".$GLOBALS['db_colName_beschreibung']."` ,
 		`".$GLOBALS['db_colName_ort']."` ,
 		`".$GLOBALS['db_colName_email']."` ,
-		`".$GLOBALS['db_colName_id']."` ,
 		`".$GLOBALS['db_colName_antworten']."` ,
 		`".$GLOBALS['db_colName_hash']."` ,
 		`".$GLOBALS['db_colName_lang']."`
 		)
-		VALUES (:name, :alter, :geschlecht, :skills, :spracheAng, :spracheGes, :datum, :beschreibung, :ort, :email, NULL, 0, :hash, :sprache)";
+		VALUES (:name, :alter, :geschlecht, :skills, :spracheAng, :spracheGes, :datum, :beschreibung, :ort, :email, 0, :hash, :sprache)";
 
 		$statement = $pdo->prepare($sql);
 		$statement -> bindParam(':name', $name);
@@ -132,6 +128,12 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 
 		$db_erg = $statement->execute();
 
+		$id = $pdo->lastInsertId();
+
+		return array(
+			'db_erg' => $db_erg,
+			'id' => $id,
+			'hash' => $hash);
 	}
 	catch (PDOException $e)
 	{
@@ -141,21 +143,15 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 			echo "<p>in function db_add_dataset:".$e->getMessage()."</p>";
 		}
 		writeLog('DB ADD DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
-  }
-
-	$id = $pdo->lastInsertId();
-	$ret['db_erg'] = $db_erg;
-	$ret['id'] = $id;
-	$ret['hash'] = $hash;
-
-	return $ret;
+	}
 }
 
 function db_selectFormColumn($pdo, $colName)
 {
 	$ret = array();
+	$sql = "SELECT ".$colName." FROM ".$GLOBALS['db_table_name']." WHERE `released`= 1 GROUP BY ".$colName;
 	try {
-		$statement = $pdo->query("SELECT ".$colName." FROM ".$GLOBALS['db_table_name']." WHERE `released`= 1 GROUP BY ".$colName);
+		$statement = $pdo->query($sql);
 		$ret = $statement->fetchAll();
 	}  catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
