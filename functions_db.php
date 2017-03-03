@@ -178,7 +178,7 @@ function db_countTableData($pdo, $filterAng, $filterGes, $label)
 	$ret = 0;
 	try
 	{
-		$sql = "SELECT * FROM `".$GLOBALS['db_table_name']."` WHERE `".$GLOBALS['db_colName_released']."`= 1 ".
+		$sql = "SELECT COUNT(*) FROM `".$GLOBALS['db_table_name']."` WHERE `".$GLOBALS['db_colName_released']."`= 1 ".
 						(($filterAng == $label['Table_filter_alle']) ? "" : " AND `".$GLOBALS['db_colName_spracheAng']."` = :filterAng").
 						(($filterGes == $label['Table_filter_alle']) ? "" : " AND `".$GLOBALS['db_colName_spracheGes']."` = :filterGes").
 						" ORDER BY `".$GLOBALS['db_colName_datum']."` DESC";
@@ -191,7 +191,7 @@ function db_countTableData($pdo, $filterAng, $filterGes, $label)
 			$statement -> bindParam(':filterGes', $filterGes);
 
 		$statement->execute();
-		$ret = $statement->rowCount();
+		$ret = $statement->fetchColumn();
 
 	}
 	catch (PDOException $e) {
