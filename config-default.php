@@ -83,6 +83,7 @@ $table_page_size = 20; //25;
 $email_from = 'noreply@example.com';
 $email_replyto = $email_from;
 $email_orga = 'sprachtandem@example.com';
+$email_blocklist = array();
 
 $reminder_cyclic = 1; //30;
 $reminder_first = 1; //3;
