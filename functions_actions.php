@@ -8,124 +8,15 @@
 
 function actionTable($label)
 {
-	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
-	{
-		echo '<div dir="rtl">';
-	} else
-	{
-		echo '<div dir="ltr">';
-	}
-
-	$page = (isset($_GET["page"]) and $page != '') ? htmlentities($_GET["page"]): 0;
-
-	// ======================================
-	//  TEXT ÜBER DER TABELLE
-
-	echo '<p>'.$label['Table_intro'].'</p>';
-	echo '<div class=div_table>';
-
-	//=====================
-	// Filter
-
-	filterLanguageForm($label, "index.php?action=table&lang=".$label['lang']);
-
+	$page = (isset($_GET["page"]) and $_GET['page'] != '') ? intval($_GET["page"]): 0;
 	$filterAng = isset($_POST['filterAng']) ? $_POST['filterAng'] : $label['Table_filter_alle'];
 	$filterGes = isset($_POST['filterGes']) ? $_POST['filterGes'] : $label['Table_filter_alle'];
+	$anzahl = db_countTableData($GLOBALS['server'], $filterAng, $filterGes, $label);
+	$anzahl_pages = ceil($anzahl / $GLOBALS['table_page_size']);
 
 	$db_erg = db_selectTableData($GLOBALS['server'], $filterAng, $filterGes, $label, $page);
 
-	//===================
-	// Tabelle
-
-	echo '<table class=tandem_table>';
-	echo '<colgroup id="col1"><col><col><col></colgroup>
-				<colgroup id="col2"><col></colgroup>
-				<colgroup id="col3"><col></colgroup>';
-	echo '<tr>'.
-				'<th>'.$label['Table_col_name'].'</th>'.
-				'<th>'.$label['Table_col_spracheAng'].'</th>'.
-				'<th>'.$label['Table_col_spracheGes'].'</th>'.
-				'<th>'.$label['Table_col_datum'].'</th>'.
-				'<th>'.$label['Table_col_ort'].'</th>'.
-			 '</tr>';
-
-	//while ($zeile = $db_erg->fetch())
-	foreach ($db_erg as $zeile) {
-
-		echo "<tr>";
-		echo '<td><a href="index.php?action=view&tid='. $zeile[$GLOBALS['db_colName_id']] .'&lang='.$label['lang'].'">'.
-							html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . "</a></td>";
-		echo "<td>". $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])] . "</td>";
-		echo "<td>". $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])] . "</td>";
-		echo "<td>". date($label["dateFormat"], strtotime($zeile[$GLOBALS['db_colName_datum']])) . "</td>";
-		echo "<td>". (html_entity_decode($zeile[$GLOBALS['db_colName_ort']])) . "</td>";
-		echo "</tr>";
-	}
-	echo "</table>";
-	echo "</form>";
-
-	$anzahl = db_countTableData($GLOBALS['server'], $filterAng, $filterGes, $label);
-
-	// PAGES
-	$anzahl_pages = floor($anzahl/$GLOBALS['table_page_size']);
-	if ($anzahl%$GLOBALS['table_page_size'] != 0)
-	{
-		$anzahl_pages = $anzahl_pages + 1;
-	}
-	echo '<p class=center>';
-	if ($label['lang'] != "fa" and $label['lang'] != "ar")
-	{
-		if ($page > 1)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page=0&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/first.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
-		}
-		if ($page > 0)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($page-1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/prev.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
-		}
-		echo '  '.($page+1).'/'.$anzahl_pages.'  ';
-		if ($page+1 < $anzahl_pages)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($page+1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/next.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
-
-		}
-		if ($page+2 < $anzahl_pages)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($anzahl_pages-1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/last.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
-				//<img src="./images/last.svg" style="width: 28px" alt="next"> </a>';
-		}
-	} else {
-		if ($page > 1)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page=0&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/last.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
-		}
-		if ($page > 0)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($page-1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/next.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
-		}
-		echo '  '.($page+1).'/'.$anzahl_pages.'  ';
-		if ($page+1 < $anzahl_pages)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($page+1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/prev.svg" style="width: 28px; margin-bottom: -7px;" alt="rtl_next"></a>';
-
-		}
-		if ($page+2 < $anzahl_pages)
-		{
-			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($anzahl_pages-1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
-			echo '<img src="./images/first.svg" style="width: 28px; margin-bottom: -7px;" alt="rtl_last"></a>';
-		}
-	}
-
-	echo '</p>';
-	echo '</div>';
-	echo '</div>';
+	include 'partials/table.php';
 }
 
 

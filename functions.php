@@ -109,6 +109,20 @@ function setLanguage($sprache)
 	return $ret;
 }
 
+function l10nDirection($dir, $label)
+{
+	$rtl_map = array(
+		'first' => 'last',
+		'prev' => 'next',
+		'next' => 'prev',
+		'last' => 'first');
+
+	if ($label['lang'] == 'fa' or $label['lang'] == 'ar'){
+		return $rtl_map[$dir];
+	} else {
+		return $dir;
+	}
+}
 
 //##############################
 //
