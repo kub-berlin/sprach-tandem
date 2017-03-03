@@ -12,6 +12,7 @@ function db_connectDB()
 	try {
 		$pdo = new PDO('mysql:host='.$GLOBALS['mysql_server'].';dbname='.$GLOBALS['db_name'],$GLOBALS['mysql_username'], $GLOBALS['mysql_password']);
 		$ret = $pdo;
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$pdo->query("SET NAMES UTF8");
 	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
