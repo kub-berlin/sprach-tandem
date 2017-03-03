@@ -10,10 +10,10 @@ global $domain;
 $domain = 'example.com';
 
 global $tandem_root_path;
-$tandem_root_path = "https://$domain/root/path";
+$tandem_root_path = "https://$domain/root/path?";
 
 global $tandem_home_path;
-$tandem_home_path = "https://$domain/home/path";
+$tandem_home_path = "https://$domain/home/path?";
 
 global $logfile;
 $logfile = './tandem.log';
