@@ -8,35 +8,12 @@
 
 function addTandemForm($label, $caller)
 {
-	if ($_POST['send'] == "cancel")
+	if (isset($_POST['send']) and $_POST['send'] == "cancel")
 	{
 		header('Location: index.php?action=table&lang='.$label["lang"]);
 	}
 
-	if (!isset( $_POST["name"] )){
-		$_POST["name"] = "";
-	}
-	if (!isset( $_POST["alter"] )){
-		$_POST["alter"] = "";
-	}
-	if (!isset( $_POST["email"] )){
-		$_POST["email"] = "";
-	}
-	if (!isset( $_POST["email_nochmal"] )){
-		$_POST["email_nochmal"] = "";
-	}
-	if (!isset( $_POST["ort"] )){
-		$_POST["ort"] = "";
-	}
-	if (!isset( $_POST["geschlecht"] )){
-		$_POST["geschlecht"] = "";
-	}
-	if (!isset( $_POST["skills"] )){
-		$_POST["skills"] = "0";
-	}
-	if (!isset( $_POST["text"] )){
-		$_POST["text"] = "";
-	}
+	setDefaultParams(array('name', 'alter', 'email', 'email_nochmal', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
 
 	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
 	{
@@ -101,27 +78,7 @@ function addTandemForm($label, $caller)
 
 function sendMessageForm($label, $caller)
 {
-	if (!isset( $_POST["name"] )){
-		$_POST["name"] = "";
-	}
-	if (!isset( $_POST["alter"] )){
-		$_POST["alter"] = "";
-	}
-	if (!isset( $_POST["email"] )){
-		$_POST["email"] = "";
-	}
-	if (!isset( $_POST["email_nochmal"] )){
-		$_POST["email_nochmal"] = "";
-	}
-	if (!isset( $_POST["ort"] )){
-		$_POST["ort"] = "";
-	}
-	if (!isset( $_POST["geschlecht"] )){
-		$_POST["geschlecht"] = "";
-	}
-	if (!isset( $_POST["text"] )){
-		$_POST["text"] = "";
-	}
+	setDefaultParams(array('name', 'alter', 'email', 'email_nochmal', 'ort', 'geschlecht', 'text'));
 
     // Formulareintragungen liegen (noch) nicht vor
 		echo '<form action="'.htmlentities($caller).'" method="POST" >';
@@ -208,18 +165,7 @@ function reportForm($label, $caller)
 		header('Location: index.php?action=table&lang='.$label["lang"]);
 	}
 
-	if (!isset( $_POST["text"] )){
-		$_POST["text"] = "";
-	}
-
-	if (!isset( $_POST["email"] )){
-		$_POST["email"] = "";
-	}
-
-	if (!isset( $_POST["name"] )){
-		$_POST["name"] = "";
-	}
-
+	setDefaultParams(array('name', 'email', 'email_nochmal', 'text'));
 
 	// Formulareintragungen liegen (noch) nicht vor
 	echo '<form action="'.htmlentities($caller).'" method="POST" >';

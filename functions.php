@@ -24,6 +24,21 @@ include './functions_forms.php';
 include './functions_actions.php';
 
 
+function setDefaultParams($params) {
+	foreach ($params as $param)
+	{
+		if (!isset($_POST[$param])){
+			if ($param == 'skills'){
+				$_POST[$param] = "0";
+			}
+			else
+			{
+				$_POST[$param] = "";
+			}
+		}
+	}
+}
+
 //##############################
 //
 //   SPRACH-AUSWAHL
