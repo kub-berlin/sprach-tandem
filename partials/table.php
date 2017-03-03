@@ -3,9 +3,6 @@
 	<?php filterLanguageForm($label, "index.php?action=table&lang=".$label['lang']) ?>
 
 	<table class=tandem_table>
-		<colgroup id="col1"><col><col><col></colgroup>
-		<colgroup id="col2"><col></colgroup>
-		<colgroup id="col3"><col></colgroup>
 		<tr>
 			<th><?php e($label['Table_col_name']) ?></th>
 			<th><?php e($label['Table_col_spracheAng']) ?></th>

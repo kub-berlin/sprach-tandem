@@ -70,21 +70,6 @@ table.tandem_table th {
 	word-break: normal;
 }
 
-#form_col1.td {
-	width: 40%;
-}
-
-#col1,
-#col3 td {
-	width: 21%;
-	max-width: 21%;
-}
-
-#col2 {
-	width: 18%;
-	max-width: 18%;
-}
-
 table.tandem_table tr:nth-child(even) {
 	background: #FFFFFF;
 }

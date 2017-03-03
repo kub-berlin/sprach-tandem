@@ -1,7 +1,5 @@
 <h3><?php e(html_entity_decode($zeile[$GLOBALS['db_colName_name']])) ?></h3>
 <table>
-	<colgroup id="form_col1"><col></colgroup>
-	<colgroup id="form_col2"><col></colgroup>
 	<tr><td><b><?php e($label['View_alter']) ?>:</b></td><td><?php e($zeile[$GLOBALS['db_colName_alter']]) ?></td></tr>
 	<tr><td><b><?php e($label['View_geschlecht']) ?>:</b></td><td><?php e(html_entity_decode($zeile[$GLOBALS['db_colName_geschlecht']])) ?></td></tr>
 	<tr><td><b><?php e($label['View_spracheAng']) ?>: </b></td><td><?php e($label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])]) ?></td></tr>

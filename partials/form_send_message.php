@@ -1,8 +1,6 @@
 <form action="<?php e($caller) ?>" method="POST" >
 	<p class=form_above><?php e($label['View_Form_ausfuellen']) ?></p>
 	<table  class=form_table>
-		<colgroup id="form_col1"><col></colgroup>
-		<colgroup id="form_col2"><col></colgroup>
 		<tr><td><?php e($label['View_Form_name']) ?>:</td> <td><input type="text" name="name" value="<?php e($_POST['name']) ?>"/></td></tr>
 		<tr><td><?php e($label['View_Form_geschlecht']) ?>:</td> <td><input type="text" name="geschlecht" value="<?php e($_POST['geschlecht']) ?>"/></td></tr>
 		<tr><td><?php e($label['View_Form_alter']) ?>:</td> <td><input type="text" name="alter" value="<?php e($_POST['alter']) ?>" /></td></tr>

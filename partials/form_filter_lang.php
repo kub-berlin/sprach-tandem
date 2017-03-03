@@ -1,8 +1,5 @@
 <form action="<?php e($caller) ?>" method="GET">
 	<table class=filter_table>
-		<colgroup id="col1"><col><col><col></colgroup>
-		<colgroup id="col2"><col></colgroup>
-		<colgroup id="col3"><col></colgroup>
 		<tr>
 			<th><?php e($label['Table_filtern']) ?>:</th>
 			<th>
