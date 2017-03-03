@@ -29,56 +29,19 @@ function sendMessageForm($label, $caller)
 
 function filterLanguageForm($label, $caller)
 {
-	echo '<form action="'.htmlentities($caller).'&page=0" method="POST" >';
-	echo '<br>';
-	echo '<table class=filter_table>';
-	echo '<colgroup id="col1"><col><col><col></colgroup>
-				<colgroup id="col2"><col></colgroup>
-				<colgroup id="col3"><col></colgroup>';
-	echo '<tr><th>'.$label['Table_filtern'].':</th><th>';
-
-	// Sprache1
-	$db_erg = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheAng']);
-
-	echo '<select name="filterAng">';
-	echo '<option selected>'.$label['Table_filter_alle'].'</option>';
-	//while ($zeile = $erg->fetch())
-	foreach ($db_erg as $zeile)
-	{
-		foreach ($label as $key => $value){
-			if (strpos($key, 'sprache_') === 0 ){
-				if ($key == html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])){
-					echo '<option value="'.$key.'">'.$label[$key].'</option>';
-				}
-			}
-		}
+	$db_erg_ang = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheAng']);
+	$langs_ang = array();
+	foreach ($db_erg_ang as $zeile) {
+		$langs_ang[] = html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']]);
 	}
-	echo '</select>';
-	echo '</th>';
 
-	$db_erg = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheGes']);
-	echo '<th>';
-	echo '<select name="filterGes">';
-	echo '<option selected>'.$label['Table_filter_alle'].'</option>';
-
-	foreach ($db_erg as $zeile)
-	{
-		foreach ($label as $key => $value){
-			if (strpos($key, 'sprache_') === 0 ){
-				if ($key == html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])){
-					echo '<option value="'.$key.'">'.$label[$key].'</option>';
-				}
-			}
-		}
+	$db_erg_ges = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheGes']);
+	$langs_ges = array();
+	foreach ($db_erg_ges as $zeile) {
+		$langs_ges[] = html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']]);
 	}
-	echo '</select>';
-	echo '</th>';
 
-	echo '<th>';
-	echo '<p><button type="submit" class="button_image"><div id="image_button_filter">'.$label['Table_filtern'].'</div></button></p>';
-	echo '</th></tr>';
-	echo '</table>';
-	echo '</form>';
+	include 'partials/form_filter_lang.php';
 }
 
 function reportForm($label, $caller)
