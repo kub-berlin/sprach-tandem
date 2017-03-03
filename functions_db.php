@@ -29,30 +29,10 @@ function db_disconnectDB($pdo)
 	return 1;
 }
 
-function db_createDB($pdo)
-{
-	$ret = 0;
-	try{
-		$sql = 'CREATE DATABASE '.$GLOBALS['db_name'].';';
-		writeLog('DB CREATE DB: '.$sql.'\n');
-		$pdo->query($sql);
-		$ret = 1;
-	} catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_createDB:".$e->getMessage()."</p>";
-		}
-		$ret = -1;
-		writeLog('DB CREATE DB: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
-	}
-	return $ret;
-}
-
 function db_createTandemTable($pdo){
 	$ret = 0;
 
-	$sql = 'CREATE TABLE '. $GLOBALS['db_table_name'] .' ('.
+	$sql = 'CREATE TABLE IF NOT EXISTS '. $GLOBALS['db_table_name'] .' ('.
 		'`'.$GLOBALS['db_colName_id'] .'` INT AUTO_INCREMENT PRIMARY KEY UNIQUE KEY NOT NULL, '.
 		'`'.$GLOBALS['db_colName_name'] .'` VARCHAR(50) NOT NULL, '.
 		'`'.$GLOBALS['db_colName_alter'] .'` VARCHAR(25) NOT NULL, '.
