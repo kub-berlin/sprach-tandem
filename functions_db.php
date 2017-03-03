@@ -97,7 +97,6 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 
 	$hash = substr(md5(uniqid((string)microtime(true))), 0, 16);
 
-
 	try
 	{
 		$sql = "INSERT INTO `".$GLOBALS['db_table_name']."` (
@@ -118,7 +117,7 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 		)
 		VALUES (:name, :alter, :geschlecht, :skills, :spracheAng, :spracheGes, :datum, :beschreibung, :ort, :email, NULL, 0, :hash, :sprache)";
 
-  	$statement = $pdo->prepare($sql);
+		$statement = $pdo->prepare($sql);
 		$statement -> bindParam(':name', $name);
 		$statement -> bindParam(':alter', $alter);
 		$statement -> bindParam(':geschlecht', $geschlecht);
@@ -134,9 +133,9 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 
 		$db_erg = $statement->execute();
 
-  }
-  catch (PDOException $e)
-  {
+	}
+	catch (PDOException $e)
+	{
 		if ($GLOBALS['debug'] == 1)
 		{
 			echo "<p>".$sql."</p>";
@@ -187,7 +186,7 @@ function db_selectTableData($pdo, $filterAng, $filterGes, $label, $page)
 			$statement -> bindParam(':filterGes', $filterGes);
 		$statement->execute();
 		$ret = $statement->fetchAll();
-	}  catch (PDOException $e) {
+	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
 			echo "<p>".$sql."</p>";
@@ -288,7 +287,7 @@ function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $sprach
 		$statement -> bindParam(':email', $email);
 		$statement -> bindParam(':id', $id);
 
-	  $ret = $statement->execute();
+		$ret = $statement->execute();
 	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
@@ -297,7 +296,7 @@ function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $sprach
 		}
 		writeLog('DB EDIT DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
 		$ret = false;
-  }
+	}
 
 	//$id = mysql_insert_id();
 	return $ret;

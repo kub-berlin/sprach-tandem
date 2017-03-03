@@ -157,7 +157,7 @@ function reminder_notReleased($label)
 			$id = $zeile[$GLOBALS['db_colName_id']];
 			$hash = $zeile[$GLOBALS['db_colName_hash']];
 			$to = $zeile[$GLOBALS['db_colName_email']];
-	 		$subject = "Reminder first: ";
+			$subject = "Reminder first: ";
 
 			$body = "Reminder Body";
 			$gesendet = send_notification_add($email, $name, $id, $hash, $label);
@@ -184,7 +184,7 @@ function reminder_Released($label)
 			$id = $zeile[$GLOBALS['db_colName_id']];
 			$hash = $zeile[$GLOBALS['db_colName_hash']];
 			$to = $zeile[$GLOBALS['db_colName_email']];
-	 		$subject = "Reminder Released: ";
+			$subject = "Reminder Released: ";
 
 			$body = "Reminder Body";
 			$gesendet = send_reminder($to, $name, $id, $hash, $label);

@@ -65,39 +65,39 @@ if ($server != null){
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
 				}
-	 			actionView($label);
-	 			break;
+				actionView($label);
+				break;
 			case 'edit':
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["editDataset_Title"], $GLOBALS['organisationName'])."</h3>";
 				}
-	 			actionEdit($label);
-	 			break;
+				actionEdit($label);
+				break;
 			case 'delete':
 
-	 			actionDelete($label);
-	 			break;
+				actionDelete($label);
+				break;
 			case 'release':
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["releaseDataset_Title"], $GLOBALS['organisationName'])."</h3>";
 				}
-	 			actionRelease($label);
-	 			break;
+				actionRelease($label);
+				break;
 			case 'stat':
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["Statistik_Title"], $GLOBALS['organisationName'])."</h3>";
 				}
-	 			echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
+				echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">Tabelle</button></p>';
 				echo '</form>';
-	 			actionStatistic($label);
-	 			break;
+				actionStatistic($label);
+				break;
 			case 'report':
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["Report_Title"], $GLOBALS['organisationName'])."</h3>";
 				}
-	 			actionReport($label);
-	 			break;
+				actionReport($label);
+				break;
 			default:
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";

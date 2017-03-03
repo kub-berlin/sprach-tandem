@@ -52,14 +52,14 @@ function actionTable($label)
 	//while ($zeile = $db_erg->fetch())
 	foreach ($db_erg as $zeile) {
 
-	  echo "<tr>";
-	  echo '<td><a href="index.php?action=view&tid='. $zeile[$GLOBALS['db_colName_id']] .'&lang='.$label['lang'].'">'.
-	  					html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . "</a></td>";
-	  echo "<td>". $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])] . "</td>";
-	  echo "<td>". $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])] . "</td>";
-	  echo "<td>". date($label["dateFormat"], strtotime($zeile[$GLOBALS['db_colName_datum']])) . "</td>";
-	  echo "<td>". (html_entity_decode($zeile[$GLOBALS['db_colName_ort']])) . "</td>";
-	  echo "</tr>";
+		echo "<tr>";
+		echo '<td><a href="index.php?action=view&tid='. $zeile[$GLOBALS['db_colName_id']] .'&lang='.$label['lang'].'">'.
+							html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . "</a></td>";
+		echo "<td>". $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])] . "</td>";
+		echo "<td>". $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])] . "</td>";
+		echo "<td>". date($label["dateFormat"], strtotime($zeile[$GLOBALS['db_colName_datum']])) . "</td>";
+		echo "<td>". (html_entity_decode($zeile[$GLOBALS['db_colName_ort']])) . "</td>";
+		echo "</tr>";
 	}
 	echo "</table>";
 	echo "</form>";
@@ -146,7 +146,6 @@ function actionAdd($label){
 
 
 	if (!isset($_POST["skills"]) or !isset($_SESSION['form_submitted'])){
-
 		$_SESSION['form_submitted'] = false;
 	}
 
@@ -210,8 +209,8 @@ function actionAdd($label){
 			{
 				$gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
 				$_SESSION['form_submitted'] = true;
-			  if ($gesendet == 1){
-			    echo '<table>';
+				if ($gesendet == 1){
+					echo '<table>';
 					echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
 					//echo '<tr><td valign="top"><img src="./images/check.svg" alt="Bild"></td>';
 					echo '<td>'.$label['Add_gesendet'].'</td></tr>';
@@ -219,7 +218,7 @@ function actionAdd($label){
 					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 					echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
 					echo '</form>';
-			  } else {
+				} else {
 					echo '<table>';
 					echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="Bild"></td>';
 					echo '<td>'.$label['Add_nichtGesendet'].'</td></tr>';
@@ -385,7 +384,7 @@ function actionEdit($label)
 			$db_erg = db_getDataSet($GLOBALS['server'], $id);
 
 			if ( ! count($db_erg) > 0){
-		  	die("DB Error");
+				die("DB Error");
 			}
 			else
 			{
