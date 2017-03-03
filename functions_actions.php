@@ -27,12 +27,9 @@ function actionTable($label)
 //#############################
 
 function actionAdd($label){
-
 	$senden = false;
 
 	session_start();
-
-
 
 	if (!isset($_POST["skills"]) or !isset($_SESSION['form_submitted'])){
 		$_SESSION['form_submitted'] = false;
