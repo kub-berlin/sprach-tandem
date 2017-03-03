@@ -10,7 +10,7 @@ function db_connectDB()
 {
 	//  Connect to DB
 	/*$ret = -1;
-	
+
 	try {
 		$pdo = new PDO('mysql:host='.$GLOBALS['mysql_server'].';dbname='.$GLOBALS['db_name'],$GLOBALS['mysql_username'], $GLOBALS['mysql_password']);
 		$ret = $pdo;
@@ -24,10 +24,10 @@ function db_connectDB()
 
 	//  Connect to DB
 	$ret = -1;
-	$server = mysql_connect($GLOBALS['mysql_server'], 
+	$server = mysql_connect($GLOBALS['mysql_server'],
 				   $GLOBALS['mysql_username'],
 				   $GLOBALS['mysql_password']);
-				   
+
 	if ($server != false)
 	{
 		$ret = $server;
@@ -45,21 +45,21 @@ function db_selectDB($server)
 {
 	$ret = -1;
 	mysql_set_charset('utf8',$server);
-	
+
 	mysql_query("SET NAMES UTF8");
 	$db_sel = mysql_select_db($GLOBALS['db_name']);
 	//$db_sel = true;
 	if ($db_sel == true)
 	{
 		$ret = 1;
-	} else 
+	} else
 	{
 		if ($GLOBALS['debug'] == 1)
 		{
 			echo "<p>in function db_selectDB:".mysql_error()."</p>";
-		} 		
+		}
 	}
-	return $ret; 
+	return $ret;
 
 }
 
@@ -91,7 +91,7 @@ function db_createDB($server)
 
 function db_createTandemTable($server){
 	$ret = 0;
-	
+
 	$sql = 'CREATE TABLE '. $GLOBALS['db_table_name'] .' ('.
 		'`'.$GLOBALS['db_colName_id'] .'` INT AUTO_INCREMENT PRIMARY KEY UNIQUE KEY NOT NULL, '.
 		'`'.$GLOBALS['db_colName_name'] .'` VARCHAR(50) NOT NULL, '.
@@ -108,17 +108,17 @@ function db_createTandemTable($server){
 		'`'.$GLOBALS['db_colName_lang'] .'` VARCHAR(2) NOT NULL, '.
 		'`'.$GLOBALS['db_colName_released'] .'` INT(1) DEFAULT 0, '.
 		'`'.$GLOBALS['db_colName_hash'] .'` VARCHAR(50) NOT NULL);';
-	
+
 	if (mysql_query($sql, $server)) {
 		$ret = 1;
-		writeLog('DB CREATE TABLE: '.$sql.' erg: '.$db_erg.'\n');		
+		writeLog('DB CREATE TABLE: '.$sql.' erg: '.$db_erg.'\n');
 	} else {
 		if ($GLOBALS['debug'] == 1)
 		{
 			echo "<p>".$sql."</p>";
 			echo "<p>in function db_createTable:".mysql_error()."</p>";
 		}
-		writeLog('DB CREATE TABLE: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());		
+		writeLog('DB CREATE TABLE: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 		$ret = -1;
 	}
 	return $ret;
@@ -129,9 +129,9 @@ function db_add_dataset($name, $alter, $geschlecht, $skills, $spracheAng, $sprac
 {
 	array('db_erg' => -1, 'id' => -1, 'hash' => -1);
 	$datum = strip_tags(date("Y-m-d", time()));
-	
-	$hash = substr(md5(uniqid((string)microtime(true))), 0, 16);	
-	
+
+	$hash = substr(md5(uniqid((string)microtime(true))), 0, 16);
+
 	$sql = 'INSERT INTO `'.$GLOBALS['db_table_name'].'` (
 		`'.$GLOBALS['db_colName_name'].'` ,
 		`'.$GLOBALS['db_colName_alter'].'` ,
@@ -149,11 +149,11 @@ function db_add_dataset($name, $alter, $geschlecht, $skills, $spracheAng, $sprac
 		`'.$GLOBALS['db_colName_lang'].'`
 		)
 		VALUES ("'.
-		mysql_real_escape_string($name) .'", "'. 
-		mysql_real_escape_string($alter) .'", "'. 
-		mysql_real_escape_string($geschlecht) .'", "'. 
+		mysql_real_escape_string($name) .'", "'.
+		mysql_real_escape_string($alter) .'", "'.
+		mysql_real_escape_string($geschlecht) .'", "'.
 		mysql_real_escape_string($skills) .'", "'.
-		mysql_real_escape_string($spracheAng) .'", "'. 
+		mysql_real_escape_string($spracheAng) .'", "'.
 		mysql_real_escape_string($spracheGes) .'", "'.
 		mysql_real_escape_string($datum) .'", "'.
 		mysql_real_escape_string($beschreibung) .'", "'.
@@ -173,13 +173,13 @@ function db_add_dataset($name, $alter, $geschlecht, $skills, $spracheAng, $sprac
 		}
 		writeLog('DB ADD DATASET: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
   }
-				
-	$id = mysql_insert_id();			
+
+	$id = mysql_insert_id();
 	$ret['db_erg'] = $db_erg;
 	$ret['id'] = $id;
-	$ret['hash'] = $hash;	
-	
-	return $ret; 
+	$ret['hash'] = $hash;
+
+	return $ret;
 }
 
 function db_selectFormColumn($colName)
@@ -213,7 +213,7 @@ function db_selectFormColumn($colName)
 		$ret = -1;
 		writeLog('DB SELECT FROMCOLUMN: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 	} else {
-		$ret = $db_erg;		
+		$ret = $db_erg;
 	}
 	return $ret;
 }
@@ -225,7 +225,7 @@ function db_selectTableData($filterAng, $filterGes, $label, $page)
 						(($filterAng == $label['Table_filter_alle']) ? '' : ' AND `'.$GLOBALS['db_colName_spracheAng'].'` = ":filterAng"').''.
 						(($filterGes == $label['Table_filter_alle']) ? '' : ' AND `'.$GLOBALS['db_colName_spracheGes'].'` = ":filterGes"').''.
 						' ORDER BY `'.$GLOBALS['db_colName_datum'].'` DESC LIMIT '.($page*$GLOBALS['table_page_size']).','.$GLOBALS['table_page_size'].'');
-		$statement->execute(array('filterAng' => $filterAng, 'filterGes' => $filterGes));   
+		$statement->execute(array('filterAng' => $filterAng, 'filterGes' => $filterGes));
 	}  catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
@@ -236,12 +236,12 @@ function db_selectTableData($filterAng, $filterGes, $label, $page)
 		$ret = -1;
 	}
 	return $statement->fetch();*/
-	
+
 	$sql = 	'SELECT * FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.$GLOBALS['db_colName_released'].'`= 1'.
 					(($filterAng == $label['Table_filter_alle']) ? '' : ' AND `'.$GLOBALS['db_colName_spracheAng'].'` = "'.mysql_real_escape_string($filterAng).'"').''.
 					(($filterGes == $label['Table_filter_alle']) ? '' : ' AND `'.$GLOBALS['db_colName_spracheGes'].'` = "'.mysql_real_escape_string($filterGes).'"').''.
 					' ORDER BY `'.$GLOBALS['db_colName_datum'].'` DESC LIMIT '.($page*$GLOBALS['table_page_size']).','.$GLOBALS['table_page_size'].'';
-	
+
 	$db_erg = mysql_query ( $sql );
 	if ( ! $db_erg ){
 		if ($GLOBALS['debug'] == 1)
@@ -251,7 +251,7 @@ function db_selectTableData($filterAng, $filterGes, $label, $page)
 		}
 		writeLog('DB SELECT TABLEDATA: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 		$ret = -1;
-	} else 
+	} else
 	{
 		$ret = $db_erg;
 	}
@@ -265,7 +265,7 @@ function db_countTableData($filterAng, $filterGes, $label)
 					(($filterGes == $label['Table_filter_alle']) ? '' : ' AND `'.$GLOBALS['db_colName_spracheGes'].'` = "'.mysql_real_escape_string($filterGes).'"').'';
 
 	$db_erg = mysql_query ( $sql );
-	
+
 	if ( ! $db_erg ){
 		if ($GLOBALS['debug'] == 1)
 		{
@@ -274,7 +274,7 @@ function db_countTableData($filterAng, $filterGes, $label)
 		}
 		writeLog('DB COUNT TABLEDATA: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 		$ret = -1;
-	} else 
+	} else
 	{
 		$ret =mysql_result($db_erg, 0);
 	}
@@ -285,7 +285,7 @@ function db_countTableData($filterAng, $filterGes, $label)
 function db_getDataSet($id)
 {
 	$sql = "SELECT * FROM `".$GLOBALS['db_table_name']."` WHERE `".$GLOBALS['db_colName_id']."`=". mysql_real_escape_string($id);
-	
+
 	$db_erg = mysql_query ( $sql );
 	if ( ! $db_erg ){
 		if ($GLOBALS['debug'] == 1)
@@ -295,7 +295,7 @@ function db_getDataSet($id)
 		}
 		writeLog('DB GET DATASET: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 		$ret = -1;
-	} else 
+	} else
 	{
 		$ret = $db_erg;
 	}
@@ -305,8 +305,8 @@ function db_getDataSet($id)
 function db_edit_dataset($name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email)
 {
 	$datum = strip_tags(date("Y-m-d", time()));
-	
-	$sql = 'UPDATE `'.$GLOBALS['db_table_name'].'` SET 
+
+	$sql = 'UPDATE `'.$GLOBALS['db_table_name'].'` SET
 		`'.$GLOBALS['db_colName_name'].'` = "'.mysql_real_escape_string($name).'",
 		`'.$GLOBALS['db_colName_alter'].'` = "'.mysql_real_escape_string($alter).'",
 		`'.$GLOBALS['db_colName_geschlecht'].'` = "'.mysql_real_escape_string($geschlecht).'",
@@ -318,7 +318,7 @@ function db_edit_dataset($name, $id, $alter, $geschlecht, $skills, $spracheAng, 
 		`'.$GLOBALS['db_colName_ort'].'` = "'.mysql_real_escape_string($ort).'",
 		`'.$GLOBALS['db_colName_email'].'` = "'.mysql_real_escape_string($email).'"
 		WHERE `'.$GLOBALS['db_colName_id'].'`= '.mysql_real_escape_string($id).'';
-	
+
   $db_erg = mysql_query ( $sql );
   if (!$db_erg)
   {
@@ -329,11 +329,11 @@ function db_edit_dataset($name, $id, $alter, $geschlecht, $skills, $spracheAng, 
 		}
 		writeLog('DB EDIT DATASET: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
   }
-	
-	$id = mysql_insert_id();			
+
+	$id = mysql_insert_id();
 	$ret = $db_erg;
 
-	return $ret; 
+	return $ret;
 }
 
 function db_delete_DataSet($id, $hash)
@@ -341,9 +341,9 @@ function db_delete_DataSet($id, $hash)
 	$sql = 'SELECT COUNT(*) FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.
 					$GLOBALS['db_colName_id'].'`='. mysql_real_escape_string($id).' AND `'.
 					$GLOBALS['db_colName_hash'].'` = "'. mysql_real_escape_string($hash).'"';
-												
+
 	$db_erg = mysql_query ( $sql);
-	
+
 	if ( $db_erg )
 	{
 		if (mysql_result($db_erg, 0) > 0)
@@ -355,13 +355,13 @@ function db_delete_DataSet($id, $hash)
 	} else {
 		$match = 0;
 	}
-	
+
 	mysql_free_result($db_erg);
-	
+
 	if ($match == 1)
 	{
 		$sql = "DELETE FROM `".$GLOBALS['db_table_name']."` WHERE `".$GLOBALS['db_colName_id']."`=". mysql_real_escape_string($id).' AND `'.$GLOBALS['db_colName_hash'].'` = "'. mysql_real_escape_string($hash).'"';
-	
+
 		$db_erg = mysql_query ( $sql );
 		if ( ! $db_erg ){
 			if ($GLOBALS['debug'] == 1)
@@ -371,11 +371,11 @@ function db_delete_DataSet($id, $hash)
 			}
 			writeLog('DB DELETE DATASET: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 			$ret = -1;
-		} else 
+		} else
 		{
 			$ret = $db_erg;
 		}
-	} else 
+	} else
 	{
 		$ret = -1;
 	}
@@ -387,9 +387,9 @@ function db_release_DataSet($id, $hash)
 	$sql = 'SELECT COUNT(*) FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.
 					$GLOBALS['db_colName_id'].'`='. mysql_real_escape_string($id).' AND `'.
 					$GLOBALS['db_colName_hash'].'` = "'. mysql_real_escape_string($hash).'"';
-												
+
 	$db_erg = mysql_query ( $sql);
-	
+
 	if ( $db_erg )
 	{
 		if (mysql_result($db_erg, 0) > 0)
@@ -401,13 +401,13 @@ function db_release_DataSet($id, $hash)
 	} else {
 		$match = 0;
 	}
-	
+
 	mysql_free_result($db_erg);
-	
+
 	if ($match == 1)
 	{
 		$sql = "UPDATE `".$GLOBALS['db_table_name']."` SET `".$GLOBALS['db_colName_released']."` = 1 WHERE `".$GLOBALS['db_colName_id']."`=". mysql_real_escape_string($id).' AND `'.$GLOBALS['db_colName_hash'].'` = "'. mysql_real_escape_string($hash).'"';
-	
+
 		$db_erg = mysql_query ( $sql );
 		if ( ! $db_erg ){
 			if ($GLOBALS['debug'] == 1)
@@ -417,7 +417,7 @@ function db_release_DataSet($id, $hash)
 			}
 			writeLog('DB RELEASE DATASET: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 			$ret = -1;
-		} else 
+		} else
 		{
 			$ret = $db_erg;
 		}
@@ -427,12 +427,12 @@ function db_release_DataSet($id, $hash)
 	}
 	return $ret;
 }
-	
+
 //###############################
 //
 // STATISTICS
 //
-//##############################	
+//##############################
 
 
 
@@ -440,15 +440,15 @@ function db_get_langPairs($thisYear = false)
 {
 	/*$sql = 'SELECT * FROM '.$GLOBALS['db_table_name'].' WHERE `'.$GLOBALS['db_colName_released'].'`= 1'.
 				 ' GROUP BY '.$GLOBALS['db_colName_spracheAng'].', '.$GLOBALS['db_colName_spracheGes'];*/
-	
+
 	$sql = 'SELECT '.$GLOBALS['db_colName_spracheAng'].', '.$GLOBALS['db_colName_spracheGes'].', '.$GLOBALS['db_colName_antworten'].', COUNT(*) AS count'.
 		' FROM '.$GLOBALS['db_table_name'].
 		($thisYear ? ' WHERE '.$GLOBALS['db_colName_datum'].' > CONCAT(YEAR (CURDATE()), "-01-01")' : '').
 		' GROUP BY '.$GLOBALS['db_colName_spracheAng'].', '.$GLOBALS['db_colName_spracheGes'].' ORDER BY Count DESC';
-	//SELECT spracheAng, spracheGes, COUNT(*) AS Count FROM sprach_tandem GROUP BY spracheAng, spracheGes ORDER BY Count DESC 
-	//echo $sql;			 
+	//SELECT spracheAng, spracheGes, COUNT(*) AS Count FROM sprach_tandem GROUP BY spracheAng, spracheGes ORDER BY Count DESC
+	//echo $sql;
 	$db_erg = mysql_query ( $sql );
-	
+
 	if ( ! $db_erg )
 	{
 		if ($GLOBALS['debug'] == 1)
@@ -465,14 +465,14 @@ function db_get_langPairs($thisYear = false)
 	return $ret;
 }
 
-		
+
 function db_sum_answers($spracheAng, $spracheGes)
 {
 	$sql = 'SELECT SUM('.$GLOBALS['db_colName_antworten'].') FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.
 					$GLOBALS['db_colName_spracheAng'].'`= "'. mysql_real_escape_string($spracheAng).'" AND `'.
 					$GLOBALS['db_colName_spracheGes'].'`= "'. mysql_real_escape_string($spracheGes).'" AND `'.
-					$GLOBALS['db_colName_released'].'`= 1';																							
-						
+					$GLOBALS['db_colName_released'].'`= 1';
+
 	$db_erg = mysql_query ( $sql );
 
 	if ( ! $db_erg )
@@ -496,10 +496,10 @@ function db_count_langPairs($spracheAng, $spracheGes)
 	$sql = 'SELECT COUNT(*) FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.
 					$GLOBALS['db_colName_spracheAng'].'`= "'. mysql_real_escape_string($spracheAng).'" AND `'.
 					$GLOBALS['db_colName_spracheGes'].'`= "'. mysql_real_escape_string($spracheGes).'" AND `'.
-					$GLOBALS['db_colName_released'].'`= 1';												
-						
+					$GLOBALS['db_colName_released'].'`= 1';
+
 	$db_erg = mysql_query ( $sql );
-	
+
 	if ( ! $db_erg )
 	{
 		if ($GLOBALS['debug'] == 1)
@@ -522,7 +522,7 @@ function db_incr_answers($id)
 	$sql = 'UPDATE `'.$GLOBALS['db_table_name'].'` SET `'.
 					$GLOBALS['db_colName_antworten'].'` = '.$GLOBALS['db_colName_antworten'].'+1 WHERE `'.
 					$GLOBALS['db_colName_id'].'`='.mysql_real_escape_string($id);
-	
+
 	$db_erg = mysql_query ( $sql );
 	if (!$db_erg)
 	{
@@ -533,17 +533,17 @@ function db_incr_answers($id)
 		}
 		writeLog('DB EDIT DATASET: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 	}
-	
-	$id = mysql_insert_id();			
+
+	$id = mysql_insert_id();
 	$ret = $db_erg;
 
-	return $ret; 
+	return $ret;
 }
 
 function db_getReminderDatasetsReleased()
 {
 	$sql = 'SELECT * FROM `'.$GLOBALS['db_table_name'].'` WHERE (to_days( `'.$GLOBALS['db_colName_datum'].'` ) - to_days( current_date )) %'.$GLOBALS['reminder_cyclic'].' = 0 AND `'.$GLOBALS['db_colName_released'].'`=1;';
-	
+
 	$db_erg = mysql_query ( $sql );
 	if (!$db_erg)
 	{
@@ -554,7 +554,7 @@ function db_getReminderDatasetsReleased()
 		}
 		writeLog('DB GET REMINDER RELESASED: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 	}
-				
+
 	$ret = $db_erg;
 
 	return $ret;
@@ -566,7 +566,7 @@ function db_getReminderDatasetsNotReleased()
 			'(to_days( `'.$GLOBALS['db_colName_datum'].'` ) - to_days( current_date )) %'.$GLOBALS['reminder_first'].' = 0 OR '.
 			'(to_days( `'.$GLOBALS['db_colName_datum'].'` ) - to_days( current_date )) %'.$GLOBALS['reminder_cyclic'].' = 0 '.
 			') AND `'.$GLOBALS['db_colName_released'].'`=0;';
-	
+
 	$db_erg = mysql_query ( $sql );
 	if (!$db_erg)
 	{
@@ -577,7 +577,7 @@ function db_getReminderDatasetsNotReleased()
 		}
 		writeLog('DB GET REMINDER NOT RELESASED: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.mysql_error());
 	}
-		
+
 	$ret = $db_erg;
 
 	return $ret;

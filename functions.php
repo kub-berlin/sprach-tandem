@@ -40,15 +40,15 @@ function readcsv($file) {
 	return $lines;
 }
 
-function getLabel($lang) 
+function getLabel($lang)
 {
 	$t_data = readcsv('uebersetzung.csv');
 	$t_lang = 1;
-	
+
 	$i = 0;
 	foreach ($t_data[0] as $spalte){
 		if ($spalte === $lang){
-			$t_lang = $i;	
+			$t_lang = $i;
 		}
 		$i = $i + 1;
 	}
@@ -59,7 +59,7 @@ function getLabel($lang)
 			$ret[(str_replace(' ', '', $tstring[0]))] = ($tstring[$t_lang]);
 		} else {
 			$ret[(str_replace(' ', '', $tstring[0]))] = ($tstring[1]);
-		}	
+		}
 	}
 	asort($ret);
 	return $ret;
@@ -71,11 +71,11 @@ function setLanguage($sprache)
 	if (strlen(strstr($sprache,'en'))>0){
 		echo '<div align="left">';
 		$ret = getLabel('en');//include './sprachen/englisch.php';
-	} elseif (strlen(strstr($sprache,'de'))>0){		
+	} elseif (strlen(strstr($sprache,'de'))>0){
 		//include './sprachen/deutsch.php';
 		echo '<div align="left">';
 		$ret = getLabel('de');
-		
+
 	} elseif (strlen(strstr($sprache,'fr'))>0){
 		echo '<div align="left">';
 		$ret = getLabel('fr');//include './sprachen/franzoesisch.php';
@@ -109,7 +109,7 @@ function createLog()
 
 	if ($fh != false){
 		fwrite($fh, date("Y-m-d H:i",time())." Log-File created\n");
-		fclose($fh);	
+		fclose($fh);
 		$ret = true;
 	} else {
 		$ret = false;
@@ -126,14 +126,14 @@ function writeLog($string)
 		if (fwrite($fh, date("Y-m-d H:i",time())." ".$string."\n") == false){
 			if ($GLOBALS['debug'] == 1)
 			{
-				echo "<p>Error: open Logfile</p>";	
+				echo "<p>Error: open Logfile</p>";
 			}
 		}
 		fclose($fh);
 	} else {
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>Error: open Logfile</p>";	
+			echo "<p>Error: open Logfile</p>";
 		}
 	}
 }
@@ -147,7 +147,7 @@ function writeLog($string)
 function reminder_notReleased($label)
 {
 	$db_erg = db_getReminderDatasetsNotReleased($GLOBALS['server']);
-	
+
 	if (count($db_erg) > 0)
 	{
 		writeLog('REMINDER NOT RELEASED'.$db_erg);
@@ -155,11 +155,11 @@ function reminder_notReleased($label)
 			$label = setLanguage($zeile["lang"]);
 			$sprache = strip_tags($label['lang']);
 			$name = $zeile[$GLOBALS['db_colName_name']];
-			$id = $zeile[$GLOBALS['db_colName_id']]; 		
+			$id = $zeile[$GLOBALS['db_colName_id']];
 			$hash = $zeile[$GLOBALS['db_colName_hash']];
 			$to = $zeile[$GLOBALS['db_colName_email']];
 	 		$subject = "Reminder first: ";
-			
+
 			$body = "Reminder Body";
 			$gesendet = send_notification_add($email, $name, $id, $hash, $label);
 			//$gesendet = sendEmail($to, $subject, $body);
@@ -174,7 +174,7 @@ function reminder_Released($label)
 
 	$db_erg = db_getReminderDatasetsReleased($GLOBALS['server']);
 
-	if (count($db_erg) > 0) 
+	if (count($db_erg) > 0)
 	{
 		writeLog('REMINDER CYCLIC '.$db_erg);
 		echo "hallo";
@@ -183,11 +183,11 @@ function reminder_Released($label)
 			$label = setLanguage($zeile["lang"]);
 			$sprache = strip_tags($label['lang']);
 			$name = $zeile[$GLOBALS['db_colName_name']];
-			$id = $zeile[$GLOBALS['db_colName_id']]; 		
+			$id = $zeile[$GLOBALS['db_colName_id']];
 			$hash = $zeile[$GLOBALS['db_colName_hash']];
 			$to = $zeile[$GLOBALS['db_colName_email']];
 	 		$subject = "Reminder Released: ";
-			
+
 			$body = "Reminder Body";
 			$gesendet = send_reminder($to, $name, $id, $hash, $label);
 			//$gesendet = sendEmail($to, $subject, $body, $label);
@@ -202,7 +202,7 @@ function scheduleReminder($label)
 {
 	if (file_exists($GLOBALS['logfile'])){
 		if (date("n",time()) != date("n",filemtime($GLOBALS['logfile'])))
-		{			
+		{
 			reminder_Released($label);
 		}
 		if (date("W",time()) != date("W",filemtime($GLOBALS['logfile'])))

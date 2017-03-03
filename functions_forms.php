@@ -13,7 +13,7 @@ function addTandemForm($label, $caller)
 		//echo 'Location: index.php?action=table&lang='.$label["lang"];
 		header('Location: index.php?action=table&lang='.$label["lang"]);
 	}
-	
+
 	if (!isset( $_POST["name"] )){
 		$_POST["name"] = "";
 	}
@@ -38,7 +38,7 @@ function addTandemForm($label, $caller)
 	if (!isset( $_POST["text"] )){
 		$_POST["text"] = "";
 	}
-	
+
 	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
 	{
 		echo '<div dir="rtl">';
@@ -56,25 +56,25 @@ function addTandemForm($label, $caller)
 	echo '<tr><td>'.($label['Add_email_nochmal']).':</td> <td><input type="text" name="email_nochmal" Value="'. $_POST['email_nochmal'] .'" /></td></tr>';
 	echo '<tr class=areYouHuman><td>NICHT ausfüllen/do NOT fill in:</td> <td><input type="text" name="areYouHuman" Value="" /></td></tr>';
 	echo '<tr><td>'.($label['Add_ort']).':</td> <td><input type="text" name="ort" Value="'. $_POST['ort'] .'" /></td></tr>';
-	echo '<tr><td>'.($label['Add_geschlecht']).':</td> <td><input type="text" name="geschlecht" Value="'. $_POST['geschlecht'] .'" /></td></tr>';        
+	echo '<tr><td>'.($label['Add_geschlecht']).':</td> <td><input type="text" name="geschlecht" Value="'. $_POST['geschlecht'] .'" /></td></tr>';
 	echo '<tr><td>'.($label['Add_spracheAng']).':</td> <td>';
 	echo '<select name="spracheAng">';
 	foreach ($label as $key => $value) {
 		if (strpos($key, 'sprache_') === 0 ){
 			if ($key == ($_POST['spracheAng'])){
-				echo '<option value="'.$key.'" selected>'.($label[$key]).'</option>';		
+				echo '<option value="'.$key.'" selected>'.($label[$key]).'</option>';
 			} else {
 			echo '<option value="'.$key.'">'.($label[$key]).'</option>';
 		}
 	  }
-	}	
+	}
 	echo '</select></td></tr>';
 	echo '<tr><td>'.($label['Add_spracheGes']).':</td> <td>';
 	echo '<select name="spracheGes">';
 	foreach ($label as $key => $value) {
 		if (strpos($key, 'sprache_') === 0 ){
 			if ($key == ($_POST['spracheGes'])){
-				echo '<option value="'.$key.'" selected>'.($label[$key]).'</option>';		
+				echo '<option value="'.$key.'" selected>'.($label[$key]).'</option>';
 			} else {
 			echo '<option value="'.$key.'">'.($label[$key]).'</option>';
 		}
@@ -86,7 +86,7 @@ function addTandemForm($label, $caller)
 	echo '<Input type = "Radio" Name ="skills" value= "1" '. ($_POST['skills'] == "1" ? "checked" : "") .'>'.$label['Add_skills_1'].'</br>';
 	echo '<Input type = "Radio" Name ="skills" value= "2" '. ($_POST['skills'] == "2" ? "checked" : "") .'>'.$label['Add_skills_2'].'</br>';
 	echo '<Input type = "Radio" Name ="skills" value= "3" '. ($_POST['skills'] == "3" ? "checked" : "") .'>'.$label['Add_skills_3'].'</td></tr>';
-	
+
 	echo '<tr><td valign="top">'.($label['Add_beschreibung']).':</td> <td> <textarea name="text" cols="50" rows="10" style="width: 100%" >'. ($_POST['text']).'</textarea></td></tr>';
 	echo '</table>';
 	echo '<table  class=form_table>'; //; font-size:14
@@ -96,9 +96,9 @@ function addTandemForm($label, $caller)
 	echo '<p><button type="submit" name="send" value="cancel" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label['zurueck'].'</div></button>    ';
 	echo '<button type="submit" name="send" value="send" class="button_image"><div id="image_button_send">'.$label['Add_senden'].'</div></button></p>';
  	echo '</form>';
- 	echo '</div>';	
- 	
- 	
+ 	echo '</div>';
+
+
 }
 
 function sendMessageForm($label, $caller)
@@ -124,7 +124,7 @@ function sendMessageForm($label, $caller)
 	if (!isset( $_POST["text"] )){
 		$_POST["text"] = "";
 	}
-		
+
 	/*if ( $_POST['name'] == "" OR $_POST['email'] == "" OR $_POST['text'] == "" OR $_POST['geschlecht'] == "" OR $_POST['alter'] == "" OR $_POST['ort'] == "" OR $_POST['datenschutz'][0] != 'ja'OR strpos($_POST['email'], "@") === false OR strpos($_POST['email'], ".") === false)
 	{*/
     // Formulareintragungen liegen (noch) nicht vor
@@ -146,8 +146,8 @@ function sendMessageForm($label, $caller)
 		echo '</table>';
 		echo '<br />';
 		echo '<p><button type="submit" class="button_image"><div id="image_button_send">'.$label['View_Form_senden'].'</div></button></p>';
-		echo '</form>';	    
-		echo '</div>';	
+		echo '</form>';
+		echo '</div>';
 	//}
 }
 
@@ -161,10 +161,10 @@ function filterLanguageForm($label, $caller)
 				<colgroup id="col2"><col></colgroup>
 				<colgroup id="col3"><col></colgroup>';
 	echo '<tr><th>'.$label['Table_filtern'].':</th><th>';
-	
+
 	// Sprache1
 	$db_erg = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheAng']);
-	
+
 	echo '<select name="filterAng">';
 	echo '<option selected>'.$label['Table_filter_alle'].'</option>';
 	//while ($zeile = $erg->fetch())
@@ -173,14 +173,14 @@ function filterLanguageForm($label, $caller)
 		foreach ($label as $key => $value){
 			if (strpos($key, 'sprache_') === 0 ){
 				if ($key == html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])){
-					echo '<option value="'.$key.'">'.$label[$key].'</option>';		
+					echo '<option value="'.$key.'">'.$label[$key].'</option>';
 				}
 			}
 		}
 	}
 	echo '</select>';
 	echo '</th>';
-	
+
 	$db_erg = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheGes']);
 	echo '<th>';
 	echo '<select name="filterGes">';
@@ -191,7 +191,7 @@ function filterLanguageForm($label, $caller)
 		foreach ($label as $key => $value){
 			if (strpos($key, 'sprache_') === 0 ){
 				if ($key == html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])){
-					echo '<option value="'.$key.'">'.$label[$key].'</option>';		
+					echo '<option value="'.$key.'">'.$label[$key].'</option>';
 				}
 			}
 		}
@@ -201,7 +201,7 @@ function filterLanguageForm($label, $caller)
 
 	echo '<th>';
 	//echo '<p><button type="submit" id="filter_button"><img src="./images/funnel.svg" width=14px height=14px> '..'</button></p>';
-	echo '<p><button type="submit" class="button_image"><div id="image_button_filter">'.$label['Table_filtern'].'</div></button></p>';	
+	echo '<p><button type="submit" class="button_image"><div id="image_button_filter">'.$label['Table_filtern'].'</div></button></p>';
 	echo '</th></tr>';
 	echo '</table>';
 	echo '</form>';
@@ -213,20 +213,20 @@ function reportForm($label, $caller)
 	{
 		header('Location: index.php?action=table&lang='.$label["lang"]);
 	}
-	
+
 	if (!isset( $_POST["text"] )){
 		$_POST["text"] = "";
 	}
-	
+
 	if (!isset( $_POST["email"] )){
 		$_POST["email"] = "";
 	}
-	
+
 	if (!isset( $_POST["name"] )){
 		$_POST["name"] = "";
 	}
-		
-	
+
+
 	// Formulareintragungen liegen (noch) nicht vor
 	echo '<form action="'.htmlentities($caller).'" method="POST" >';
 	echo '<p class=form_above>'.sprintf($label['Report_textabove'], $GLOBALS["organisationName"]).'</p>';
@@ -241,8 +241,8 @@ function reportForm($label, $caller)
 	echo '<br />';
 	echo '<p><button type="submit" name="send" value="send" class="button_image"><div id="image_button_send">'.$label['Report_Form_senden'].'</div></button></p>';
 	//echo '<p><button type="submit" class="button_image"><div id="image_button_send">'.$label['Report_Form_senden'].'</div></button></p>';
-	echo '</form>';	    
-	echo '</div>';	
+	echo '</form>';
+	echo '</div>';
 	//}
 }
 

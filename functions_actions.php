@@ -15,15 +15,15 @@ function actionTable($label)
 	{
 		echo '<div dir="ltr">';
 	}
-	
+
 	$page = (isset($_GET["page"]) or $page != '') ? htmlentities($_GET["page"]): 0;
 
 	// ======================================
 	//  TEXT ÜBER DER TABELLE
-	
+
 	echo '<p>'.$label['Table_intro'].'</p>';
 	echo '<div class=div_table>';
-	 
+
 	//=====================
 	// Filter
 
@@ -31,12 +31,12 @@ function actionTable($label)
 
 	$filterAng = isset($_POST['filterAng']) ? $_POST['filterAng'] : $label['Table_filter_alle'];
 	$filterGes = isset($_POST['filterGes']) ? $_POST['filterGes'] : $label['Table_filter_alle'];
-	
+
 	$db_erg = db_selectTableData($GLOBALS['server'], $filterAng, $filterGes, $label, $page);
-	
+
 	//===================
 	// Tabelle
-	
+
 	echo '<table class=tandem_table>';//' border="1" cellpadding="5" cellspacing="0" bordercolordark="#a1a1a1" bordercolorlight="#a1a1a1" style="font-family:Arial; font-size:14">';
 	echo '<colgroup id="col1"><col><col><col></colgroup>
 				<colgroup id="col2"><col></colgroup>
@@ -48,10 +48,10 @@ function actionTable($label)
 				'<th>'.$label['Table_col_datum'].'</th>'.
 				'<th>'.$label['Table_col_ort'].'</th>'.
 			 '</tr>';
-	
+
 	//while ($zeile = $db_erg->fetch())
 	foreach ($db_erg as $zeile) {
-		  
+
 	  echo "<tr>";
 	  echo '<td><a href="index.php?action=view&tid='. $zeile[$GLOBALS['db_colName_id']] .'&lang='.$label['lang'].'">'.
 	  					html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . "</a></td>";
@@ -63,9 +63,9 @@ function actionTable($label)
 	}
 	echo "</table>";
 	echo "</form>";
-	
+
 	mysql_free_result ( $db_erg );
-	
+
 	$anzahl = db_countTableData($GLOBALS['server'], $filterAng, $filterGes, $label);
 
 	// PAGES
@@ -88,13 +88,13 @@ function actionTable($label)
 			echo '<img src="./images/prev.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
 		}
 		echo '  '.($page+1).'/'.$anzahl_pages.'  ';
-		if  ($page+1 < $anzahl_pages)
+		if ($page+1 < $anzahl_pages)
 		{
 			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($page+1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
 			echo '<img src="./images/next.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
-				
+
 		}
-		if  ($page+2 < $anzahl_pages)
+		if ($page+2 < $anzahl_pages)
 		{
 			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($anzahl_pages-1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
 			echo '<img src="./images/last.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
@@ -112,19 +112,19 @@ function actionTable($label)
 			echo '<img src="./images/next.svg" style="width: 28px; margin-bottom: -7px;" alt="prev"></a>';
 		}
 		echo '  '.($page+1).'/'.$anzahl_pages.'  ';
-		if  ($page+1 < $anzahl_pages)
+		if ($page+1 < $anzahl_pages)
 		{
 			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($page+1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
 			echo '<img src="./images/prev.svg" style="width: 28px; margin-bottom: -7px;" alt="rtl_next"></a>';
-				
+
 		}
-		if  ($page+2 < $anzahl_pages)
+		if ($page+2 < $anzahl_pages)
 		{
 			echo '<a href="index.php?action=table&lang='.$label['lang'].'&page='.($anzahl_pages-1).'&filterAng='.$filterAng.'&filterGes='.$filterGes.'">';
 			echo '<img src="./images/first.svg" style="width: 28px; margin-bottom: -7px;" alt="rtl_last"></a>';
-		}			
+		}
 	}
-	
+
 	echo '</p>';
 	echo '</div>';
 	echo '</div>';
@@ -138,30 +138,30 @@ function actionTable($label)
 //#############################
 
 function actionAdd($label){
-	
+
 	$senden = false;
-	
+
 	session_start();
-	
-	
-	
+
+
+
 	if (!isset($_POST["skills"]) or !isset($_SESSION['form_submitted'])){
-		
+
 		$_SESSION['form_submitted'] = false;
 	}
-	
+
 	if(($_SESSION['form_submitted'] == true))
 	{
 		die('You have already submitted the form.');
 	}
 	else
 	{
-		if	((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR 
-			isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR 
+		if ((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR
+			isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR
 			isset($_POST['spracheGes']) OR isset($_POST['text']) OR isset($_POST['alter']) OR isset($_POST['datenschutz'])))
 		{
-			if 	(($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR 
-					($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR 
+			if (($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR
+					($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR
 					$_POST['text'] == "" OR $_POST['alter'] == "" OR $_POST['datenschutz'][0] != "ja")
 					OR
 					!($_POST['areYouHuman'] == '')
@@ -174,15 +174,15 @@ function actionAdd($label){
 					}
 		} else {
 			$senden = false;
-			
+
 		}
 		if ($senden == false) {
 			echo '<p>'.$label['Add_intro'].'</p>';
 			// Wenn noch nicht alles ausgefüllt ist:
 			addTandemForm($label, "index.php?action=add&lang=".$label['lang']);
-		}	else 
+		} else
 		{
-				
+
 			$name = strip_tags($_POST['name']);
 			$alter =  strip_tags($_POST['alter']);
 			$email = strip_tags(strtolower($_POST['email']));
@@ -191,7 +191,7 @@ function actionAdd($label){
 			$geschlecht = strip_tags($_POST['geschlecht']);
 			$skills = strip_tags($_POST['skills']);
 			$sprache = strip_tags($label['lang']);
-	
+
 			foreach ($label as $key => $value) {
 				if (strpos($key, 'sprache_') === 0 ){
 					if ($key == strip_tags($_POST['spracheAng'])){
@@ -203,16 +203,16 @@ function actionAdd($label){
 				}
 			}
 			$beschreibung = strip_tags(($_POST['text']));
-			
+
 			$add_erg = db_add_dataset($GLOBALS['server'], $name, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email, $sprache);
-			
+
 			if ($add_erg['db_erg'])
 			{
 				$gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
 				$_SESSION['form_submitted'] = true;
 			  if ($gesendet == 1){
 			    echo '<table>';
-					echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';		    
+					echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
 					//echo '<tr><td valign="top"><img src="./images/check.svg" alt="Bild"></td>';
 					echo '<td>'.$label['Add_gesendet'].'</td></tr>';
 					echo '</table>';
@@ -257,14 +257,14 @@ function actionView($label)
 	{
 		$db_erg = db_getDataSet($GLOBALS['server'], $id);
 	}
-	
+
 	if ( ! count($db_erg) > 0 OR ! is_numeric($id))
-	{ 
+	{
 		echo "<p>Error: Data not found.</p>";
 	}	else
 	{
 		$zeile = $db_erg[0];
-		
+
 		echo '<h3>'. html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . '</h3>';
 		echo '<table>';
 		echo '<colgroup id="form_col1"><col></colgroup>	<colgroup id="form_col2"><col></colgroup>';
@@ -291,29 +291,29 @@ function actionView($label)
 		echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
 		echo '</form>';
 		echo "<hr>";
-		
+
 		//=======================
 		// Formular
 		//
-		if	(isset($_POST['name']) OR isset($_POST['email']) OR isset($_POST['geschlecht']) OR
+		if (isset($_POST['name']) OR isset($_POST['email']) OR isset($_POST['geschlecht']) OR
 				isset($_POST['alter']) OR isset($_POST['ort']) OR isset($_POST['datenschutz']))
 		{
-			if 	($_POST['name'] == "" OR $_POST['email'] == "" OR $_POST['geschlecht'] == "" OR 
+			if ($_POST['name'] == "" OR $_POST['email'] == "" OR $_POST['geschlecht'] == "" OR
 					$_POST['alter'] == "" OR $_POST['ort'] == "" OR $_POST['datenschutz'][0] != "ja"
 					OR
 					!($_POST['areYouHuman'] == '')
 					OR
 					(!isValidEmail($_POST['email']) or !(strtolower($_POST['email']) == strtolower($_POST['email_nochmal']))))
 			{
-				$senden = false;		
+				$senden = false;
 			} else {
 				$senden = true;
-			} 
+			}
 		} else {
 			$senden = false;
 		}
-		echo '<h3><img src="./images/chat.svg" width=20px height=20px> '.$label['View_Form_nachrichtAn'].''. $zeile[$GLOBALS['db_colName_name']].' </h3>';				
-		if ($senden == false) 
+		echo '<h3><img src="./images/chat.svg" width=20px height=20px> '.$label['View_Form_nachrichtAn'].''. $zeile[$GLOBALS['db_colName_name']].' </h3>';
+		if ($senden == false)
 		{
 			sendMessageForm($label, "index.php?action=view&lang=".$label['lang']."&tid=".$id);
 		} else
@@ -324,29 +324,29 @@ function actionView($label)
 			$ort = strip_tags($_POST['ort']);
 			$email = strip_tags(strtolower($_POST['email']));
 			$text = strip_tags($_POST['text']);
-		
+
 			$label_mail = setLanguage($zeile['lang']);
-			
+
  			$to = $zeile[$GLOBALS['db_colName_email']];
-	
+
 			$gesendet = send_notification_view($to, $zeile[$GLOBALS['db_colName_name']], $name, $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']], $alter, $geschlecht, $ort, $email, $text, $label_mail);
-			
+
 			if ($gesendet == 1){
 				echo '<table>';
 				echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
 				echo '<td>'.$label['View_gesendet'].'</td></tr>';
 				echo '</table>';
-				
+
 				db_incr_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_id']]);
 			} else {
 				echo '<table>';
 				echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="OK, " width=20px height=20px></td>';
 				echo '<td>'.$label['View_nichtGesendet'].'</td></tr>';
 				echo '</table>';
-				
+
 			}
-      
-			mysql_free_result ( $db_erg );	
+
+			mysql_free_result ( $db_erg );
 		}
 	}
 	echo '</div>';
@@ -373,13 +373,13 @@ function actionEdit($label)
 	{
 		$first= strip_tags(htmlentities($_GET["first"]));
 	}
-	
+
 	if (isset($_GET["tid"]) and isset($_GET["a"]))
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
 		//echo '<font face="Arial" size="2">';
-		
+
 		if ( is_numeric($id) )
 		{
 			$db_erg = db_getDataSet($GLOBALS['server'], $id);
@@ -389,26 +389,26 @@ function actionEdit($label)
 			}
 			else
 			{
-				
+
 				if ($zeile = $db_erg[0])
 				{
 					if (str_replace(' ', '', $zeile[$GLOBALS['db_colName_hash']]) === str_replace(' ', '', $hash))
 					{
-						
-						if	((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR 
-						isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR 
+
+						if ((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR
+						isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR
 						isset($_POST['spracheGes']) OR isset($_POST['text']) OR isset($_POST['alter']) OR isset($_POST['datenschutz'])))
 						{
-							
-							if 	(($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR 
-									($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR 
+
+							if (($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR
+									($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR
 									$_POST['text'] == "" OR $_POST['alter'] == "" OR $_POST['datenschutz'][0] != "ja")
 									OR
 									!($_POST['areYouHuman'] == '')
 									OR
 									(!isValidEmail($_POST['email']) or !(strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])))))
 							{
-								
+
 								$senden = false;
 							} else {
 								$senden = true;
@@ -416,11 +416,11 @@ function actionEdit($label)
 						} else {
 							$senden = false;
 						}
-						
-						if ( $senden == false)	
+
+						if ( $senden == false)
 						{
-							$_POST['name'] = (($_POST['name'] == "") ? $zeile[$GLOBALS['db_colName_name']] : $_POST['name']);	
-							$_POST['alter'] = (($_POST['alter'] == "") ? $zeile[$GLOBALS['db_colName_alter']] : $_POST['alter']);                        
+							$_POST['name'] = (($_POST['name'] == "") ? $zeile[$GLOBALS['db_colName_name']] : $_POST['name']);
+							$_POST['alter'] = (($_POST['alter'] == "") ? $zeile[$GLOBALS['db_colName_alter']] : $_POST['alter']);
 							$_POST['geschlecht'] = ($_POST['geschlecht'] == "") ? $zeile[$GLOBALS['db_colName_geschlecht']] : $_POST['geschlecht'];
 							$_POST['email'] = $_POST['email'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email'];
 							$_POST['email_nochmal'] = $_POST['email_nochmal'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email_nochmal'];
@@ -443,17 +443,17 @@ function actionEdit($label)
 							$alter = strip_tags(($_POST['alter']));
 							$geschlecht = strip_tags(($_POST['geschlecht']));
 							$kenntnis = strip_tags(($_POST['kenntnis']));
- 	  	     	                
+
 							db_edit_dataset($GLOBALS['server'], $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email);
-							
-							echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';		    
+
+							echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
 							echo '<td>'.$label['Edit_ok'].'</td></tr>';
 							echo '</table>';
 							echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 							echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
 							echo '</form>';
 						}
-					} 
+					}
 					else
 					{
 						echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
@@ -462,7 +462,7 @@ function actionEdit($label)
 					echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
 				}
 			}
-		}		
+		}
 	}
 	echo "</div>";
 }
@@ -482,14 +482,14 @@ function actionDelete($label)
 	{
 		echo '<div dir="ltr">';
 	}
-	
+
 	if ($_POST['delete'] == $label['deleteDataset_button_no'])
 	{
 		header('Location: index.php?action=table&lang='.$label["lang"]);
 	} elseif ($_POST['delete'] == $label['deleteDataset_button_yes']) {
-		$ok = 1;	
+		$ok = 1;
 	}
-	
+
 	echo '<h3><img src="./images/trash.svg" width=20px height=20px>'.sprintf($label["deleteDataset_Title"], $GLOBALS['organisationName'])."</h3>";
 	/*if (!isset( $_GET["ok"] )){
 		$_GET["ok"] = 0;
@@ -502,8 +502,8 @@ function actionDelete($label)
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
-	
-		//echo '<font face="Arial" size="2">';	
+
+		//echo '<font face="Arial" size="2">';
 		if ( is_numeric($id) )
 		{
 			if ($ok != 0)
@@ -536,8 +536,8 @@ function actionDelete($label)
 				//echo '<p> <input type="submit" name="delete" value="'.$label['deleteDataset_button_yes'].'" /> <input type="submit" name="delete" value="'.$label['deleteDataset_button_no'].'" /></p>';
 				echo '<p><button type="submit" name="delete" value="'.$label['deleteDataset_button_yes'].'" class="button_image"><div id="image_button_yes">'.$label['deleteDataset_button_yes'].'</div></button>';
 				echo '<button type="submit" name="delete" value="'.$label['deleteDataset_button_no'].'" class="button_image"><div id="image_button_no">'.$label['deleteDataset_button_no'].'</div></button></p>';
-				echo '</form>';	 
-			}			
+				echo '</form>';
+			}
 		}
 	}
 	echo "</div>";
@@ -554,7 +554,7 @@ function actionRelease($label)
 {
 
 	$error = false;
-	
+
 	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
 	{
 		echo '<div dir="rtl">';
@@ -572,8 +572,8 @@ function actionRelease($label)
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
-	
-		//echo '<font face="Arial" size="2">';	
+
+		//echo '<font face="Arial" size="2">';
 
 		if ( is_numeric($id) )
 		{
@@ -617,7 +617,7 @@ function actionRelease($label)
 
 function actionStatistic($label)
 {
-	
+
 	echo '<h3>Statistik</h3>';
 	echo '<p><a href="index.php?action=stat&t=year">dieses Jahr</a></p>';
 	echo '<p><a href="index.php?action=stat&t=always">Immer</a></p>';
@@ -627,9 +627,9 @@ function actionStatistic($label)
 	$db_erg = db_get_langPairs($GLOBALS['server'], $_GET["t"] === "year");
 	$sum_sum = 0;
 	$sum_count = 0;
-	
+
 	foreach ($db_erg as $zeile)
-	{	
+	{
 		$sum = db_sum_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']]);
 		$sum_sum = $sum_sum + $sum;
 		$count = db_count_langPairs($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']]);
@@ -663,14 +663,14 @@ function actionReport($label)
 	{
 		$db_erg = db_getDataSet($GLOBALS['server'], $id);
 	}
-	
+
 	if ( ! count($db_erg) > 0 OR ! is_numeric($id))
-	{ 
+	{
 		echo "<p>Error: Data not found.</p>";
 	}	else
 	{
 		$zeile = $db_erg[0];
-		
+
 		echo '<h3>'. html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . '</h3>';
 		echo '<table>';
 		echo '<tr><td><b>'.$label['View_alter'].':</b></td><td>'. $zeile[$GLOBALS['db_colName_alter']] . '</td></tr>';
@@ -695,13 +695,13 @@ function actionReport($label)
 		echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
 		echo '</form>';
 		echo "<hr>";
-		
+
 		//=======================
 		// Formular
 		//
-		if	(isset($_POST['text']))
+		if (isset($_POST['text']))
 		{
-			if 	(($_POST['text'] != "") 
+			if (($_POST['text'] != "")
 				AND
 				($_POST['areYouHuman'] == '')
 				AND
@@ -712,12 +712,12 @@ function actionReport($label)
 				$senden = true;
 			} else {
 				$senden = false;
-			} 
+			}
 		} else {
 			$senden = false;
 		}
-		echo '<h3><img src="./images/megaphone.svg" width=20px height=20px> '.$label['View_AnzeigeMelden'].'</h3>';				
-		if ($senden == false) 
+		echo '<h3><img src="./images/megaphone.svg" width=20px height=20px> '.$label['View_AnzeigeMelden'].'</h3>';
+		if ($senden == false)
 		{
 			reportForm($label, "index.php?action=report&lang=".$label['lang']."&tid=".$id);
 		} else
@@ -725,19 +725,19 @@ function actionReport($label)
 			$name = strip_tags($_POST['name']);
 			$email = strip_tags(strtolower($_POST['email']));
 			$text = strip_tags($_POST['text']);
-		
+
 			$label_mail = setLanguage("de");
-			
- 			$to = $GLOBALS['email_orga'];
-	
+
+			$to = $GLOBALS['email_orga'];
+
 			$gesendet = send_notification_report($to, $name, $email, $text, html_entity_decode($zeile[$GLOBALS['db_colName_name']]), html_entity_decode($zeile[$GLOBALS['db_colName_id']]), html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]), $label_mail);
-			
+
 			if ($gesendet == 1){
 				echo '<table>';
 				echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
 				echo '<td>'.$label['Report_gesendet'].'</td></tr>';
 				echo '</table>';
-				
+
 			} else {
 				echo '<table>';
 				echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="OK, " width=20px height=20px></td>';
@@ -745,7 +745,7 @@ function actionReport($label)
 				echo '</table>';
 			}
 			//echo '</br><a href=index.php?lang='.$label['lang'].'>'.$label['zurueck'].'</a>';
-			mysql_free_result ( $db_erg );	
+			mysql_free_result ( $db_erg );
 		}
 	}
 	echo '</div>';

@@ -4,7 +4,7 @@
 TO DOS
 
 - Übersetzungen anpassen
-- Reminder-Texte 
+- Reminder-Texte
 - statistik passwort (unnötig?)
 - Anzeige melden Text (und übersetzung)
 - Filtern nach Geschlecht ()
@@ -40,17 +40,17 @@ if ($server != null){
 		//
 		// REMINDER
 		//
-		// ============== 	
+		// ==============
 		scheduleReminder($label);
 
 		//echo "<p>".$label['lang']."</p>";
-		
+
 		$action = htmlentities($_GET["action"]);
-		
+
 		if ($action == '') {
 			$action = "table";
 		}
-		
+
 		switch ($action) {
 			case 'table':
 			//echo "table";
@@ -58,8 +58,8 @@ if ($server != null){
 					"<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
 				}
 				echo '<form action="index.php?action=add&lang='.$label["lang"].'" method="POST" >';
-				echo '<p><button type="submit" class="button_menue_add">'.$label["Add_Title"].'</button></p>'; //<div id="image_button_add"></div> 
-				echo '</form>';				
+				echo '<p><button type="submit" class="button_menue_add">'.$label["Add_Title"].'</button></p>'; //<div id="image_button_add"></div>
+				echo '</form>';
 				//echo '<tr><td></td><td align="right"><a href=index.php?action=report&lang='.$label['lang'].'&tid='.$id.'><img src="./images/megaphone.svg" width=15px height=15px> '.$label['View_AnzeigeMelden'].'</a></td></tr>';
 	 			//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=add>ADD</a></p>";
 				actionTable($label);
@@ -71,7 +71,7 @@ if ($server != null){
 				/*echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">'.$label["Table_Title"].'</button></p>';
 				echo '</form>';*/
-	 			//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";	    
+	 			//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";
 				actionAdd($label);
 				break;
 			case 'view':
@@ -81,7 +81,7 @@ if ($server != null){
 				/*echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">'.$label["Table_Title"].'</button></p>';
 				echo '</form>';*/
-	 			//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";	    	    
+	 			//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";
 	 			actionView($label);
 	 			break;
 			case 'edit':
@@ -91,15 +91,15 @@ if ($server != null){
 	 			/*echo '<form action="index.php?action=table" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">'.$label["Table_Title"].'</button></p>';
 				echo '</form>';*/
-				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";	    	    
+				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";
 	 			actionEdit($label);
 	 			break;
 			case 'delete':
-				
+
 	 			/*echo '<form action="index.php?action=table" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">'.$label["Table_Title"].'</button></p>';
 				echo '</form>';*/
-				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";	    	    
+				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";
 	 			actionDelete($label);
 	 			break;
 			case 'release':
@@ -109,7 +109,7 @@ if ($server != null){
 				/*echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">Tabelle</button></p>';
 				echo '</form>';*/
-				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";	    	    
+				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";
 	 			actionRelease($label);
 	 			break;
 			case 'stat':
@@ -119,9 +119,9 @@ if ($server != null){
 	 			echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">Tabelle</button></p>';
 				echo '</form>';
-				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";	    	    
+				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";
 	 			actionStatistic($label);
-	 			break;  
+	 			break;
 			case 'report':
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["Report_Title"], $GLOBALS['organisationName'])."</h3>";
@@ -129,9 +129,9 @@ if ($server != null){
 	 			/*echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
 				echo '<p><button type="submit" class="button_menue_table">'.$label["Table_Title"].'</button></p>';
 				echo '</form>';*/
-				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";	    	    
+				//echo "<p><a href=http://".$GLOBALS['tandem_root_path']."/index.php?action=table>TABLE</a></p>";
 	 			actionReport($label);
-	 			break;  
+	 			break;
 			default:
 				if ($GLOBALS['showTitle'] == true){
 					echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
