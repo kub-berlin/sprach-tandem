@@ -15,65 +15,7 @@ function addTandemForm($label, $caller)
 
 	setDefaultParams(array('name', 'alter', 'email', 'email_nochmal', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
 
-	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
-	{
-		echo '<div dir="rtl">';
-	} else {
-		echo '<div dir="ltr">';
-	}
-	echo '<form action="'.htmlentities($caller).'" method="POST" >';
-	echo '<p class=form_above>'.($label['Add_ausfuellen']).'</p>';
-	// Formulareintragungen liegen (noch) nicht vor
-	echo '<table class=form_table>';
-	echo '<colgroup id="form_col1"><col></colgroup>	<colgroup id="form_col2"><col></colgroup>';
-	echo '<tr><td>'.($label['Add_name']).':</td> <td><input type="text" name="name" Value="'. $_POST["name"] .'" /></td></tr>';
-	echo '<tr><td>'.($label['Add_alter']).':</td> <td><input type="text" name="alter" Value="'. $_POST['alter'] .'" /></td></tr>';
-	echo '<tr><td>'.($label['Add_email']).':</td> <td><input type="text" name="email" Value="'. $_POST['email'] .'" /></td></tr>';
-	echo '<tr><td>'.($label['Add_email_nochmal']).':</td> <td><input type="text" name="email_nochmal" Value="'. $_POST['email_nochmal'] .'" /></td></tr>';
-	echo '<tr class=areYouHuman><td>NICHT ausfüllen/do NOT fill in:</td> <td><input type="text" name="areYouHuman" Value="" /></td></tr>';
-	echo '<tr><td>'.($label['Add_ort']).':</td> <td><input type="text" name="ort" Value="'. $_POST['ort'] .'" /></td></tr>';
-	echo '<tr><td>'.($label['Add_geschlecht']).':</td> <td><input type="text" name="geschlecht" Value="'. $_POST['geschlecht'] .'" /></td></tr>';
-	echo '<tr><td>'.($label['Add_spracheAng']).':</td> <td>';
-	echo '<select name="spracheAng">';
-	foreach ($label as $key => $value) {
-		if (strpos($key, 'sprache_') === 0 ){
-			if ($key == ($_POST['spracheAng'])){
-				echo '<option value="'.$key.'" selected>'.($label[$key]).'</option>';
-			} else {
-			echo '<option value="'.$key.'">'.($label[$key]).'</option>';
-		}
-	  }
-	}
-	echo '</select></td></tr>';
-	echo '<tr><td>'.($label['Add_spracheGes']).':</td> <td>';
-	echo '<select name="spracheGes">';
-	foreach ($label as $key => $value) {
-		if (strpos($key, 'sprache_') === 0 ){
-			if ($key == ($_POST['spracheGes'])){
-				echo '<option value="'.$key.'" selected>'.($label[$key]).'</option>';
-			} else {
-			echo '<option value="'.$key.'">'.($label[$key]).'</option>';
-		}
-	  }
-	}
-	echo '</select></td></tr>';
-	echo '<tr><td valign="top">'.($label['Add_skills']).':</td> <td>';
-	echo '<Input type = "Radio" Name ="skills" value= "0" '. (($_POST['skills'] == "0" OR $_POST['skills'] == "") ? 'checked' : '') .'>'.$label['Add_skills_0'].'</br>';
-	echo '<Input type = "Radio" Name ="skills" value= "1" '. ($_POST['skills'] == "1" ? "checked" : "") .'>'.$label['Add_skills_1'].'</br>';
-	echo '<Input type = "Radio" Name ="skills" value= "2" '. ($_POST['skills'] == "2" ? "checked" : "") .'>'.$label['Add_skills_2'].'</br>';
-	echo '<Input type = "Radio" Name ="skills" value= "3" '. ($_POST['skills'] == "3" ? "checked" : "") .'>'.$label['Add_skills_3'].'</td></tr>';
-
-	echo '<tr><td valign="top">'.($label['Add_beschreibung']).':</td> <td> <textarea name="text" cols="50" rows="10" style="width: 100%" >'. ($_POST['text']).'</textarea></td></tr>';
-	echo '</table>';
-	echo '<table  class=form_table>'; //; font-size:14
-	echo '<tr><td valign="top"><input value="ja" name="datenschutz[]" type="Checkbox"></td><td><font color="black">'.sprintf($label['Add_datenschutz'], $GLOBALS["organisationName"]).'</td></tr>';
-	echo '</table><br/>';
-	echo '<p><button type="submit" name="send" value="cancel" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label['zurueck'].'</div></button>    ';
-	echo '<button type="submit" name="send" value="send" class="button_image"><div id="image_button_send">'.$label['Add_senden'].'</div></button></p>';
- 	echo '</form>';
- 	echo '</div>';
-
-
+	include 'partials/form_add_tandem.php';
 }
 
 function sendMessageForm($label, $caller)
