@@ -9,8 +9,8 @@
 function actionTable($label)
 {
 	$page = (isset($_GET["page"]) and $_GET['page'] != '') ? intval($_GET["page"]): 0;
-	$filterAng = isset($_POST['filterAng']) ? $_POST['filterAng'] : $label['Table_filter_alle'];
-	$filterGes = isset($_POST['filterGes']) ? $_POST['filterGes'] : $label['Table_filter_alle'];
+	$filterAng = isset($_GET['filterAng']) ? $_GET['filterAng'] : $label['Table_filter_alle'];
+	$filterGes = isset($_GET['filterGes']) ? $_GET['filterGes'] : $label['Table_filter_alle'];
 	$anzahl = db_countTableData($GLOBALS['server'], $filterAng, $filterGes, $label);
 	$anzahl_pages = ceil($anzahl / $GLOBALS['table_page_size']);
 

@@ -1,4 +1,4 @@
-<form action="<?php echo htmlentities($caller) ?>&page=0" method="POST">
+<form action="<?php echo htmlentities($caller) ?>" method="GET">
 	<table class=filter_table>
 		<colgroup id="col1"><col><col><col></colgroup>
 		<colgroup id="col2"><col></colgroup>
@@ -26,4 +26,8 @@
 			</th>
 		</tr>
 	</table>
+
+	<input type="hidden" name="action" value="table" />
+	<input type="hidden" name="page" value="0" />
+	<input type="hidden" name="lang" value="<?php echo htmlentities($label['lang']) ?>" />
 </form>
