@@ -1,6 +1,4 @@
 <?php
-mb_internal_encoding("UTF-8");
-
 include './config-default.php';
 include './config.php';
 
@@ -88,26 +86,18 @@ function setLanguage($sprache)
 {
 	// Zuordnung von Locale-Strings und Übergabe an selectLanguage
 	if (strlen(strstr($sprache,'en'))>0){
-		echo '<div align="left">';
 		$ret = getLabel('en');
 	} elseif (strlen(strstr($sprache,'de'))>0){
-		echo '<div align="left">';
 		$ret = getLabel('de');
-
 	} elseif (strlen(strstr($sprache,'fr'))>0){
-		echo '<div align="left">';
 		$ret = getLabel('fr');
 	} elseif (strlen(strstr($sprache,'fa'))>0){
-		echo '<div align="right">';
 		$ret = getLabel('fa');
 	} elseif (strlen(strstr($sprache,'ar'))>0){
-		echo '<div align="right">';
 		$ret = getLabel('ar');
 	} elseif (strlen(strstr($sprache,'es'))>0){
-		echo '<div align="left">';
 		$ret = getLabel('es');
 	} else {
-		echo '<div align="left">';
 		$ret = getLabel('de');
 	}
 	return $ret;

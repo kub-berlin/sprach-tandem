@@ -14,101 +14,76 @@ TO DOS
 
 */
 
-echo '<!DOCTYPE html>' . "\n";
-echo '<meta http-equiv="content-type" content="text/html; charset=utf-8" />';
-echo '<meta charset="utf-8" />';
-echo '<link rel="stylesheet" type="text/css" href="./style.css" />';
-
 mb_internal_encoding("UTF-8");
 include './functions.php';
-echo '<div class=tandem_body>';
-
-$heading = '<h3>'.$GLOBALS['organisationName'].'-Sprach-Tandem';
-
 $label = setLanguage(htmlentities($_GET["lang"]));
 
+?><!DOCTYPE html>
+<html
+	lang="<?php e($label['lang']) ?>"
+	dir="<?php e(($label["lang"] == 'fa' or $label["lang"] == 'ar') ? 'rtl' : 'ltr') ?>"
+>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="./style.css" />
+	<title><?php e(sprintf($label["Title"], $GLOBALS['organisationName'])) ?></title>
+</head>
+
+<body>
+
+<?php
 global $server;
 $server = db_connectDB();
 
 if ($server != null){
-		// ==============
-		//
-		// REMINDER
-		//
-		// ==============
-		scheduleReminder($label);
+	scheduleReminder($label);
 
-		$action = htmlentities($_GET["action"]);
+	$action = isset($_GET['action']) ? $_GET['action'] : 'table';
 
-		if ($action == '') {
-			$action = "table";
-		}
+	if ($GLOBALS['showTitle'] == true){
+		echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
+	}
 
-		switch ($action) {
-			case 'table':
-				if ($GLOBALS['showTitle'] == true){
-					"<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				echo '<form action="index.php?action=add&lang='.$label["lang"].'" method="POST" >';
-				echo '<p><button type="submit" class="button_menue_add">'.$label["Add_Title"].'</button></p>'; //<div id="image_button_add"></div>
-				echo '</form>';
-				actionTable($label);
+	switch ($action) {
+		case 'table':
+			echo '<form action="index.php?action=add&lang='.$label["lang"].'" method="POST">';
+			echo '<p><button type="submit" class="button_menue_add">'.$label["Add_Title"].'</button></p>';
+			echo '</form>';
+			actionTable($label);
+		break;
+		case 'add':
+			actionAdd($label);
 			break;
-			case 'add':
-				if ($GLOBALS['showTitle'] == true){
-					echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				actionAdd($label);
-				break;
-			case 'view':
-				if ($GLOBALS['showTitle'] == true){
-					echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				actionView($label);
-				break;
-			case 'edit':
-				if ($GLOBALS['showTitle'] == true){
-					echo "<h3>".sprintf($label["editDataset_Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				actionEdit($label);
-				break;
-			case 'delete':
-
-				actionDelete($label);
-				break;
-			case 'release':
-				if ($GLOBALS['showTitle'] == true){
-					echo "<h3>".sprintf($label["releaseDataset_Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				actionRelease($label);
-				break;
-			case 'stat':
-				if ($GLOBALS['showTitle'] == true){
-					echo "<h3>".sprintf($label["Statistik_Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-				echo '<p><button type="submit" class="button_menue_table">Tabelle</button></p>';
-				echo '</form>';
-				actionStatistic($label);
-				break;
-			case 'report':
-				if ($GLOBALS['showTitle'] == true){
-					echo "<h3>".sprintf($label["Report_Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				actionReport($label);
-				break;
-			default:
-				if ($GLOBALS['showTitle'] == true){
-					echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
-				}
-				actionTable($label);
-				break;
-		}
-		db_disconnectDB($server);
-
-} else {
-	echo "DB ERROR";
+		case 'view':
+			actionView($label);
+			break;
+		case 'edit':
+			actionEdit($label);
+			break;
+		case 'delete':
+			actionDelete($label);
+			break;
+		case 'release':
+			actionRelease($label);
+			break;
+		case 'stat':
+			echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
+			echo '<p><button type="submit" class="button_menue_table">Tabelle</button></p>';
+			echo '</form>';
+			actionStatistic($label);
+			break;
+		case 'report':
+			actionReport($label);
+			break;
+		default:
+			actionTable($label);
+			break;
+	}
+	db_disconnectDB($server);
 }
-
-echo "</div>";
 ?>
+
+</body>
+</html>

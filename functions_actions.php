@@ -131,14 +131,6 @@ function actionAdd($label){
 
 function actionView($label)
 {
-	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
-	{
-		echo '<div dir="rtl">';
-	} else
-	{
-		echo '<div dir="ltr">';
-	}
-
 	$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 
 	if ( is_numeric($id) )
@@ -235,7 +227,6 @@ function actionView($label)
 			}
 		}
 	}
-	echo '</div>';
 }
 
 //##############################
@@ -246,13 +237,6 @@ function actionView($label)
 
 function actionEdit($label)
 {
-	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
-	{
-		echo '<div dir="rtl">';
-	} else
-	{
-		echo '<div dir="ltr">';
-	}
 	if (!isset( $_GET["first"] )){
 		$_GET["first"] = true;
 	} else
@@ -350,7 +334,6 @@ function actionEdit($label)
 			}
 		}
 	}
-	echo "</div>";
 }
 
 //##############################
@@ -361,14 +344,6 @@ function actionEdit($label)
 
 function actionDelete($label)
 {
-	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
-	{
-		echo '<div dir="rtl">';
-	} else
-	{
-		echo '<div dir="ltr">';
-	}
-
 	if ($_POST['delete'] == $label['deleteDataset_button_no'])
 	{
 		header('Location: index.php?action=table&lang='.$label["lang"]);
@@ -414,7 +389,6 @@ function actionDelete($label)
 			}
 		}
 	}
-	echo "</div>";
 }
 
 
@@ -429,13 +403,6 @@ function actionRelease($label)
 
 	$error = false;
 
-	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
-	{
-		echo '<div dir="rtl">';
-	} else
-	{
-		echo '<div dir="ltr">';
-	}
 	if (!isset( $_GET["ok"] )){
 		$_GET["ok"] = 0;
 	} else
@@ -477,7 +444,6 @@ function actionRelease($label)
 			echo '</form>';
 		}
 	}
-	echo "</div>";
 }
 
 //##############################
@@ -521,14 +487,6 @@ function actionStatistic($label)
 
 function actionReport($label)
 {
-	if ($label["lang"] == 'fa' or $label["lang"] == 'ar')
-	{
-		echo '<div dir="rtl">';
-	} else
-	{
-		echo '<div dir="ltr">';
-	}
-
 	$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 
 	if ( is_numeric($id) )
@@ -618,7 +576,6 @@ function actionReport($label)
 			}
 		}
 	}
-	echo '</div>';
 }
 
 
