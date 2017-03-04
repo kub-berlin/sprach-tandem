@@ -51,10 +51,10 @@ function actionAdd($label){
 
 			if ($gesendet == 1){
 				http_response_code(201);
-				alert($label, true, $label['Add_gesendet'], 'index.php?action=table&lang='.$label["lang"]);
+				alert($label, true, $label['Add_gesendet'], 'index.php?action=table&lang='.$label['lang']);
 			} else {
 				http_response_code(500);
-				alert($label, false, $label['Add_nichtGesendet'], 'index.php?action=table&lang='.$label["lang"]);
+				alert($label, false, $label['Add_nichtGesendet'], 'index.php?action=table&lang='.$label['lang']);
 			}
 		}
 	}
@@ -65,7 +65,7 @@ function actionAdd($label){
 		}
 
 		echo '<p>'.$label['Add_intro'].'</p>';
-		addTandemForm($label, "index.php?action=add&lang=".$label['lang']);
+		addTandemForm($label, 'index.php?action=add&lang='.$label['lang']);
 	}
 }
 
@@ -151,7 +151,7 @@ function actionEdit($label)
 				$_POST['ort'],
 				strtolower($_POST['email']));
 
-			alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label["lang"]);
+			alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label['lang']);
 		}
 		else
 		{
@@ -191,11 +191,11 @@ function actionDelete($label)
 		{
 			$db_erg = db_delete_DataSet($GLOBALS['server'], $id, $hash);
 			if ( $db_erg > 0 ){
-				alert($label, true, $label['deleteDataset'], 'index.php?action=table&lang='.$label["lang"]);
+				alert($label, true, $label['deleteDataset'], 'index.php?action=table&lang='.$label['lang']);
 			} else
 			{
 				http_response_code(500);
-				alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
+				alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label['lang']);
 			}
 		} else
 		{
@@ -219,11 +219,11 @@ function actionRelease($label)
 
 		$db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
 		if ($db_erg){
-			alert($label, true, $label['releaseDataset'], 'index.php?action=table&lang='.$label["lang"]);
+			alert($label, true, $label['releaseDataset'], 'index.php?action=table&lang='.$label['lang']);
 		} else
 		{
 			http_response_code(500);
-			alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
+			alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label['lang']);
 		}
 	}
 }
@@ -283,7 +283,7 @@ function actionReport($label)
 			$email = strtolower($_POST['email']);
 			$text = $_POST['text'];
 
-			$label_mail = setLanguage("de");
+			$label_mail = setLanguage('de');
 
 			$to = $GLOBALS['email_orga'];
 
