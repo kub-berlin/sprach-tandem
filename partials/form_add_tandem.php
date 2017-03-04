@@ -50,10 +50,10 @@
 		<tr><td valign="top"><input value="ja" name="datenschutz[]" type="checkbox"></td><td><?php e(sprintf($label['Add_datenschutz'], $GLOBALS["organisationName"])) ?></td></tr>
 	</table>
 	<p>
-		<button type="submit" name="send" value="cancel">
+		<a href="index.php?action=table&lang=<?php e($label["lang"]) ?>" class="button">
 			<?php icon(l10nDirection('prev', $label)) ?>
 			<?php e($label['zurueck']) ?>
-		</button>
+		</a>
 		<button type="submit" name="send" value="send">
 			<?php icon('send') ?>
 			<?php e($label['Add_senden']) ?>

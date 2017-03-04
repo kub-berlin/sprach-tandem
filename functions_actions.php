@@ -262,12 +262,11 @@ function actionEdit($label)
 							echo '</td>';
 							echo '<td>'.$label['Edit_ok'].'</td></tr>';
 							echo '</table>';
-							echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-							echo '<p><button type="submit">';
+							echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
 							icon(l10nDirection('prev', $label));
+							echo "\n";
 							e($label['zurueck']);
-							echo '</button></p>';
-							echo '</form>';
+							echo '</a></p>';
 						}
 					}
 					else
@@ -318,13 +317,11 @@ function actionDelete($label)
 					echo '</td>';
 					echo '<td>'.$label['deleteDataset'].'</td></tr>';
 					echo '</table>';
-					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					echo '<p><button type="submit">';
+					echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
 					icon(l10nDirection('prev', $label));
 					echo "\n";
 					e($label['zurueck']);
-					echo '</button></p>';
-					echo '</form>';
+					echo '</a></p>';
 				} else
 				{
 					echo '<table>';
@@ -385,13 +382,11 @@ function actionRelease($label)
 				echo '</td>';
 				echo '<td>'.$label['releaseDataset'].'</td></tr>';
 				echo '</table>';
-				echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-				echo '<p><button type="submit">';
+				echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
 				icon(l10nDirection('prev', $label));
 				echo "\n";
 				e($label['zurueck']);
-				echo '</button></p>';
-				echo '</form>';
+				echo '</a></p>';
 			} else
 			{
 				$error = true;
@@ -408,13 +403,11 @@ function actionRelease($label)
 			echo '</td>';
 			echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
 			echo '</table>';
-			echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-			echo '<p><button type="submit">';
+			echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
 			icon(l10nDirection('prev', $label));
 			echo "\n";
 			e($label['zurueck']);
-			echo '</button></p>';
-			echo '</form>';
+			echo '</a></p>';
 		}
 	}
 }
@@ -486,13 +479,11 @@ function actionReport($label)
 		echo '<tr><td><b>'.$label['View_ort'].': </b></td><td>'. html_entity_decode($zeile[$GLOBALS['db_colName_ort']]) . '</td></tr>';
 		echo '<tr><td valign="top"><b>'.$label['View_beschreibung'].': </b></td><td><textarea name="lizenz" cols="50" rows="10" readonly style="width: 100%" >'. html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]) .'</textarea></td></tr>';
 		echo '</table>';
-		echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-		echo '<p><button type="submit">';
+		echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
 		icon(l10nDirection('prev', $label));
 		echo "\n";
 		e($label['zurueck']);
-		echo '</button></p>';
-		echo '</form>';
+		echo '</a></p>';
 		echo "<hr>";
 
 		//=======================

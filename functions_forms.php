@@ -8,13 +8,7 @@
 
 function addTandemForm($label, $caller)
 {
-	if (isset($_POST['send']) and $_POST['send'] == "cancel")
-	{
-		header('Location: index.php?action=table&lang='.$label["lang"]);
-	}
-
 	setDefaultParams(array('name', 'alter', 'email', 'email_nochmal', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
-
 	include 'partials/form_add_tandem.php';
 }
 
