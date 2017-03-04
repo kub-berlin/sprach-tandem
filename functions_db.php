@@ -288,9 +288,9 @@ function db_delete_DataSet($pdo, $id, $hash)
 		$statement -> bindParam(':id', $id);
 		$statement -> bindParam(':hash', $hash);
 		$statement->execute();
-		$count = $statement->rowCount() > 0;
+		$count = $statement->fetchColumn();
 
-		if ($count)
+		if ($count > 0)
 		{
 			$match = 1;
 		} else {
