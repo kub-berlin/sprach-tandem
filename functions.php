@@ -117,8 +117,6 @@ function getLabel($lang)
 		}
 		$i = $i + 1;
 	}
-	/*if ($t_lang = 4)
-		$t_lang = 2;*/
 	foreach ($t_data as $tstring) {
 		if ($tstring[$t_lang] != '') {
 			$ret[(str_replace(' ', '', $tstring[0]))] = ($tstring[$t_lang]);
