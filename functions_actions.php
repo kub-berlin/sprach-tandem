@@ -65,7 +65,7 @@ function actionAdd($label){
 		}
 
 		echo '<p>'.$label['Add_intro'].'</p>';
-		addTandemForm($label, 'index.php?action=add&lang='.$label['lang']);
+		addTandemForm($label);
 	}
 }
 
@@ -170,7 +170,7 @@ function actionEdit($label)
 			$_POST['ort']           = $_POST['ort']           == '' ? $zeile[$GLOBALS['db_colName_ort']]          : $_POST['ort'];
 			$_POST['email']         = $_POST['email']         == '' ? $zeile[$GLOBALS['db_colName_email']]        : $_POST['email'];
 
-			addTandemForm($label, 'index.php?action=edit&a='.$hash.'&tid='.$id.'&lang='.$label['lang']);
+			addTandemForm($label);
 		}
 	}
 }

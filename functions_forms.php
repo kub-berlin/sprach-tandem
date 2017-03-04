@@ -6,14 +6,14 @@
 //
 //#############################
 
-function addTandemForm($label, $caller)
+function addTandemForm($label)
 {
 	setDefaultParams(array('name', 'alter', 'email', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
 	$_POST['email_nochmal'] = '';
 	include 'templates/forms/add_tandem.php';
 }
 
-function sendMessageForm($label, $caller)
+function sendMessageForm($label)
 {
 	setDefaultParams(array('name', 'alter', 'email', 'ort', 'geschlecht', 'text'));
 	$_POST['email_nochmal'] = '';
@@ -23,7 +23,7 @@ function sendMessageForm($label, $caller)
 }
 
 
-function filterLanguageForm($label, $caller)
+function filterLanguageForm($label)
 {
 	$filterAng = isset($_GET['filterAng']) ? $_GET['filterAng'] : $label['Table_filter_alle'];
 	$filterGes = isset($_GET['filterGes']) ? $_GET['filterGes'] : $label['Table_filter_alle'];
@@ -43,7 +43,7 @@ function filterLanguageForm($label, $caller)
 	include 'templates/forms/filter_lang.php';
 }
 
-function reportForm($label, $caller)
+function reportForm($label)
 {
 	setDefaultParams(array('name', 'email', 'text'));
 	$_POST['email_nochmal'] = '';

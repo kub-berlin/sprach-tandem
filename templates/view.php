@@ -20,7 +20,7 @@
 </h3>
 
 <?php if ($senden == false) : ?>
-	<?php sendMessageForm($label, "index.php?action=view&lang=".$label['lang']."&tid=".$id) ?>
+	<?php sendMessageForm($label) ?>
 <?php elseif ($gesendet == 1) : ?>
 	<?php alert($label, true, $label['View_gesendet'], 'index.php?action=table&lang='.$label['lang']) ?>
 <?php else : ?>

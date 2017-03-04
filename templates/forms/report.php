@@ -1,4 +1,4 @@
-<form action="<?php e($caller) ?>" method="POST">
+<form method="POST">
 	<p class=form_above><?php e(sprintf($label['Report_textabove'], $GLOBALS["organisationName"])) ?></p>
 
 	<table class="form_table" role="presentation">

@@ -1,4 +1,4 @@
-<form action="<?php e($caller) ?>" method="GET">
+<form method="GET">
 	<div class="filter-bar">
 		<?php e($label['Table_filtern']) ?>
 

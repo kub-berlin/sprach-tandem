@@ -15,7 +15,7 @@
 </h3>
 
 <?php if (!$senden) : ?>
-	<?php reportForm($label, "index.php?action=report&lang=".$label['lang']."&tid=".$id) ?>
+	<?php reportForm($label) ?>
 <?php elseif ($gesendet) : ?>
 	<?php alert($label, true, $label['Report_gesendet'], 'index.php?action=table&lang='.$label["lang"]) ?>
 <?php else : ?>

@@ -1,4 +1,4 @@
-<form action="<?php e($caller) ?>" method="POST" >
+<form method="POST" >
 	<p class=form_above><?php e($label['View_Form_ausfuellen']) ?></p>
 
 	<table class="form_table" role="presentation">

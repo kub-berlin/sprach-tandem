@@ -8,7 +8,7 @@
 <p><?php e($label['Table_intro']) ?></p>
 
 <div>
-	<?php filterLanguageForm($label, "index.php?action=table&lang=".$label['lang']) ?>
+	<?php filterLanguageForm($label) ?>
 
 	<table>
 		<tr>
