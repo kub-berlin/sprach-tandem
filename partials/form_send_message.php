@@ -8,10 +8,10 @@
 		<tr><td><?php e($label['View_Form_email']) ?>:</td> <td><input type="text" name="email" value="<?php e($_POST['email']) ?>" /></td></tr>
 		<tr><td><?php e($label['View_Form_email_nochmal']) ?>:</td> <td><input type="text" name="email_nochmal" value="<?php e($_POST['email_nochmal']) ?>" /></td></tr>
 		<tr class=areYouHuman><td>NICHT ausfüllen/do NOT fill in:</td> <td><input type="text" name="areYouHuman" Value="<?php e($_POST['areYouHuman']) ?>" /></td></tr>
-		<tr><td valign="top"><?php e($label['View_Form_text']) ?>:</td> <td> <textarea name="text" cols="50" rows="10" style="width: 100%" ><?php e($_POST['text']) ?></textarea> </td></tr>
+		<tr><td><?php e($label['View_Form_text']) ?>:</td> <td> <textarea name="text" cols="50" rows="10" style="width: 100%" ><?php e($_POST['text']) ?></textarea> </td></tr>
 	</table>
 	<table>
-		<tr><td valign="top"><input value="ja" name="datenschutz[]" type="checkbox"></td><td><?php e(sprintf($label['View_datenschutz'], $GLOBALS["organisationName"])) ?></td></tr>
+		<tr><td><input value="ja" name="datenschutz[]" type="checkbox"></td><td><?php e(sprintf($label['View_datenschutz'], $GLOBALS["organisationName"])) ?></td></tr>
 	</table>
 	<p>
 		<button type="submit">

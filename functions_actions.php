@@ -257,7 +257,7 @@ function actionEdit($label)
 
 							db_edit_dataset($GLOBALS['server'], $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email);
 
-							echo '<tr><td valign="top">';
+							echo '<tr><td>';
 							icon('check');
 							echo '</td>';
 							echo '<td>'.$label['Edit_ok'].'</td></tr>';
@@ -312,7 +312,7 @@ function actionDelete($label)
 				$db_erg = db_delete_DataSet($GLOBALS['server'], $id, $hash);
 				if ( $db_erg > 0 ){
 					echo '<table>';
-					echo '<tr><td valign="top"><td valign="top">';
+					echo '<tr><td><td>';
 					icon('check');
 					echo '</td>';
 					echo '<td>'.$label['deleteDataset'].'</td></tr>';
@@ -325,7 +325,7 @@ function actionDelete($label)
 				} else
 				{
 					echo '<table>';
-					echo '<tr><td valign="top">';
+					echo '<tr><td>';
 					icon('emoji_sad');
 					echo '</td>';
 					echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
@@ -377,7 +377,7 @@ function actionRelease($label)
 			$db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
 			if ($db_erg){
 				echo '<table>';
-				echo '<tr><td valign="top">';
+				echo '<tr><td>';
 				icon('check');
 				echo '</td>';
 				echo '<td>'.$label['releaseDataset'].'</td></tr>';
@@ -398,7 +398,7 @@ function actionRelease($label)
 		if ($error)
 		{
 			echo '<table>';
-			echo '<tr><td valign="top">';
+			echo '<tr><td>';
 			icon('emoji_sad');
 			echo '</td>';
 			echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
@@ -477,7 +477,7 @@ function actionReport($label)
 		}
 		echo '</td></tr>';
 		echo '<tr><td><b>'.$label['View_ort'].': </b></td><td>'. html_entity_decode($zeile[$GLOBALS['db_colName_ort']]) . '</td></tr>';
-		echo '<tr><td valign="top"><b>'.$label['View_beschreibung'].': </b></td><td><textarea name="lizenz" cols="50" rows="10" readonly style="width: 100%" >'. html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]) .'</textarea></td></tr>';
+		echo '<tr><td><b>'.$label['View_beschreibung'].': </b></td><td><textarea name="lizenz" cols="50" rows="10" readonly style="width: 100%" >'. html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]) .'</textarea></td></tr>';
 		echo '</table>';
 		echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
 		icon(l10nDirection('prev', $label));
@@ -536,7 +536,7 @@ function actionReport($label)
 
 			} else {
 				echo '<table>';
-				echo '<tr><td valign="top">';
+				echo '<tr><td>';
 				icon('emoji_sad');
 				echo '</td>';
 				echo '<td>'.$label['Report_nichtGesendet'].'</td></tr>';

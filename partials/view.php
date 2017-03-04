@@ -8,7 +8,7 @@
 		<?php e($label['View_skills_' . $zeile[$GLOBALS['db_colName_skills']]]) ?>
 	</td></tr>
 	<tr><td><b><?php e($label['View_ort']) ?>: </b></td><td><?php e(html_entity_decode($zeile[$GLOBALS['db_colName_ort']])) ?></td></tr>
-	<tr><td valign="top"><b><?php e($label['View_beschreibung']) ?>: </b></td><td>
+	<tr><td><b><?php e($label['View_beschreibung']) ?>: </b></td><td>
 		<textarea name="lizenz" cols="50" rows="10" readonly style="width: 100%"><?php e(html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']])) ?></textarea>
 	</td></tr>
 	<tr><td></td><td align="right">
@@ -38,12 +38,12 @@
 	<?php sendMessageForm($label, "index.php?action=view&lang=".$label['lang']."&tid=".$id) ?>
 <?php elseif ($gesendet == 1) : ?>
 	<table>
-		<tr><td valign="top"><?php icon('check') ?></td>
+		<tr><td><?php icon('check') ?></td>
 		<td><?php e($label['View_gesendet']) ?></td></tr>
 	</table>
 <?php else : ?>
 	<table>
-		<tr><td valign="top"><?php icon('emoji_sad') ?></td>
+		<tr><td><?php icon('emoji_sad') ?></td>
 		<td><?php e($label['View_nichtGesendet']) ?></td></tr>
 	</table>
 <?php endif ?>

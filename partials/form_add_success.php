@@ -1,6 +1,6 @@
 <table>
 	<tr>
-		<td valign="top"><?php icon('check') ?></td>
+		<td><?php icon('check') ?></td>
 		<td><?php e($label['Add_gesendet']) ?></td>
 	</tr>
 </table>

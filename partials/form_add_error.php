@@ -1,6 +1,6 @@
 <table>
 	<tr>
-		<td valign="top"><?php icon('emoji_sad') ?></td>
+		<td><?php icon('emoji_sad') ?></td>
 		<td><?php e($label['Add_nichtGesendet']) ?></td>
 	</tr>
 </table>

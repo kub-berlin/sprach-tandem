@@ -35,19 +35,19 @@
 			<?php endforeach ?>
 			</select>
 		</td></tr>
-		<tr><td valign="top"><?php e($label['Add_skills']) ?>:</td> <td>
+		<tr><td><?php e($label['Add_skills']) ?>:</td> <td>
 			<input type="radio" name="skills" value="0" <?php if ($_POST['skills'] == "0" OR $_POST['skills'] == "") : ?>checked<?php endif ?>><?php e($label['Add_skills_0']) ?></br>
 			<input type="radio" name="skills" value="1" <?php if ($_POST['skills'] == "1") : ?>checked<?php endif ?>><?php e($label['Add_skills_1']) ?></br>
 			<input type="radio" name="skills" value="2" <?php if ($_POST['skills'] == "2") : ?>checked<?php endif ?>><?php e($label['Add_skills_2']) ?></br>
 			<input type="radio" name="skills" value="3" <?php if ($_POST['skills'] == "3") : ?>checked<?php endif ?>><?php e($label['Add_skills_3']) ?>
 		</td></tr>
 
-		<tr><td valign="top"><?php e($label['Add_beschreibung']) ?>:</td> <td>
+		<tr><td><?php e($label['Add_beschreibung']) ?>:</td> <td>
 			<textarea name="text" cols="50" rows="10" style="width: 100%"><?php e($_POST['text']) ?></textarea>
 		</td></tr>
 	</table>
 	<table class=form_table>
-		<tr><td valign="top"><input value="ja" name="datenschutz[]" type="checkbox"></td><td><?php e(sprintf($label['Add_datenschutz'], $GLOBALS["organisationName"])) ?></td></tr>
+		<tr><td><input value="ja" name="datenschutz[]" type="checkbox"></td><td><?php e(sprintf($label['Add_datenschutz'], $GLOBALS["organisationName"])) ?></td></tr>
 	</table>
 	<p>
 		<a href="index.php?action=table&lang=<?php e($label["lang"]) ?>" class="button">
