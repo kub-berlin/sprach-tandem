@@ -8,7 +8,7 @@
 
 function actionTable($label)
 {
-	$page = (isset($_GET["page"]) and $_GET['page'] != '') ? intval($_GET["page"]): 0;
+	$page = (isset($_GET['page']) and $_GET['page'] != '') ? intval($_GET['page']): 0;
 	$filterAng = isset($_GET['filterAng']) ? $_GET['filterAng'] : $label['Table_filter_alle'];
 	$filterGes = isset($_GET['filterGes']) ? $_GET['filterGes'] : $label['Table_filter_alle'];
 	$anzahl = db_countTableData($GLOBALS['server'], $filterAng, $filterGes, $label);
@@ -102,7 +102,6 @@ function actionAdd($label){
 				}
 			}
 		}
-		echo '</div>';
 	}
 }
 
@@ -189,7 +188,6 @@ function actionEdit($label)
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
 		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
-		//echo '<font face="Arial" size="2">';
 
 		if ( is_numeric($id) )
 		{
@@ -327,7 +325,6 @@ function actionDelete($label)
 
 function actionRelease($label)
 {
-
 	$error = false;
 
 	if (!isset( $_GET["ok"] )){

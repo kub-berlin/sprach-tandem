@@ -16,20 +16,20 @@ TO DOS
 
 mb_internal_encoding("UTF-8");
 include './functions.php';
-$label = setLanguage(htmlentities($_GET["lang"]));
+$label = setLanguage(htmlentities($_GET['lang']));
 
 ?><!DOCTYPE html>
 <html
 	lang="<?php e($label['lang']) ?>"
-	dir="<?php e(($label["lang"] == 'fa' or $label["lang"] == 'ar') ? 'rtl' : 'ltr') ?>"
+	dir="<?php e(($label['lang'] == 'fa' or $label['lang'] == 'ar') ? 'rtl' : 'ltr') ?>"
 >
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="https://kub-berlin.org/templates/kub/css/kub-<?php e(($label["lang"] == 'fa' or $label["lang"] == 'ar') ? 'rtl' : 'ltr') ?>.css" />
+	<link rel="stylesheet" type="text/css" href="https://kub-berlin.org/templates/kub/css/kub-<?php e(($label['lang'] == 'fa' or $label['lang'] == 'ar') ? 'rtl' : 'ltr') ?>.css" />
 	<link rel="stylesheet" type="text/css" href="./style.css" />
-	<title><?php e(sprintf($label["Title"], $GLOBALS['organisationName'])) ?></title>
+	<title><?php e(sprintf($label['Title'], $GLOBALS['organisationName'])) ?></title>
 </head>
 
 <body>
@@ -49,10 +49,10 @@ if ($server != null){
 
 	switch ($action) {
 		case 'table':
-			echo '<p><a href="index.php?action=add&lang='.$label["lang"].'" class="button">';
+			echo '<p><a href="index.php?action=add&lang='.$label['lang'].'" class="button">';
 			icon('add_user');
 			echo "\n";
-			e($label["Add_Title"]);
+			e($label['Add_Title']);
 			echo '</a></p>';
 
 			actionTable($label);
@@ -73,7 +73,7 @@ if ($server != null){
 			actionRelease($label);
 			break;
 		case 'stat':
-			echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
+			echo '<p><a href="index.php?action=table&lang='.$label['lang'].'" class="button">';
 			icon('menu');
 			echo "\nTabelle</a></p>";
 			actionStatistic($label);
