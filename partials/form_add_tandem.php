@@ -1,7 +1,7 @@
 <form action="<?php e($caller) ?>" method="POST">
 	<p class=form_above><?php e($label['Add_ausfuellen']) ?></p>
 	<?php // Formulareintragungen liegen (noch) nicht vor ?>
-	<table class=form_table>
+	<table class="form_table">
 		<tr><td><?php e($label['Add_name']) ?>:</td> <td><input type="text" name="name" value="<?php e($_POST["name"]) ?>" /></td></tr>
 		<tr><td><?php e($label['Add_alter']) ?>:</td> <td><input type="text" name="alter" value="<?php e($_POST['alter']) ?>" /></td></tr>
 		<tr><td><?php e($label['Add_email']) ?>:</td> <td><input type="text" name="email" value="<?php e($_POST['email']) ?>" /></td></tr>

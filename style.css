@@ -17,52 +17,14 @@ body {
 	text-align: center;
 }
 
-table {
-	border: 0;
-}
-
-th, td {
-	padding: 4px 4px 4px 4px;
-}
-
-table.tandem_table {
-	border-collapse: collapse;
-	font-size: 90%;
-}
-
-table.tandem_table th,
-table.tandem_table td {
-	border: 2px solid;
-	border-color: #005e60;
-
-	-moz-hyphens: auto;
-	hyphens: auto;
-
-	word-wrap: break-word;
-
-	word-break: break-all;
-}
-
-table.tandem_table th {
-	background-color: #d0e4e4;/*#ba0303;*/
-	color: black;
-	word-break: normal;
-}
-
-table.tandem_table tr:nth-child(even) {
-	background: #FFFFFF;
-}
-
-table.tandem_table tr:nth-child(odd) {
-	background: #f8f8f8;
-}
-
-table.filter_table {
-	width: 100%;
-}
-
-#filter_button {
-	min-width: 85px;
+.form_table,
+.form_table td,
+.form_table th,
+.form_table tr {
+	background: none !important;
+	padding: 0 !important;
+	border: 0 !important;
+	font-size: inherit !important;
 }
 
 .icon {
