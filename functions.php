@@ -47,6 +47,10 @@ function icon($name, $className='', $alt='') {
 		. '</svg>';
 }
 
+function alert($label, $success, $msg, $backLink) {
+	include 'partials/alert.php';
+}
+
 //##############################
 //
 //   SPRACH-AUSWAHL

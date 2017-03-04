@@ -96,9 +96,9 @@ function actionAdd($label){
 				$gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
 				$_SESSION['form_submitted'] = true;
 				if ($gesendet == 1){
-					include 'partials/form_add_success.php';
+					alert($label, true, $label['Add_gesendet'], 'index.php?action=table&lang='.$label["lang"]);
 				} else {
-					include 'partials/form_add_error.php';
+					alert($label, false, $label['Add_nichtGesendet'], 'index.php?action=table&lang='.$label["lang"]);
 				}
 			}
 		}
@@ -257,16 +257,7 @@ function actionEdit($label)
 
 							db_edit_dataset($GLOBALS['server'], $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email);
 
-							echo '<tr><td>';
-							icon('check');
-							echo '</td>';
-							echo '<td>'.$label['Edit_ok'].'</td></tr>';
-							echo '</table>';
-							echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
-							icon(l10nDirection('prev', $label));
-							echo "\n";
-							e($label['zurueck']);
-							echo '</a></p>';
+							alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label["lang"]);
 						}
 					}
 					else
@@ -311,32 +302,10 @@ function actionDelete($label)
 			{
 				$db_erg = db_delete_DataSet($GLOBALS['server'], $id, $hash);
 				if ( $db_erg > 0 ){
-					echo '<table>';
-					echo '<tr><td><td>';
-					icon('check');
-					echo '</td>';
-					echo '<td>'.$label['deleteDataset'].'</td></tr>';
-					echo '</table>';
-					echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
-					icon(l10nDirection('prev', $label));
-					echo "\n";
-					e($label['zurueck']);
-					echo '</a></p>';
+					alert($label, true, $label['deleteDataset'], 'index.php?action=table&lang='.$label["lang"]);
 				} else
 				{
-					echo '<table>';
-					echo '<tr><td>';
-					icon('emoji_sad');
-					echo '</td>';
-					echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
-					echo '</table>';
-					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					echo '<p><button type="submit">';
-					icon(l10nDirection('prev', $label));
-					echo "\n";
-					e($label['zurueck']);
-					echo '</button></p>';
-					echo '</form>';
+					alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
 				}
 			} else
 			{
@@ -376,17 +345,7 @@ function actionRelease($label)
 		{
 			$db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
 			if ($db_erg){
-				echo '<table>';
-				echo '<tr><td>';
-				icon('check');
-				echo '</td>';
-				echo '<td>'.$label['releaseDataset'].'</td></tr>';
-				echo '</table>';
-				echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
-				icon(l10nDirection('prev', $label));
-				echo "\n";
-				e($label['zurueck']);
-				echo '</a></p>';
+				alert($label, true, $label['releaseDataset'], 'index.php?action=table&lang='.$label["lang"]);
 			} else
 			{
 				$error = true;
@@ -397,17 +356,7 @@ function actionRelease($label)
 		}
 		if ($error)
 		{
-			echo '<table>';
-			echo '<tr><td>';
-			icon('emoji_sad');
-			echo '</td>';
-			echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
-			echo '</table>';
-			echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
-			icon(l10nDirection('prev', $label));
-			echo "\n";
-			e($label['zurueck']);
-			echo '</a></p>';
+			alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
 		}
 	}
 }
@@ -527,20 +476,9 @@ function actionReport($label)
 			$gesendet = send_notification_report($to, $name, $email, $text, html_entity_decode($zeile[$GLOBALS['db_colName_name']]), html_entity_decode($zeile[$GLOBALS['db_colName_id']]), html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]), $label_mail);
 
 			if ($gesendet == 1){
-				echo '<table>';
-				echo '<tr>';
-				icon('check');
-				echo '</td>';
-				echo '<td>'.$label['Report_gesendet'].'</td></tr>';
-				echo '</table>';
-
+				alert($label, true, $label['Report_gesendet'], 'index.php?action=table&lang='.$label["lang"]);
 			} else {
-				echo '<table>';
-				echo '<tr><td>';
-				icon('emoji_sad');
-				echo '</td>';
-				echo '<td>'.$label['Report_nichtGesendet'].'</td></tr>';
-				echo '</table>';
+				alert($label, false, $label['Report_nichtGesendet'], 'index.php?action=table&lang='.$label["lang"]);
 			}
 		}
 	}

@@ -37,13 +37,7 @@
 <?php if ($senden == false) : ?>
 	<?php sendMessageForm($label, "index.php?action=view&lang=".$label['lang']."&tid=".$id) ?>
 <?php elseif ($gesendet == 1) : ?>
-	<table>
-		<tr><td><?php icon('check') ?></td>
-		<td><?php e($label['View_gesendet']) ?></td></tr>
-	</table>
+	<?php alert($label, true, $label['View_gesendet'], 'index.php?action=table&lang='.$label['lang']) ?>
 <?php else : ?>
-	<table>
-		<tr><td><?php icon('emoji_sad') ?></td>
-		<td><?php e($label['View_nichtGesendet']) ?></td></tr>
-	</table>
+	<?php alert($label, false, $label['View_nichtGesendet'], 'index.php?action=table&lang='.$label['lang']) ?>
 <?php endif ?>
