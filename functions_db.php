@@ -138,9 +138,9 @@ function db_selectTableData($pdo, $filterAng, $filterGes, $label, $page)
 	try {
 		$statement = $pdo->prepare($sql);
 		if ($filterAng != $label['Table_filter_alle'])
-			$statement -> bindParam(':filterAng', $filterAng);
+			$statement->bindParam(':filterAng', $filterAng);
 		if ($filterGes != $label['Table_filter_alle'])
-			$statement -> bindParam(':filterGes', $filterGes);
+			$statement->bindParam(':filterGes', $filterGes);
 		$statement->execute();
 		return $statement->fetchAll();
 	} catch (PDOException $e) {
@@ -160,9 +160,9 @@ function db_countTableData($pdo, $filterAng, $filterGes, $label)
 	try {
 		$statement = $pdo->prepare($sql);
 		if ($filterAng != $label['Table_filter_alle'])
-			$statement -> bindParam(':filterAng', $filterAng);
+			$statement->bindParam(':filterAng', $filterAng);
 		if ($filterGes != $label['Table_filter_alle'])
-			$statement -> bindParam(':filterGes', $filterGes);
+			$statement->bindParam(':filterGes', $filterGes);
 		$statement->execute();
 		return $statement->fetchColumn();
 	}
@@ -178,7 +178,7 @@ function db_getDataSet($pdo, $id)
 
 	try {
 		$statement = $pdo->prepare($sql);
-		$statement -> bindParam(':id', $id);
+		$statement->bindParam(':id', $id);
 		$statement->execute();
 		return $statement->fetchAll();
 	} catch (PDOException $e) {
@@ -205,17 +205,17 @@ function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $sprach
 
 	try {
 		$statement = $pdo->prepare($sql);
-		$statement -> bindParam(':name', $name);
-		$statement -> bindParam(':alter', $alter);
-		$statement -> bindParam(':geschlecht', $geschlecht);
-		$statement -> bindParam(':skills', $skills);
-		$statement -> bindParam(':spracheAng', $spracheAng);
-		$statement -> bindParam(':spracheGes', $spracheGes);
-		$statement -> bindParam(':datum', $datum);
-		$statement -> bindParam(':beschreibung', $beschreibung);
-		$statement -> bindParam(':ort', $ort);
-		$statement -> bindParam(':email', $email);
-		$statement -> bindParam(':id', $id);
+		$statement->bindParam(':name', $name);
+		$statement->bindParam(':alter', $alter);
+		$statement->bindParam(':geschlecht', $geschlecht);
+		$statement->bindParam(':skills', $skills);
+		$statement->bindParam(':spracheAng', $spracheAng);
+		$statement->bindParam(':spracheGes', $spracheGes);
+		$statement->bindParam(':datum', $datum);
+		$statement->bindParam(':beschreibung', $beschreibung);
+		$statement->bindParam(':ort', $ort);
+		$statement->bindParam(':email', $email);
+		$statement->bindParam(':id', $id);
 
 		return $statement->execute();
 	} catch (PDOException $e) {
@@ -230,8 +230,8 @@ function db_delete_DataSet($pdo, $id, $hash)
 
 	try {
 		$statement = $pdo->prepare($sql);
-		$statement -> bindParam(':id', $id);
-		$statement -> bindParam(':hash', $hash);
+		$statement->bindParam(':id', $id);
+		$statement->bindParam(':hash', $hash);
 		$ret = $statement->execute();
 
 		if ($statement->rowCount() == 1) $ret = -1;
@@ -250,8 +250,8 @@ function db_release_DataSet($pdo, $id, $hash)
 
 	try {
 		$statement = $pdo->prepare($sql);
-		$statement -> bindParam(':id', $id);
-		$statement -> bindParam(':hash', $hash);
+		$statement->bindParam(':id', $id);
+		$statement->bindParam(':hash', $hash);
 		$ret = $statement->execute();
 
 		if ($statement->rowCount() == 1) $ret = -1;
