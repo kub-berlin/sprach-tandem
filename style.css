@@ -13,8 +13,11 @@ body {
 	color: red;
 }
 
-.center {
+.pagination {
 	text-align: center;
+}
+.pagination a {
+	display: inline-block;
 }
 
 .form_table,

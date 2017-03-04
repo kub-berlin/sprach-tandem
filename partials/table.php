@@ -23,8 +23,7 @@
 		<?php endforeach ?>
 	</table>
 
-	<!-- pagination -->
-	<p class=center>
+	<p class="pagination">
 		<?php if ($page > 1) : ?>
 			<a href="index.php?action=table&lang=<?php e($label['lang']) ?>&page=0&filterAng=<?php e($filterAng) ?>&filterGes=<?php e($filterGes) ?>">
 				<?php icon(l10nDirection('first', $label), null, 'first') ?>
