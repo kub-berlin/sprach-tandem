@@ -315,26 +315,8 @@ function actionReport($label)
 	{
 		$id = $_GET['tid'];
 
-		echo '<h3>'. html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . '</h3>';
-		echo '<table>';
-		echo '<tr><td><b>'.$label['View_alter'].':</b></td><td>'. $zeile[$GLOBALS['db_colName_alter']] . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_geschlecht'].':</b></td><td>'. html_entity_decode($zeile[$GLOBALS['db_colName_geschlecht']]) . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_spracheAng'].': </b></td><td>'. $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])] . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_spracheGes'].': </b></td><td>'. $label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])] . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_skills'].':</b></td><td>';
-		if ($zeile[$GLOBALS['db_colName_skills']] == 0){
-			echo $label['View_skills_0'];
-		} elseif ($zeile[$GLOBALS['db_colName_skills']] == 1){
-			echo $label['View_skills_1'];
-		} elseif ($zeile[$GLOBALS['db_colName_skills']] == 2){
-			echo $label['View_skills_2'];
-		} elseif ($zeile[$GLOBALS['db_colName_skills']] == 3){
-			echo $label['View_skills_3'];
-		}
-		echo '</td></tr>';
-		echo '<tr><td><b>'.$label['View_ort'].': </b></td><td>'. html_entity_decode($zeile[$GLOBALS['db_colName_ort']]) . '</td></tr>';
-		echo '<tr><td><b>'.$label['View_beschreibung'].': </b></td><td><textarea name="lizenz" cols="50" rows="10" readonly style="width: 100%" >'. html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]) .'</textarea></td></tr>';
-		echo '</table>';
+		include 'partials/detail.php';
+
 		echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
 		icon(l10nDirection('prev', $label));
 		echo "\n";
