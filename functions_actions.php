@@ -314,62 +314,41 @@ function actionReport($label)
 	if ($zeile = getEntry())
 	{
 		$id = $_GET['tid'];
+		$senden = false;
 
-		include 'partials/detail.php';
+		if ($_SERVER['REQUEST_METHOD'] === 'POST'
+			AND $_POST['text'] != ''
+			AND $_POST['areYouHuman'] == ''
+			AND (
+				$_POST['email'] == ''
+				OR (
+					isValidEmail($_POST['email'])
+					AND strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])
+				)
+			))
+		{
+			$senden = true;
 
-		echo '<p><a href="index.php?action=table&lang='.$label["lang"].'" class="button">';
-		icon(l10nDirection('prev', $label));
-		echo "\n";
-		e($label['zurueck']);
-		echo '</a></p>';
-		echo "<hr>";
-
-		//=======================
-		// Formular
-		//
-		if (isset($_POST['text']))
-		{
-			if (($_POST['text'] != "")
-				AND
-				($_POST['areYouHuman'] == '')
-				AND
-				((isValidEmail($_POST['email']) and (strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])))
-				OR
-				($_POST['email'] == "")))
-			{
-				$senden = true;
-			} else {
-				$senden = false;
-			}
-		} else {
-			$senden = false;
-		}
-		echo '<h3>';
-		icon('megaphone');
-		echo "\n";
-		e($label['View_AnzeigeMelden']);
-		echo '</h3>';
-		if ($senden == false)
-		{
-			reportForm($label, "index.php?action=report&lang=".$label['lang']."&tid=".$id);
-		} else
-		{
-			$name = strip_tags($_POST['name']);
-			$email = strip_tags(strtolower($_POST['email']));
-			$text = strip_tags($_POST['text']);
+			$name = $_POST['name'];
+			$email = strtolower($_POST['email']);
+			$text = $_POST['text'];
 
 			$label_mail = setLanguage("de");
 
 			$to = $GLOBALS['email_orga'];
 
-			$gesendet = send_notification_report($to, $name, $email, $text, html_entity_decode($zeile[$GLOBALS['db_colName_name']]), html_entity_decode($zeile[$GLOBALS['db_colName_id']]), html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]), $label_mail);
-
-			if ($gesendet == 1){
-				alert($label, true, $label['Report_gesendet'], 'index.php?action=table&lang='.$label["lang"]);
-			} else {
-				alert($label, false, $label['Report_nichtGesendet'], 'index.php?action=table&lang='.$label["lang"]);
-			}
+			$gesendet = send_notification_report(
+				$to,
+				$name,
+				$email,
+				$text,
+				html_entity_decode($zeile[$GLOBALS['db_colName_name']]),
+				html_entity_decode($zeile[$GLOBALS['db_colName_id']]),
+				html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]),
+				$label_mail);
 		}
+
+		include 'partials/report.php';
 	}
 }
 
