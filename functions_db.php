@@ -113,7 +113,7 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 
 function db_selectFormColumn($pdo, $colName)
 {
-	$sql = "SELECT DISTINCT $colName FROM {$GLOBALS['db_table_name']} WHERE `{$GLOBALS['db_colName_released']}` = 1";
+	$sql = "SELECT DISTINCT $colName FROM {$GLOBALS['db_table_name']} WHERE `{$GLOBALS['db_colName_released']}` = 1 ORDER BY $colName";
 
 	try {
 		$statement = $pdo->query($sql);
