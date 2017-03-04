@@ -222,47 +222,7 @@ function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $sprach
 
 function db_delete_DataSet($pdo, $id, $hash)
 {
-	$sql = 'SELECT COUNT(*) FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.
-		$GLOBALS['db_colName_id'].'`= :id AND `'.
-		$GLOBALS['db_colName_hash'].'` = :hash';
-
-	try {
-		$statement = $pdo->prepare($sql);
-		$statement -> bindParam(':id', $id);
-		$statement -> bindParam(':hash', $hash);
-		$statement->execute();
-		$count = $statement->fetchColumn();
-	}
-	catch (PDOException $e)
-	{
-		db_log('db_delete_DataSet', $e, $sql);
-		$count = -1;
-	}
-
-	if ($count > 0)
-	{
-		$sql = 'DELETE FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.$GLOBALS['db_colName_id'].'`= :id AND `'.$GLOBALS['db_colName_hash'].'` = :hash';
-
-		try {
-			$statement = $pdo->prepare($sql);
-			$statement -> bindParam(':id', $id);
-			$statement -> bindParam(':hash', $hash);
-			return $statement->execute();
-		} catch (PDOException $e) {
-			db_log('db_delete_DataSet', $e, $sql);
-			return -1;
-		}
-	} else
-	{
-		return -1;
-	}
-}
-
-function db_release_DataSet($pdo, $id, $hash)
-{
-	$sql = 'SELECT COUNT(*) FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.
-		$GLOBALS['db_colName_id'].'`= :id AND `'.
-		$GLOBALS['db_colName_hash'].'` = :hash';
+	$sql = 'DELETE FROM `'.$GLOBALS['db_table_name'].'` WHERE `'.$GLOBALS['db_colName_id'].'`= :id AND `'.$GLOBALS['db_colName_hash'].'` = :hash';
 
 	try {
 		$statement = $pdo->prepare($sql);
@@ -270,23 +230,27 @@ function db_release_DataSet($pdo, $id, $hash)
 		$statement -> bindParam(':hash', $hash);
 		$ret = $statement->execute();
 
-		if ($ret)
-		{
-			$sql = 'UPDATE `'.$GLOBALS['db_table_name'].'` SET `'.$GLOBALS['db_colName_released'].'` = 1 '.
-				'WHERE `'.$GLOBALS['db_colName_id'].'`= :id AND `'.$GLOBALS['db_colName_hash'].'` = :hash';
+		if ($statement->rowCount() == 1) $ret = -1;
+	} catch (PDOException $e) {
+		db_log('db_delete_DataSet', $e, $sql);
+		$ret = -1;
+	}
 
-			try {
-				$statement = $pdo->prepare($sql);
-				$statement -> bindParam(':id', $id);
-				$statement -> bindParam(':hash', $hash);
-				$ret = $statement->execute();
-			} catch (PDOException $e) {
-				db_log('db_release_DataSet', $e, $sql);
-				$ret = -1;
-			}
-		} else {
-			$ret = -1;
-		}
+	return $ret;
+}
+
+function db_release_DataSet($pdo, $id, $hash)
+{
+	$sql = 'UPDATE `'.$GLOBALS['db_table_name'].'` SET `'.$GLOBALS['db_colName_released'].'` = 1 '.
+		'WHERE `'.$GLOBALS['db_colName_id'].'`= :id AND `'.$GLOBALS['db_colName_hash'].'` = :hash';
+
+	try {
+		$statement = $pdo->prepare($sql);
+		$statement -> bindParam(':id', $id);
+		$statement -> bindParam(':hash', $hash);
+		$ret = $statement->execute();
+
+		if ($statement->rowCount() == 1) $ret = -1;
 	} catch (PDOException $e) {
 		db_log('db_release_DataSet', $e, $sql);
 		$ret = -1;
