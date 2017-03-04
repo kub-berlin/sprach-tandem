@@ -278,17 +278,11 @@ function actionEdit($label)
 
 function actionDelete($label)
 {
-	if ($_POST['delete'] == $label['deleteDataset_button_no'])
+	if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	{
-		header('Location: index.php?action=table&lang='.$label["lang"]);
-	} elseif ($_POST['delete'] == $label['deleteDataset_button_yes']) {
 		$ok = 1;
 	}
 
-	echo '<h3>';
-	icon('trash');
-	e(sprintf($label["deleteDataset_Title"], $GLOBALS['organisationName']));
-	echo "</h3>";
 	if (isset($_GET["tid"]) and isset($_GET["a"]))
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
@@ -307,10 +301,7 @@ function actionDelete($label)
 				}
 			} else
 			{
-				echo '<form action="index.php?action=delete&ok=1&tid='.$id.'&a='.$hash.'&lang='.$label['lang'].'" method="POST" >';
-				echo '<p><button type="submit" name="delete" value="'.$label['deleteDataset_button_yes'].'">'.$label['deleteDataset_button_yes'].'</button>';
-				echo '<button type="submit" name="delete" value="'.$label['deleteDataset_button_no'].'">'.$label['deleteDataset_button_no'].'</button></p>';
-				echo '</form>';
+				include 'partials/delete.php';
 			}
 		}
 	}
