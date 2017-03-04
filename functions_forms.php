@@ -6,7 +6,7 @@
 //
 //#############################
 
-function addTandemForm($label)
+function addTandemForm($label, $cancelLink)
 {
 	setDefaultParams(array('name', 'alter', 'email', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
 	$_POST['email_nochmal'] = '';

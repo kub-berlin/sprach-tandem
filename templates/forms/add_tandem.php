@@ -84,7 +84,7 @@
 	</table>
 
 	<p>
-		<a href="index.php?action=table&lang=<?php e($label['lang']) ?>" class="button">
+		<a href="<?php e($cancelLink) ?>" class="button">
 			<?php icon(l10nDirection('prev', $label)) ?>
 			<?php e($label['zurueck']) ?>
 		</a>
