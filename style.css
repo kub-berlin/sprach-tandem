@@ -86,88 +86,11 @@ table.filter_table {
 	min-width: 85px;
 }
 
-button.button_image {
-	min-width: 90px;
-	padding-left: 3px;
-	padding-right: 3px;
-	/*background-color: #d0e4e4;*/
-	color: #000;
-}
-
-#image_button_send {
-	width: 18px;
-	height: 18px;
-	background: url(./images/send.svg) no-repeat;
-	text-indent: 22px;
-}
-
-#image_button_back {
-	width: 18px;
-	height: 18px;
-	background: url(./images/prev.svg) no-repeat;
-	text-indent: 22px;
-}
-
-#image_button_back_rtl {
-	width: 18px;
-	height: 18px;
-	background: url(./images/next.svg) no-repeat;
-	text-indent: 22px;
-}
-
-#image_button_filter {
-	width: 18px;
-	height: 18px;
-	background: url(./images/funnel.svg) no-repeat;
-	text-indent: 22px;
-}
-
-#image_button_add {
-	width: 30px;
-	height: 30px;
-	background: url(./images/add-user.svg) no-repeat;
-	text-indent: 36px;
-	vertical-align: middle;
-}
-
-#image_button_table {
-	width: 18px;
-	height: 18px;
-	background: url(./images/menu.svg) no-repeat;
-	text-indent: 22px;
-}
-
-button.button_menue_add {
-	min-width: 180px;
-	min-height: 35px;
-	color: #000;
-	border-color: #005e60;
-	background-color: #d0e4e4;
-	white-space: nowrap;
-	vertical-align: middle;
-	padding: 3px 3px 3px 3px;
-	background: url(./images/add-user.svg);
-	background-position: 3px 3px;
-	background-size: 25px 25px;
-	background-repeat: no-repeat;
-	text-indent: 36px;
-}
-
-button.button_menue_table {
-	min-width: 180px;
-	min-height: 35px;
-	color: #000;
-	border-color: #005e60;
-	background-color: #d0e4e4;
-	white-space: nowrap;
-	vertical-align: middle;
-	padding: 3px 3px 3px 3px;
-	background: url(./images/menu.svg);
-	background-position: 3px 3px;
-	background-size: 25px 25px;
-	background-color: #EEE;
-	background-repeat: no-repeat;
-	text-indent: 36px;
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1.4em;
+	vertical-align: -0.3em;
 }
 
 tr.areYouHuman {

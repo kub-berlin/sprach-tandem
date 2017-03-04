@@ -19,7 +19,10 @@
 				</select>
 			</th>
 			<th>
-				<p><button type="submit" class="button_image"><div id="image_button_filter"><?php e($label['Table_filtern']) ?></div></button></p>
+				<button type="submit">
+					<?php icon('funnel') ?>
+					<?php e($label['Table_filtern']) ?>
+				</button>
 			</th>
 		</tr>
 	</table>

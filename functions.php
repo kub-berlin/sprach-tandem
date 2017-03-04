@@ -41,6 +41,12 @@ function e($s) {
 	echo htmlspecialchars($s);
 }
 
+function icon($name, $className='', $alt='') {
+	echo '<svg class="icon '.$className.'" title="'.$alt.'" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
+		. '<use xlink:href="./images/icons.svg#' . htmlspecialchars($name) . '"></use>'
+		. '</svg>';
+}
+
 //##############################
 //
 //   SPRACH-AUSWAHL

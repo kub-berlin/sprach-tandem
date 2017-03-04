@@ -50,11 +50,13 @@
 		<tr><td valign="top"><input value="ja" name="datenschutz[]" type="checkbox"></td><td><?php e(sprintf($label['Add_datenschutz'], $GLOBALS["organisationName"])) ?></td></tr>
 	</table>
 	<p>
-		<button type="submit" name="send" value="cancel" class="button_image">
-			<div id="<?php e(($label['lang'] == "fa" or $label['lang'] == "ar") ? 'image_button_back_rtl' : 'image_button_back') ?>"><?php e($label['zurueck']) ?></div>
+		<button type="submit" name="send" value="cancel">
+			<?php icon(l10nDirection('prev', $label)) ?>
+			<?php e($label['zurueck']) ?>
 		</button>
-		<button type="submit" name="send" value="send" class="button_image">
-			<div id="image_button_send"><?php e($label['Add_senden']) ?></div>
+		<button type="submit" name="send" value="send">
+			<?php icon('send') ?>
+			<?php e($label['Add_senden']) ?>
 		</button>
 	</p>
 </form>

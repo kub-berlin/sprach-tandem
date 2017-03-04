@@ -13,7 +13,7 @@
 	</td></tr>
 	<tr><td></td><td align="right">
 		<a href=index.php?action=report&lang=<?php e($label['lang']) ?>&tid=<?php e($id) ?>>
-			<img src="./images/megaphone.svg" width="15px" height="15px" />
+			<?php icon('megaphone') ?>
 			<?php e($label['View_AnzeigeMelden']) ?>
 		</a>
 	</td></tr>
@@ -21,8 +21,9 @@
 
 <form action="index.php?action=table&lang=<?php e($label["lang"]) ?>" method="POST">
 	<p>
-		<button type="submit" class="button_image">
-			<div id="<?php e((($label['lang'] == "fa" or $label['lang'] == "ar") ? 'image_button_back_rtl' : 'image_button_back')) ?>"><?php e($label["zurueck"]) ?></div>
+		<button type="submit">
+			<?php icon(l10nDirection('prev', $label)) ?>
+			<?php e($label['zurueck']) ?>
 		</button>
 	</p>
 </form>
@@ -30,7 +31,7 @@
 <hr>
 
 <h3>
-	<img src="./images/chat.svg" width="20px" height="20px">
+	<?php icon('chat') ?>
 	<?php e($label['View_Form_nachrichtAn']) ?>
 	<?php e($zeile[$GLOBALS['db_colName_name']]) ?>
 </h3>
@@ -39,12 +40,12 @@
 	<?php sendMessageForm($label, "index.php?action=view&lang=".$label['lang']."&tid=".$id) ?>
 <?php elseif ($gesendet == 1) : ?>
 	<table>
-		<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>
+		<tr><td valign="top"><?php icon('check') ?></td>
 		<td><?php e($label['View_gesendet']) ?></td></tr>
 	</table>
 <?php else : ?>
 	<table>
-		<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="OK, " width=20px height=20px></td>
+		<tr><td valign="top"><?php icon('emoji_sad') ?></td>
 		<td><?php e($label['View_nichtGesendet']) ?></td></tr>
 	</table>
 <?php endif ?>

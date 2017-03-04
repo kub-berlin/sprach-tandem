@@ -257,11 +257,16 @@ function actionEdit($label)
 
 							db_edit_dataset($GLOBALS['server'], $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email);
 
-							echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
+							echo '<tr><td valign="top">';
+							icon('check');
+							echo '</td>';
 							echo '<td>'.$label['Edit_ok'].'</td></tr>';
 							echo '</table>';
 							echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-							echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
+							echo '<p><button type="submit">';
+							icon(l10nDirection('prev', $label));
+							e($label['zurueck']);
+							echo '</button></p>';
 							echo '</form>';
 						}
 					}
@@ -292,7 +297,10 @@ function actionDelete($label)
 		$ok = 1;
 	}
 
-	echo '<h3><img src="./images/trash.svg" width=20px height=20px>'.sprintf($label["deleteDataset_Title"], $GLOBALS['organisationName'])."</h3>";
+	echo '<h3>';
+	icon('trash');
+	e(sprintf($label["deleteDataset_Title"], $GLOBALS['organisationName']));
+	echo "</h3>";
 	if (isset($_GET["tid"]) and isset($_GET["a"]))
 	{
 		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
@@ -305,27 +313,39 @@ function actionDelete($label)
 				$db_erg = db_delete_DataSet($GLOBALS['server'], $id, $hash);
 				if ( $db_erg > 0 ){
 					echo '<table>';
-					echo '<tr><td valign="top"><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
+					echo '<tr><td valign="top"><td valign="top">';
+					icon('check');
+					echo '</td>';
 					echo '<td>'.$label['deleteDataset'].'</td></tr>';
 					echo '</table>';
 					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
+					echo '<p><button type="submit">';
+					icon(l10nDirection('prev', $label));
+					echo "\n";
+					e($label['zurueck']);
+					echo '</button></p>';
 					echo '</form>';
 				} else
 				{
 					echo '<table>';
-					echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="Sorry, " width=20px height=20px></td>';
+					echo '<tr><td valign="top">';
+					icon('emoji_sad');
+					echo '</td>';
 					echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
 					echo '</table>';
 					echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-					echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
+					echo '<p><button type="submit">';
+					icon(l10nDirection('prev', $label));
+					echo "\n";
+					e($label['zurueck']);
+					echo '</button></p>';
 					echo '</form>';
 				}
 			} else
 			{
 				echo '<form action="index.php?action=delete&ok=1&tid='.$id.'&a='.$hash.'&lang='.$label['lang'].'" method="POST" >';
-				echo '<p><button type="submit" name="delete" value="'.$label['deleteDataset_button_yes'].'" class="button_image"><div id="image_button_yes">'.$label['deleteDataset_button_yes'].'</div></button>';
-				echo '<button type="submit" name="delete" value="'.$label['deleteDataset_button_no'].'" class="button_image"><div id="image_button_no">'.$label['deleteDataset_button_no'].'</div></button></p>';
+				echo '<p><button type="submit" name="delete" value="'.$label['deleteDataset_button_yes'].'">'.$label['deleteDataset_button_yes'].'</button>';
+				echo '<button type="submit" name="delete" value="'.$label['deleteDataset_button_no'].'">'.$label['deleteDataset_button_no'].'</button></p>';
 				echo '</form>';
 			}
 		}
@@ -360,11 +380,17 @@ function actionRelease($label)
 			$db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
 			if ($db_erg){
 				echo '<table>';
-				echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
+				echo '<tr><td valign="top">';
+				icon('check');
+				echo '</td>';
 				echo '<td>'.$label['releaseDataset'].'</td></tr>';
 				echo '</table>';
 				echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-				echo '<p><button type="submit">'.$label["zurueck"].'</button></p>';
+				echo '<p><button type="submit">';
+				icon(l10nDirection('prev', $label));
+				echo "\n";
+				e($label['zurueck']);
+				echo '</button></p>';
 				echo '</form>';
 			} else
 			{
@@ -377,11 +403,17 @@ function actionRelease($label)
 		if ($error)
 		{
 			echo '<table>';
-			echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="Sorry, " width=20px height=20px></td>';
+			echo '<tr><td valign="top">';
+			icon('emoji_sad');
+			echo '</td>';
 			echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
 			echo '</table>';
 			echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-			echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
+			echo '<p><button type="submit">';
+			icon(l10nDirection('prev', $label));
+			echo "\n";
+			e($label['zurueck']);
+			echo '</button></p>';
 			echo '</form>';
 		}
 	}
@@ -455,7 +487,11 @@ function actionReport($label)
 		echo '<tr><td valign="top"><b>'.$label['View_beschreibung'].': </b></td><td><textarea name="lizenz" cols="50" rows="10" readonly style="width: 100%" >'. html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]) .'</textarea></td></tr>';
 		echo '</table>';
 		echo '<form action="index.php?action=table&lang='.$label["lang"].'" method="POST" >';
-		echo '<p><button type="submit" class="button_image"><div id='.(($label['lang'] == "fa" or $label['lang'] == "ar") ? '"image_button_back_rtl"' : '"image_button_back"').'>'.$label["zurueck"].'</div></button></p>';
+		echo '<p><button type="submit">';
+		icon(l10nDirection('prev', $label));
+		echo "\n";
+		e($label['zurueck']);
+		echo '</button></p>';
 		echo '</form>';
 		echo "<hr>";
 
@@ -479,7 +515,11 @@ function actionReport($label)
 		} else {
 			$senden = false;
 		}
-		echo '<h3><img src="./images/megaphone.svg" width=20px height=20px> '.$label['View_AnzeigeMelden'].'</h3>';
+		echo '<h3>';
+		icon('megaphone');
+		echo "\n";
+		e($label['View_AnzeigeMelden']);
+		echo '</h3>';
 		if ($senden == false)
 		{
 			reportForm($label, "index.php?action=report&lang=".$label['lang']."&tid=".$id);
@@ -497,13 +537,17 @@ function actionReport($label)
 
 			if ($gesendet == 1){
 				echo '<table>';
-				echo '<tr><td valign="top"><img src="./images/check.svg" alt="OK, " width=20px height=20px></td>';
+				echo '<tr>';
+				icon('check');
+				echo '</td>';
 				echo '<td>'.$label['Report_gesendet'].'</td></tr>';
 				echo '</table>';
 
 			} else {
 				echo '<table>';
-				echo '<tr><td valign="top"><img src="./images/emoji-sad.svg" alt="OK, " width=20px height=20px></td>';
+				echo '<tr><td valign="top">';
+				icon('emoji_sad');
+				echo '</td>';
 				echo '<td>'.$label['Report_nichtGesendet'].'</td></tr>';
 				echo '</table>';
 			}

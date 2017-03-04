@@ -27,12 +27,14 @@
 	<p class=center>
 		<?php if ($page > 1) : ?>
 			<a href="index.php?action=table&lang=<?php e($label['lang']) ?>&page=0&filterAng=<?php e($filterAng) ?>&filterGes=<?php e($filterGes) ?>">
-			<img src="./images/<?php e(l10nDirection('first', $label)) ?>.svg" style="width: 28px; margin-bottom: -7px;" alt="first"></a>
+				<?php icon(l10nDirection('first', $label), null, 'first') ?>
+			</a>
 		<?php endif ?>
 
 		<?php if ($page > 0) : ?>
 			<a href="index.php?action=table&lang=<?php e($label['lang']) ?>&page=<?php e($page-1) ?>&filterAng=<?php e($filterAng) ?>&filterGes=<?php e($filterGes) ?>">
-			<img src="./images/<?php e(l10nDirection('prev', $label)) ?>.svg" style="width: 28px; margin-bottom: -7px;" alt="previous"></a>
+				<?php icon(l10nDirection('prev', $label), null, 'prev') ?>
+			</a>
 		<?php endif ?>
 
 		<?php if ($anzahl_pages > 0) : ?>
@@ -41,12 +43,14 @@
 
 		<?php if ($page + 1 < $anzahl_pages) : ?>
 			<a href="index.php?action=table&lang=<?php e($label['lang']) ?>&page=<?php e($page+1) ?>&filterAng=<?php e($filterAng) ?>&filterGes=<?php e($filterGes) ?>">
-			<img src="./images/<?php e(l10nDirection('next', $label)) ?>.svg" style="width: 28px; margin-bottom: -7px;" alt="next"></a>
+				<?php icon(l10nDirection('next', $label), null, 'next') ?>
+			</a>
 		<?php endif ?>
 
 		<?php if ($page + 2 < $anzahl_pages) : ?>
 			<a href="index.php?action=table&lang=<?php e($label['lang']) ?>&page=<?php e($anzahl_pages-1) ?>&filterAng=<?php e($filterAng) ?>&filterGes=<?php e($filterGes) ?>">
-			<img src="./images/<?php e(l10nDirection('last', $label)) ?>.svg" style="width: 28px; margin-bottom: -7px;" alt="last"></a>
+				<?php icon(l10nDirection('last', $label), null, 'last') ?>
+			</a>
 		<?php endif ?>
 	</p>
 </div>

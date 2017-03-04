@@ -14,8 +14,9 @@
 		<tr><td valign="top"><input value="ja" name="datenschutz[]" type="checkbox"></td><td><?php e(sprintf($label['View_datenschutz'], $GLOBALS["organisationName"])) ?></td></tr>
 	</table>
 	<p>
-		<button type="submit" class="button_image">
-			<div id="image_button_send"><?php e($label['View_Form_senden']) ?></div>
+		<button type="submit">
+			<?php icon('send') ?>
+			<?php e($label['View_Form_senden']) ?>
 		</button>
 	</p>
 </form>

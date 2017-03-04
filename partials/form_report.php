@@ -9,8 +9,9 @@
 		</table>
 	<table>
 	<p>
-		<button type="submit" name="send" value="send" class="button_image">
-			<div id="image_button_send"><?php e($label['Report_Form_senden']) ?></div>
+		<button type="submit" name="send" value="send">
+			<?php icon('send') ?>
+			<?php e($label['Report_Form_senden']) ?>
 		</button>
 	</p>
 </form>
