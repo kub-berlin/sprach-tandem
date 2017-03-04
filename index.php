@@ -27,6 +27,7 @@ $label = setLanguage(htmlentities($_GET["lang"]));
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="https://kub-berlin.org/templates/kub/css/kub-<?php e(($label["lang"] == 'fa' or $label["lang"] == 'ar') ? 'rtl' : 'ltr') ?>.css" />
 	<link rel="stylesheet" type="text/css" href="./style.css" />
 	<title><?php e(sprintf($label["Title"], $GLOBALS['organisationName'])) ?></title>
 </head>

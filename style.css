@@ -1,33 +1,12 @@
 @charset "UTF-8";
 
-//@import url("../templates/kub/css/kub-rtl.css");
-
-//@import url("../templates/kub/css/kub-rtl.css") p, html;
-
-
 html {
-	background-color: #fff;
-
-	color: #111;
-	font-size: 1em;
-	font-family: sans-serif;
+	background-color: white;
+	overflow-y: auto;
 }
 
 body {
-	background-color: #fff;
-
-	color: #111;
-	font-size: 1em;
-	font-family: sans-serif;
-	/*font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
-	font-family: Arial,Helvetica Neue,Helvetica,sans-serif;*/
-	/*font-size: 14px; */
-	/*font-style: normal;*/
-	/*color: black;*/
-}
-
-div.tandem_body {
-	width: 100%;
+	padding: 0;
 }
 
 .form_above {
