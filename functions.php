@@ -126,6 +126,9 @@ function getLabel($lang)
 			$ret[(str_replace(' ', '', $tstring[0]))] = ($tstring[1]);
 		}
 	}
+
+	$ret['dir'] = ($ret['lang'] == 'fa' or $ret['lang'] == 'ar') ? 'rtl' : 'ltr';
+
 	asort($ret);
 	return $ret;
 }
@@ -159,7 +162,7 @@ function l10nDirection($dir, $label)
 		'next' => 'prev',
 		'last' => 'first');
 
-	if ($label['lang'] == 'fa' or $label['lang'] == 'ar'){
+	if ($label['dir'] == 'rtl'){
 		return $rtl_map[$dir];
 	} else {
 		return $dir;
