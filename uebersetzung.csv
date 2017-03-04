@@ -312,13 +312,13 @@ sprache_bengali,Bengali,Bengali,Bengali,Bengali,بنغالي,
 sprache_bosnisch,Bosnisch,Bosnian,Bosnien,Bosnio,بوسني,بوسنی
 sprache_bulgarisch,Bulgarisch,Bulgarian,Bulgare,Búlgaro,بلغاري,بلغاری
 sprache_chinesisch,Chinesisch,Chinese,Chinois,Chino,صيني,چینی
-sprache_dänisch,Dänisch	,Danish,Danois,Danés,دانماركي,دانمارکی
+sprache_daenisch,Dänisch,Danish,Danois,Danés,دانماركي,دانمارکی
 sprache_deutsch,Deutsch,German,Allemand,Alemán,ألماني,لمانی
 sprache_englisch,Englisch,English,Anglais,Inglés,إنجليزي,انگلیسی
 sprache_estnisch,Estnisch,Estorian,Estonien,Estonia,أستوني,"زبان استونی"
 sprache_ewe,Ewe,Ewe,Ewe,Ewe,إوي,میش
 sprache_finnisch,Finnisch,Finnish,Finnios,Finlandés,فنلندي,فنلاندی
-sprache_französisch,Französisch,French,Français,Francés,فرانسي,فرانسوی
+sprache_franzoesisch,Französisch,French,Français,Francés,فرانسي,فرانسوی
 sprache_fula,Fula,Fula,Fula,Fula,فولا,
 sprache_griechisch,Griechisch,Greek,Grec,Griego,يوناني,یونانی
 sprache_gujarati,Gujarati,Gujarati,Gujarati,Gujarati,غوجاراتي,گجراتی
@@ -345,7 +345,7 @@ sprache_maltesisch,Maltesisch,Maltese,Maltais,Maltés,مالطي,"اهل مال�
 sprache_marathi,Marathi,Marathi,Marathi,Marathi,مهاراتي,مراتی
 sprache_mazedonisch,Mazedonisch,Macedonian,Macédonien,Macedonio,مقدوني,مقدونی
 sprache_mongolisch,Mongolisch,Mongolian,Mongol,Mongol,المنغولية,مغولی
-sprache_niederländisch,Niederländisch,Dutch,Néerlandais,Holandés,هولندي,هلندی
+sprache_niederlaendisch,Niederländisch,Dutch,Néerlandais,Holandés,هولندي,هلندی
 sprache_norwegisch,Norwegisch,Norwegian,Norvégien,Noruego,نرويجي,نروژی
 sprache_russisch,Russisch,Russian,Russe,Ruso,روسي,روسی
 sprache_paschto,Paschto,Pashto,Paschto,Paschto,باشتو,پشتو
@@ -355,7 +355,7 @@ sprache_polnisch,Polnisch,Polnish,Polnais,Polaco,بولندي,لهستانی
 sprache_portugiesisch,Portugiesisch,Portugisisch,Portugais,Portugués,برتوغالي,پرتغالی
 sprache_punjabi,Punjabi,Punjabi,Punjabi,Punjabi,بنجابي,پنجابی
 sprache_romanes,Romanes,Romanes,Romanes,Romanes,رومي,
-sprache_rumänisch,Rumänisch,Romanian,Roumain,Rumano,روماني,"زبان رومانی"
+sprache_rumaenisch,Rumänisch,Romanian,Roumain,Rumano,روماني,"زبان رومانی"
 sprache_serbisch,Serbisch,Serbian,Serbe,Serbio,صربي,صرب
 sprache_singhalesisch,Singhalesisch,Singhalese,,Cingalés,سنهالي,
 sprache_schwedisch,Schwedisch,Schwedish,Suédois,Sueco,سويدي,سوئد
@@ -367,20 +367,20 @@ sprache_spanisch,Spanisch,Spanish,Espagnol,Español,سباني,اسپانیای�
 sprache_swahili,Swahili,Swahili,Swahili,Swahili,سواحلي,سواحیلی
 sprache_tamilisch,Tamil,Tamil,Tamil,Tamil,تاميل,"زبان تمیل"
 sprache_telugu,Telugu,Telugu,Telugu,Telugu,تيلوغو,تلوگو
-sprache_thailändisch,Thai,Thai,Thai,Thai,تايلاندي,تایلندی
+sprache_thailaendisch,Thai,Thai,Thai,Thai,تايلاندي,تایلندی
 sprache_tigrinya,Tigrinya,Tigrinya,Tigrinya,Tigrinya,تيغريني,تیگرینیا
 sprache_tschechisch,Tschechisch,Czech,Tchèque,Checo,تشيكي,چک
-sprache_turkisch,Türkisch,Turkish,Turc,Turco,تركي,ترکی
+sprache_tuerkisch,Türkisch,Turkish,Turc,Turco,تركي,ترکی
 sprache_twi,Twi,Twi,Twi,Twi,توي,توی
 sprache_ukrainisch,Ukrainisch,Ukrainian,Ukrainien,Ucranio,أوكراني,اوکراین
 sprache_ungarisch,Ungarisch,Hungarian,Hongrois,Húngaro,هنغاري,مجارستانی
 sprache_urdu,Urdu,Urdu,Urdu,Urdu,أردو,"زبان اردو"
-sprache_weißrussisch,Weißrussisch,Belarussian,Biélorusse,Belarús,بيلاروسي,بلاروس
+sprache_weissrussisch,Weißrussisch,Belarussian,Biélorusse,Belarús,بيلاروسي,بلاروس
 sprache_wolof,Wolof,Wolof,Wolof,Wolof,ولوفي,ولوف
 sprache_vietnamesisch,Vietnamesisch,Vietnamese,Vietnamien,Vietnamita,فيتنامي,ویتنامی
 sprache_yoruba,Yoruba,Yoruba,Yoruba,Yoruba,يوربا,یوروبا
 sprache_zulu,Zulu,Zulu,Zulu,Zulu,الزولو,
-sprache_gebardensprache,Gebärdensprache,"sign Language","Langue des signes","Lenguaje por señas","لغة الإشارة",یوروبا
+sprache_gebaerdensprache,Gebärdensprache,"sign Language","Langue des signes","Lenguaje por señas","لغة الإشارة",یوروبا
 releaseDataset,"Anzeige aktiviert","Advert activated",,,,
 releaseDataset_Title,"%s-Sprach-Tandem - Anzeige aktivieren","%s Language Tandem - Activate advert",,,,
 deleteDataset_button_yes,Ja,Yes,,,,
