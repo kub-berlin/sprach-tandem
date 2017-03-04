@@ -49,12 +49,6 @@ if ($server != null){
 
 	switch ($action) {
 		case 'table':
-			echo '<p><a href="index.php?action=add&lang='.$label['lang'].'" class="button">';
-			icon('add_user');
-			echo "\n";
-			e($label['Add_Title']);
-			echo '</a></p>';
-
 			actionTable($label);
 		break;
 		case 'add':
@@ -73,9 +67,6 @@ if ($server != null){
 			actionRelease($label);
 			break;
 		case 'stat':
-			echo '<p><a href="index.php?action=table&lang='.$label['lang'].'" class="button">';
-			icon('menu');
-			echo "\nTabelle</a></p>";
 			actionStatistic($label);
 			break;
 		case 'report':

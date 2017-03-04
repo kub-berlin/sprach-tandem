@@ -1,3 +1,10 @@
+<p>
+	<a href="index.php?action=add&lang=<?php e($label['lang']) ?>" class="button">
+		<?php icon('add_user') ?>
+		<?php e($label['Add_Title']) ?>
+	</a>
+</p>
+
 <p><?php e($label['Table_intro']) ?></p>
 <div class=div_table>
 	<?php filterLanguageForm($label, "index.php?action=table&lang=".$label['lang']) ?>

@@ -1,3 +1,10 @@
+<p>
+	<a href="index.php?action=table&lang=<?php e($label['lang']) ?>" class="button">
+		<?php icon('menu') ?>
+		Tabelle
+	</a>
+</p>
+
 <h3>Statistik</h3>
 
 <p><a href="index.php?action=stat&t=year">dieses Jahr</a></p>
