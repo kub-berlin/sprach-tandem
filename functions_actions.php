@@ -114,19 +114,9 @@ function actionAdd($label){
 
 function actionView($label)
 {
-	$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
-
-	if ( is_numeric($id) )
+	if ($zeile = getEntry())
 	{
-		$db_erg = db_getDataSet($GLOBALS['server'], $id);
-	}
-
-	if ( ! count($db_erg) > 0 OR ! is_numeric($id))
-	{
-		echo "<p>Error: Data not found.</p>";
-	} else
-	{
-		$zeile = $db_erg[0];
+		$id = $_GET['tid'];
 
 		if (isset($_POST['name']) OR isset($_POST['email']) OR isset($_POST['geschlecht']) OR
 				isset($_POST['alter']) OR isset($_POST['ort']) OR isset($_POST['datenschutz']))
@@ -177,95 +167,62 @@ function actionView($label)
 
 function actionEdit($label)
 {
-	if (!isset( $_GET["first"] )){
-		$_GET["first"] = true;
-	} else
+	if (($zeile = getEntry()) and ($hash = getHash($zeile)))
 	{
-		$first= strip_tags(htmlentities($_GET["first"]));
-	}
+		$id = $_GET['tid'];
 
-	if (isset($_GET["tid"]) and isset($_GET["a"]))
-	{
-		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
-		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
-
-		if ( is_numeric($id) )
+		if ((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR
+		isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR
+		isset($_POST['spracheGes']) OR isset($_POST['text']) OR isset($_POST['alter']) OR isset($_POST['datenschutz'])))
 		{
-			$db_erg = db_getDataSet($GLOBALS['server'], $id);
 
-			if ( ! count($db_erg) > 0){
-				die("DB Error");
-			}
-			else
+			if (($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR
+					($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR
+					$_POST['text'] == "" OR $_POST['alter'] == "" OR $_POST['datenschutz'][0] != "ja")
+					OR
+					!($_POST['areYouHuman'] == '')
+					OR
+					(!isValidEmail($_POST['email']) or !(strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])))))
 			{
 
-				if ($zeile = $db_erg[0])
-				{
-					if (str_replace(' ', '', $zeile[$GLOBALS['db_colName_hash']]) === str_replace(' ', '', $hash))
-					{
-
-						if ((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR
-						isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR
-						isset($_POST['spracheGes']) OR isset($_POST['text']) OR isset($_POST['alter']) OR isset($_POST['datenschutz'])))
-						{
-
-							if (($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR
-									($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR
-									$_POST['text'] == "" OR $_POST['alter'] == "" OR $_POST['datenschutz'][0] != "ja")
-									OR
-									!($_POST['areYouHuman'] == '')
-									OR
-									(!isValidEmail($_POST['email']) or !(strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])))))
-							{
-
-								$senden = false;
-							} else {
-								$senden = true;
-							}
-						} else {
-							$senden = false;
-						}
-
-						if ( $senden == false)
-						{
-							$_POST['name'] = (($_POST['name'] == "") ? $zeile[$GLOBALS['db_colName_name']] : $_POST['name']);
-							$_POST['alter'] = (($_POST['alter'] == "") ? $zeile[$GLOBALS['db_colName_alter']] : $_POST['alter']);
-							$_POST['geschlecht'] = ($_POST['geschlecht'] == "") ? $zeile[$GLOBALS['db_colName_geschlecht']] : $_POST['geschlecht'];
-							$_POST['email'] = $_POST['email'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email'];
-							$_POST['email_nochmal'] = $_POST['email_nochmal'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email_nochmal'];
-							$_POST['ort'] = $_POST['ort'] == "" ? $zeile[$GLOBALS['db_colName_ort']] : $_POST['ort'];
-							$_POST['skills'] = $_POST['skills'] == "" ? $zeile[$GLOBALS['db_colName_skills']] : $_POST['skills'];
-							$_POST['spracheAng'] = $_POST['spracheAng'] == "" ? $zeile[$GLOBALS['db_colName_spracheAng']] : $_POST['spracheAng'];
-							$_POST['spracheGes'] = $_POST['spracheGes'] == "" ? $zeile[$GLOBALS['db_colName_spracheGes']] : $_POST['spracheGes'];
-							$_POST['text'] = $_POST['text'] == "" ? $zeile[$GLOBALS['db_colName_beschreibung']] : $_POST['text'];
-							addTandemForm($label, 'index.php?action=edit&a='.$hash.'&tid='.$id.'&lang='.$label['lang'].'&first=0#oben');
-							$first = false;
-						}
-						else
-						{
-							$name = strip_tags(($_POST['name']));
-							$email = strip_tags(strtolower($_POST['email']));
-							$ort = strip_tags(($_POST['ort']));
-							$spracheAng = strip_tags(($_POST['spracheAng']));
-							$spracheGes = strip_tags(($_POST['spracheGes']));
-							$beschreibung = strip_tags(($_POST['text']));
-							$alter = strip_tags(($_POST['alter']));
-							$geschlecht = strip_tags(($_POST['geschlecht']));
-							$kenntnis = strip_tags(($_POST['kenntnis']));
-
-							db_edit_dataset($GLOBALS['server'], $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email);
-
-							alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label["lang"]);
-						}
-					}
-					else
-					{
-						echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
-					}
-				} else {
-					echo '<td>'.$GLOBALS['errorMessage'].'</td></tr>';
-				}
+				$senden = false;
+			} else {
+				$senden = true;
 			}
+		} else {
+			$senden = false;
+		}
+
+		if ( $senden == false)
+		{
+			$_POST['name'] = (($_POST['name'] == "") ? $zeile[$GLOBALS['db_colName_name']] : $_POST['name']);
+			$_POST['alter'] = (($_POST['alter'] == "") ? $zeile[$GLOBALS['db_colName_alter']] : $_POST['alter']);
+			$_POST['geschlecht'] = ($_POST['geschlecht'] == "") ? $zeile[$GLOBALS['db_colName_geschlecht']] : $_POST['geschlecht'];
+			$_POST['email'] = $_POST['email'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email'];
+			$_POST['email_nochmal'] = $_POST['email_nochmal'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email_nochmal'];
+			$_POST['ort'] = $_POST['ort'] == "" ? $zeile[$GLOBALS['db_colName_ort']] : $_POST['ort'];
+			$_POST['skills'] = $_POST['skills'] == "" ? $zeile[$GLOBALS['db_colName_skills']] : $_POST['skills'];
+			$_POST['spracheAng'] = $_POST['spracheAng'] == "" ? $zeile[$GLOBALS['db_colName_spracheAng']] : $_POST['spracheAng'];
+			$_POST['spracheGes'] = $_POST['spracheGes'] == "" ? $zeile[$GLOBALS['db_colName_spracheGes']] : $_POST['spracheGes'];
+			$_POST['text'] = $_POST['text'] == "" ? $zeile[$GLOBALS['db_colName_beschreibung']] : $_POST['text'];
+			addTandemForm($label, 'index.php?action=edit&a='.$hash.'&tid='.$id.'&lang='.$label['lang'].'&first=0#oben');
+			$first = false;
+		}
+		else
+		{
+			$name = strip_tags(($_POST['name']));
+			$email = strip_tags(strtolower($_POST['email']));
+			$ort = strip_tags(($_POST['ort']));
+			$spracheAng = strip_tags(($_POST['spracheAng']));
+			$spracheGes = strip_tags(($_POST['spracheGes']));
+			$beschreibung = strip_tags(($_POST['text']));
+			$alter = strip_tags(($_POST['alter']));
+			$geschlecht = strip_tags(($_POST['geschlecht']));
+			$kenntnis = strip_tags(($_POST['kenntnis']));
+
+			db_edit_dataset($GLOBALS['server'], $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email);
+
+			alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label["lang"]);
 		}
 	}
 }
@@ -278,31 +235,22 @@ function actionEdit($label)
 
 function actionDelete($label)
 {
-	if ($_SERVER['REQUEST_METHOD'] === 'POST')
+	if (($zeile = getEntry()) and ($hash = getHash($zeile)))
 	{
-		$ok = 1;
-	}
+		$id = $_GET['tid'];
 
-	if (isset($_GET["tid"]) and isset($_GET["a"]))
-	{
-		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
-		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
-
-		if ( is_numeric($id) )
+		if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
-			if ($ok != 0)
-			{
-				$db_erg = db_delete_DataSet($GLOBALS['server'], $id, $hash);
-				if ( $db_erg > 0 ){
-					alert($label, true, $label['deleteDataset'], 'index.php?action=table&lang='.$label["lang"]);
-				} else
-				{
-					alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
-				}
+			$db_erg = db_delete_DataSet($GLOBALS['server'], $id, $hash);
+			if ( $db_erg > 0 ){
+				alert($label, true, $label['deleteDataset'], 'index.php?action=table&lang='.$label["lang"]);
 			} else
 			{
-				include 'partials/delete.php';
+				alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
 			}
+		} else
+		{
+			include 'partials/delete.php';
 		}
 	}
 }
@@ -316,33 +264,14 @@ function actionDelete($label)
 
 function actionRelease($label)
 {
-	$error = false;
-
-	if (!isset( $_GET["ok"] )){
-		$_GET["ok"] = 0;
-	} else
+	if (($zeile = getEntry()) and ($hash = getHash($zeile)))
 	{
-		$ok= strip_tags(htmlentities($_GET["ok"]));
-	}
-	if (isset($_GET["tid"]) and isset($_GET["a"]))
-	{
-		$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
-		$hash = strip_tags(htmlentities($_GET["a"], ENT_QUOTES));
+		$id = $_GET['tid'];
 
-		if ( is_numeric($id) )
-		{
-			$db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
-			if ($db_erg){
-				alert($label, true, $label['releaseDataset'], 'index.php?action=table&lang='.$label["lang"]);
-			} else
-			{
-				$error = true;
-			}
+		$db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
+		if ($db_erg){
+			alert($label, true, $label['releaseDataset'], 'index.php?action=table&lang='.$label["lang"]);
 		} else
-		{
-			$error = true;
-		}
-		if ($error)
 		{
 			alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
 		}
@@ -382,19 +311,9 @@ function actionStatistic($label)
 
 function actionReport($label)
 {
-	$id = strip_tags(htmlentities($_GET["tid"], ENT_QUOTES));
-
-	if ( is_numeric($id) )
+	if ($zeile = getEntry())
 	{
-		$db_erg = db_getDataSet($GLOBALS['server'], $id);
-	}
-
-	if ( ! count($db_erg) > 0 OR ! is_numeric($id))
-	{
-		echo "<p>Error: Data not found.</p>";
-	}	else
-	{
-		$zeile = $db_erg[0];
+		$id = $_GET['tid'];
 
 		echo '<h3>'. html_entity_decode($zeile[$GLOBALS['db_colName_name']]) . '</h3>';
 		echo '<table>';
@@ -471,6 +390,5 @@ function actionReport($label)
 		}
 	}
 }
-
 
 ?>

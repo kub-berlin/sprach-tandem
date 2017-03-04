@@ -51,6 +51,31 @@ function alert($label, $success, $msg, $backLink) {
 	include 'partials/alert.php';
 }
 
+function getEntry()
+{
+	if (isset($_GET['tid']) and is_numeric($_GET['tid'])){
+		$db_erg = db_getDataSet($GLOBALS['server'], $_GET['tid']);
+		if (count($db_erg) > 0){
+			return $db_erg[0];
+		}
+	}
+
+	http_response_code(404);
+	echo '<h1>Error: Data not found.</h1>';
+}
+
+function getHash($entry)
+{
+	if (isset($_GET['a'])){
+		if ($entry[$GLOBALS['db_colName_hash']] === $_GET['a']){
+			return $_GET['a'];
+		}
+	}
+
+	http_response_code(401);
+	echo '<h1>'.htmlspecialchars($GLOBALS['errorMessage']).'</h1>';
+}
+
 //##############################
 //
 //   SPRACH-AUSWAHL
