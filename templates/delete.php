@@ -5,7 +5,7 @@
 
 <form method="POST">
 	<p>
-		<a href="index.php?action=table&lang=<?php e($label['lang']) ?>" class="button">
+		<a href="index.php?action=view&lang=<?php e($label['lang']) ?>&tid=<?php e($id) ?>" class="button">
 			<?php icon(l10nDirection('prev', $label)) ?>
 			<?php e($label['deleteDataset_button_no']) ?>
 		</a>

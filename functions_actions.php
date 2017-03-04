@@ -151,7 +151,7 @@ function actionEdit($label)
 				$_POST['ort'],
 				strtolower($_POST['email']));
 
-			alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label['lang']);
+			alert($label, true, $label['Edit_ok'], 'index.php?action=view&lang='.$label['lang'].'&tid='.$id);
 		}
 		else
 		{
@@ -219,11 +219,11 @@ function actionRelease($label)
 
 		$db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
 		if ($db_erg){
-			alert($label, true, $label['releaseDataset'], 'index.php?action=table&lang='.$label['lang']);
+			alert($label, true, $label['releaseDataset'], 'index.php?action=view&lang='.$label['lang'].'&tid='.$id);
 		} else
 		{
 			http_response_code(500);
-			alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label['lang']);
+			alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=view&lang='.$label['lang'].'&tid='.$id);
 		}
 	}
 }
