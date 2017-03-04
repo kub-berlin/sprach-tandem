@@ -9,6 +9,7 @@
 $domain = 'example.com';
 $tandem_root_path = "https://$domain/root/path?";
 $tandem_home_path = "https://$domain/home/path?";
+$external_css = "https://$domain/static/style-%s.css";
 $logfile = './tandem.log';
 $errorMessage = 'Sorry, something went wrong...';
 $organisationName = 'Some Organisation';
