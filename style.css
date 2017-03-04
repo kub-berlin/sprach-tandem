@@ -40,3 +40,16 @@ body {
 .areYouHuman {
 	display: none;
 }
+
+.filter-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1em;
+}
+.filter-bar select,
+.filter-bar button {
+	margin-bottom: 0;
+	white-space: nowrap;
+}
