@@ -6,10 +6,11 @@
 </p>
 
 <p><?php e($label['Table_intro']) ?></p>
-<div class=div_table>
+
+<div>
 	<?php filterLanguageForm($label, "index.php?action=table&lang=".$label['lang']) ?>
 
-	<table class=tandem_table>
+	<table>
 		<tr>
 			<th><?php e($label['Table_col_name']) ?></th>
 			<th><?php e($label['Table_col_spracheAng']) ?></th>

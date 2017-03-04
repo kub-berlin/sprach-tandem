@@ -12,7 +12,7 @@
 
 <p>folgende Sprach-Tandem Anzeigen wurden eingetragen:</p>
 
-<table class=tandem_table>
+<table>
 	<thead>
 		<tr>
 			<th>Angebotene Sprache</th>
