@@ -7,8 +7,8 @@
 
 <h3>Statistik</h3>
 
-<p><a href="index.php?action=stat&t=year">dieses Jahr</a></p>
-<p><a href="index.php?action=stat&t=always">Immer</a></p>
+<p><a href="index.php?action=stat&t=year&lang=<?php e($label['lang']) ?>">dieses Jahr</a></p>
+<p><a href="index.php?action=stat&t=always&lang=<?php e($label['lang']) ?>">Immer</a></p>
 
 <p>folgende Sprach-Tandem Anzeigen wurden eingetragen:</p>
 
