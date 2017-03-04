@@ -8,13 +8,15 @@
 
 function addTandemForm($label, $caller)
 {
-	setDefaultParams(array('name', 'alter', 'email', 'email_nochmal', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
+	setDefaultParams(array('name', 'alter', 'email', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
+	$_POST['email_nochmal'] = '';
 	include 'partials/form_add_tandem.php';
 }
 
 function sendMessageForm($label, $caller)
 {
-	setDefaultParams(array('name', 'alter', 'email', 'email_nochmal', 'ort', 'geschlecht', 'text'));
+	setDefaultParams(array('name', 'alter', 'email', 'ort', 'geschlecht', 'text'));
+	$_POST['email_nochmal'] = '';
 
 	// Formulareintragungen liegen (noch) nicht vor
 	include 'partials/form_send_message.php';
@@ -43,12 +45,8 @@ function filterLanguageForm($label, $caller)
 
 function reportForm($label, $caller)
 {
-	if (isset($_POST['send']) and $_POST['send'] == "cancel")
-	{
-		header('Location: index.php?action=table&lang='.$label["lang"]);
-	}
-
-	setDefaultParams(array('name', 'email', 'email_nochmal', 'text'));
+	setDefaultParams(array('name', 'email', 'text'));
+	$_POST['email_nochmal'] = '';
 
 	// Formulareintragungen liegen (noch) nicht vor
 	include 'partials/form_report.php';

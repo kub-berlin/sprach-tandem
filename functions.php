@@ -26,13 +26,7 @@ function setDefaultParams($params) {
 	foreach ($params as $param)
 	{
 		if (!isset($_POST[$param])){
-			if ($param == 'skills'){
-				$_POST[$param] = "0";
-			}
-			else
-			{
-				$_POST[$param] = "";
-			}
+			$_POST[$param] = "";
 		}
 	}
 }
@@ -74,6 +68,23 @@ function getHash($entry)
 
 	http_response_code(401);
 	echo '<h1>'.htmlspecialchars($GLOBALS['errorMessage']).'</h1>';
+}
+
+function checkEntry()
+{
+	return $_POST['name'] != ''
+		AND $_POST['alter'] != ''
+		AND $_POST['geschlecht'] != ''
+		AND $_POST['skills'] != ''
+		AND $_POST['spracheAng'] != ''
+		AND $_POST['spracheGes'] != ''
+		AND $_POST['text'] != ''
+		AND $_POST['ort'] != ''
+		AND $_POST['email'] != ''
+		AND $_POST['datenschutz'][0] == 'ja'
+		AND $_POST['areYouHuman'] == ''
+		AND isValidEmail(strtolower($_POST['email']))
+		AND strtolower($_POST['email']) == strtolower($_POST['email_nochmal']);
 }
 
 //##############################

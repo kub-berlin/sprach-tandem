@@ -27,81 +27,39 @@ function actionTable($label)
 //#############################
 
 function actionAdd($label){
-	$senden = false;
-
-	session_start();
-
-	if (!isset($_POST["skills"]) or !isset($_SESSION['form_submitted'])){
-		$_SESSION['form_submitted'] = false;
-	}
-
-	if(($_SESSION['form_submitted'] == true))
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' and checkEntry())
 	{
-		die('You have already submitted the form.');
+		$name = $_POST['name'];
+		$email = strtolower($_POST['email']);
+
+		$add_erg = db_add_dataset(
+			$GLOBALS['server'],
+			$name,
+			$_POST['alter'],
+			$_POST['geschlecht'],
+			$_POST['skills'],
+			$_POST['spracheAng'],
+			$_POST['spracheGes'],
+			$_POST['text'],
+			$_POST['ort'],
+			$email,
+			$_GET['lang']);
+
+		if ($add_erg['db_erg'])
+		{
+			$gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
+
+			if ($gesendet == 1){
+				alert($label, true, $label['Add_gesendet'], 'index.php?action=table&lang='.$label["lang"]);
+			} else {
+				alert($label, false, $label['Add_nichtGesendet'], 'index.php?action=table&lang='.$label["lang"]);
+			}
+		}
 	}
 	else
 	{
-		if ((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR
-			isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR
-			isset($_POST['spracheGes']) OR isset($_POST['text']) OR isset($_POST['alter']) OR isset($_POST['datenschutz'])))
-		{
-			if (($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR
-					($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR
-					$_POST['text'] == "" OR $_POST['alter'] == "" OR $_POST['datenschutz'][0] != "ja")
-					OR
-					!($_POST['areYouHuman'] == '')
-					OR
-					(!isValidEmail(strtolower($_POST['email'])) or !(strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])))))
-					{
-						$senden = false;
-					} else {
-						$senden = true;
-					}
-		} else {
-			$senden = false;
-
-		}
-		if ($senden == false) {
-			echo '<p>'.$label['Add_intro'].'</p>';
-			// Wenn noch nicht alles ausgefüllt ist:
-			addTandemForm($label, "index.php?action=add&lang=".$label['lang']);
-		} else
-		{
-
-			$name = strip_tags($_POST['name']);
-			$alter =  strip_tags($_POST['alter']);
-			$email = strip_tags(strtolower($_POST['email']));
-			$ort = strip_tags($_POST['ort']);
-			$name = strip_tags($_POST['name']);
-			$geschlecht = strip_tags($_POST['geschlecht']);
-			$skills = strip_tags($_POST['skills']);
-			$sprache = strip_tags($label['lang']);
-
-			foreach ($label as $key => $value) {
-				if (strpos($key, 'sprache_') === 0 ){
-					if ($key == strip_tags($_POST['spracheAng'])){
-						$spracheAng = $key;
-					}
-					if ($key == strip_tags($_POST['spracheGes'])){
-						$spracheGes = $key;
-					}
-				}
-			}
-			$beschreibung = strip_tags(($_POST['text']));
-
-			$add_erg = db_add_dataset($GLOBALS['server'], $name, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email, $sprache);
-
-			if ($add_erg['db_erg'])
-			{
-				$gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
-				$_SESSION['form_submitted'] = true;
-				if ($gesendet == 1){
-					alert($label, true, $label['Add_gesendet'], 'index.php?action=table&lang='.$label["lang"]);
-				} else {
-					alert($label, false, $label['Add_nichtGesendet'], 'index.php?action=table&lang='.$label["lang"]);
-				}
-			}
-		}
+		echo '<p>'.$label['Add_intro'].'</p>';
+		addTandemForm($label, "index.php?action=add&lang=".$label['lang']);
 	}
 }
 
@@ -117,38 +75,36 @@ function actionView($label)
 	if ($zeile = getEntry())
 	{
 		$id = $_GET['tid'];
+		$senden = false;
 
-		if (isset($_POST['name']) OR isset($_POST['email']) OR isset($_POST['geschlecht']) OR
-				isset($_POST['alter']) OR isset($_POST['ort']) OR isset($_POST['datenschutz']))
+		if ($_SERVER['REQUEST_METHOD'] === 'POST'
+			AND $_POST['name'] != ''
+			AND $_POST['alter'] != ''
+			AND $_POST['geschlecht'] != ''
+			AND $_POST['ort'] != ''
+			AND $_POST['email'] != ''
+			AND $_POST['datenschutz'][0] == 'ja'
+			AND $_POST['areYouHuman'] == ''
+			AND isValidEmail(strtolower($_POST['email']))
+			AND strtolower($_POST['email']) == strtolower($_POST['email_nochmal']))
 		{
-			if ($_POST['name'] == "" OR $_POST['email'] == "" OR $_POST['geschlecht'] == "" OR
-					$_POST['alter'] == "" OR $_POST['ort'] == "" OR $_POST['datenschutz'][0] != "ja"
-					OR
-					!($_POST['areYouHuman'] == '')
-					OR
-					(!isValidEmail($_POST['email']) or !(strtolower($_POST['email']) == strtolower($_POST['email_nochmal']))))
-			{
-				$senden = false;
-			} else {
-				$senden = true;
-			}
-		} else {
-			$senden = false;
-		}
-
-		if ($senden){
-			$name = strip_tags($_POST['name']);
-			$geschlecht = strip_tags($_POST['geschlecht']);
-			$alter = strip_tags($_POST['alter']);
-			$ort = strip_tags($_POST['ort']);
-			$email = strip_tags(strtolower($_POST['email']));
-			$text = strip_tags($_POST['text']);
+			$senden = true;
 
 			$label_mail = setLanguage($zeile['lang']);
-
 			$to = $zeile[$GLOBALS['db_colName_email']];
 
-			$gesendet = send_notification_view($to, $zeile[$GLOBALS['db_colName_name']], $name, $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']], $alter, $geschlecht, $ort, $email, $text, $label_mail);
+			$gesendet = send_notification_view(
+				$to,
+				$zeile[$GLOBALS['db_colName_name']],
+				$_POST['name'],
+				$zeile[$GLOBALS['db_colName_spracheAng']],
+				$zeile[$GLOBALS['db_colName_spracheGes']],
+				$_POST['alter'],
+				$_POST['geschlecht'],
+				$_POST['ort'],
+				strtolower($_POST['email']),
+				$_POST['text'],
+				$label_mail);
 
 			if ($gesendet == 1){
 				db_incr_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_id']]);
@@ -171,58 +127,37 @@ function actionEdit($label)
 	{
 		$id = $_GET['tid'];
 
-		if ((isset($_POST['geschlecht']) OR isset($_POST['skills']) OR isset($_POST['name']) OR
-		isset($_POST['email']) OR isset($_POST['ort']) OR isset($_POST['spracheAng']) OR
-		isset($_POST['spracheGes']) OR isset($_POST['text']) OR isset($_POST['alter']) OR isset($_POST['datenschutz'])))
+		if ($_SERVER['REQUEST_METHOD'] === 'POST' and checkEntry())
 		{
+			db_edit_dataset(
+				$GLOBALS['server'],
+				$_POST['name'],
+				$id,
+				$_POST['alter'],
+				$_POST['geschlecht'],
+				$_POST['skills'],
+				$_POST['spracheAng'],
+				$_POST['spracheGes'],
+				$_POST['text'],
+				$_POST['ort'],
+				strtolower($_POST['email']));
 
-			if (($_POST['geschlecht'] == "" OR $_POST['skills'] == "" OR $_POST['name'] == "" OR
-					($_POST['email'] == "" OR $_POST['ort'] == "" OR $_POST['spracheAng'] == "" OR $_POST['spracheGes'] == "" OR
-					$_POST['text'] == "" OR $_POST['alter'] == "" OR $_POST['datenschutz'][0] != "ja")
-					OR
-					!($_POST['areYouHuman'] == '')
-					OR
-					(!isValidEmail($_POST['email']) or !(strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])))))
-			{
-
-				$senden = false;
-			} else {
-				$senden = true;
-			}
-		} else {
-			$senden = false;
-		}
-
-		if ( $senden == false)
-		{
-			$_POST['name'] = (($_POST['name'] == "") ? $zeile[$GLOBALS['db_colName_name']] : $_POST['name']);
-			$_POST['alter'] = (($_POST['alter'] == "") ? $zeile[$GLOBALS['db_colName_alter']] : $_POST['alter']);
-			$_POST['geschlecht'] = ($_POST['geschlecht'] == "") ? $zeile[$GLOBALS['db_colName_geschlecht']] : $_POST['geschlecht'];
-			$_POST['email'] = $_POST['email'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email'];
-			$_POST['email_nochmal'] = $_POST['email_nochmal'] == "" ? $zeile[$GLOBALS['db_colName_email']] : $_POST['email_nochmal'];
-			$_POST['ort'] = $_POST['ort'] == "" ? $zeile[$GLOBALS['db_colName_ort']] : $_POST['ort'];
-			$_POST['skills'] = $_POST['skills'] == "" ? $zeile[$GLOBALS['db_colName_skills']] : $_POST['skills'];
-			$_POST['spracheAng'] = $_POST['spracheAng'] == "" ? $zeile[$GLOBALS['db_colName_spracheAng']] : $_POST['spracheAng'];
-			$_POST['spracheGes'] = $_POST['spracheGes'] == "" ? $zeile[$GLOBALS['db_colName_spracheGes']] : $_POST['spracheGes'];
-			$_POST['text'] = $_POST['text'] == "" ? $zeile[$GLOBALS['db_colName_beschreibung']] : $_POST['text'];
-			addTandemForm($label, 'index.php?action=edit&a='.$hash.'&tid='.$id.'&lang='.$label['lang'].'&first=0#oben');
-			$first = false;
+			alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label["lang"]);
 		}
 		else
 		{
-			$name = strip_tags(($_POST['name']));
-			$email = strip_tags(strtolower($_POST['email']));
-			$ort = strip_tags(($_POST['ort']));
-			$spracheAng = strip_tags(($_POST['spracheAng']));
-			$spracheGes = strip_tags(($_POST['spracheGes']));
-			$beschreibung = strip_tags(($_POST['text']));
-			$alter = strip_tags(($_POST['alter']));
-			$geschlecht = strip_tags(($_POST['geschlecht']));
-			$kenntnis = strip_tags(($_POST['kenntnis']));
+			setDefaultParams(array('name', 'alter', 'geschlecht', 'skills', 'spracheAng', 'spracheGes', 'text', 'ort', 'email'));
+			$_POST['name']          = $_POST['name']          == '' ? $zeile[$GLOBALS['db_colName_name']]         : $_POST['name'];
+			$_POST['alter']         = $_POST['alter']         == '' ? $zeile[$GLOBALS['db_colName_alter']]        : $_POST['alter'];
+			$_POST['geschlecht']    = $_POST['geschlecht']    == '' ? $zeile[$GLOBALS['db_colName_geschlecht']]   : $_POST['geschlecht'];
+			$_POST['skills']        = $_POST['skills']        == '' ? $zeile[$GLOBALS['db_colName_skills']]       : $_POST['skills'];
+			$_POST['spracheAng']    = $_POST['spracheAng']    == '' ? $zeile[$GLOBALS['db_colName_spracheAng']]   : $_POST['spracheAng'];
+			$_POST['spracheGes']    = $_POST['spracheGes']    == '' ? $zeile[$GLOBALS['db_colName_spracheGes']]   : $_POST['spracheGes'];
+			$_POST['text']          = $_POST['text']          == '' ? $zeile[$GLOBALS['db_colName_beschreibung']] : $_POST['text'];
+			$_POST['ort']           = $_POST['ort']           == '' ? $zeile[$GLOBALS['db_colName_ort']]          : $_POST['ort'];
+			$_POST['email']         = $_POST['email']         == '' ? $zeile[$GLOBALS['db_colName_email']]        : $_POST['email'];
 
-			db_edit_dataset($GLOBALS['server'], $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email);
-
-			alert($label, true, $label['Edit_ok'], 'index.php?action=table&lang='.$label["lang"]);
+			addTandemForm($label, 'index.php?action=edit&a='.$hash.'&tid='.$id.'&lang='.$label['lang']);
 		}
 	}
 }
