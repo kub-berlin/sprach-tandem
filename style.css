@@ -53,3 +53,8 @@ body {
 	margin-bottom: 0;
 	white-space: nowrap;
 }
+
+:invalid:not(:focus) {
+	color: inherit;
+	border-color: inherit;
+}
