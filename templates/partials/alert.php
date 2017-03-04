@@ -1,9 +1,9 @@
-<table>
-	<tr>
-		<td><?php icon($success ? 'check' : 'emoji_sad') ?></td>
-		<td><?php e($msg) ?></td>
-	</tr>
-</table>
+<div class="alert alert--<?php e($success ? 'success' : 'warning') ?>">
+	<?php icon($success ? 'check' : 'emoji_sad', 'alert__icon') ?>
+	<div class="alert__body">
+		<?php e($msg) ?>
+	</div>
+</div>
 <p>
 	<a href="<?php e($backLink) ?>" class="button">
 		<?php icon(l10nDirection('prev', $label)) ?>

@@ -58,3 +58,16 @@ body {
 	color: inherit;
 	border-color: inherit;
 }
+
+.alert {
+	overflow: hidden;  /* clearfix */
+	padding: 1em;
+	border-radius: 2em;
+	background-color: #d0e4e4;
+	border: 0.2em solid #005e60;
+	margin-bottom: 1em;
+	text-align: center;
+}
+.alert__body {
+	display: inline;
+}
