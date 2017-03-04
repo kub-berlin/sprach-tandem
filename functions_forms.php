@@ -10,7 +10,7 @@ function addTandemForm($label, $caller)
 {
 	setDefaultParams(array('name', 'alter', 'email', 'ort', 'geschlecht', 'skills', 'text', 'spracheAng', 'spracheGes'));
 	$_POST['email_nochmal'] = '';
-	include 'partials/form_add_tandem.php';
+	include 'templates/forms/add_tandem.php';
 }
 
 function sendMessageForm($label, $caller)
@@ -19,7 +19,7 @@ function sendMessageForm($label, $caller)
 	$_POST['email_nochmal'] = '';
 
 	// Formulareintragungen liegen (noch) nicht vor
-	include 'partials/form_send_message.php';
+	include 'templates/forms/send_message.php';
 }
 
 
@@ -40,7 +40,7 @@ function filterLanguageForm($label, $caller)
 		$langs_ges[] = html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']]);
 	}
 
-	include 'partials/form_filter_lang.php';
+	include 'templates/forms/filter_lang.php';
 }
 
 function reportForm($label, $caller)
@@ -49,7 +49,7 @@ function reportForm($label, $caller)
 	$_POST['email_nochmal'] = '';
 
 	// Formulareintragungen liegen (noch) nicht vor
-	include 'partials/form_report.php';
+	include 'templates/forms/report.php';
 }
 
 ?>

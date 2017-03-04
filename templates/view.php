@@ -1,4 +1,4 @@
-<?php include 'partials/detail.php' ?>
+<?php include 'templates/partials/detail.php' ?>
 
 <p>
 	<a href="index.php?action=table&lang=<?php e($label["lang"]) ?>" class="button">

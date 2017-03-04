@@ -42,7 +42,7 @@ function icon($name, $className='', $alt='') {
 }
 
 function alert($label, $success, $msg, $backLink) {
-	include 'partials/alert.php';
+	include 'templates/partials/alert.php';
 }
 
 function getEntry()

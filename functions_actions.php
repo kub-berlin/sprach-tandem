@@ -16,7 +16,7 @@ function actionTable($label)
 
 	$db_erg = db_selectTableData($GLOBALS['server'], $filterAng, $filterGes, $label, $page);
 
-	include 'partials/table.php';
+	include 'templates/table.php';
 }
 
 
@@ -111,7 +111,7 @@ function actionView($label)
 			}
 		}
 
-		include 'partials/view.php';
+		include 'templates/view.php';
 	}
 }
 
@@ -185,7 +185,7 @@ function actionDelete($label)
 			}
 		} else
 		{
-			include 'partials/delete.php';
+			include 'templates/delete.php';
 		}
 	}
 }
@@ -235,7 +235,7 @@ function actionStatistic($label)
 		$sum_count += $zeile['count'];
 	}
 
-	include 'partials/stat.php';
+	include 'templates/stat.php';
 }
 
 //##############################
@@ -283,7 +283,7 @@ function actionReport($label)
 				$label_mail);
 		}
 
-		include 'partials/report.php';
+		include 'templates/report.php';
 	}
 }
 
