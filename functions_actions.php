@@ -50,14 +50,20 @@ function actionAdd($label){
 			$gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
 
 			if ($gesendet == 1){
+				http_response_code(201);
 				alert($label, true, $label['Add_gesendet'], 'index.php?action=table&lang='.$label["lang"]);
 			} else {
+				http_response_code(500);
 				alert($label, false, $label['Add_nichtGesendet'], 'index.php?action=table&lang='.$label["lang"]);
 			}
 		}
 	}
 	else
 	{
+		if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+			http_response_code(400);
+		}
+
 		echo '<p>'.$label['Add_intro'].'</p>';
 		addTandemForm($label, "index.php?action=add&lang=".$label['lang']);
 	}
@@ -108,6 +114,9 @@ function actionView($label)
 
 			if ($gesendet == 1){
 				db_incr_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_id']]);
+			} else
+			{
+				http_response_code(500);
 			}
 		}
 
@@ -146,6 +155,10 @@ function actionEdit($label)
 		}
 		else
 		{
+			if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+				http_response_code(400);
+			}
+
 			setDefaultParams(array('name', 'alter', 'geschlecht', 'skills', 'spracheAng', 'spracheGes', 'text', 'ort', 'email'));
 			$_POST['name']          = $_POST['name']          == '' ? $zeile[$GLOBALS['db_colName_name']]         : $_POST['name'];
 			$_POST['alter']         = $_POST['alter']         == '' ? $zeile[$GLOBALS['db_colName_alter']]        : $_POST['alter'];
@@ -181,6 +194,7 @@ function actionDelete($label)
 				alert($label, true, $label['deleteDataset'], 'index.php?action=table&lang='.$label["lang"]);
 			} else
 			{
+				http_response_code(500);
 				alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
 			}
 		} else
@@ -208,6 +222,7 @@ function actionRelease($label)
 			alert($label, true, $label['releaseDataset'], 'index.php?action=table&lang='.$label["lang"]);
 		} else
 		{
+			http_response_code(500);
 			alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label["lang"]);
 		}
 	}
@@ -281,6 +296,14 @@ function actionReport($label)
 				html_entity_decode($zeile[$GLOBALS['db_colName_id']]),
 				html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]),
 				$label_mail);
+
+			if (!$gesendet){
+				http_response_code(500);
+			}
+		}
+
+		if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+			http_response_code(400);
 		}
 
 		include 'templates/report.php';
