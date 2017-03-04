@@ -25,7 +25,9 @@
 					<?php e($zeile[$GLOBALS['db_colName_name']]) ?></a></td>
 				<td><?php e($label[$zeile[$GLOBALS['db_colName_spracheAng']]]) ?></td>
 				<td><?php e($label[$zeile[$GLOBALS['db_colName_spracheGes']]]) ?></td>
-				<td><?php e(date($label["dateFormat"], strtotime($zeile[$GLOBALS['db_colName_datum']]))) ?></td>
+				<td><time datetime="<?php e(date('Y-m-d', strtotime($zeile[$GLOBALS['db_colName_datum']]))) ?>">
+					<?php e(date($label['dateFormat'], strtotime($zeile[$GLOBALS['db_colName_datum']]))) ?>
+				</time></td>
 				<td><?php e($zeile[$GLOBALS['db_colName_ort']]) ?></td>
 			</tr>
 		<?php endforeach ?>
