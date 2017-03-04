@@ -56,6 +56,7 @@ if ($server != null){
 			e($label["Add_Title"]);
 			echo '</button></p>';
 			echo '</form>';
+
 			actionTable($label);
 		break;
 		case 'add':
