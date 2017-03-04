@@ -6,6 +6,16 @@
 #
    ===================================*/
 
+function db_log($location, $error, $sql='')
+{
+	if ($GLOBALS['debug'] == 1)
+	{
+		echo '<p>' . htmlspecialchars($sql) . '</p>';
+		echo '<p>in function ' . htmlspecialchars($location) . ':' . htmlspecialchars($error->getMessage()) . '</p>';
+	}
+	writeLog("DB $location: $sql\nERROR MESSAGE: ".$error->getMessage());
+}
+
 function db_connectDB()
 {
 	//  Connect to DB
@@ -14,11 +24,7 @@ function db_connectDB()
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		return $pdo;
 	} catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo '<p>in function db_connectDB:'.$e->getMessage().'</p>';
-		}
-		writeLog('DB CONNECT: ERROR MESSAGE: '.$e->getMessage());
+		db_log('db_connectDB', $e);
 	}
 }
 
@@ -54,12 +60,7 @@ function db_createTandemTable($pdo){
 		$ret = 1;
 		writeLog('DB CREATE TABLE: '.$sql.'\n');
 	} catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo '<p>'.$sql.'</p>';
-			echo '<p>in function db_createTable:'.$e->getMessage().'</p>';
-		}
-		writeLog('DB CREATE TABLE: '.$sql.'\nERROR MESSAGE: '.$$e->getMessage());
+		db_log('db_createTandemTable', $e, $sql);
 		$ret = -1;
 	}
 	return $ret;
@@ -117,12 +118,7 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 	}
 	catch (PDOException $e)
 	{
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo '<p>'.$sql.'</p>';
-			echo '<p>in function db_add_dataset:'.$e->getMessage().'</p>';
-		}
-		writeLog('DB ADD DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_add_dataset', $e, $sql);
 	}
 }
 
@@ -134,13 +130,8 @@ function db_selectFormColumn($pdo, $colName)
 		$statement = $pdo->query($sql);
 		$ret = $statement->fetchAll();
 	}  catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_selectFormColumn:".$e->getMessage()."</p>";
-		}
+		db_log('db_selectFormColumn', $e, $sql);
 		return -1;
-		writeLog('DB SELECT FROMCOLUMN: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
 	}
 	return $ret;
 }
@@ -162,12 +153,7 @@ function db_selectTableData($pdo, $filterAng, $filterGes, $label, $page)
 		$statement->execute();
 		$ret = $statement->fetchAll();
 	} catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_selectTableData:".$e->getMessage()."</p>";
-		}
-		writeLog('DB SELECT TABLEDATA: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_selectTableData', $e, $sql);
 	}
 	return $ret;
 
@@ -195,12 +181,7 @@ function db_countTableData($pdo, $filterAng, $filterGes, $label)
 
 	}
 	catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_countTableData:".$e->getMessage()."</p>";
-		}
-		writeLog('DB COUNT TABLEDATA: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_countTableData', $e, $sql);
 	}
 	return $ret;
 }
@@ -219,12 +200,7 @@ function db_getDataSet($pdo, $id)
 		$ret = $statement->fetchAll();
 	}
 	catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo '<p>'.$sql.'</p>';
-			echo '<p>in function db_getDataSet:'.$e->getMessage().'</p>';
-		}
-		writeLog('DB GET DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_getDataSet', $e, $sql);
 		$ret = -1;
 	}
 	return $ret;
@@ -264,12 +240,7 @@ function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $sprach
 
 		$ret = $statement->execute();
 	} catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo '<p>'.$sql.'</p>';
-			echo '<p>in function db_edit_dataset:'.$e->getMessage().'</p>';
-		}
-		writeLog('DB EDIT DATASET: '.$sql."\nERROR MESSAGE: ".$e->getMessage());
+		db_log('db_edit_dataset', $e, $sql);
 		$ret = false;
 	}
 
@@ -314,12 +285,7 @@ function db_delete_DataSet($pdo, $id, $hash)
 			$ret = $statement->execute();
 		}
 		catch (PDOException $e) {
-			if ($GLOBALS['debug'] == 1)
-			{
-				echo '<p>'.$sql.'</p>';
-				echo '<p>in function db_delete_DataSet:'.$e->getMessage().'</p>';
-			}
-			writeLog('DB DELETE DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+			db_log('db_delete_DataSet', $e, $sql);
 			$ret = -1;
 		}
 	} else
@@ -364,12 +330,7 @@ function db_release_DataSet($pdo, $id, $hash)
 
 		}
 		catch (PDOException $e) {
-			if ($GLOBALS['debug'] == 1)
-			{
-				echo '<p>'.$sql.'</p>';
-				echo '<p>in function db_release_DataSet:'.$e->getMessage().'</p>';
-			}
-			writeLog('DB RELEASE DATASET: '.$sql."\nERROR MESSAGE: ".$e->getMessage());
+			db_log('db_release_DataSet', $e, $sql);
 			$ret = -1;
 		}
 	} else
@@ -402,13 +363,8 @@ function db_get_langPairs($pdo, $thisYear = false)
 	}
 	catch (PDOException $e)
 	{
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_get_langPairs:".$e->getMessage()."</p>";
-		}
+		db_log('db_get_langPairs', $e, $sql);
 		$ret = -1;
-		writeLog('DB GET LANGPAIRS: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
 	}
 	return $ret;
 }
@@ -438,12 +394,7 @@ function db_sum_answers($pdo, $spracheAng, $spracheGes)
 	}
 	catch (PDOException $e)
 	{
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_count_langPairs:".$e->getMessage()."</p>";
-		}
-		writeLog('DB SUM ANSWERS: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_sum_answers', $e, $sql);
 	}
 	return $ret;
 }
@@ -464,13 +415,8 @@ function db_count_langPairs($pdo, $spracheAng, $spracheGes)
 		$ret = $statement->rowCount();
 	}
 	catch (PDOException $e) {
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_count_langPairs:".$e->getMessage()."</p>";
-		}
+		db_log('db_count_langPairs', $e, $sql);
 		$ret = -1;
-		writeLog('DB COUNT LANGPAIRS: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.$e->getMessage());
 	}
 	return $ret;
 }
@@ -489,12 +435,7 @@ function db_incr_answers($pdo, $id)
 	}
 	catch (PDOException $e)
 	{
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_edit_dataset:".$e->getMessage()."</p>";
-		}
-		writeLog('DB EDIT DATASET: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_incr_answers', $e, $sql);
 	}
 	return $ret;
 }
@@ -510,12 +451,7 @@ function db_getReminderDatasetsReleased($pdo)
 	}
 	catch (PDOException $e)
 	{
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function  db_getReminderDatasetsReleased:".$e->getMessage()."</p>";
-		}
-		writeLog('DB GET REMINDER RELESASED: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_getReminderDatasetsReleased', $e, $sql);
 		//$ret = false;
 	}
 	return $ret;
@@ -535,12 +471,7 @@ function db_getReminderDatasetsNotReleased($pdo)
 	}
 	catch (PDOException $e)
 	{
-		if ($GLOBALS['debug'] == 1)
-		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function  db_getReminderDatasetsNotReleased:".$e->getMessage()."</p>";
-		}
-		writeLog('DB GET REMINDER NOT RELESASED: '.$sql.' erg: '.$db_erg.'\nERROR MESSAGE: '.$e->getMessage());
+		db_log('db_getReminderDatasetsNotReleased', $e, $sql);
 	}
 
 	return $ret;
