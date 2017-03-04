@@ -26,7 +26,7 @@ function setDefaultParams($params) {
 	foreach ($params as $param)
 	{
 		if (!isset($_POST[$param])){
-			$_POST[$param] = "";
+			$_POST[$param] = '';
 		}
 	}
 }
@@ -36,7 +36,9 @@ function e($s) {
 }
 
 function icon($name, $className='', $alt='') {
-	echo '<svg class="icon '.$className.'" title="'.$alt.'" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
+	echo '<svg class="icon '.htmlspecialchars($className).'"'
+		. ' title="'.htmlspecialchars($alt).'" viewBox="0 0 20 20"'
+		. ' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
 		. '<use xlink:href="./images/icons.svg#' . htmlspecialchars($name) . '"></use>'
 		. '</svg>';
 }
@@ -176,7 +178,7 @@ function createLog()
 	$fh = fopen($logFile, 'w');
 
 	if ($fh != false){
-		fwrite($fh, date("Y-m-d H:i",time())." Log-File created\n");
+		fwrite($fh, date('Y-m-d H:i', time())." Log-File created\n");
 		fclose($fh);
 		$ret = true;
 	} else {
@@ -191,17 +193,17 @@ function writeLog($string)
 	$logFile = $GLOBALS['logfile'];
 	$fh = fopen($logFile, 'a');
 	if ($fh != false){
-		if (fwrite($fh, date("Y-m-d H:i",time())." ".$string."\n") == false){
+		if (fwrite($fh, date('Y-m-d H:i', time()).' '.$string."\n") == false){
 			if ($GLOBALS['debug'] == 1)
 			{
-				echo "<p>Error: open Logfile</p>";
+				echo '<p>Error: open Logfile</p>';
 			}
 		}
 		fclose($fh);
 	} else {
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>Error: open Logfile</p>";
+			echo '<p>Error: open Logfile</p>';
 		}
 	}
 }
@@ -220,15 +222,15 @@ function reminder_notReleased($label)
 	{
 		writeLog('REMINDER NOT RELEASED'.$db_erg);
 		foreach ($db_erg as $zeile) {
-			$label = setLanguage($zeile["lang"]);
-			$sprache = strip_tags($label['lang']);
+			$label = setLanguage($zeile['lang']);
+			$sprache = $label['lang'];
 			$name = $zeile[$GLOBALS['db_colName_name']];
 			$id = $zeile[$GLOBALS['db_colName_id']];
 			$hash = $zeile[$GLOBALS['db_colName_hash']];
 			$to = $zeile[$GLOBALS['db_colName_email']];
-			$subject = "Reminder first: ";
+			$subject = 'Reminder first: ';
 
-			$body = "Reminder Body";
+			$body = 'Reminder Body';
 			$gesendet = send_notification_add($email, $name, $id, $hash, $label);
 			writeLog('REMINDER NOT RELEASED Email senden id:'.$id.' gesendet:'.$gesendet);
 		}
@@ -243,18 +245,17 @@ function reminder_Released($label)
 	if (count($db_erg) > 0)
 	{
 		writeLog('REMINDER CYCLIC '.$db_erg);
-		echo "hallo";
 		foreach ($db_erg as $zeile) {
-			echo "schleife";
-			$label = setLanguage($zeile["lang"]);
-			$sprache = strip_tags($label['lang']);
+			echo 'schleife';
+			$label = setLanguage($zeile['lang']);
+			$sprache = $label['lang'];
 			$name = $zeile[$GLOBALS['db_colName_name']];
 			$id = $zeile[$GLOBALS['db_colName_id']];
 			$hash = $zeile[$GLOBALS['db_colName_hash']];
 			$to = $zeile[$GLOBALS['db_colName_email']];
-			$subject = "Reminder Released: ";
+			$subject = 'Reminder Released: ';
 
-			$body = "Reminder Body";
+			$body = 'Reminder Body';
 			$gesendet = send_reminder($to, $name, $id, $hash, $label);
 			writeLog('REMINDER CYCLIC E-Mail senden id:'.$id.' gesendet:'.$gesendet);
 		}
@@ -265,11 +266,11 @@ function reminder_Released($label)
 function scheduleReminder($label)
 {
 	if (file_exists($GLOBALS['logfile'])){
-		if (date("n",time()) != date("n",filemtime($GLOBALS['logfile'])))
+		if (date('n', time()) != date('n', filemtime($GLOBALS['logfile'])))
 		{
 			reminder_Released($label);
 		}
-		if (date("W",time()) != date("W",filemtime($GLOBALS['logfile'])))
+		if (date('W', time()) != date('W', filemtime($GLOBALS['logfile'])))
 		{
 			reminder_notReleased($label);
 		}

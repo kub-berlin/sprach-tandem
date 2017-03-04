@@ -16,7 +16,7 @@ function db_connectDB()
 	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>in function db_connectDB:".$e->getMessage()."</p>";
+			echo '<p>in function db_connectDB:'.$e->getMessage().'</p>';
 		}
 		writeLog('DB CONNECT: ERROR MESSAGE: '.$e->getMessage());
 	}
@@ -56,8 +56,8 @@ function db_createTandemTable($pdo){
 	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_createTable:".$e->getMessage()."</p>";
+			echo '<p>'.$sql.'</p>';
+			echo '<p>in function db_createTable:'.$e->getMessage().'</p>';
 		}
 		writeLog('DB CREATE TABLE: '.$sql.'\nERROR MESSAGE: '.$$e->getMessage());
 		$ret = -1;
@@ -119,8 +119,8 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 	{
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_add_dataset:".$e->getMessage()."</p>";
+			echo '<p>'.$sql.'</p>';
+			echo '<p>in function db_add_dataset:'.$e->getMessage().'</p>';
 		}
 		writeLog('DB ADD DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
 	}
@@ -221,8 +221,8 @@ function db_getDataSet($pdo, $id)
 	catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_getDataSet:".$e->getMessage()."</p>";
+			echo '<p>'.$sql.'</p>';
+			echo '<p>in function db_getDataSet:'.$e->getMessage().'</p>';
 		}
 		writeLog('DB GET DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
 		$ret = -1;
@@ -232,7 +232,7 @@ function db_getDataSet($pdo, $id)
 
 function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email)
 {
-	$datum = date("Y-m-d", time());
+	$datum = date('Y-m-d', time());
 
 	try
 	{
@@ -266,10 +266,10 @@ function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $sprach
 	} catch (PDOException $e) {
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>".$sql."</p>";
-			echo "<p>in function db_edit_dataset:".$e->getMessage()."</p>";
+			echo '<p>'.$sql.'</p>';
+			echo '<p>in function db_edit_dataset:'.$e->getMessage().'</p>';
 		}
-		writeLog('DB EDIT DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+		writeLog('DB EDIT DATASET: '.$sql."\nERROR MESSAGE: ".$e->getMessage());
 		$ret = false;
 	}
 
@@ -316,8 +316,8 @@ function db_delete_DataSet($pdo, $id, $hash)
 		catch (PDOException $e) {
 			if ($GLOBALS['debug'] == 1)
 			{
-				echo "<p>".$sql."</p>";
-				echo "<p>in function db_delete_DataSet:".$e->getMessage()."</p>";
+				echo '<p>'.$sql.'</p>';
+				echo '<p>in function db_delete_DataSet:'.$e->getMessage().'</p>';
 			}
 			writeLog('DB DELETE DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
 			$ret = -1;
@@ -366,10 +366,10 @@ function db_release_DataSet($pdo, $id, $hash)
 		catch (PDOException $e) {
 			if ($GLOBALS['debug'] == 1)
 			{
-				echo "<p>".$sql."</p>";
-				echo "<p>in function db_release_DataSet:".$e->getMessage()."</p>";
+				echo '<p>'.$sql.'</p>';
+				echo '<p>in function db_release_DataSet:'.$e->getMessage().'</p>';
 			}
-			writeLog('DB RELEASE DATASET: '.$sql.'\nERROR MESSAGE: '.$e->getMessage());
+			writeLog('DB RELEASE DATASET: '.$sql."\nERROR MESSAGE: ".$e->getMessage());
 			$ret = -1;
 		}
 	} else
