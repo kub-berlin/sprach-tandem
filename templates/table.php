@@ -22,11 +22,11 @@
 		<?php foreach ($db_erg as $zeile) : ?>
 			<tr>
 				<td><a href="index.php?action=view&tid=<?php e($zeile[$GLOBALS['db_colName_id']]) ?>&lang=<?php e($label['lang']) ?>">
-					<?php e(html_entity_decode($zeile[$GLOBALS['db_colName_name']])) ?></a></td>
-				<td><?php e($label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']])]) ?></td>
-				<td><?php e($label[html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']])]) ?></td>
+					<?php e($zeile[$GLOBALS['db_colName_name']]) ?></a></td>
+				<td><?php e($label[$zeile[$GLOBALS['db_colName_spracheAng']]]) ?></td>
+				<td><?php e($label[$zeile[$GLOBALS['db_colName_spracheGes']]]) ?></td>
 				<td><?php e(date($label["dateFormat"], strtotime($zeile[$GLOBALS['db_colName_datum']]))) ?></td>
-				<td><?php e(html_entity_decode($zeile[$GLOBALS['db_colName_ort']])) ?></td>
+				<td><?php e($zeile[$GLOBALS['db_colName_ort']]) ?></td>
 			</tr>
 		<?php endforeach ?>
 	</table>

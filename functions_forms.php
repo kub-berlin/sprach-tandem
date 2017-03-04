@@ -31,13 +31,13 @@ function filterLanguageForm($label, $caller)
 	$db_erg_ang = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheAng']);
 	$langs_ang = array();
 	foreach ($db_erg_ang as $zeile) {
-		$langs_ang[] = html_entity_decode($zeile[$GLOBALS['db_colName_spracheAng']]);
+		$langs_ang[] = $zeile[$GLOBALS['db_colName_spracheAng']];
 	}
 
 	$db_erg_ges = db_selectFormColumn($GLOBALS['server'], $GLOBALS['db_colName_spracheGes']);
 	$langs_ges = array();
 	foreach ($db_erg_ges as $zeile) {
-		$langs_ges[] = html_entity_decode($zeile[$GLOBALS['db_colName_spracheGes']]);
+		$langs_ges[] = $zeile[$GLOBALS['db_colName_spracheGes']];
 	}
 
 	include 'templates/forms/filter_lang.php';

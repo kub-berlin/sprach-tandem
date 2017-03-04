@@ -69,7 +69,7 @@ function db_createTandemTable($pdo){
 function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email, $sprache)
 {
 	array('db_erg' => -1, 'id' => -1, 'hash' => -1);
-	$datum = strip_tags(date("Y-m-d", time()));
+	$datum = date('Y-m-d', time());
 
 	$hash = substr(md5(uniqid((string)microtime(true))), 0, 16);
 
@@ -232,7 +232,7 @@ function db_getDataSet($pdo, $id)
 
 function db_edit_dataset($pdo, $name, $id, $alter, $geschlecht, $skills, $spracheAng, $spracheGes, $beschreibung, $ort, $email)
 {
-	$datum = strip_tags(date("Y-m-d", time()));
+	$datum = date("Y-m-d", time());
 
 	try
 	{

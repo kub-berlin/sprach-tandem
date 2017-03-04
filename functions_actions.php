@@ -292,9 +292,9 @@ function actionReport($label)
 				$name,
 				$email,
 				$text,
-				html_entity_decode($zeile[$GLOBALS['db_colName_name']]),
-				html_entity_decode($zeile[$GLOBALS['db_colName_id']]),
-				html_entity_decode($zeile[$GLOBALS['db_colName_beschreibung']]),
+				$zeile[$GLOBALS['db_colName_name']],
+				$zeile[$GLOBALS['db_colName_id']],
+				$zeile[$GLOBALS['db_colName_beschreibung']],
 				$label_mail);
 
 			if (!$gesendet){
