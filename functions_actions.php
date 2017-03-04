@@ -237,14 +237,18 @@ function actionRelease($label)
 
 function actionStatistic($label)
 {
-	$db_erg = db_get_langPairs($GLOBALS['server'], $_GET["t"] === "year");
+	if (!isset($_GET['t'])){
+		$_GET['t'] = 'always';
+	}
+
+	$db_erg = db_get_langPairs($GLOBALS['server'], $_GET['t'] === 'year');
 	$sum_replies = 0;
 	$sum_count = 0;
 	$sums = array();
 
 	foreach ($db_erg as $zeile)
 	{
-		$_replies = db_sum_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']]);
+		$_replies = db_sum_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']], $_GET['t'] === 'year');
 		$replies[] = $_replies;
 		$sum_replies += $_replies;
 		$sum_count += $zeile['count'];

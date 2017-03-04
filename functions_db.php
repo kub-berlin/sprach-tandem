@@ -283,12 +283,14 @@ function db_get_langPairs($pdo, $thisYear = false)
 	}
 }
 
-function db_sum_answers($pdo, $spracheAng, $spracheGes)
+function db_sum_answers($pdo, $spracheAng, $spracheGes, $thisYear = false)
 {
 	$sql = "SELECT SUM({$GLOBALS['db_colName_antworten']}) FROM `{$GLOBALS['db_table_name']}` WHERE
 		`{$GLOBALS['db_colName_spracheAng']}` = :spracheAng AND
 		`{$GLOBALS['db_colName_spracheGes']}` = :spracheGes AND
 		`{$GLOBALS['db_colName_released']}` = 1";
+	if ($thisYear)
+		$sql .= " AND {$GLOBALS['db_colName_datum']} > CONCAT(YEAR (CURDATE()), '-01-01')";
 
 	try {
 		$statement = $pdo->prepare($sql);

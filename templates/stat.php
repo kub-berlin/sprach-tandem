@@ -28,7 +28,7 @@
 				<td><?php e($label[$zeile[$GLOBALS['db_colName_spracheAng']]]) ?></td>
 				<td><?php e($label[$zeile[$GLOBALS['db_colName_spracheGes']]]) ?></td>
 				<td><?php e($zeile['count']) ?></td>
-				<td><?php e(($_GET["t"] === "year") ? "?" : $replies[$index]) ?></td>
+				<td><?php e($replies[$index]) ?></td>
 			</tr>
 		<?php endforeach ?>
 	</tbody>
