@@ -103,7 +103,7 @@ function send_notification_report($to, $name, $email, $text, $name_reported, $id
 function send_reminder($to, $name, $id, $hash, $label)
 {
 	$subject = sprintf($label["Reminder_subject"], $GLOBALS["organisationName"]);
-	$baseLink = $GLOBALS['tandem_root_path'] . "?tid=$id&lang={$label['lang']}&a=$hash";
+	$baseLink = $GLOBALS['tandem_root_path'] . "tid=$id&lang={$label['lang']}&a=$hash";
 	$body = sprintf($label["Reminder_email"],
 		$name,
 		$GLOBALS["organisationName"],
