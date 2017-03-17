@@ -80,7 +80,7 @@ function db_add_dataset($pdo, $name, $alter, $geschlecht, $skills, $spracheAng, 
 			`{$GLOBALS['db_colName_email']}`,
 			`{$GLOBALS['db_colName_antworten']}`,
 			`{$GLOBALS['db_colName_hash']}`,
-			`{$GLOBALS['db_colName_lang']}'
+			`{$GLOBALS['db_colName_lang']}`
 		) VALUES (:name, :alter, :geschlecht, :skills, :spracheAng, :spracheGes, :datum, :beschreibung, :ort, :email, 0, :hash, :sprache)";
 
 	try {
