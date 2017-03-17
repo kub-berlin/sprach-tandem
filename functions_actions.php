@@ -56,6 +56,9 @@ function actionAdd($label){
 				http_response_code(500);
 				alert($label, false, $label['Add_nichtGesendet'], 'index.php?action=table&lang='.$label['lang']);
 			}
+		} else {
+			http_response_code(400);
+			addTandemForm($label, 'index.php?action=table&lang='.$label['lang']);
 		}
 	}
 	else
