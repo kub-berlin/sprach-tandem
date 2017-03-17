@@ -323,8 +323,8 @@ function db_incr_answers($pdo, $id)
 function db_getReminderDatasetsReleased($pdo)
 {
 	$sql = "SELECT * FROM `{$GLOBALS['db_table_name']}` WHERE (
-			'(to_days( `{$GLOBALS['db_colName_datum']}` ) - to_days( current_date )) %{$GLOBALS['reminder_cyclic']} = 0
-		') AND `{$GLOBALS['db_colName_released']}` = 1";
+			(to_days( `{$GLOBALS['db_colName_datum']}` ) - to_days( current_date )) %{$GLOBALS['reminder_cyclic']} = 0
+		) AND `{$GLOBALS['db_colName_released']}` = 1";
 
 	try {
 		return $pdo->query( $sql )->fetchAll();
@@ -337,9 +337,9 @@ function db_getReminderDatasetsReleased($pdo)
 function db_getReminderDatasetsNotReleased($pdo)
 {
 	$sql = "SELECT * FROM `{$GLOBALS['db_table_name']}` WHERE (
-			'(to_days( `{$GLOBALS['db_colName_datum']}` ) - to_days( current_date )) %{$GLOBALS['reminder_first']} = 0 OR
-			'(to_days( `{$GLOBALS['db_colName_datum']}` ) - to_days( current_date )) %{$GLOBALS['reminder_cyclic']} = 0
-		') AND `{$GLOBALS['db_colName_released']}` = 0";
+			(to_days( `{$GLOBALS['db_colName_datum']}` ) - to_days( current_date )) %{$GLOBALS['reminder_first']} = 0 OR
+			(to_days( `{$GLOBALS['db_colName_datum']}` ) - to_days( current_date )) %{$GLOBALS['reminder_cyclic']} = 0
+		) AND `{$GLOBALS['db_colName_released']}` = 0";
 
 	try {
 		return $pdo->query($sql)->fetchAll();
