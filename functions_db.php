@@ -234,7 +234,7 @@ function db_delete_DataSet($pdo, $id, $hash)
 		$statement->bindParam(':hash', $hash);
 		$ret = $statement->execute();
 
-		if ($statement->rowCount() == 1) $ret = -1;
+		if ($statement->rowCount() != 1) $ret = -1;
 	} catch (PDOException $e) {
 		db_log('db_delete_DataSet', $e, $sql);
 		$ret = -1;
