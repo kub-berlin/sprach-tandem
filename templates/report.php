@@ -10,7 +10,7 @@
 <hr>
 
 <h3>
-	<?php icon('megaphone') ?>
+	<?php icon('report') ?>
 	<?php e($label['View_AnzeigeMelden']) ?>
 </h3>
 

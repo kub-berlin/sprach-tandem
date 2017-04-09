@@ -6,7 +6,7 @@
 		<?php e($label['zurueck']) ?>
 	</a>
 	<a href=index.php?action=report&lang=<?php e($label['lang']) ?>&tid=<?php e($id) ?> class="button">
-		<?php icon('megaphone') ?>
+		<?php icon('report') ?>
 		<?php e($label['View_AnzeigeMelden']) ?>
 	</a>
 </p>
