@@ -25,7 +25,6 @@ $label = setLanguage(htmlentities($_GET['lang']));
 >
 
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="<?php e(sprintf($GLOBALS['external_css'], $label['dir'])) ?>" />
 	<link rel="stylesheet" type="text/css" href="./style.css" />
