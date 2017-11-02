@@ -32,7 +32,7 @@ function setDefaultParams($params) {
 }
 
 function e($s) {
-	echo htmlspecialchars($s);
+	echo htmlspecialchars($s, ENT_SUBSTITUTE);
 }
 
 function icon($name, $className='', $alt='') {
