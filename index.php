@@ -26,6 +26,7 @@ $label = setLanguage(htmlentities($_GET['lang']));
 
 <head>
 	<meta charset="utf-8" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'" />
 	<link rel="stylesheet" type="text/css" href="<?php e(sprintf($GLOBALS['external_css'], $label['dir'])) ?>" />
 	<link rel="stylesheet" type="text/css" href="./style.css" />
 	<title><?php e(sprintf($label['Title'], $GLOBALS['organisationName'])) ?></title>
