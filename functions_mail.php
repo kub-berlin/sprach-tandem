@@ -33,7 +33,7 @@ function sendEmail($to, $subject, $body, $replyto)
 	if (PEAR::isError($mail)) {
 		if ($GLOBALS['debug'] == 1)
 		{
-			echo "<p>in function db_createTable:".$mail->getMessage() ."</p>";
+			echo "<p>in function sendEmail: ".$mail->getMessage() ."</p>";
 		}
 		writeLog('EMAIL SENDEMAIL: '.$to.': '.$subject.': \nERROR MESSAGE: '.$mail->getMessage());
 		$ret = -1;
