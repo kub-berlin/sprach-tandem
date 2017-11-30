@@ -19,16 +19,19 @@ function isValidEmail($email) {
 }
 
 
-function sendEmail($to, $subject, $body, $replyto)
+function sendEmail($to, $subject, $body, $replyto, $debug = 0)
 {
 	$ret = 0;
 	$from = 'noreply@'.$GLOBALS['domain'];
 	$headers = array(
 		"From: {$GLOBALS["organisationName"]} <$from>",
-      "BCC: sprachtandem@kub-berlin.org",
 		"Reply-To: $replyto",
 		"MIME-Version: 1.0",
 		"Content-type: text/plain; charset=UTF-8");
+	if ($debug)
+	{
+		array_push($headers, "BCC: {$GLOBALS['email_orga']}");
+	}
 	$mail = mail($to, $subject, $body, implode("\n", $headers));
 	if (PEAR::isError($mail)) {
 		if ($GLOBALS['debug'] == 1)
@@ -79,7 +82,7 @@ function send_notification_view($to, $nameTo, $nameFrom, $spracheAng, $spracheGe
 		$beschreibung,
 		$GLOBALS["organisationName"]);
 
-	$gesendet = sendEmail($to, ($subject), ($body), $email);
+	$gesendet = sendEmail($to, ($subject), ($body), $email, true);
 	writeLog('send_notification_view: Email senden: '.$gesendet);
 	return $gesendet;
 }
