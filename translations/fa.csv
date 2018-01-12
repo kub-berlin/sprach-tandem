@@ -1,32 +1,32 @@
-lang,fa
-dateFormat,Y-m-d
-Table_intro,در لیست ذیل موارد موجود را مشاهده می کنید، چنانچه موردی مناسب برایتان وجود دارد، برای شخص پیغام بگذارید
-Table_filtern,فیلتر
-Table_Title ,
-Table_col_name,نام
-Table_col_spracheAng,زبان ارائه شده
-Table_col_spracheGes,زبان مورد نیاز
-Table_col_datum,تاریخ ثبت درخواست
-Table_col_ort,مکان
-Table_filter_alle,همه
-Add_intro,
-Add_name,نام
-Add_email,ایمیل
-Add_email_nochmal,ایمیل تکرار
-Add_alter,سن
-Add_ort,محل اقامت
-Add_geschlecht,جنس
-Add_skills,میزان تسلط به زبان درخواستی
-Add_skills_0,اندک
-Add_skills_1,قابل قبول
-Add_skills_2,خوب
-Add_skills_3,خیلی خوب
-Add_spracheAng,زبانی که مایل به ارایه آن هستید
-Add_spracheGes,زبان درخواستی
-Add_beschreibung,کمی در مورد خودتان توضیح دهید
-Add_senden,ارسال
-Add_email_subject,درخواست شما:در برنامه شراکت زبانی %s
-Add_notification_email,"%s سلام
+"lang","fa"
+"dateFormat","Y-m-d"
+"Table_intro","در لیست ذیل موارد موجود را مشاهده می کنید، چنانچه موردی مناسب برایتان وجود دارد، برای شخص پیغام بگذارید"
+"Table_filtern","فیلتر"
+"Table_Title ",""
+"Table_col_name","نام"
+"Table_col_spracheAng","زبان ارائه شده"
+"Table_col_spracheGes","زبان مورد نیاز"
+"Table_col_datum","تاریخ ثبت درخواست"
+"Table_col_ort","مکان"
+"Table_filter_alle","همه"
+"Add_intro",""
+"Add_name","نام"
+"Add_email","ایمیل"
+"Add_email_nochmal","ایمیل تکرار"
+"Add_alter","سن"
+"Add_ort","محل اقامت"
+"Add_geschlecht","جنس"
+"Add_skills","میزان تسلط به زبان درخواستی"
+"Add_skills_0","اندک"
+"Add_skills_1","قابل قبول"
+"Add_skills_2","خوب"
+"Add_skills_3","خیلی خوب"
+"Add_spracheAng","زبانی که مایل به ارایه آن هستید"
+"Add_spracheGes","زبان درخواستی"
+"Add_beschreibung","کمی در مورد خودتان توضیح دهید"
+"Add_senden","ارسال"
+"Add_email_subject","درخواست شما:در برنامه شراکت زبانی %s"
+"Add_notification_email","%s سلام
 
 از اینکه درخواست خود را به برنامه شراکت زبانی %s ارایه نمودید، بسیار خوشحالیم. لطفا روی  این لینک کلیک نموده تا درخواست شما فعال گردد
 
@@ -48,38 +48,38 @@ Add_notification_email,"%s سلام
 %s
 
 چنانچه با مشکلی مواجه شدید یا اینکه نظر یا پیشنهادی دارید، لطفا  آنرا به ایمیل  : ارسال نمایید %s"
-Add_datenschutz,
-Add_ausfuellen,لطفا همه موارد را تکمیل کنید، ایمیل معتبر ارایه و شرایط مربوط به حفظ اطلاعات شخصی را تایید نمایید.
-Add_Title,
-Add_gesendet,درخواست شما دریافت گردید.\n\nبلافاصله ایمیلی ازطرف ما حاوی یک لینک به منظور فعالسازی درخواستتان دریافت خواهید کرد، چنانچه روی لینک کلیک نمایید، درخواستتان منتشر خواهد شد.
-Add_nichtGesendet,چنانچه ایمیل ارائه شده صحیحح و معتبر نباشد، ایمیل تاییدیه ارسال نخواهد شد.
-zurueck,ظهر
-View_alter,سن
-View_geschlecht,س
-View_skills,میزان تسلط به زبان  درخواستی
-View_skills_0,اندک
-View_skills_1,قابل قبول
-View_skills_2,خوب
-View_skills_3,خیلی خوب
-View_ort,کلن
-View_spracheAng, زبان ارایه شده
-View_spracheGes, زبان درخواستی
-View_beschreibung,توضیحات بیشتر
-View_Form_name,نام
-View_Form_alter,سن
-View_Form_geschlecht,جنس
-View_Form_ort,محل اقامت
-View_Form_email,ایمیل
-View_Form_email_nochmal,"""ایمیل تکرار"""
-View_Form_text,پیغام
-View_Form_nachrichtAn,ارسال پیام به
-View_Form_ausfuellen,لطفا همه موارد را تکمیل کنید، ایمیل معتبر ارایه و شرایط مربوط به حفظ اطلاعات شخصی را تایید نمایید.
-View_Form_senden,ارسال
-View_AnzeigeMelden,
-View_gesendet,پیام شما ارسال گردید. چنانچه فردی به درخواست شما برای انجام شراکت زبانی علاقه مند باشد، مستقیما با خودتان تماس می گیرد.
-View_nichtGesendet,چنانچه ایمیل ارائه شده صحیحح و معتبر نباشد، پیامتان ارسال نخواهد شد.
-View_email_subject,
-View_notification_email,"%s سلام
+"Add_datenschutz",""
+"Add_ausfuellen","لطفا همه موارد را تکمیل کنید، ایمیل معتبر ارایه و شرایط مربوط به حفظ اطلاعات شخصی را تایید نمایید."
+"Add_Title",""
+"Add_gesendet","درخواست شما دریافت گردید.\n\nبلافاصله ایمیلی ازطرف ما حاوی یک لینک به منظور فعالسازی درخواستتان دریافت خواهید کرد، چنانچه روی لینک کلیک نمایید، درخواستتان منتشر خواهد شد."
+"Add_nichtGesendet","چنانچه ایمیل ارائه شده صحیحح و معتبر نباشد، ایمیل تاییدیه ارسال نخواهد شد."
+"zurueck","ظهر"
+"View_alter","سن"
+"View_geschlecht","س"
+"View_skills","میزان تسلط به زبان  درخواستی"
+"View_skills_0","اندک"
+"View_skills_1","قابل قبول"
+"View_skills_2","خوب"
+"View_skills_3","خیلی خوب"
+"View_ort","کلن"
+"View_spracheAng"," زبان ارایه شده"
+"View_spracheGes"," زبان درخواستی"
+"View_beschreibung","توضیحات بیشتر"
+"View_Form_name","نام"
+"View_Form_alter","سن"
+"View_Form_geschlecht","جنس"
+"View_Form_ort","محل اقامت"
+"View_Form_email","ایمیل"
+"View_Form_email_nochmal","""ایمیل تکرار"""
+"View_Form_text","پیغام"
+"View_Form_nachrichtAn","ارسال پیام به"
+"View_Form_ausfuellen","لطفا همه موارد را تکمیل کنید، ایمیل معتبر ارایه و شرایط مربوط به حفظ اطلاعات شخصی را تایید نمایید."
+"View_Form_senden","ارسال"
+"View_AnzeigeMelden",""
+"View_gesendet","پیام شما ارسال گردید. چنانچه فردی به درخواست شما برای انجام شراکت زبانی علاقه مند باشد، مستقیما با خودتان تماس می گیرد."
+"View_nichtGesendet","چنانچه ایمیل ارائه شده صحیحح و معتبر نباشد، پیامتان ارسال نخواهد شد."
+"View_email_subject",""
+"View_notification_email","%s سلام
 
  علاقه مند است  با تو شریک زبانی باشد %s
 (%s-%s)
@@ -98,108 +98,108 @@ View_notification_email,"%s سلام
 با بهترین سلامها
 
 %sتیم هماهنگ کننده برنامه شراکت زبانی "
-View_datenschutz,
-sprache_afrikaans,فریکانس
-sprache_albanisch,لبانیایی
-sprache_amharisch,امهری
-sprache_arabisch,عربی
-sprache_armenisch,ارمنی
-sprache_bambara,بنگالی
-sprache_bengali,
-sprache_bosnisch,بوسنی
-sprache_bulgarisch,بلغاری
-sprache_chinesisch,چینی
-sprache_daenisch,دانمارکی
-sprache_deutsch,لمانی
-sprache_englisch,انگلیسی
-sprache_estnisch,زبان استونی
-sprache_ewe,میش
-sprache_finnisch,فنلاندی
-sprache_franzoesisch,فرانسوی
-sprache_fula,
-sprache_griechisch,یونانی
-sprache_gujarati,گجراتی
-sprache_hausa,
-sprache_hebräisch,زبان عبری
-sprache_hindi,
-sprache_igbo,هندی
-sprache_indonesisch,اندونزی
-sprache_isländisch,زبان ایسلندی
-sprache_italienisch,ایتالیایی
-sprache_japanisch,ژاپنی
-sprache_javanisch,جاوه
-sprache_kannada,کانادا
-sprache_kikongo,
-sprache_koreanisch,کره ای
-sprache_krio,
-sprache_kroatisch,کرواتی
-sprache_kurdisch,کردی
-sprache_lamnso,
-sprache_lettisch,لتونی
-sprache_lingala,لینگالا
-sprache_litauisch,زبان لیتوانی
-sprache_maltesisch,اهل مالت
-sprache_marathi,مراتی
-sprache_mazedonisch,مقدونی
-sprache_mongolisch,مغولی
-sprache_niederlaendisch,هلندی
-sprache_norwegisch,نروژی
-sprache_russisch,روسی
-sprache_paschto,پشتو
-sprache_persisch,فارسی
-sprache_pidgin,
-sprache_polnisch,لهستانی
-sprache_portugiesisch,پرتغالی
-sprache_punjabi,پنجابی
-sprache_romanes,
-sprache_rumaenisch,زبان رومانی
-sprache_serbisch,صرب
-sprache_singhalesisch,
-sprache_schwedisch,سوئد
-sprache_slowakisch,اسلواکی
-sprache_slowenisch,اسلوونی
-sprache_somali,اهل سومالی
-sprache_sotho,سوتو
-sprache_spanisch,اسپانیایی
-sprache_swahili,سواحیلی
-sprache_tamilisch,زبان تمیل
-sprache_telugu,تلوگو
-sprache_thailaendisch,تایلندی
-sprache_tigrinya,تیگرینیا
-sprache_tschechisch,چک
-sprache_tuerkisch,ترکی
-sprache_twi,توی
-sprache_ukrainisch,اوکراین
-sprache_ungarisch,مجارستانی
-sprache_urdu,زبان اردو
-sprache_weissrussisch,بلاروس
-sprache_wolof,ولوف
-sprache_vietnamesisch,ویتنامی
-sprache_yoruba,یوروبا
-sprache_zulu,
-sprache_gebaerdensprache,یوروبا
-releaseDataset,
-releaseDataset_Title,
-deleteDataset_button_yes,
-deleteDataset_button_no,
-deleteDataset,
-deleteDataset_Title,
-editDataset,
-editDataset_Title,
-Report_Title,
-Statistik_Title,
-Title,
-Report_Form_email,
-Report_Form_email_nochmal,
-Report_Form_name,
-Report_Form_text,
-Report_Form_senden,
-Report_textabove,
-Report_gesendet,
-Report_nichtGesendet,
-Report_zurück,
-Report_email_subject,
-Report_email,
-Reminder_email,
-Reminder_subject,
-Edit_ok,
+"View_datenschutz",""
+"sprache_afrikaans","فریکانس"
+"sprache_albanisch","لبانیایی"
+"sprache_amharisch","امهری"
+"sprache_arabisch","عربی"
+"sprache_armenisch","ارمنی"
+"sprache_bambara","بنگالی"
+"sprache_bengali",""
+"sprache_bosnisch","بوسنی"
+"sprache_bulgarisch","بلغاری"
+"sprache_chinesisch","چینی"
+"sprache_daenisch","دانمارکی"
+"sprache_deutsch","لمانی"
+"sprache_englisch","انگلیسی"
+"sprache_estnisch","زبان استونی"
+"sprache_ewe","میش"
+"sprache_finnisch","فنلاندی"
+"sprache_franzoesisch","فرانسوی"
+"sprache_fula",""
+"sprache_griechisch","یونانی"
+"sprache_gujarati","گجراتی"
+"sprache_hausa",""
+"sprache_hebräisch","زبان عبری"
+"sprache_hindi",""
+"sprache_igbo","هندی"
+"sprache_indonesisch","اندونزی"
+"sprache_isländisch","زبان ایسلندی"
+"sprache_italienisch","ایتالیایی"
+"sprache_japanisch","ژاپنی"
+"sprache_javanisch","جاوه"
+"sprache_kannada","کانادا"
+"sprache_kikongo",""
+"sprache_koreanisch","کره ای"
+"sprache_krio",""
+"sprache_kroatisch","کرواتی"
+"sprache_kurdisch","کردی"
+"sprache_lamnso",""
+"sprache_lettisch","لتونی"
+"sprache_lingala","لینگالا"
+"sprache_litauisch","زبان لیتوانی"
+"sprache_maltesisch","اهل مالت"
+"sprache_marathi","مراتی"
+"sprache_mazedonisch","مقدونی"
+"sprache_mongolisch","مغولی"
+"sprache_niederlaendisch","هلندی"
+"sprache_norwegisch","نروژی"
+"sprache_russisch","روسی"
+"sprache_paschto","پشتو"
+"sprache_persisch","فارسی"
+"sprache_pidgin",""
+"sprache_polnisch","لهستانی"
+"sprache_portugiesisch","پرتغالی"
+"sprache_punjabi","پنجابی"
+"sprache_romanes",""
+"sprache_rumaenisch","زبان رومانی"
+"sprache_serbisch","صرب"
+"sprache_singhalesisch",""
+"sprache_schwedisch","سوئد"
+"sprache_slowakisch","اسلواکی"
+"sprache_slowenisch","اسلوونی"
+"sprache_somali","اهل سومالی"
+"sprache_sotho","سوتو"
+"sprache_spanisch","اسپانیایی"
+"sprache_swahili","سواحیلی"
+"sprache_tamilisch","زبان تمیل"
+"sprache_telugu","تلوگو"
+"sprache_thailaendisch","تایلندی"
+"sprache_tigrinya","تیگرینیا"
+"sprache_tschechisch","چک"
+"sprache_tuerkisch","ترکی"
+"sprache_twi","توی"
+"sprache_ukrainisch","اوکراین"
+"sprache_ungarisch","مجارستانی"
+"sprache_urdu","زبان اردو"
+"sprache_weissrussisch","بلاروس"
+"sprache_wolof","ولوف"
+"sprache_vietnamesisch","ویتنامی"
+"sprache_yoruba","یوروبا"
+"sprache_zulu",""
+"sprache_gebaerdensprache","یوروبا"
+"releaseDataset",""
+"releaseDataset_Title",""
+"deleteDataset_button_yes",""
+"deleteDataset_button_no",""
+"deleteDataset",""
+"deleteDataset_Title",""
+"editDataset",""
+"editDataset_Title",""
+"Report_Title",""
+"Statistik_Title",""
+"Title",""
+"Report_Form_email",""
+"Report_Form_email_nochmal",""
+"Report_Form_name",""
+"Report_Form_text",""
+"Report_Form_senden",""
+"Report_textabove",""
+"Report_gesendet",""
+"Report_nichtGesendet",""
+"Report_zurück",""
+"Report_email_subject",""
+"Report_email",""
+"Reminder_email",""
+"Reminder_subject",""
+"Edit_ok",""

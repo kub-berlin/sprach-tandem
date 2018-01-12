@@ -1,32 +1,32 @@
-lang,fr
-dateFormat,d.m.Y
-Table_intro,"Dans cette liste, tu peux consulter les annonces actuelles. Si tu en trouves une qui corresponde à tes critères, tu peux simplement envoyer un e-mail."
-Table_filtern,filterer
-Table_Title ,
-Table_col_name,Nom
-Table_col_spracheAng,Langue offerte
-Table_col_spracheGes,Langue recherchée
-Table_col_datum,placé à
-Table_col_ort,Lieu de domicile
-Table_filter_alle,tout
-Add_intro,Tu n´as pas trouvé l´annonce que tu cherchais? Place une annonce toi-même!
-Add_name,Ton nom
-Add_email,Ton e-mail
-Add_email_nochmal,Répétez e-mail
-Add_alter,Ton âge
-Add_ort,Ton lieu de domicile
-Add_geschlecht,Ton sexe
-Add_skills,Niveau de connaissance de la langue recherchée
-Add_skills_0,un peu
-Add_skills_1,ça va
-Add_skills_2,bon
-Add_skills_3,très bon
-Add_spracheAng,Langue offerte
-Add_spracheGes,Langue recherchée
-Add_beschreibung,Quelques informations sur toi-même
-Add_senden,envoyer
-Add_email_subject,Tandem linguistique de la %s: ton annonce
-Add_notification_email,"Salut %s,
+"lang","fr"
+"dateFormat","d.m.Y"
+"Table_intro","Dans cette liste, tu peux consulter les annonces actuelles. Si tu en trouves une qui corresponde à tes critères, tu peux simplement envoyer un e-mail."
+"Table_filtern","filterer"
+"Table_Title ",""
+"Table_col_name","Nom"
+"Table_col_spracheAng","Langue offerte"
+"Table_col_spracheGes","Langue recherchée"
+"Table_col_datum","placé à"
+"Table_col_ort","Lieu de domicile"
+"Table_filter_alle","tout"
+"Add_intro","Tu n´as pas trouvé l´annonce que tu cherchais? Place une annonce toi-même!"
+"Add_name","Ton nom"
+"Add_email","Ton e-mail"
+"Add_email_nochmal","Répétez e-mail"
+"Add_alter","Ton âge"
+"Add_ort","Ton lieu de domicile"
+"Add_geschlecht","Ton sexe"
+"Add_skills","Niveau de connaissance de la langue recherchée"
+"Add_skills_0","un peu"
+"Add_skills_1","ça va"
+"Add_skills_2","bon"
+"Add_skills_3","très bon"
+"Add_spracheAng","Langue offerte"
+"Add_spracheGes","Langue recherchée"
+"Add_beschreibung","Quelques informations sur toi-même"
+"Add_senden","envoyer"
+"Add_email_subject","Tandem linguistique de la %s: ton annonce"
+"Add_notification_email","Salut %s,
 
 tu as placé une annonce dans le cadre du tandem linguistique de la %s. Clique ici pour l'activer:
 %s
@@ -49,39 +49,39 @@ Tu peux actualiser ton annonce sous ce lien:
 %s
 					
 Pour toute question et remarque, tu peux nous contacter: %s"
-Add_datenschutz,
-Add_ausfuellen,"Remplis toutes les cases, utilise un e-mail valide et accepte les conditions de protection des données personnelles."
-Add_Title,
-Add_gesendet,"Ton annonce a été enregistrée. 
+"Add_datenschutz",""
+"Add_ausfuellen","Remplis toutes les cases, utilise un e-mail valide et accepte les conditions de protection des données personnelles."
+"Add_Title",""
+"Add_gesendet","Ton annonce a été enregistrée. 
 Tu vas recevoir un e-mail avec un lien pour activer ton annonce. Si tu cliques sur ce lien, ton annonce sera publiée."
-Add_nichtGesendet,L'e-mail de confirmation n'a pas pu être envoyé. L'adresse e-mail que tu as indiquée n'est probablement pas correcte.
-zurueck,retour
-View_alter,Âge
-View_geschlecht,Sexe
-View_skills,Niveau de connaissance de la langue recherchée
-View_skills_0,un peu
-View_skills_1,ça va
-View_skills_2,bon
-View_skills_3,très bon
-View_ort,Lieu de domicile
-View_spracheAng,Langue offerte
-View_spracheGes,Langue recherchée
-View_beschreibung,Informations
-View_Form_name,Ton Nom
-View_Form_alter,Ton âge
-View_Form_geschlecht,Ton sexe
-View_Form_ort,Ton lieu de domicile
-View_Form_email,Ton e-mail
-View_Form_email_nochmal,Répétez e-mail
-View_Form_text,Ton message
-View_Form_nachrichtAn,Envoyer un message à 
-View_Form_ausfuellen,"Remplis toutes les cases, utilise un e-mail valide et accepte les conditions de protection des données personnelles."
-View_Form_senden,envoyer
-View_AnzeigeMelden,
-View_gesendet,"Ton message a été envoyé. Si la personne qui a placé cette annonce est intéressée par un tandem avec toi, elle te contactera directement."
-View_nichtGesendet,Ton message n'a pas pu être envoyé. L'adresse e-mail que tu as indiquée n'est probablement pas correcte.
-View_email_subject,Tandem linguistique de la %s: tu as reçu un message
-View_notification_email,"Salut %s,
+"Add_nichtGesendet","L'e-mail de confirmation n'a pas pu être envoyé. L'adresse e-mail que tu as indiquée n'est probablement pas correcte."
+"zurueck","retour"
+"View_alter","Âge"
+"View_geschlecht","Sexe"
+"View_skills","Niveau de connaissance de la langue recherchée"
+"View_skills_0","un peu"
+"View_skills_1","ça va"
+"View_skills_2","bon"
+"View_skills_3","très bon"
+"View_ort","Lieu de domicile"
+"View_spracheAng","Langue offerte"
+"View_spracheGes","Langue recherchée"
+"View_beschreibung","Informations"
+"View_Form_name","Ton Nom"
+"View_Form_alter","Ton âge"
+"View_Form_geschlecht","Ton sexe"
+"View_Form_ort","Ton lieu de domicile"
+"View_Form_email","Ton e-mail"
+"View_Form_email_nochmal","Répétez e-mail"
+"View_Form_text","Ton message"
+"View_Form_nachrichtAn","Envoyer un message à "
+"View_Form_ausfuellen","Remplis toutes les cases, utilise un e-mail valide et accepte les conditions de protection des données personnelles."
+"View_Form_senden","envoyer"
+"View_AnzeigeMelden",""
+"View_gesendet","Ton message a été envoyé. Si la personne qui a placé cette annonce est intéressée par un tandem avec toi, elle te contactera directement."
+"View_nichtGesendet","Ton message n'a pas pu être envoyé. L'adresse e-mail que tu as indiquée n'est probablement pas correcte."
+"View_email_subject","Tandem linguistique de la %s: tu as reçu un message"
+"View_notification_email","Salut %s,
 
 %s iest intéressé par un tandem linguistique (%s-%s) avec toi.
 
@@ -98,108 +98,108 @@ Le message suivant t'a été envoyé:
 Meilleures salutations,
 
 Le team du tandem linguistique de la %s"
-View_datenschutz,
-sprache_afrikaans,Afrikaans
-sprache_albanisch,Albanaise
-sprache_amharisch,Amharique
-sprache_arabisch,Arabe
-sprache_armenisch,Arménien
-sprache_bambara,Bambara
-sprache_bengali,Bengali
-sprache_bosnisch,Bosnien
-sprache_bulgarisch,Bulgare
-sprache_chinesisch,Chinois
-sprache_daenisch,Danois
-sprache_deutsch,Allemand
-sprache_englisch,Anglais
-sprache_estnisch,Estonien
-sprache_ewe,Ewe
-sprache_finnisch,Finnios
-sprache_franzoesisch,Français
-sprache_fula,Fula
-sprache_griechisch,Grec
-sprache_gujarati,Gujarati
-sprache_hausa,Hausa
-sprache_hebräisch,Hébreu
-sprache_hindi,Hindi
-sprache_igbo,Igbo
-sprache_indonesisch,Indonésienne
-sprache_isländisch,Islandais
-sprache_italienisch,Italien
-sprache_japanisch,Japonais
-sprache_javanisch,Javanais
-sprache_kannada,Kannada
-sprache_kikongo,Kikongo
-sprache_koreanisch,Coréen
-sprache_krio,Krio
-sprache_kroatisch,Croate
-sprache_kurdisch,Kurde
-sprache_lamnso,Lamnso
-sprache_lettisch,Letton
-sprache_lingala,Lingala
-sprache_litauisch,Lituanien
-sprache_maltesisch,Maltais
-sprache_marathi,Marathi
-sprache_mazedonisch,Macédonien
-sprache_mongolisch,Mongol
-sprache_niederlaendisch,Néerlandais
-sprache_norwegisch,Norvégien
-sprache_russisch,Russe
-sprache_paschto,Paschto
-sprache_persisch,Persan
-sprache_pidgin,Pidgin
-sprache_polnisch,Polnais
-sprache_portugiesisch,Portugais
-sprache_punjabi,Punjabi
-sprache_romanes,Romanes
-sprache_rumaenisch,Roumain
-sprache_serbisch,Serbe
-sprache_singhalesisch,
-sprache_schwedisch,Suédois
-sprache_slowakisch,Slovaque
-sprache_slowenisch,Slovène
-sprache_somali,Somali
-sprache_sotho,Sotho
-sprache_spanisch,Espagnol
-sprache_swahili,Swahili
-sprache_tamilisch,Tamil
-sprache_telugu,Telugu
-sprache_thailaendisch,Thai
-sprache_tigrinya,Tigrinya
-sprache_tschechisch,Tchèque
-sprache_tuerkisch,Turc
-sprache_twi,Twi
-sprache_ukrainisch,Ukrainien
-sprache_ungarisch,Hongrois
-sprache_urdu,Urdu
-sprache_weissrussisch,Biélorusse
-sprache_wolof,Wolof
-sprache_vietnamesisch,Vietnamien
-sprache_yoruba,Yoruba
-sprache_zulu,Zulu
-sprache_gebaerdensprache,Langue des signes
-releaseDataset,
-releaseDataset_Title,
-deleteDataset_button_yes,
-deleteDataset_button_no,
-deleteDataset,
-deleteDataset_Title,
-editDataset,
-editDataset_Title,
-Report_Title,
-Statistik_Title,
-Title,
-Report_Form_email,
-Report_Form_email_nochmal,
-Report_Form_name,
-Report_Form_text,
-Report_Form_senden,
-Report_textabove,
-Report_gesendet,
-Report_nichtGesendet,
-Report_zurück,
-Report_email_subject,
-Report_email,
-Reminder_email,
-Reminder_subject,
-Edit_ok,
+"View_datenschutz",""
+"sprache_afrikaans","Afrikaans"
+"sprache_albanisch","Albanaise"
+"sprache_amharisch","Amharique"
+"sprache_arabisch","Arabe"
+"sprache_armenisch","Arménien"
+"sprache_bambara","Bambara"
+"sprache_bengali","Bengali"
+"sprache_bosnisch","Bosnien"
+"sprache_bulgarisch","Bulgare"
+"sprache_chinesisch","Chinois"
+"sprache_daenisch","Danois"
+"sprache_deutsch","Allemand"
+"sprache_englisch","Anglais"
+"sprache_estnisch","Estonien"
+"sprache_ewe","Ewe"
+"sprache_finnisch","Finnios"
+"sprache_franzoesisch","Français"
+"sprache_fula","Fula"
+"sprache_griechisch","Grec"
+"sprache_gujarati","Gujarati"
+"sprache_hausa","Hausa"
+"sprache_hebräisch","Hébreu"
+"sprache_hindi","Hindi"
+"sprache_igbo","Igbo"
+"sprache_indonesisch","Indonésienne"
+"sprache_isländisch","Islandais"
+"sprache_italienisch","Italien"
+"sprache_japanisch","Japonais"
+"sprache_javanisch","Javanais"
+"sprache_kannada","Kannada"
+"sprache_kikongo","Kikongo"
+"sprache_koreanisch","Coréen"
+"sprache_krio","Krio"
+"sprache_kroatisch","Croate"
+"sprache_kurdisch","Kurde"
+"sprache_lamnso","Lamnso"
+"sprache_lettisch","Letton"
+"sprache_lingala","Lingala"
+"sprache_litauisch","Lituanien"
+"sprache_maltesisch","Maltais"
+"sprache_marathi","Marathi"
+"sprache_mazedonisch","Macédonien"
+"sprache_mongolisch","Mongol"
+"sprache_niederlaendisch","Néerlandais"
+"sprache_norwegisch","Norvégien"
+"sprache_russisch","Russe"
+"sprache_paschto","Paschto"
+"sprache_persisch","Persan"
+"sprache_pidgin","Pidgin"
+"sprache_polnisch","Polnais"
+"sprache_portugiesisch","Portugais"
+"sprache_punjabi","Punjabi"
+"sprache_romanes","Romanes"
+"sprache_rumaenisch","Roumain"
+"sprache_serbisch","Serbe"
+"sprache_singhalesisch",""
+"sprache_schwedisch","Suédois"
+"sprache_slowakisch","Slovaque"
+"sprache_slowenisch","Slovène"
+"sprache_somali","Somali"
+"sprache_sotho","Sotho"
+"sprache_spanisch","Espagnol"
+"sprache_swahili","Swahili"
+"sprache_tamilisch","Tamil"
+"sprache_telugu","Telugu"
+"sprache_thailaendisch","Thai"
+"sprache_tigrinya","Tigrinya"
+"sprache_tschechisch","Tchèque"
+"sprache_tuerkisch","Turc"
+"sprache_twi","Twi"
+"sprache_ukrainisch","Ukrainien"
+"sprache_ungarisch","Hongrois"
+"sprache_urdu","Urdu"
+"sprache_weissrussisch","Biélorusse"
+"sprache_wolof","Wolof"
+"sprache_vietnamesisch","Vietnamien"
+"sprache_yoruba","Yoruba"
+"sprache_zulu","Zulu"
+"sprache_gebaerdensprache","Langue des signes"
+"releaseDataset",""
+"releaseDataset_Title",""
+"deleteDataset_button_yes",""
+"deleteDataset_button_no",""
+"deleteDataset",""
+"deleteDataset_Title",""
+"editDataset",""
+"editDataset_Title",""
+"Report_Title",""
+"Statistik_Title",""
+"Title",""
+"Report_Form_email",""
+"Report_Form_email_nochmal",""
+"Report_Form_name",""
+"Report_Form_text",""
+"Report_Form_senden",""
+"Report_textabove",""
+"Report_gesendet",""
+"Report_nichtGesendet",""
+"Report_zurück",""
+"Report_email_subject",""
+"Report_email",""
+"Reminder_email",""
+"Reminder_subject",""
+"Edit_ok",""

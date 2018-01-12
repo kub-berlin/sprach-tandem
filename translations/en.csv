@@ -1,32 +1,32 @@
-lang,en
-dateFormat,Y-m-d
-Table_intro,"In this list you can see the current adverts. If you find a match, you can just go ahead an write this person a message."
-Table_filtern,filter
-Table_Title ,Table
-Table_col_name,Name
-Table_col_spracheAng,Offered Language
-Table_col_spracheGes,Requested Language
-Table_col_datum,Activated on
-Table_col_ort,City
-Table_filter_alle,all
-Add_intro,You could not find a matching advert? Just enlist your own tandem-wish.
-Add_name,Your Name
-Add_email,Your e-mail address
-Add_email_nochmal,Repeat e-mail address
-Add_alter,Your Age
-Add_ort,Your place of residency
-Add_geschlecht,Your Gender
-Add_skills,How good can you speek your requested Language?
-Add_skills_0,just a bit
-Add_skills_1,intermediate
-Add_skills_2,good
-Add_skills_3,very good
-Add_spracheAng,Your offered Language
-Add_spracheGes,Your requested Language
-Add_beschreibung,Tell us about yourself
-Add_senden,send
-Add_email_subject,%s Language Tandem: Your advert
-Add_notification_email,"Hello %s,
+"lang","en"
+"dateFormat","Y-m-d"
+"Table_intro","In this list you can see the current adverts. If you find a match, you can just go ahead an write this person a message."
+"Table_filtern","filter"
+"Table_Title ","Table"
+"Table_col_name","Name"
+"Table_col_spracheAng","Offered Language"
+"Table_col_spracheGes","Requested Language"
+"Table_col_datum","Activated on"
+"Table_col_ort","City"
+"Table_filter_alle","all"
+"Add_intro","You could not find a matching advert? Just enlist your own tandem-wish."
+"Add_name","Your Name"
+"Add_email","Your e-mail address"
+"Add_email_nochmal","Repeat e-mail address"
+"Add_alter","Your Age"
+"Add_ort","Your place of residency"
+"Add_geschlecht","Your Gender"
+"Add_skills","How good can you speek your requested Language?"
+"Add_skills_0","just a bit"
+"Add_skills_1","intermediate"
+"Add_skills_2","good"
+"Add_skills_3","very good"
+"Add_spracheAng","Your offered Language"
+"Add_spracheGes","Your requested Language"
+"Add_beschreibung","Tell us about yourself"
+"Add_senden","send"
+"Add_email_subject","%s Language Tandem: Your advert"
+"Add_notification_email","Hello %s,
 
 We are glad that you placed an advert in the %s Language Tandem. Click here to activate your offer: 
 %s
@@ -50,40 +50,40 @@ You can edit your offer using the following link:
 %s
 
 If you have any questions of recommendations you cann write an email to: %s"
-Add_datenschutz,I agree that my data such as name and email address will be saved. This data will only be used to drive the KuB Language Tandem. 
-Add_ausfuellen,"Please fill in all fields, enter a correct e-mail address and accept the privacy terms."
-Add_Title,Add Advert
-Add_gesendet,"Your advert is submitted.
+"Add_datenschutz","I agree that my data such as name and email address will be saved. This data will only be used to drive the KuB Language Tandem. "
+"Add_ausfuellen","Please fill in all fields, enter a correct e-mail address and accept the privacy terms."
+"Add_Title","Add Advert"
+"Add_gesendet","Your advert is submitted.
 
 Now you will receive an e-mail from us, including an activation link for your advert. If you click on this link, your advert will be released."
-Add_nichtGesendet,"The confirmation e-mail could not be sent. Propably you entered an e-mail address, which is not correct."
-zurueck,back
-View_alter,Age
-View_geschlecht,Gender
-View_skills,Language skills
-View_skills_0,just a bit
-View_skills_1,intermediate
-View_skills_2,good
-View_skills_3,very good
-View_ort,Place of residency
-View_spracheAng,Offered Language
-View_spracheGes,Requested Language
-View_beschreibung,Description
-View_Form_name,Your name
-View_Form_alter,Your age
-View_Form_geschlecht,Your gender
-View_Form_ort,Your city
-View_Form_email,Your e-mail address
-View_Form_email_nochmal,Repeat e-mail adress
-View_Form_text,Your Message
-View_Form_nachrichtAn,Send Message to 
-View_Form_ausfuellen,"Please fill in all fields, enter a valid email addess and accept the data security requirements."
-View_Form_senden,send
-View_AnzeigeMelden,report advert
-View_gesendet,"Your message was sent. If the provider of this advert is interested in a Sprach-Tandem with you, he/she will contect you directly."
-View_nichtGesendet,"Your message could not be sent. Propably you entered an e-mail address, which is not correct."
-View_email_subject,%s Language Tandem: You have a new message
-View_notification_email,"Hello %s,
+"Add_nichtGesendet","The confirmation e-mail could not be sent. Propably you entered an e-mail address, which is not correct."
+"zurueck","back"
+"View_alter","Age"
+"View_geschlecht","Gender"
+"View_skills","Language skills"
+"View_skills_0","just a bit"
+"View_skills_1","intermediate"
+"View_skills_2","good"
+"View_skills_3","very good"
+"View_ort","Place of residency"
+"View_spracheAng","Offered Language"
+"View_spracheGes","Requested Language"
+"View_beschreibung","Description"
+"View_Form_name","Your name"
+"View_Form_alter","Your age"
+"View_Form_geschlecht","Your gender"
+"View_Form_ort","Your city"
+"View_Form_email","Your e-mail address"
+"View_Form_email_nochmal","Repeat e-mail adress"
+"View_Form_text","Your Message"
+"View_Form_nachrichtAn","Send Message to "
+"View_Form_ausfuellen","Please fill in all fields, enter a valid email addess and accept the data security requirements."
+"View_Form_senden","send"
+"View_AnzeigeMelden","report advert"
+"View_gesendet","Your message was sent. If the provider of this advert is interested in a Sprach-Tandem with you, he/she will contect you directly."
+"View_nichtGesendet","Your message could not be sent. Propably you entered an e-mail address, which is not correct."
+"View_email_subject","%s Language Tandem: You have a new message"
+"View_notification_email","Hello %s,
 
 %s is interested in a language tandem (%s-%s) with you.
 
@@ -102,109 +102,109 @@ We wish you both a lot of fun with your first meeting.
 Best regards
 
 The %s Language Tandem Team"
-View_datenschutz,I agree that my data such as name and email address will be saved. This data will only be used to drive the KuB Language Tandem.
-sprache_afrikaans,Afrikaans
-sprache_albanisch,Albanian
-sprache_amharisch,Amharic
-sprache_arabisch,Arabian
-sprache_armenisch,Armenian
-sprache_bambara,Bambara
-sprache_bengali,Bengali
-sprache_bosnisch,Bosnian
-sprache_bulgarisch,Bulgarian
-sprache_chinesisch,Chinese
-sprache_daenisch,Danish
-sprache_deutsch,German
-sprache_englisch,English
-sprache_estnisch,Estorian
-sprache_ewe,Ewe
-sprache_finnisch,Finnish
-sprache_franzoesisch,French
-sprache_fula,Fula
-sprache_griechisch,Greek
-sprache_gujarati,Gujarati
-sprache_hausa,Hausa
-sprache_hebräisch,Hebrew
-sprache_hindi,Hindi
-sprache_igbo,Igbo
-sprache_indonesisch,Indonesian
-sprache_isländisch,Icelandic
-sprache_italienisch,Italian
-sprache_japanisch,Japanese
-sprache_javanisch,Javanese
-sprache_kannada,Kannada
-sprache_kikongo,Kikongo
-sprache_koreanisch,Korean
-sprache_krio,Krio
-sprache_kroatisch,Croatian
-sprache_kurdisch,Kurdish
-sprache_lamnso,Lamnso
-sprache_lettisch,Latvian
-sprache_lingala,Lingala
-sprache_litauisch,Lithuanian
-sprache_maltesisch,Maltese
-sprache_marathi,Marathi
-sprache_mazedonisch,Macedonian
-sprache_mongolisch,Mongolian
-sprache_niederlaendisch,Dutch
-sprache_norwegisch,Norwegian
-sprache_russisch,Russian
-sprache_paschto,Pashto
-sprache_persisch,Persian
-sprache_pidgin,Pidgin
-sprache_polnisch,Polnish
-sprache_portugiesisch,Portugisisch
-sprache_punjabi,Punjabi
-sprache_romanes,Romanes
-sprache_rumaenisch,Romanian
-sprache_serbisch,Serbian
-sprache_singhalesisch,Singhalese
-sprache_schwedisch,Schwedish
-sprache_slowakisch,Slowakian
-sprache_slowenisch,Slowenian
-sprache_somali,Somali
-sprache_sotho,Sotho
-sprache_spanisch,Spanish
-sprache_swahili,Swahili
-sprache_tamilisch,Tamil
-sprache_telugu,Telugu
-sprache_thailaendisch,Thai
-sprache_tigrinya,Tigrinya
-sprache_tschechisch,Czech
-sprache_tuerkisch,Turkish
-sprache_twi,Twi
-sprache_ukrainisch,Ukrainian
-sprache_ungarisch,Hungarian
-sprache_urdu,Urdu
-sprache_weissrussisch,Belarussian
-sprache_wolof,Wolof
-sprache_vietnamesisch,Vietnamese
-sprache_yoruba,Yoruba
-sprache_zulu,Zulu
-sprache_gebaerdensprache,sign Language
-releaseDataset,Advert activated
-releaseDataset_Title,%s Language Tandem - Activate advert
-deleteDataset_button_yes,Yes
-deleteDataset_button_no,No
-deleteDataset,Adverd deleted
-deleteDataset_Title,%s Language Tandem - Delete Advert
-editDataset,The Changes on your advert were submitted.
-editDataset_Title,%s Language Tandem - Edit advert
-Report_Title,%s Language Tandem - Report Advert
-Statistik_Title,%s Language Tandem - Statistics
-Title,%s Language Tandem
-Report_Form_email,Your E-mail address
-Report_Form_email_nochmal,Repeat e-mail address
-Report_Form_name,Your Name
-Report_Form_text,"Describe, why you want to report the advert, please."
-Report_Form_senden,send
-Report_textabove,
-Report_gesendet,Message sent!
-Report_nichtGesendet,Message sent!
-Report_zurück,back
-Report_email_subject,
-Report_email,
-Reminder_email,"Hello %s,
+"View_datenschutz","I agree that my data such as name and email address will be saved. This data will only be used to drive the KuB Language Tandem."
+"sprache_afrikaans","Afrikaans"
+"sprache_albanisch","Albanian"
+"sprache_amharisch","Amharic"
+"sprache_arabisch","Arabian"
+"sprache_armenisch","Armenian"
+"sprache_bambara","Bambara"
+"sprache_bengali","Bengali"
+"sprache_bosnisch","Bosnian"
+"sprache_bulgarisch","Bulgarian"
+"sprache_chinesisch","Chinese"
+"sprache_daenisch","Danish"
+"sprache_deutsch","German"
+"sprache_englisch","English"
+"sprache_estnisch","Estorian"
+"sprache_ewe","Ewe"
+"sprache_finnisch","Finnish"
+"sprache_franzoesisch","French"
+"sprache_fula","Fula"
+"sprache_griechisch","Greek"
+"sprache_gujarati","Gujarati"
+"sprache_hausa","Hausa"
+"sprache_hebräisch","Hebrew"
+"sprache_hindi","Hindi"
+"sprache_igbo","Igbo"
+"sprache_indonesisch","Indonesian"
+"sprache_isländisch","Icelandic"
+"sprache_italienisch","Italian"
+"sprache_japanisch","Japanese"
+"sprache_javanisch","Javanese"
+"sprache_kannada","Kannada"
+"sprache_kikongo","Kikongo"
+"sprache_koreanisch","Korean"
+"sprache_krio","Krio"
+"sprache_kroatisch","Croatian"
+"sprache_kurdisch","Kurdish"
+"sprache_lamnso","Lamnso"
+"sprache_lettisch","Latvian"
+"sprache_lingala","Lingala"
+"sprache_litauisch","Lithuanian"
+"sprache_maltesisch","Maltese"
+"sprache_marathi","Marathi"
+"sprache_mazedonisch","Macedonian"
+"sprache_mongolisch","Mongolian"
+"sprache_niederlaendisch","Dutch"
+"sprache_norwegisch","Norwegian"
+"sprache_russisch","Russian"
+"sprache_paschto","Pashto"
+"sprache_persisch","Persian"
+"sprache_pidgin","Pidgin"
+"sprache_polnisch","Polnish"
+"sprache_portugiesisch","Portugisisch"
+"sprache_punjabi","Punjabi"
+"sprache_romanes","Romanes"
+"sprache_rumaenisch","Romanian"
+"sprache_serbisch","Serbian"
+"sprache_singhalesisch","Singhalese"
+"sprache_schwedisch","Schwedish"
+"sprache_slowakisch","Slowakian"
+"sprache_slowenisch","Slowenian"
+"sprache_somali","Somali"
+"sprache_sotho","Sotho"
+"sprache_spanisch","Spanish"
+"sprache_swahili","Swahili"
+"sprache_tamilisch","Tamil"
+"sprache_telugu","Telugu"
+"sprache_thailaendisch","Thai"
+"sprache_tigrinya","Tigrinya"
+"sprache_tschechisch","Czech"
+"sprache_tuerkisch","Turkish"
+"sprache_twi","Twi"
+"sprache_ukrainisch","Ukrainian"
+"sprache_ungarisch","Hungarian"
+"sprache_urdu","Urdu"
+"sprache_weissrussisch","Belarussian"
+"sprache_wolof","Wolof"
+"sprache_vietnamesisch","Vietnamese"
+"sprache_yoruba","Yoruba"
+"sprache_zulu","Zulu"
+"sprache_gebaerdensprache","sign Language"
+"releaseDataset","Advert activated"
+"releaseDataset_Title","%s Language Tandem - Activate advert"
+"deleteDataset_button_yes","Yes"
+"deleteDataset_button_no","No"
+"deleteDataset","Adverd deleted"
+"deleteDataset_Title","%s Language Tandem - Delete Advert"
+"editDataset","The Changes on your advert were submitted."
+"editDataset_Title","%s Language Tandem - Edit advert"
+"Report_Title","%s Language Tandem - Report Advert"
+"Statistik_Title","%s Language Tandem - Statistics"
+"Title","%s Language Tandem"
+"Report_Form_email","Your E-mail address"
+"Report_Form_email_nochmal","Repeat e-mail address"
+"Report_Form_name","Your Name"
+"Report_Form_text","Describe, why you want to report the advert, please."
+"Report_Form_senden","send"
+"Report_textabove",""
+"Report_gesendet","Message sent!"
+"Report_nichtGesendet","Message sent!"
+"Report_zurück","back"
+"Report_email_subject","%s Language Tandem - Advert reported"
+"Report_email",""
+"Reminder_email","Hello %s,
 
 We wish you good luck and a lots of fun at the %s Language Tandem!
 
@@ -221,5 +221,5 @@ You can edit your offer using the following link:
 %s
 
 If you have any questions of recommendations you cann write an email to: %s"
-Reminder_subject,%s Sprach Tandem: Your advert
-Edit_ok,Data saved
+"Reminder_subject","%s Sprach Tandem: Your advert"
+"Edit_ok","Data saved"

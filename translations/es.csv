@@ -1,32 +1,32 @@
-lang,es
-dateFormat,d.m.Y
-Table_intro,"En la siguiente lista puedes ver los anuncios actuales. Si encuentras uno a tu medida, mándale un mensaje a la persona que ha publicado el anuncio."
-Table_filtern,filtrar
-Table_Title ,
-Table_col_name,Nombre
-Table_col_spracheAng,Idioma ofrecido
-Table_col_spracheGes,Idioma buscado
-Table_col_datum,Publicado el
-Table_col_ort,Sitio
-Table_filter_alle,todos/todas
-Add_intro,¿No has encontrado ningún anuncio adecuado? En este caso puedes registrar en la lista el tipo de Tándem que desearías.
-Add_name,Nombre
-Add_email,E-mail
-Add_email_nochmal,Repetir E-mail
-Add_alter,Edad
-Add_ort,Domicilio
-Add_geschlecht,Sexo
-Add_skills,¿Cómo hablas el idioma que quieres aprender/mejorar?
-Add_skills_0,un poco
-Add_skills_1,más o menos
-Add_skills_2,bien
-Add_skills_3,muy bien
-Add_spracheAng,Idioma ofrecido
-Add_spracheGes,Idioma deseado
-Add_beschreibung,Cuéntanos un poco sobre tí
-Add_senden,enviar
-Add_email_subject,%s-Sprach-Tandem: Tu anuncio
-Add_notification_email,"Hola %s,
+"lang","es"
+"dateFormat","d.m.Y"
+"Table_intro","En la siguiente lista puedes ver los anuncios actuales. Si encuentras uno a tu medida, mándale un mensaje a la persona que ha publicado el anuncio."
+"Table_filtern","filtrar"
+"Table_Title ",""
+"Table_col_name","Nombre"
+"Table_col_spracheAng","Idioma ofrecido"
+"Table_col_spracheGes","Idioma buscado"
+"Table_col_datum","Publicado el"
+"Table_col_ort","Sitio"
+"Table_filter_alle","todos/todas"
+"Add_intro","¿No has encontrado ningún anuncio adecuado? En este caso puedes registrar en la lista el tipo de Tándem que desearías."
+"Add_name","Nombre"
+"Add_email","E-mail"
+"Add_email_nochmal","Repetir E-mail"
+"Add_alter","Edad"
+"Add_ort","Domicilio"
+"Add_geschlecht","Sexo"
+"Add_skills","¿Cómo hablas el idioma que quieres aprender/mejorar?"
+"Add_skills_0","un poco"
+"Add_skills_1","más o menos"
+"Add_skills_2","bien"
+"Add_skills_3","muy bien"
+"Add_spracheAng","Idioma ofrecido"
+"Add_spracheGes","Idioma deseado"
+"Add_beschreibung","Cuéntanos un poco sobre tí"
+"Add_senden","enviar"
+"Add_email_subject","%s-Sprach-Tandem: Tu anuncio"
+"Add_notification_email","Hola %s,
 
 nos alegramos de que hayas publicado un anuncio en %s-Sprach-Tandem. Haz click en éste link para activar tu oferta:
 %s											
@@ -49,40 +49,40 @@ Puedes modificar tu oferta a través del siguiente link:
 %s
 
 Si tienes qualquier pregunta o sugerencia, puedes escribirnos a: %s"
-Add_datenschutz,
-Add_ausfuellen,"Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
-Add_Title,
-Add_gesendet,"Tu anuncio ha sido aceptado.
+"Add_datenschutz",""
+"Add_ausfuellen","Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
+"Add_Title",""
+"Add_gesendet","Tu anuncio ha sido aceptado.
 
 Ahora recibirás un e-mail con un link para activar tu anuncio. Cuando hagas click sobre éste link, tu anuncio será publicado."
-Add_nichtGesendet,El email de confirmación no se ha podido enviar. Probablemente la dirección de email que nos has proporcionado sea incorrecta.
-zurueck,espalda
-View_alter,Edad
-View_geschlecht,Sexo
-View_skills,Nivel
-View_skills_0,un poco
-View_skills_1,más o menos
-View_skills_2,bien
-View_skills_3,muy bien
-View_ort,Domicilio
-View_spracheAng,Idioma ofrecido
-View_spracheGes,Idioma buscado
-View_beschreibung,Descripción
-View_Form_name,Nombre
-View_Form_alter,Edad
-View_Form_geschlecht,Sexo
-View_Form_ort,Domicilio
-View_Form_email,Dirección de E-mail
-View_Form_email_nochmal,Repetir E-mail
-View_Form_text,Tu mensaje
-View_Form_nachrichtAn,Mandar un mensaje a 
-View_Form_ausfuellen,"Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
-View_Form_senden,enviar
-View_AnzeigeMelden,
-View_gesendet,"Tu mensaje ha sido enviado. Si la persona que ha publicado este anuncio tiene interés en hacer un Tándem contigo, te contactará a ti directamente."
-View_nichtGesendet,Tu mensaje no se ha podido enviar. Probablemente la dirección de email que nos has proporcionado sea incorrecta.
-View_email_subject,%s-Sprach-Tandem: Tienes un mensaje nuevo
-View_notification_email,"Hola %s,
+"Add_nichtGesendet","El email de confirmación no se ha podido enviar. Probablemente la dirección de email que nos has proporcionado sea incorrecta."
+"zurueck","espalda"
+"View_alter","Edad"
+"View_geschlecht","Sexo"
+"View_skills","Nivel"
+"View_skills_0","un poco"
+"View_skills_1","más o menos"
+"View_skills_2","bien"
+"View_skills_3","muy bien"
+"View_ort","Domicilio"
+"View_spracheAng","Idioma ofrecido"
+"View_spracheGes","Idioma buscado"
+"View_beschreibung","Descripción"
+"View_Form_name","Nombre"
+"View_Form_alter","Edad"
+"View_Form_geschlecht","Sexo"
+"View_Form_ort","Domicilio"
+"View_Form_email","Dirección de E-mail"
+"View_Form_email_nochmal","Repetir E-mail"
+"View_Form_text","Tu mensaje"
+"View_Form_nachrichtAn","Mandar un mensaje a "
+"View_Form_ausfuellen","Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
+"View_Form_senden","enviar"
+"View_AnzeigeMelden",""
+"View_gesendet","Tu mensaje ha sido enviado. Si la persona que ha publicado este anuncio tiene interés en hacer un Tándem contigo, te contactará a ti directamente."
+"View_nichtGesendet","Tu mensaje no se ha podido enviar. Probablemente la dirección de email que nos has proporcionado sea incorrecta."
+"View_email_subject","%s-Sprach-Tandem: Tienes un mensaje nuevo"
+"View_notification_email","Hola %s,
 
 %s está interesado en hacer un Tándem contigo (%s-%s).
 
@@ -98,108 +98,108 @@ Nos ha dejado este mensaje para ti:
 
 Saludos,
 						%s-Sprach-Tandem-Team"
-View_datenschutz,
-sprache_afrikaans,Afrikaans
-sprache_albanisch,Albanés
-sprache_amharisch,Amárico
-sprache_arabisch,Árabe
-sprache_armenisch,Armenio
-sprache_bambara,Bambara
-sprache_bengali,Bengali
-sprache_bosnisch,Bosnio
-sprache_bulgarisch,Búlgaro
-sprache_chinesisch,Chino
-sprache_daenisch,Danés
-sprache_deutsch,Alemán
-sprache_englisch,Inglés
-sprache_estnisch,Estonia
-sprache_ewe,Ewe
-sprache_finnisch,Finlandés
-sprache_franzoesisch,Francés
-sprache_fula,Fula
-sprache_griechisch,Griego
-sprache_gujarati,Gujarati
-sprache_hausa,Hausa
-sprache_hebräisch,Hebreo
-sprache_hindi,Hindi
-sprache_igbo,Igbo
-sprache_indonesisch,Indonesio
-sprache_isländisch,Islandés
-sprache_italienisch,Italiano
-sprache_japanisch,Japonés
-sprache_javanisch,Javanés
-sprache_kannada,Kannada
-sprache_kikongo,Kikongo
-sprache_koreanisch,Coreano
-sprache_krio,Krio
-sprache_kroatisch,Croata
-sprache_kurdisch,Kurdo
-sprache_lamnso,Lamnso
-sprache_lettisch,Letón
-sprache_lingala,Lingala
-sprache_litauisch,Lituano
-sprache_maltesisch,Maltés
-sprache_marathi,Marathi
-sprache_mazedonisch,Macedonio
-sprache_mongolisch,Mongol
-sprache_niederlaendisch,Holandés
-sprache_norwegisch,Noruego
-sprache_russisch,Ruso
-sprache_paschto,Paschto
-sprache_persisch,Persa
-sprache_pidgin,Pidgin
-sprache_polnisch,Polaco
-sprache_portugiesisch,Portugués
-sprache_punjabi,Punjabi
-sprache_romanes,Romanes
-sprache_rumaenisch,Rumano
-sprache_serbisch,Serbio
-sprache_singhalesisch,Cingalés
-sprache_schwedisch,Sueco
-sprache_slowakisch,Eslovaco
-sprache_slowenisch,Esloveno
-sprache_somali,Somali
-sprache_sotho,Sotho
-sprache_spanisch,Español
-sprache_swahili,Swahili
-sprache_tamilisch,Tamil
-sprache_telugu,Telugu
-sprache_thailaendisch,Thai
-sprache_tigrinya,Tigrinya
-sprache_tschechisch,Checo
-sprache_tuerkisch,Turco
-sprache_twi,Twi
-sprache_ukrainisch,Ucranio
-sprache_ungarisch,Húngaro
-sprache_urdu,Urdu
-sprache_weissrussisch,Belarús
-sprache_wolof,Wolof
-sprache_vietnamesisch,Vietnamita
-sprache_yoruba,Yoruba
-sprache_zulu,Zulu
-sprache_gebaerdensprache,Lenguaje por señas
-releaseDataset,
-releaseDataset_Title,
-deleteDataset_button_yes,
-deleteDataset_button_no,
-deleteDataset,
-deleteDataset_Title,
-editDataset,
-editDataset_Title,
-Report_Title,
-Statistik_Title,
-Title,
-Report_Form_email,
-Report_Form_email_nochmal,
-Report_Form_name,
-Report_Form_text,
-Report_Form_senden,
-Report_textabove,
-Report_gesendet,
-Report_nichtGesendet,
-Report_zurück,
-Report_email_subject,
-Report_email,
-Reminder_email,
-Reminder_subject,
-Edit_ok,
+"View_datenschutz",""
+"sprache_afrikaans","Afrikaans"
+"sprache_albanisch","Albanés"
+"sprache_amharisch","Amárico"
+"sprache_arabisch","Árabe"
+"sprache_armenisch","Armenio"
+"sprache_bambara","Bambara"
+"sprache_bengali","Bengali"
+"sprache_bosnisch","Bosnio"
+"sprache_bulgarisch","Búlgaro"
+"sprache_chinesisch","Chino"
+"sprache_daenisch","Danés"
+"sprache_deutsch","Alemán"
+"sprache_englisch","Inglés"
+"sprache_estnisch","Estonia"
+"sprache_ewe","Ewe"
+"sprache_finnisch","Finlandés"
+"sprache_franzoesisch","Francés"
+"sprache_fula","Fula"
+"sprache_griechisch","Griego"
+"sprache_gujarati","Gujarati"
+"sprache_hausa","Hausa"
+"sprache_hebräisch","Hebreo"
+"sprache_hindi","Hindi"
+"sprache_igbo","Igbo"
+"sprache_indonesisch","Indonesio"
+"sprache_isländisch","Islandés"
+"sprache_italienisch","Italiano"
+"sprache_japanisch","Japonés"
+"sprache_javanisch","Javanés"
+"sprache_kannada","Kannada"
+"sprache_kikongo","Kikongo"
+"sprache_koreanisch","Coreano"
+"sprache_krio","Krio"
+"sprache_kroatisch","Croata"
+"sprache_kurdisch","Kurdo"
+"sprache_lamnso","Lamnso"
+"sprache_lettisch","Letón"
+"sprache_lingala","Lingala"
+"sprache_litauisch","Lituano"
+"sprache_maltesisch","Maltés"
+"sprache_marathi","Marathi"
+"sprache_mazedonisch","Macedonio"
+"sprache_mongolisch","Mongol"
+"sprache_niederlaendisch","Holandés"
+"sprache_norwegisch","Noruego"
+"sprache_russisch","Ruso"
+"sprache_paschto","Paschto"
+"sprache_persisch","Persa"
+"sprache_pidgin","Pidgin"
+"sprache_polnisch","Polaco"
+"sprache_portugiesisch","Portugués"
+"sprache_punjabi","Punjabi"
+"sprache_romanes","Romanes"
+"sprache_rumaenisch","Rumano"
+"sprache_serbisch","Serbio"
+"sprache_singhalesisch","Cingalés"
+"sprache_schwedisch","Sueco"
+"sprache_slowakisch","Eslovaco"
+"sprache_slowenisch","Esloveno"
+"sprache_somali","Somali"
+"sprache_sotho","Sotho"
+"sprache_spanisch","Español"
+"sprache_swahili","Swahili"
+"sprache_tamilisch","Tamil"
+"sprache_telugu","Telugu"
+"sprache_thailaendisch","Thai"
+"sprache_tigrinya","Tigrinya"
+"sprache_tschechisch","Checo"
+"sprache_tuerkisch","Turco"
+"sprache_twi","Twi"
+"sprache_ukrainisch","Ucranio"
+"sprache_ungarisch","Húngaro"
+"sprache_urdu","Urdu"
+"sprache_weissrussisch","Belarús"
+"sprache_wolof","Wolof"
+"sprache_vietnamesisch","Vietnamita"
+"sprache_yoruba","Yoruba"
+"sprache_zulu","Zulu"
+"sprache_gebaerdensprache","Lenguaje por señas"
+"releaseDataset",""
+"releaseDataset_Title",""
+"deleteDataset_button_yes",""
+"deleteDataset_button_no",""
+"deleteDataset",""
+"deleteDataset_Title",""
+"editDataset",""
+"editDataset_Title",""
+"Report_Title",""
+"Statistik_Title",""
+"Title",""
+"Report_Form_email",""
+"Report_Form_email_nochmal",""
+"Report_Form_name",""
+"Report_Form_text",""
+"Report_Form_senden",""
+"Report_textabove",""
+"Report_gesendet",""
+"Report_nichtGesendet",""
+"Report_zurück",""
+"Report_email_subject",""
+"Report_email",""
+"Reminder_email",""
+"Reminder_subject",""
+"Edit_ok",""

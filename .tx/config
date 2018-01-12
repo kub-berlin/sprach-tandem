@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[webseite-2.sprachtandem]
+source_file = translations/de.csv
+source_lang = de
+type = MAGENTO
+file_filter = translations/<lang>.csv
