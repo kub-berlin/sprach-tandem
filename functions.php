@@ -107,21 +107,21 @@ function readcsv($file) {
 
 function getLabel($lang)
 {
-	$t_data = readcsv('uebersetzung.csv');
-	$t_lang = 1;
+	$fallback = readcsv("translations/de.csv");
 
-	$i = 0;
-	foreach ($t_data[0] as $spalte){
-		if ($spalte === $lang){
-			$t_lang = $i;
-		}
-		$i = $i + 1;
+	// security: do not allow hackers open arbitrary files
+	if (strlen($lang) == 2) {
+		$t_data = readcsv("translations/$lang.csv");
+	} else {
+		return;
 	}
-	foreach ($t_data as $tstring) {
-		if ($tstring[$t_lang] != '') {
-			$ret[(str_replace(' ', '', $tstring[0]))] = ($tstring[$t_lang]);
+
+	foreach ($t_data as $i => $tstring) {
+		$key = str_replace(' ', '', $tstring[0]);
+		if ($tstring[1] != '') {
+			$ret[$key] = $tstring[1];
 		} else {
-			$ret[(str_replace(' ', '', $tstring[0]))] = ($tstring[1]);
+			$ret[$key] = $fallback[$i][1];
 		}
 	}
 

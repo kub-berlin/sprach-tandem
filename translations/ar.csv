@@ -1,0 +1,204 @@
+lang,ar
+dateFormat,Y-m-d
+Table_intro,في القائمة التالية تستطيع أن تتفرج على الإعلانات الحالية. إذا وجدت شيءً مناسبا تستطيع   أن تبعث إيمايل له أو لها.
+Table_filtern,تصفية
+Table_Title ,
+Table_col_name,اسم
+Table_col_spracheAng,لغة مقدمة
+Table_col_spracheGes,لغة مرغوب فيها
+Table_col_datum,تاريخ التسجل
+Table_col_ort,مكان
+Table_filter_alle,كل
+Add_intro,إذا ما وجدت إعلانا مناسبا تستطيع أن تسجل التنديم الذي تريد أن تقوم به.
+Add_name,اسمك
+Add_email,عنوانك للإيمايل
+Add_email_nochmal,كرر البريد الإلكتروني
+Add_alter,عمرك
+Add_ort,مدينتك
+Add_geschlecht,جنسك
+Add_skills,على أي مستوى تتكلم باللغة التي فرغب
+Add_skills_0,قليلا
+Add_skills_1,متوسط
+Add_skills_2,جيد
+Add_skills_3,جيد جدا
+Add_spracheAng,اللغاة التي تقدمها
+Add_spracheGes,اللغة التي ترغب فيها
+Add_beschreibung,أخبرنا قليلا عن نفسك / قدم نفسك
+Add_senden,إرسال
+Add_email_subject,لك رسالة جديدة:تاندم اللغة للـ %s
+Add_notification_email,"%s أهل
+
+:نتفرج بأنك سجلت إعلانًا لدى التنديم الاغوي لـ%s. اضرط على الربط التالي لتشغيله
+%s
+	
+ن المهتمين به يستطيعون الاتصال بك بطريقة موقعنا. نحن نبعث لك رسالة تتضمن بعض المعلومات عن
+
+لشخص الذي يريد التواصل معك. ثم تقرر إذا شئت التواصل بطريقة مباشرة .نقترح لك أن تختار للقائكما الأول أحد الأماكن التي اقترحناها على موقعنا
+
+.نتمنى لك النجاح والفرح مع التنديم الاغوي لـ%s
+
+
+تحياتنا المخلصة
+
+ريق التنديم الاغوي لـ%s
+						
+:تستطيع أن تحذف إعلانك بالربط التالي
+%s
+						:تستطيع أن تعدل إعلانك بالربط التالي
+%s
+						
+%s :إن كانت لك أسئلة أو نصائح ندعوك أن توجهها إلينا تحت العنوان التالي"
+Add_datenschutz,
+Add_ausfuellen,يرجى إملاء كل المربعات و أكتب عنوان الإمايل الخاص بك. أقبل على سياسة الخصوصية.
+Add_Title,
+Add_gesendet,.تم تسجيل إعلانك.الآن ستتلقى إيمايل منا يتضمن رابطًا لتشغيل إعلانك. إن فتحت هذا الرابط فيتمنشر إعلانك
+Add_nichtGesendet,لم ينجح إرسال إيمايل التأكيد. لعل عنوانك للإيمايل غير صالح
+zurueck,پشت
+View_alter,العمر
+View_geschlecht,الجنس
+View_skills,مستوى اللغة
+View_skills_0,قليلا
+View_skills_1,متوسط
+View_skills_2,جيد
+View_skills_3,جيد جدا
+View_ort,مكان الإقامة
+View_spracheAng,يقدم اللغة
+View_spracheGes,اللغة المرغوب بها
+View_beschreibung,صفات
+View_Form_name,إسمك
+View_Form_alter,عمرك
+View_Form_geschlecht,الجنس
+View_Form_ort,مكان إقامتك
+View_Form_email,عنوان إمايلك
+View_Form_email_nochmal,كرر البريد الإلكتروني
+View_Form_text,رسالتك
+View_Form_nachrichtAn, أرسل رسالة إلى
+View_Form_ausfuellen,يرجى إملاء كل المربعات و أكتب عنوان الإمايل الخاص بك. أقبل على سياسة الخصوصية.
+View_Form_senden,إرسال
+View_AnzeigeMelden,
+View_gesendet,".تم إرسال رسالتك. إن اهتم ناشر هذا الإعلان (أو ناشرته) بالقيام بتنديم لغوي معك فسيقوم بالاتصال المباشر معك"""
+View_nichtGesendet,لم ينجح إرسال رسالتك. لعل العنوان الذي أدخلته غير صالح
+View_email_subject,لك رسالة جديدة:تاندم اللغة للـ%s
+View_notification_email,"%s أهلا
+
+.يريد أن يقوم بتنديد لغوي معك %s (%s-%s)"".
+						
+%s :عمر
+%s :جنس
+%s :يسكن في
+%s :عنوان إيمايل
+
+:قد تُركت الرسالة التالية لك عيدنا
+%s
+
+
+نتمنى لكما أن يكون لقاءكما الأول ممتعًا.
+
+تحياتنا المخلصة,
+
+فريق التنديم الاغوي لـ%s"
+View_datenschutz,
+sprache_afrikaans,أفريقاني
+sprache_albanisch,ألباني
+sprache_amharisch,أمهري
+sprache_arabisch,عربي
+sprache_armenisch,أرميني
+sprache_bambara,بامبارى
+sprache_bengali,بنغالي
+sprache_bosnisch,بوسني
+sprache_bulgarisch,بلغاري
+sprache_chinesisch,صيني
+sprache_daenisch,دانماركي
+sprache_deutsch,ألماني
+sprache_englisch,إنجليزي
+sprache_estnisch,أستوني
+sprache_ewe,إوي
+sprache_finnisch,فنلندي
+sprache_franzoesisch,فرانسي
+sprache_fula,فولا
+sprache_griechisch,يوناني
+sprache_gujarati,غوجاراتي
+sprache_hausa,هاوسى
+sprache_hebräisch,عبري
+sprache_hindi,هندي
+sprache_igbo,إقبو
+sprache_indonesisch,إندونيسي
+sprache_isländisch,ايسلاندي
+sprache_italienisch,إيطالي
+sprache_japanisch,ياباني
+sprache_javanisch,جاوي
+sprache_kannada,كانادي
+sprache_kikongo,كيكونغو
+sprache_koreanisch,كوري
+sprache_krio,Krio
+sprache_kroatisch,كرواتي
+sprache_kurdisch,كردي
+sprache_lamnso,Lamnso
+sprache_lettisch,لاتفي
+sprache_lingala,لينغالى
+sprache_litauisch,لتواني
+sprache_maltesisch,مالطي
+sprache_marathi,مهاراتي
+sprache_mazedonisch,مقدوني
+sprache_mongolisch,المنغولية
+sprache_niederlaendisch,هولندي
+sprache_norwegisch,نرويجي
+sprache_russisch,روسي
+sprache_paschto,باشتو
+sprache_persisch,فارسي
+sprache_pidgin,لغة مبسطة
+sprache_polnisch,بولندي
+sprache_portugiesisch,برتوغالي
+sprache_punjabi,بنجابي
+sprache_romanes,رومي
+sprache_rumaenisch,روماني
+sprache_serbisch,صربي
+sprache_singhalesisch,سنهالي
+sprache_schwedisch,سويدي
+sprache_slowakisch,سلوفاكي
+sprache_slowenisch,سلوفيني
+sprache_somali,سومالي
+sprache_sotho,سوتو
+sprache_spanisch,سباني
+sprache_swahili,سواحلي
+sprache_tamilisch,تاميل
+sprache_telugu,تيلوغو
+sprache_thailaendisch,تايلاندي
+sprache_tigrinya,تيغريني
+sprache_tschechisch,تشيكي
+sprache_tuerkisch,تركي
+sprache_twi,توي
+sprache_ukrainisch,أوكراني
+sprache_ungarisch,هنغاري
+sprache_urdu,أردو
+sprache_weissrussisch,بيلاروسي
+sprache_wolof,ولوفي
+sprache_vietnamesisch,فيتنامي
+sprache_yoruba,يوربا
+sprache_zulu,الزولو
+sprache_gebaerdensprache,لغة الإشارة
+releaseDataset,
+releaseDataset_Title,
+deleteDataset_button_yes,
+deleteDataset_button_no,
+deleteDataset,
+deleteDataset_Title,
+editDataset,
+editDataset_Title,
+Report_Title,
+Statistik_Title,
+Title,
+Report_Form_email,
+Report_Form_email_nochmal,
+Report_Form_name,
+Report_Form_text,
+Report_Form_senden,
+Report_textabove,
+Report_gesendet,
+Report_nichtGesendet,
+Report_zurück,
+Report_email_subject,
+Report_email,
+Reminder_email,
+Reminder_subject,
+Edit_ok,
