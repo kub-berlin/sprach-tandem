@@ -20,14 +20,34 @@ body {
 	display: inline-block;
 }
 
+/* reset our table styling */
 .form_table,
 .form_table td,
 .form_table th,
 .form_table tr {
 	background: none !important;
-	padding: 0 !important;
-	border: 0 !important;
-	font-size: inherit !important;
+	padding: 0;
+	border: 0;
+	font-size: inherit;
+}
+.form_table {
+	table-layout: fixed;
+}
+.form_table tr > * {
+	padding-bottom: 0.5em;
+}
+.form_table tr > :first-child {
+	width: 30%;
+	padding-right: 0.5em;
+}
+.form_table tr > :last-child {
+	width: 70%;
+}
+
+.form_table input,
+.form_table select,
+.form_table textarea {
+	max-width: 100%;
 }
 
 .icon {
