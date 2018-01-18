@@ -43,15 +43,27 @@ body {
 
 .filter-bar {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+	flex-direction: column;
 	margin-bottom: 1em;
 }
-.filter-bar select,
-.filter-bar button {
-	margin-bottom: 0;
-	white-space: nowrap;
+
+.filter-bar select {
+	width: 100%;
+	margin: 0.2em 0;
+}
+
+@media (min-width: 30em) {
+	.filter-bar {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.filter-bar select,
+	.filter-bar button {
+		margin: 0;
+		white-space: nowrap;
+	}
 }
 
 :invalid:not(:focus) {
