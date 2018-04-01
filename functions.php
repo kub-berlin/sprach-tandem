@@ -6,15 +6,15 @@ include './config.php';
 
 if ($debug == 1) {
     error_reporting(-1);
-    ini_set('display_errors', 1);
+    ini_set('display_errors', '1');
 
     // E_NOTICE ist sinnvoll um uninitialisierte oder
     // falsch geschriebene Variablen zu entdecken
     error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 } else {
     error_reporting(0);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
 }
 
 include './functions_db.php';
@@ -34,16 +34,25 @@ function setDefaultParams($params)
 
 function e($s)
 {
-    echo htmlspecialchars($s, ENT_SUBSTITUTE);
+    if (is_int($s) or is_float($s)) {
+        echo $s;
+    } elseif (!is_null($s)) {
+        echo htmlspecialchars($s, ENT_SUBSTITUTE);
+    }
 }
 
 function icon($name, $className='', $alt='')
 {
-    echo '<svg class="icon '.htmlspecialchars($className).'"'
-        . ' title="'.htmlspecialchars($alt).'" viewBox="0 0 20 20"'
-        . ' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
-        . '<use xlink:href="./images/icons.svg#' . htmlspecialchars($name) . '"></use>'
-        . '</svg>';
+    ?>
+    <svg
+        class="icon <?php e($className) ?>"
+        title="<?php e($alt) ?>"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+           <use xlink:href="./images/icons.svg#<?php e($name) ?>"></use>
+    </svg>
+    <?php
 }
 
 function alert($label, $success, $msg, $backLink)
@@ -141,17 +150,17 @@ function getLabel($lang)
 function setLanguage($sprache)
 {
     // Zuordnung von Locale-Strings und Übergabe an selectLanguage
-    if (strlen(strstr($sprache, 'en'))>0) {
+    if (strstr($sprache, 'en')) {
         $ret = getLabel('en');
-    } elseif (strlen(strstr($sprache, 'de'))>0) {
+    } elseif (strstr($sprache, 'de')) {
         $ret = getLabel('de');
-    } elseif (strlen(strstr($sprache, 'fr'))>0) {
+    } elseif (strstr($sprache, 'fr')) {
         $ret = getLabel('fr');
-    } elseif (strlen(strstr($sprache, 'fa'))>0) {
+    } elseif (strstr($sprache, 'fa')) {
         $ret = getLabel('fa');
-    } elseif (strlen(strstr($sprache, 'ar'))>0) {
+    } elseif (strstr($sprache, 'ar')) {
         $ret = getLabel('ar');
-    } elseif (strlen(strstr($sprache, 'es'))>0) {
+    } elseif (strstr($sprache, 'es')) {
         $ret = getLabel('es');
     } else {
         $ret = getLabel('de');
