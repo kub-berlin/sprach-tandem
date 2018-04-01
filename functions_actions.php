@@ -316,5 +316,3 @@ function actionReport($label)
         include 'templates/report.php';
     }
 }
-
-?>

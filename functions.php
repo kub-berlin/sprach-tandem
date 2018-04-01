@@ -279,5 +279,3 @@ function scheduleReminder($label)
         createLog();
     }
 }
-
-?>

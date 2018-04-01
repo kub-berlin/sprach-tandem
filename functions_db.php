@@ -348,4 +348,3 @@ function db_getReminderDatasetsNotReleased($pdo)
         return array();
     }
 }
-?>

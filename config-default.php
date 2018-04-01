@@ -87,4 +87,3 @@ $email_blocklist = array();
 
 $reminder_cyclic = 1; //30;
 $reminder_first = 1; //3;
-?>

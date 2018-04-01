@@ -119,5 +119,3 @@ function send_reminder($to, $name, $id, $hash, $label)
     writeLog('send_notification_add: Email senden: '.$gesendet);
     return $gesendet;
 }
-
-?>

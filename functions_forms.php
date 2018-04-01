@@ -51,5 +51,3 @@ function reportForm($label)
     // Formulareintragungen liegen (noch) nicht vor
     include 'templates/forms/report.php';
 }
-
-?>

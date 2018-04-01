@@ -41,4 +41,3 @@ if ($server)
     echo "fehlgeschlagen! </p>";
 }
 echo "</div>"
-?>
