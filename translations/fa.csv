@@ -2,20 +2,20 @@
 "dateFormat","Y-m-d"
 "Table_intro","در لیست ذیل موارد موجود را مشاهده می کنید، چنانچه موردی مناسب برایتان وجود دارد، برای شخص پیغام بگذارید"
 "Table_filtern","فیلتر"
-"Table_Title ",""
+"Table_Title ","جدول"
 "Table_col_name","نام"
 "Table_col_spracheAng","زبان ارائه شده"
 "Table_col_spracheGes","زبان مورد نیاز"
 "Table_col_datum","تاریخ ثبت درخواست"
 "Table_col_ort","مکان"
 "Table_filter_alle","همه"
-"Add_intro",""
+"Add_intro","شما مورد مناسب را نیافته اید؟  پس آموزش مورد نظر تان را در لیست بنویسید."
 "Add_name","نام"
 "Add_email","ایمیل"
-"Add_email_nochmal","ایمیل تکرار"
+"Add_email_nochmal"," تکرارایمیل"
 "Add_alter","سن"
 "Add_ort","محل اقامت"
-"Add_geschlecht","جنس"
+"Add_geschlecht","جنسیت"
 "Add_skills","میزان تسلط به زبان درخواستی"
 "Add_skills_0","اندک"
 "Add_skills_1","قابل قبول"
@@ -31,8 +31,7 @@
 از اینکه درخواست خود را به برنامه شراکت زبانی %s ارایه نمودید، بسیار خوشحالیم. لطفا روی  این لینک کلیک نموده تا درخواست شما فعال گردد
 
 %s
-						
-لاقه مندان می توانند صرفا از طریق پرتال ما با شما تماس برقرار نمایند. ما درخواست آنها را به همراه اطلاعات تماس به شما ارسال می نماییم. شما مختار خواهید بود، که تصمیم بگیرید آیا با شخص موردنظر در تماس مستقیم باشید یا خیر.
+						علاقه مندان می توانند صرفا از طریق پرتال ما با شما تماس برقرار نمایند. ما درخواست آنها را به همراه اطلاعات تماس به شما ارسال می نماییم. شما مختار خواهید بود، که تصمیم بگیرید آیا با شخص موردنظر در تماس مستقیم باشید یا خیر.
 
  ما به شما پیشنهاد می کنیم که برای اولین قرار خود به  مکانهای ارایه اشده توسط  ما روید. اطلاعات این مکانها در سایت موجود  می باشد.
 
@@ -48,37 +47,37 @@
 %s
 
 چنانچه با مشکلی مواجه شدید یا اینکه نظر یا پیشنهادی دارید، لطفا  آنرا به ایمیل  : ارسال نمایید %s"
-"Add_datenschutz",""
+"Add_datenschutz","من موافق استم که مشخصات من مثل نام وادرس ایمیل من ثبت شود .این مشخصات فقط برای عملی شدن برنامه  یKuB  در مورد شریک زبانی بکار گرفته می شود."
 "Add_ausfuellen","لطفا همه موارد را تکمیل کنید، ایمیل معتبر ارایه و شرایط مربوط به حفظ اطلاعات شخصی را تایید نمایید."
-"Add_Title",""
+"Add_Title","آگهی یا در خواست بدهید"
 "Add_gesendet","درخواست شما دریافت گردید.\n\nبلافاصله ایمیلی ازطرف ما حاوی یک لینک به منظور فعالسازی درخواستتان دریافت خواهید کرد، چنانچه روی لینک کلیک نمایید، درخواستتان منتشر خواهد شد."
-"Add_nichtGesendet","چنانچه ایمیل ارائه شده صحیحح و معتبر نباشد، ایمیل تاییدیه ارسال نخواهد شد."
-"zurueck","ظهر"
+"Add_nichtGesendet","چنانچه ایمیل ارائه شده صحیح و معتبر نباشد، ایمیل تاییدیه ارسال نخواهد شد."
+"zurueck","بازگشت"
 "View_alter","سن"
-"View_geschlecht","س"
+"View_geschlecht","جنسیت"
 "View_skills","میزان تسلط به زبان  درخواستی"
 "View_skills_0","اندک"
 "View_skills_1","قابل قبول"
 "View_skills_2","خوب"
 "View_skills_3","خیلی خوب"
-"View_ort","کلن"
+"View_ort","محل اقامت"
 "View_spracheAng"," زبان ارایه شده"
 "View_spracheGes"," زبان درخواستی"
 "View_beschreibung","توضیحات بیشتر"
 "View_Form_name","نام"
 "View_Form_alter","سن"
-"View_Form_geschlecht","جنس"
+"View_Form_geschlecht","جنسیت"
 "View_Form_ort","محل اقامت"
 "View_Form_email","ایمیل"
-"View_Form_email_nochmal","""ایمیل تکرار"""
+"View_Form_email_nochmal",""" تکرارایمیل"""
 "View_Form_text","پیغام"
 "View_Form_nachrichtAn","ارسال پیام به"
 "View_Form_ausfuellen","لطفا همه موارد را تکمیل کنید، ایمیل معتبر ارایه و شرایط مربوط به حفظ اطلاعات شخصی را تایید نمایید."
 "View_Form_senden","ارسال"
-"View_AnzeigeMelden",""
+"View_AnzeigeMelden","ثبت تقاضا"
 "View_gesendet","پیام شما ارسال گردید. چنانچه فردی به درخواست شما برای انجام شراکت زبانی علاقه مند باشد، مستقیما با خودتان تماس می گیرد."
 "View_nichtGesendet","چنانچه ایمیل ارائه شده صحیحح و معتبر نباشد، پیامتان ارسال نخواهد شد."
-"View_email_subject",""
+"View_email_subject","برنامه شراکت زبانی: یک پیام دریافت کرده اید."
 "View_notification_email","%s سلام
 
  علاقه مند است  با تو شریک زبانی باشد %s
@@ -98,14 +97,14 @@
 با بهترین سلامها
 
 %sتیم هماهنگ کننده برنامه شراکت زبانی "
-"View_datenschutz",""
+"View_datenschutz","من موافق استم که مشخصات من مثل نام وادرس ایمیل من ثبت شود .این مشخصات فقط برای عملی شدن برنامه  یKuB  در مورد شریک زبانی بکار گرفته می شود."
 "sprache_afrikaans","فریکانس"
 "sprache_albanisch","لبانیایی"
 "sprache_amharisch","امهری"
 "sprache_arabisch","عربی"
 "sprache_armenisch","ارمنی"
-"sprache_bambara","بنگالی"
-"sprache_bengali",""
+"sprache_bambara","بامبارا"
+"sprache_bengali","بنگالی"
 "sprache_bosnisch","بوسنی"
 "sprache_bulgarisch","بلغاری"
 "sprache_chinesisch","چینی"
@@ -116,12 +115,12 @@
 "sprache_ewe","میش"
 "sprache_finnisch","فنلاندی"
 "sprache_franzoesisch","فرانسوی"
-"sprache_fula",""
+"sprache_fula","فولانی"
 "sprache_griechisch","یونانی"
 "sprache_gujarati","گجراتی"
-"sprache_hausa",""
+"sprache_hausa","هوسایی"
 "sprache_hebräisch","زبان عبری"
-"sprache_hindi",""
+"sprache_hindi","هندی"
 "sprache_igbo","هندی"
 "sprache_indonesisch","اندونزی"
 "sprache_isländisch","زبان ایسلندی"
@@ -129,12 +128,12 @@
 "sprache_japanisch","ژاپنی"
 "sprache_javanisch","جاوه"
 "sprache_kannada","کانادا"
-"sprache_kikongo",""
+"sprache_kikongo","کنگوئی"
 "sprache_koreanisch","کره ای"
-"sprache_krio",""
+"sprache_krio","کریو"
 "sprache_kroatisch","کرواتی"
 "sprache_kurdisch","کردی"
-"sprache_lamnso",""
+"sprache_lamnso","لامنزو"
 "sprache_lettisch","لتونی"
 "sprache_lingala","لینگالا"
 "sprache_litauisch","زبان لیتوانی"
@@ -147,14 +146,14 @@
 "sprache_russisch","روسی"
 "sprache_paschto","پشتو"
 "sprache_persisch","فارسی"
-"sprache_pidgin",""
+"sprache_pidgin","انگلیسی آمیخته با چینی"
 "sprache_polnisch","لهستانی"
 "sprache_portugiesisch","پرتغالی"
 "sprache_punjabi","پنجابی"
-"sprache_romanes",""
+"sprache_romanes","رومایی"
 "sprache_rumaenisch","زبان رومانی"
 "sprache_serbisch","صرب"
-"sprache_singhalesisch",""
+"sprache_singhalesisch","سینهالی"
 "sprache_schwedisch","سوئد"
 "sprache_slowakisch","اسلواکی"
 "sprache_slowenisch","اسلوونی"
@@ -176,30 +175,55 @@
 "sprache_wolof","ولوف"
 "sprache_vietnamesisch","ویتنامی"
 "sprache_yoruba","یوروبا"
-"sprache_zulu",""
-"sprache_gebaerdensprache","یوروبا"
-"releaseDataset",""
-"releaseDataset_Title",""
-"deleteDataset_button_yes",""
-"deleteDataset_button_no",""
-"deleteDataset",""
-"deleteDataset_Title",""
-"editDataset",""
-"editDataset_Title",""
-"Report_Title",""
-"Statistik_Title",""
-"Title",""
-"Report_Form_email",""
-"Report_Form_email_nochmal",""
-"Report_Form_name",""
-"Report_Form_text",""
-"Report_Form_senden",""
-"Report_textabove",""
-"Report_gesendet",""
-"Report_nichtGesendet",""
-"Report_zurück",""
-"Report_email_subject",""
-"Report_email",""
-"Reminder_email",""
-"Reminder_subject",""
-"Edit_ok",""
+"sprache_zulu","سولو"
+"sprache_gebaerdensprache","زبان علامات"
+"releaseDataset","آگهی فعال شده است"
+"releaseDataset_Title","آگهی را فعال سازید"
+"deleteDataset_button_yes","بلی| آره"
+"deleteDataset_button_no","نه"
+"deleteDataset","آگهی حذف شد"
+"deleteDataset_Title","میخواهید واقعاًآکهی تان حذف شود؟"
+"editDataset","تغیرات در آگهی شما به تصویب رسید"
+"editDataset_Title","آگهی را ویرایش کنید"
+"Report_Title","آگهی را ثبت کنید"
+"Statistik_Title","ارقام"
+"Title","زبان دو جانبه"
+"Report_Form_email","آدرس ایمیل شما"
+"Report_Form_email_nochmal","""ایمیل تکرار"""
+"Report_Form_name","نام شما"
+"Report_Form_text","لطفاً تعریف کنید که چرا این آگهی را ثبت می کنید؟"
+"Report_Form_senden","ارسال"
+"Report_textabove","هدف از آموزش دو جانبه ی زبان تبادله ی  فارغ از تبعیض آموزش است. اگر با تجربه های منفی بر خوردیدلطفاَ به ما اطلاع دهید."
+"Report_gesendet","پیام فرستاده شد"
+"Report_nichtGesendet","پیام فرستاده شد"
+"Report_zurück","بازگشت"
+"Report_email_subject","آگهی ثبت شد"
+"Report_email","سلام
+
+یک آگهیگزارش شده است
+
+از: %s
+
+زمینه%s
+
+آگهی ثبت شد
+%s (%s)
+
+%s"
+"Reminder_email","سلام %s
+
+ما به شما موفقیت وسرگرمی بیشتر با بزنامه ی آموزش دو جانبه  آرزو می کنیم
+
+با عرض احترام
+
+%sتیم آموزش دو جانبه ی زبان
+
+
+
+شما می توانید با مراجعه به این لینک در خواست خود را حذف کنید%s
+
+شما میتوانید در خواست خود با استفاده از این ایمیل ویرایش کنید:%s
+
+اگر پرسشی یا پیشنهادی دارید میتوانید  انرا بامراجعه به این ایمیل به ما ارسال کنید:%s"
+"Reminder_subject","درخواست شما:در برنامه شراکت زبانی %s"
+"Edit_ok","آنچه نوشته اید کاپی یا ذخیره شده است"
