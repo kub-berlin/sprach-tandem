@@ -43,7 +43,8 @@ function actionAdd($label)
             $_POST['text'],
             $_POST['ort'],
             $email,
-            $_GET['lang']);
+            $_GET['lang']
+        );
 
         if ($add_erg['db_erg']) {
             $gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
@@ -108,7 +109,8 @@ function actionView($label)
                 $_POST['ort'],
                 strtolower($_POST['email']),
                 $_POST['text'],
-                $label_mail);
+                $label_mail
+            );
 
             if ($gesendet == 1) {
                 db_incr_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_id']]);
@@ -144,7 +146,8 @@ function actionEdit($label)
                 $_POST['spracheGes'],
                 $_POST['text'],
                 $_POST['ort'],
-                strtolower($_POST['email']));
+                strtolower($_POST['email'])
+            );
 
             alert($label, true, $label['Edit_ok'], 'index.php?action=view&lang='.$label['lang'].'&tid='.$id);
         } else {
@@ -283,7 +286,8 @@ function actionReport($label)
                 $zeile[$GLOBALS['db_colName_name']],
                 $zeile[$GLOBALS['db_colName_id']],
                 $zeile[$GLOBALS['db_colName_beschreibung']],
-                $label_mail);
+                $label_mail
+            );
 
             if (!$gesendet) {
                 http_response_code(500);

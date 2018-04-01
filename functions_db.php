@@ -340,7 +340,7 @@ function db_getReminderDatasetsReleased($pdo)
         ) AND `{$GLOBALS['db_colName_released']}` = 1";
 
     try {
-        return $pdo->query( $sql )->fetchAll();
+        return $pdo->query($sql)->fetchAll();
     } catch (PDOException $e) {
         db_log('db_getReminderDatasetsReleased', $e, $sql);
         return array();

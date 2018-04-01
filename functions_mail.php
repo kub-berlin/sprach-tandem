@@ -51,7 +51,8 @@ function send_notification_add($to, $name, $id, $hash, $label)
 {
     $subject = sprintf($label["Add_email_subject"], $GLOBALS["organisationName"]);
     $baseLink = $GLOBALS['tandem_root_path'] . "tid=$id&lang={$label['lang']}&a=$hash";
-    $body = sprintf($label["Add_notification_email"],
+    $body = sprintf(
+        $label["Add_notification_email"],
         $name,
         $GLOBALS["organisationName"],
         $baseLink . '&action=release',
@@ -59,7 +60,8 @@ function send_notification_add($to, $name, $id, $hash, $label)
         $GLOBALS["organisationName"],
         $baseLink . '&action=delete',
         $baseLink . '&action=edit',
-        $GLOBALS['email_orga']);
+        $GLOBALS['email_orga']
+    );
 
     $gesendet = sendEmail($to, ($subject), ($body), 'noreply@'.$GLOBALS['domain']);
     writeLog('send_notification_add: Email senden: '.$gesendet);
@@ -69,7 +71,8 @@ function send_notification_add($to, $name, $id, $hash, $label)
 function send_notification_view($to, $nameTo, $nameFrom, $spracheAng, $spracheGes, $alter, $geschlecht, $ort, $email, $beschreibung, $label)
 {
     $subject = sprintf($label["View_email_subject"], $GLOBALS["organisationName"]);
-    $body = sprintf($label['View_notification_email'],
+    $body = sprintf(
+        $label['View_notification_email'],
         $nameTo,
         $nameFrom,
         $label[$spracheAng],
@@ -79,7 +82,8 @@ function send_notification_view($to, $nameTo, $nameFrom, $spracheAng, $spracheGe
         $ort,
         $email,
         $beschreibung,
-        $GLOBALS["organisationName"]);
+        $GLOBALS["organisationName"]
+    );
 
     $gesendet = sendEmail($to, ($subject), ($body), $email, true);
     writeLog('send_notification_view: Email senden: '.$gesendet);
@@ -89,13 +93,15 @@ function send_notification_view($to, $nameTo, $nameFrom, $spracheAng, $spracheGe
 function send_notification_report($to, $name, $email, $text, $name_reported, $id_reported, $text_reported, $label)
 {
     $subject = sprintf($label["Report_email_subject"], $GLOBALS["organisationName"]);
-    $body = sprintf($label["Report_email"],
+    $body = sprintf(
+        $label["Report_email"],
         $name,
         $email,
         $text,
         $name_reported,
         $id_reported,
-        $text_reported);
+        $text_reported
+    );
 
     $gesendet = sendEmail($to, $subject, $body, $email);
     writeLog('send_notification_report: Email senden: '.$gesendet);
@@ -106,13 +112,15 @@ function send_reminder($to, $name, $id, $hash, $label)
 {
     $subject = sprintf($label["Reminder_subject"], $GLOBALS["organisationName"]);
     $baseLink = $GLOBALS['tandem_root_path'] . "tid=$id&lang={$label['lang']}&a=$hash";
-    $body = sprintf($label["Reminder_email"],
+    $body = sprintf(
+        $label["Reminder_email"],
         $name,
         $GLOBALS["organisationName"],
         $GLOBALS["organisationName"],
         $baseLink . "&action=delete",
         $baseLink . "&action=edit",
-        $GLOBALS['email_orga']);
+        $GLOBALS['email_orga']
+    );
 
     $gesendet = sendEmail($to, $subject, $body, 'noreply@'.$GLOBALS['domain']);
     writeLog('send_notification_add: Email senden: '.$gesendet);

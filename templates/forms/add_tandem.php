@@ -32,7 +32,7 @@
             <td>
                 <select name="spracheAng" id="add_spracheAng">
                 <?php foreach ($label as $key => $value) : ?>
-                    <?php if (strpos($key, 'sprache_') === 0 ) : ?>
+                    <?php if (strpos($key, 'sprache_') === 0) : ?>
                         <option value="<?php e($key) ?>" <?php if ($key == $_POST['spracheAng']): ?>selected<?php endif?>><?php e($label[$key]) ?></option>
                     <?php endif ?>
                 <?php endforeach ?>
@@ -45,7 +45,7 @@
             <td>
                 <select name="spracheGes" id="add_spracheGes">
                 <?php foreach ($label as $key => $value) : ?>
-                    <?php if (strpos($key, 'sprache_') === 0 ) : ?>
+                    <?php if (strpos($key, 'sprache_') === 0) : ?>
                         <option value="<?php e($key) ?>" <?php if ($key == $_POST['spracheGes']): ?>selected<?php endif?>><?php e($label[$key]) ?></option>
                     <?php endif ?>
                 <?php endforeach ?>
