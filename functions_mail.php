@@ -43,7 +43,6 @@ function sendEmail($to, $subject, $body, $replyto, $debug = 0)
         $ret = 1;
     }
     return $ret;
-
 }
 
 

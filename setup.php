@@ -38,4 +38,4 @@ if ($server) {
 } else {
     echo "fehlgeschlagen! </p>";
 }
-echo "</div>"
+echo "</div>";
