@@ -1,4 +1,6 @@
-<?php
+<?php declare(strict_types=1);
+
+
 include './config-default.php';
 include './config.php';
 
