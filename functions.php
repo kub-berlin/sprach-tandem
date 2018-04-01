@@ -2,8 +2,7 @@
 include './config-default.php';
 include './config.php';
 
-if ($debug == 1)
-{
+if ($debug == 1) {
     error_reporting(-1);
     ini_set('display_errors', 1);
 
@@ -22,20 +21,22 @@ include './functions_forms.php';
 include './functions_actions.php';
 
 
-function setDefaultParams($params) {
-    foreach ($params as $param)
-    {
-        if (!isset($_POST[$param])){
+function setDefaultParams($params)
+{
+    foreach ($params as $param) {
+        if (!isset($_POST[$param])) {
             $_POST[$param] = '';
         }
     }
 }
 
-function e($s) {
+function e($s)
+{
     echo htmlspecialchars($s, ENT_SUBSTITUTE);
 }
 
-function icon($name, $className='', $alt='') {
+function icon($name, $className='', $alt='')
+{
     echo '<svg class="icon '.htmlspecialchars($className).'"'
         . ' title="'.htmlspecialchars($alt).'" viewBox="0 0 20 20"'
         . ' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
@@ -43,15 +44,16 @@ function icon($name, $className='', $alt='') {
         . '</svg>';
 }
 
-function alert($label, $success, $msg, $backLink) {
+function alert($label, $success, $msg, $backLink)
+{
     include 'templates/partials/alert.php';
 }
 
 function getEntry()
 {
-    if (isset($_GET['tid']) and is_numeric($_GET['tid'])){
+    if (isset($_GET['tid']) and is_numeric($_GET['tid'])) {
         $db_erg = db_getDataSet($GLOBALS['server'], $_GET['tid']);
-        if (count($db_erg) > 0){
+        if (count($db_erg) > 0) {
             return $db_erg[0];
         }
     }
@@ -62,8 +64,8 @@ function getEntry()
 
 function getHash($entry)
 {
-    if (isset($_GET['a'])){
-        if ($entry[$GLOBALS['db_colName_hash']] === $_GET['a']){
+    if (isset($_GET['a'])) {
+        if ($entry[$GLOBALS['db_colName_hash']] === $_GET['a']) {
             return $_GET['a'];
         }
     }
@@ -95,10 +97,13 @@ function checkEntry()
 //
 //#############################
 
-function readcsv($file) {
+function readcsv($file)
+{
     $file_handle = fopen($file, 'r');
-    if (empty($file_handle)) { echo 'Error opening file '.$file.'.'; };
-    while (!feof($file_handle) ) {
+    if (empty($file_handle)) {
+        echo 'Error opening file '.$file.'.';
+    };
+    while (!feof($file_handle)) {
         $lines[] = (fgetcsv($file_handle, 2048, ','));
     }
     fclose($file_handle);
@@ -134,17 +139,17 @@ function getLabel($lang)
 function setLanguage($sprache)
 {
     // Zuordnung von Locale-Strings und Übergabe an selectLanguage
-    if (strlen(strstr($sprache,'en'))>0){
+    if (strlen(strstr($sprache, 'en'))>0) {
         $ret = getLabel('en');
-    } elseif (strlen(strstr($sprache,'de'))>0){
+    } elseif (strlen(strstr($sprache, 'de'))>0) {
         $ret = getLabel('de');
-    } elseif (strlen(strstr($sprache,'fr'))>0){
+    } elseif (strlen(strstr($sprache, 'fr'))>0) {
         $ret = getLabel('fr');
-    } elseif (strlen(strstr($sprache,'fa'))>0){
+    } elseif (strlen(strstr($sprache, 'fa'))>0) {
         $ret = getLabel('fa');
-    } elseif (strlen(strstr($sprache,'ar'))>0){
+    } elseif (strlen(strstr($sprache, 'ar'))>0) {
         $ret = getLabel('ar');
-    } elseif (strlen(strstr($sprache,'es'))>0){
+    } elseif (strlen(strstr($sprache, 'es'))>0) {
         $ret = getLabel('es');
     } else {
         $ret = getLabel('de');
@@ -160,7 +165,7 @@ function l10nDirection($dir, $label)
         'next' => 'prev',
         'last' => 'first');
 
-    if ($label['dir'] == 'rtl'){
+    if ($label['dir'] == 'rtl') {
         return $rtl_map[$dir];
     } else {
         return $dir;
@@ -178,7 +183,7 @@ function createLog()
     $logFile = $GLOBALS['logfile'];
     $fh = fopen($logFile, 'w');
 
-    if ($fh != false){
+    if ($fh != false) {
         fwrite($fh, date('Y-m-d H:i', time())." Log-File created\n");
         fclose($fh);
         $ret = true;
@@ -193,17 +198,15 @@ function writeLog($string)
     $ret = -1;
     $logFile = $GLOBALS['logfile'];
     $fh = fopen($logFile, 'a');
-    if ($fh != false){
-        if (fwrite($fh, date('Y-m-d H:i', time()).' '.$string."\n") == false){
-            if ($GLOBALS['debug'] == 1)
-            {
+    if ($fh != false) {
+        if (fwrite($fh, date('Y-m-d H:i', time()).' '.$string."\n") == false) {
+            if ($GLOBALS['debug'] == 1) {
                 echo '<p>Error: open Logfile</p>';
             }
         }
         fclose($fh);
     } else {
-        if ($GLOBALS['debug'] == 1)
-        {
+        if ($GLOBALS['debug'] == 1) {
             echo '<p>Error: open Logfile</p>';
         }
     }
@@ -219,8 +222,7 @@ function reminder_notReleased($label)
 {
     $db_erg = db_getReminderDatasetsNotReleased($GLOBALS['server']);
 
-    if (count($db_erg) > 0)
-    {
+    if (count($db_erg) > 0) {
         writeLog('REMINDER NOT RELEASED'.$db_erg);
         foreach ($db_erg as $zeile) {
             $label = setLanguage($zeile['lang']);
@@ -243,8 +245,7 @@ function reminder_Released($label)
 
     $db_erg = db_getReminderDatasetsReleased($GLOBALS['server']);
 
-    if (count($db_erg) > 0)
-    {
+    if (count($db_erg) > 0) {
         writeLog('REMINDER CYCLIC '.$db_erg);
         foreach ($db_erg as $zeile) {
             echo 'schleife';
@@ -266,13 +267,11 @@ function reminder_Released($label)
 
 function scheduleReminder($label)
 {
-    if (file_exists($GLOBALS['logfile'])){
-        if (date('n', time()) != date('n', filemtime($GLOBALS['logfile'])))
-        {
+    if (file_exists($GLOBALS['logfile'])) {
+        if (date('n', time()) != date('n', filemtime($GLOBALS['logfile']))) {
             reminder_Released($label);
         }
-        if (date('W', time()) != date('W', filemtime($GLOBALS['logfile'])))
-        {
+        if (date('W', time()) != date('W', filemtime($GLOBALS['logfile']))) {
             reminder_notReleased($label);
         }
     } else {

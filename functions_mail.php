@@ -7,7 +7,8 @@ require_once 'Mail.php';
 #   E-Mail
 #
    ==================================*/
-function isValidEmail($email) {
+function isValidEmail($email)
+{
     return filter_var($email, FILTER_VALIDATE_EMAIL) &&
         preg_match('/@.+\./', $email) &&
         !(
@@ -28,14 +29,12 @@ function sendEmail($to, $subject, $body, $replyto, $debug = 0)
         "Reply-To: $replyto",
         "MIME-Version: 1.0",
         "Content-type: text/plain; charset=UTF-8");
-    if ($debug)
-    {
+    if ($debug) {
         array_push($headers, "BCC: {$GLOBALS['email_orga']}");
     }
     $mail = mail($to, $subject, $body, implode("\n", $headers));
     if (PEAR::isError($mail)) {
-        if ($GLOBALS['debug'] == 1)
-        {
+        if ($GLOBALS['debug'] == 1) {
             echo "<p>in function sendEmail: ".$mail->getMessage() ."</p>";
         }
         writeLog('EMAIL SENDEMAIL: '.$to.': '.$subject.': \nERROR MESSAGE: '.$mail->getMessage());

@@ -4,8 +4,7 @@ include './functions.php';
 
 echo "<p> Verbinde mit Datenbank...";
 $server = db_connectDB();
-if ($server)
-{
+if ($server) {
     echo "erfolgreich!</p>";
 
     $log = createLog();
@@ -36,8 +35,7 @@ if ($server)
     }
 
     db_disconnectDB($server);
-} else
-{
+} else {
     echo "fehlgeschlagen! </p>";
 }
 echo "</div>"

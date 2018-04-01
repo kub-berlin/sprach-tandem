@@ -8,8 +8,7 @@
 
 function db_log($location, $error, $sql='')
 {
-    if ($GLOBALS['debug'] == 1)
-    {
+    if ($GLOBALS['debug'] == 1) {
         echo '<p>' . htmlspecialchars($sql) . '</p>';
         echo '<p>in function ' . htmlspecialchars($location) . ':' . htmlspecialchars($error->getMessage()) . '</p>';
     }
@@ -33,7 +32,8 @@ function db_disconnectDB($pdo)
     return 1;
 }
 
-function db_createTandemTable($pdo){
+function db_createTandemTable($pdo)
+{
     $sql = "CREATE TABLE IF NOT EXISTS {$GLOBALS['db_table_name']} (
         `{$GLOBALS['db_colName_id']}` INT AUTO_INCREMENT PRIMARY KEY UNIQUE KEY NOT NULL,
         `{$GLOBALS['db_colName_name']}` VARCHAR(50) NOT NULL,
@@ -118,7 +118,7 @@ function db_selectFormColumn($pdo, $colName)
     try {
         $statement = $pdo->query($sql);
         return $statement->fetchAll();
-    }  catch (PDOException $e) {
+    } catch (PDOException $e) {
         db_log('db_selectFormColumn', $e, $sql);
         return -1;
     }
@@ -129,18 +129,22 @@ function db_selectTableData($pdo, $filterAng, $filterGes, $label, $page)
     $offset = $page * $GLOBALS['table_page_size'];
 
     $sql = "SELECT * FROM `{$GLOBALS['db_table_name']}` WHERE `{$GLOBALS['db_colName_released']}` = 1";
-    if ($filterAng != $label['Table_filter_alle'])
+    if ($filterAng != $label['Table_filter_alle']) {
         $sql .= " AND `{$GLOBALS['db_colName_spracheAng']}` = :filterAng";
-    if ($filterGes != $label['Table_filter_alle'])
+    }
+    if ($filterGes != $label['Table_filter_alle']) {
         $sql .= " AND `{$GLOBALS['db_colName_spracheGes']}` = :filterGes";
+    }
     $sql .= " ORDER BY `{$GLOBALS['db_colName_datum']}` DESC LIMIT $offset, {$GLOBALS['table_page_size']}";
 
     try {
         $statement = $pdo->prepare($sql);
-        if ($filterAng != $label['Table_filter_alle'])
+        if ($filterAng != $label['Table_filter_alle']) {
             $statement->bindParam(':filterAng', $filterAng);
-        if ($filterGes != $label['Table_filter_alle'])
+        }
+        if ($filterGes != $label['Table_filter_alle']) {
             $statement->bindParam(':filterGes', $filterGes);
+        }
         $statement->execute();
         return $statement->fetchAll();
     } catch (PDOException $e) {
@@ -152,21 +156,24 @@ function db_selectTableData($pdo, $filterAng, $filterGes, $label, $page)
 function db_countTableData($pdo, $filterAng, $filterGes, $label)
 {
     $sql = "SELECT COUNT(*) FROM `{$GLOBALS['db_table_name']}` WHERE `{$GLOBALS['db_colName_released']}` = 1";
-    if ($filterAng != $label['Table_filter_alle'])
+    if ($filterAng != $label['Table_filter_alle']) {
         $sql .= " AND `{$GLOBALS['db_colName_spracheAng']}` = :filterAng";
-    if ($filterGes != $label['Table_filter_alle'])
+    }
+    if ($filterGes != $label['Table_filter_alle']) {
         $sql .= " AND `{$GLOBALS['db_colName_spracheGes']}` = :filterGes";
+    }
 
     try {
         $statement = $pdo->prepare($sql);
-        if ($filterAng != $label['Table_filter_alle'])
+        if ($filterAng != $label['Table_filter_alle']) {
             $statement->bindParam(':filterAng', $filterAng);
-        if ($filterGes != $label['Table_filter_alle'])
+        }
+        if ($filterGes != $label['Table_filter_alle']) {
             $statement->bindParam(':filterGes', $filterGes);
+        }
         $statement->execute();
         return $statement->fetchColumn();
-    }
-    catch (PDOException $e) {
+    } catch (PDOException $e) {
         db_log('db_countTableData', $e, $sql);
         return 0;
     }
@@ -234,7 +241,9 @@ function db_delete_DataSet($pdo, $id, $hash)
         $statement->bindParam(':hash', $hash);
         $ret = $statement->execute();
 
-        if ($statement->rowCount() != 1) $ret = -1;
+        if ($statement->rowCount() != 1) {
+            $ret = -1;
+        }
     } catch (PDOException $e) {
         db_log('db_delete_DataSet', $e, $sql);
         $ret = -1;
@@ -254,7 +263,9 @@ function db_release_DataSet($pdo, $id, $hash)
         $statement->bindParam(':hash', $hash);
         $ret = $statement->execute();
 
-        if ($statement->rowCount() == 1) $ret = -1;
+        if ($statement->rowCount() == 1) {
+            $ret = -1;
+        }
     } catch (PDOException $e) {
         db_log('db_release_DataSet', $e, $sql);
         $ret = -1;
@@ -271,8 +282,9 @@ function db_get_langPairs($pdo, $thisYear = false)
             {$GLOBALS['db_colName_antworten']},
             COUNT(*) AS count
         FROM {$GLOBALS['db_table_name']} WHERE `{$GLOBALS['db_colName_released']}` = 1";
-    if ($thisYear)
+    if ($thisYear) {
         $sql .= " AND {$GLOBALS['db_colName_datum']} > CONCAT(YEAR (CURDATE()), '-01-01')";
+    }
     $sql .= " GROUP BY {$GLOBALS['db_colName_spracheAng']}, {$GLOBALS['db_colName_spracheGes']} ORDER BY count DESC";
 
     try {
@@ -289,8 +301,9 @@ function db_sum_answers($pdo, $spracheAng, $spracheGes, $thisYear = false)
         `{$GLOBALS['db_colName_spracheAng']}` = :spracheAng AND
         `{$GLOBALS['db_colName_spracheGes']}` = :spracheGes AND
         `{$GLOBALS['db_colName_released']}` = 1";
-    if ($thisYear)
+    if ($thisYear) {
         $sql .= " AND {$GLOBALS['db_colName_datum']} > CONCAT(YEAR (CURDATE()), '-01-01')";
+    }
 
     try {
         $statement = $pdo->prepare($sql);

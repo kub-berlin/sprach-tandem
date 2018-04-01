@@ -38,12 +38,12 @@ $label = setLanguage(htmlentities($_GET['lang']));
 global $server;
 $server = db_connectDB();
 
-if ($server != null){
+if ($server != null) {
     scheduleReminder($label);
 
     $action = isset($_GET['action']) ? $_GET['action'] : 'table';
 
-    if ($GLOBALS['showTitle'] == true){
+    if ($GLOBALS['showTitle'] == true) {
         echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
     }
 

@@ -26,9 +26,9 @@ function actionTable($label)
 //
 //#############################
 
-function actionAdd($label){
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' and checkEntry())
-    {
+function actionAdd($label)
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' and checkEntry()) {
         $name = $_POST['name'];
         $email = strtolower($_POST['email']);
 
@@ -45,11 +45,10 @@ function actionAdd($label){
             $email,
             $_GET['lang']);
 
-        if ($add_erg['db_erg'])
-        {
+        if ($add_erg['db_erg']) {
             $gesendet = send_notification_add($email, $name, $add_erg['id'], $add_erg['hash'], $label);
 
-            if ($gesendet == 1){
+            if ($gesendet == 1) {
                 http_response_code(201);
                 alert($label, true, $label['Add_gesendet'], 'index.php?action=table&lang='.$label['lang']);
             } else {
@@ -60,10 +59,8 @@ function actionAdd($label){
             http_response_code(400);
             addTandemForm($label, 'index.php?action=table&lang='.$label['lang']);
         }
-    }
-    else
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    } else {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             http_response_code(400);
         }
 
@@ -81,8 +78,7 @@ function actionAdd($label){
 
 function actionView($label)
 {
-    if ($zeile = getEntry())
-    {
+    if ($zeile = getEntry()) {
         $id = $_GET['tid'];
         $senden = false;
 
@@ -115,10 +111,9 @@ function actionView($label)
                 $_POST['text'],
                 $label_mail);
 
-            if ($gesendet == 1){
+            if ($gesendet == 1) {
                 db_incr_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_id']]);
-            } else
-            {
+            } else {
                 http_response_code(500);
             }
         }
@@ -135,12 +130,10 @@ function actionView($label)
 
 function actionEdit($label)
 {
-    if (($zeile = getEntry()) and ($hash = getHash($zeile)))
-    {
+    if (($zeile = getEntry()) and ($hash = getHash($zeile))) {
         $id = $_GET['tid'];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' and checkEntry())
-        {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' and checkEntry()) {
             db_edit_dataset(
                 $GLOBALS['server'],
                 $_POST['name'],
@@ -155,10 +148,8 @@ function actionEdit($label)
                 strtolower($_POST['email']));
 
             alert($label, true, $label['Edit_ok'], 'index.php?action=view&lang='.$label['lang'].'&tid='.$id);
-        }
-        else
-        {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        } else {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 http_response_code(400);
             }
 
@@ -186,22 +177,18 @@ function actionEdit($label)
 
 function actionDelete($label)
 {
-    if (($zeile = getEntry()) and ($hash = getHash($zeile)))
-    {
+    if (($zeile = getEntry()) and ($hash = getHash($zeile))) {
         $id = $_GET['tid'];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST')
-        {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db_erg = db_delete_DataSet($GLOBALS['server'], $id, $hash);
-            if ( $db_erg > 0 ){
+            if ($db_erg > 0) {
                 alert($label, true, $label['deleteDataset'], 'index.php?action=table&lang='.$label['lang']);
-            } else
-            {
+            } else {
                 http_response_code(500);
                 alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=table&lang='.$label['lang']);
             }
-        } else
-        {
+        } else {
             include 'templates/delete.php';
         }
     }
@@ -216,15 +203,13 @@ function actionDelete($label)
 
 function actionRelease($label)
 {
-    if (($zeile = getEntry()) and ($hash = getHash($zeile)))
-    {
+    if (($zeile = getEntry()) and ($hash = getHash($zeile))) {
         $id = $_GET['tid'];
 
         $db_erg = db_release_DataSet($GLOBALS['server'], $id, $hash);
-        if ($db_erg){
+        if ($db_erg) {
             alert($label, true, $label['releaseDataset'], 'index.php?action=view&lang='.$label['lang'].'&tid='.$id);
-        } else
-        {
+        } else {
             http_response_code(500);
             alert($label, false, $GLOBALS['errorMessage'], 'index.php?action=view&lang='.$label['lang'].'&tid='.$id);
         }
@@ -240,7 +225,7 @@ function actionRelease($label)
 
 function actionStatistic($label)
 {
-    if (!isset($_GET['t'])){
+    if (!isset($_GET['t'])) {
         $_GET['t'] = 'always';
     }
 
@@ -249,8 +234,7 @@ function actionStatistic($label)
     $sum_count = 0;
     $sums = array();
 
-    foreach ($db_erg as $zeile)
-    {
+    foreach ($db_erg as $zeile) {
         $_replies = db_sum_answers($GLOBALS['server'], $zeile[$GLOBALS['db_colName_spracheAng']], $zeile[$GLOBALS['db_colName_spracheGes']], $_GET['t'] === 'year');
         $replies[] = $_replies;
         $sum_replies += $_replies;
@@ -268,8 +252,7 @@ function actionStatistic($label)
 
 function actionReport($label)
 {
-    if ($zeile = getEntry())
-    {
+    if ($zeile = getEntry()) {
         $id = $_GET['tid'];
         $senden = false;
 
@@ -282,8 +265,7 @@ function actionReport($label)
                     isValidEmail($_POST['email'])
                     AND strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])
                 )
-            ))
-        {
+            )) {
             $senden = true;
 
             $name = $_POST['name'];
@@ -304,12 +286,12 @@ function actionReport($label)
                 $zeile[$GLOBALS['db_colName_beschreibung']],
                 $label_mail);
 
-            if (!$gesendet){
+            if (!$gesendet) {
                 http_response_code(500);
             }
         }
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             http_response_code(400);
         }
 
