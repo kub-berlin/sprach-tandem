@@ -12,8 +12,8 @@ function isValidEmail($email)
     return filter_var($email, FILTER_VALIDATE_EMAIL) &&
         preg_match('/@.+\./', $email) &&
         !(
-            strpos($email, ",") > 0 OR
-            strpos($email, ";") > 0 OR
+            strpos($email, ",") > 0 or
+            strpos($email, ";") > 0 or
             strpos($email, "\n") > 0
         ) &&
         !in_array($email, $GLOBALS['email_blocklist']);

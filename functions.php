@@ -77,18 +77,18 @@ function getHash($entry)
 function checkEntry()
 {
     return $_POST['name'] != ''
-        AND $_POST['alter'] != ''
-        AND $_POST['geschlecht'] != ''
-        AND $_POST['skills'] != ''
-        AND $_POST['spracheAng'] != ''
-        AND $_POST['spracheGes'] != ''
-        AND $_POST['text'] != ''
-        AND $_POST['ort'] != ''
-        AND $_POST['email'] != ''
-        AND $_POST['datenschutz'][0] == 'ja'
-        AND $_POST['areYouHuman'] == ''
-        AND isValidEmail(strtolower($_POST['email']))
-        AND strtolower($_POST['email']) == strtolower($_POST['email_nochmal']);
+        and $_POST['alter'] != ''
+        and $_POST['geschlecht'] != ''
+        and $_POST['skills'] != ''
+        and $_POST['spracheAng'] != ''
+        and $_POST['spracheGes'] != ''
+        and $_POST['text'] != ''
+        and $_POST['ort'] != ''
+        and $_POST['email'] != ''
+        and $_POST['datenschutz'][0] == 'ja'
+        and $_POST['areYouHuman'] == ''
+        and isValidEmail(strtolower($_POST['email']))
+        and strtolower($_POST['email']) == strtolower($_POST['email_nochmal']);
 }
 
 //##############################
@@ -242,7 +242,6 @@ function reminder_notReleased($label)
 
 function reminder_Released($label)
 {
-
     $db_erg = db_getReminderDatasetsReleased($GLOBALS['server']);
 
     if (count($db_erg) > 0) {

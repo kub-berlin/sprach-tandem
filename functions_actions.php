@@ -83,16 +83,15 @@ function actionView($label)
         $senden = false;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'
-            AND $_POST['name'] != ''
-            AND $_POST['alter'] != ''
-            AND $_POST['geschlecht'] != ''
-            AND $_POST['ort'] != ''
-            AND $_POST['email'] != ''
-            AND $_POST['datenschutz'][0] == 'ja'
-            AND $_POST['areYouHuman'] == ''
-            AND isValidEmail(strtolower($_POST['email']))
-            AND strtolower($_POST['email']) == strtolower($_POST['email_nochmal']))
-        {
+            and $_POST['name'] != ''
+            and $_POST['alter'] != ''
+            and $_POST['geschlecht'] != ''
+            and $_POST['ort'] != ''
+            and $_POST['email'] != ''
+            and $_POST['datenschutz'][0] == 'ja'
+            and $_POST['areYouHuman'] == ''
+            and isValidEmail(strtolower($_POST['email']))
+            and strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])) {
             $senden = true;
 
             $label_mail = setLanguage($zeile['lang']);
@@ -257,13 +256,13 @@ function actionReport($label)
         $senden = false;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'
-            AND $_POST['text'] != ''
-            AND $_POST['areYouHuman'] == ''
-            AND (
+            and $_POST['text'] != ''
+            and $_POST['areYouHuman'] == ''
+            and (
                 $_POST['email'] == ''
-                OR (
+                or (
                     isValidEmail($_POST['email'])
-                    AND strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])
+                    and strtolower($_POST['email']) == strtolower($_POST['email_nochmal'])
                 )
             )) {
             $senden = true;
