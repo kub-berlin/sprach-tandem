@@ -55,21 +55,21 @@ $db_colName_released = 'released';
 $db_colName_antworten = 'antworten';
 
 $db_columns = array(
-	$db_colName_id => null,
-	$db_colName_name => null,
-	$db_colName_alter => null,
-	$db_colName_ort => null,
-	$db_colName_email => null,
-	$db_colName_datum => null,
-	$db_colName_geschlecht => null,
-	$db_colName_spracheGes => null,
-	$db_colName_spracheAng => null,
-	$db_colName_skills => null,
-	$db_colName_beschreibung> null,
-	$db_colName_hash => null,
-	$db_colName_lang => null,
-	$db_colName_released => null,
-	$db_colName_antworten => null);
+    $db_colName_id => null,
+    $db_colName_name => null,
+    $db_colName_alter => null,
+    $db_colName_ort => null,
+    $db_colName_email => null,
+    $db_colName_datum => null,
+    $db_colName_geschlecht => null,
+    $db_colName_spracheGes => null,
+    $db_colName_spracheAng => null,
+    $db_colName_skills => null,
+    $db_colName_beschreibung> null,
+    $db_colName_hash => null,
+    $db_colName_lang => null,
+    $db_colName_released => null,
+    $db_colName_antworten => null);
 
 $table_page_size = 20; //25;
 
@@ -87,4 +87,3 @@ $email_blocklist = array();
 
 $reminder_cyclic = 1; //30;
 $reminder_first = 1; //3;
-?>

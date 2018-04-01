@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
 TO DOS
@@ -20,16 +20,16 @@ $label = setLanguage(htmlentities($_GET['lang']));
 
 ?><!DOCTYPE html>
 <html
-	lang="<?php e($label['lang']) ?>"
-	dir="<?php e($label['dir']) ?>"
+    lang="<?php e($label['lang']) ?>"
+    dir="<?php e($label['dir']) ?>"
 >
 
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'" />
-	<link rel="stylesheet" type="text/css" href="<?php e(sprintf($GLOBALS['external_css'], $label['dir'])) ?>" />
-	<link rel="stylesheet" type="text/css" href="./style.css" />
-	<title><?php e(sprintf($label['Title'], $GLOBALS['organisationName'])) ?></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'" />
+    <link rel="stylesheet" type="text/css" href="<?php e(sprintf($GLOBALS['external_css'], $label['dir'])) ?>" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <title><?php e(sprintf($label['Title'], $GLOBALS['organisationName'])) ?></title>
 </head>
 
 <body>
@@ -38,45 +38,45 @@ $label = setLanguage(htmlentities($_GET['lang']));
 global $server;
 $server = db_connectDB();
 
-if ($server != null){
-	scheduleReminder($label);
+if ($server != null) {
+    scheduleReminder($label);
 
-	$action = isset($_GET['action']) ? $_GET['action'] : 'table';
+    $action = isset($_GET['action']) ? $_GET['action'] : 'table';
 
-	if ($GLOBALS['showTitle'] == true){
-		echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
-	}
+    if ($GLOBALS['showTitle'] == true) {
+        echo "<h3>".sprintf($label["Title"], $GLOBALS['organisationName'])."</h3>";
+    }
 
-	switch ($action) {
-		case 'table':
-			actionTable($label);
-		break;
-		case 'add':
-			actionAdd($label);
-			break;
-		case 'view':
-			actionView($label);
-			break;
-		case 'edit':
-			actionEdit($label);
-			break;
-		case 'delete':
-			actionDelete($label);
-			break;
-		case 'release':
-			actionRelease($label);
-			break;
-		case 'stat':
-			actionStatistic($label);
-			break;
-		case 'report':
-			actionReport($label);
-			break;
-		default:
-			actionTable($label);
-			break;
-	}
-	db_disconnectDB($server);
+    switch ($action) {
+        case 'table':
+            actionTable($label);
+        break;
+        case 'add':
+            actionAdd($label);
+            break;
+        case 'view':
+            actionView($label);
+            break;
+        case 'edit':
+            actionEdit($label);
+            break;
+        case 'delete':
+            actionDelete($label);
+            break;
+        case 'release':
+            actionRelease($label);
+            break;
+        case 'stat':
+            actionStatistic($label);
+            break;
+        case 'report':
+            actionReport($label);
+            break;
+        default:
+            actionTable($label);
+            break;
+    }
+    db_disconnectDB($server);
 }
 ?>
 
