@@ -41,6 +41,7 @@ $server = db_connectDB();
 if ($server != null) {
     scheduleReminder($label);
     db_clearOldDatasets($server);
+    db_clearUnreleasedDatasets($server);
 
     $action = isset($_GET['action']) ? $_GET['action'] : 'table';
 

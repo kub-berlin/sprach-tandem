@@ -368,3 +368,11 @@ function db_clearOldDatasets($pdo)
             `{$GLOBALS['db_colName_datum']}` < DATE_ADD(current_date, INTERVAL - {$GLOBALS['delete_after']})";
     return $pdo->query($sql)->execute();
 }
+
+function db_clearUnreleasedDatasets($pdo)
+{
+    $sql = "DELETE FROM `{$GLOBALS['db_table_name']}` WHERE
+            `{$GLOBALS['db_colName_released']}` = 0 AND
+            `{$GLOBALS['db_colName_datum']}` < DATE_ADD(current_date, INTERVAL - {$GLOBALS['delete_unreleased_after']})";
+    return $pdo->query($sql)->execute();
+}
