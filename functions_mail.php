@@ -84,7 +84,7 @@ function send_notification_view($to, $nameTo, $nameFrom, $spracheAng, $spracheGe
         $GLOBALS["organisationName"]
     );
 
-    $gesendet = sendEmail($to, ($subject), ($body), $email, true);
+    $gesendet = sendEmail($to, ($subject), ($body), $email);
     writeLog('send_notification_view: Email senden: '.$gesendet);
     return $gesendet;
 }
