@@ -361,3 +361,10 @@ function db_getReminderDatasetsNotReleased($pdo)
         return array();
     }
 }
+
+function db_clearOldDatasets($pdo)
+{
+    $sql = "DELETE FROM `{$GLOBALS['db_table_name']}` WHERE
+            `{$GLOBALS['db_colName_datum']}` < DATE_ADD(current_date, INTERVAL - {$GLOBALS['delete_after']})";
+    return $pdo->query($sql)->execute();
+}
