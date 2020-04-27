@@ -51,7 +51,7 @@ Puedes modificar tu oferta a través del siguiente link:
 Si tienes qualquier pregunta o sugerencia, puedes escribirnos a: %s"
 "Add_datenschutz","Concuerdo con que mis datos como por ejemplo mi nombre y mi dirección de correo electrónico se guarden en el sistema. Estos datos solo serán usados para el intercambio de idiomas que el KuB ofrece "
 "Add_ausfuellen","Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
-"Add_Title",""
+"Add_Title","poner un anuncio"
 "Add_gesendet","Tu anuncio ha sido aceptado.
 
 Ahora recibirás un e-mail con un link para activar tu anuncio. Cuando hagas click sobre éste link, tu anuncio será publicado."
@@ -78,7 +78,7 @@ Ahora recibirás un e-mail con un link para activar tu anuncio. Cuando hagas cli
 "View_Form_nachrichtAn","Mandar un mensaje a "
 "View_Form_ausfuellen","Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
 "View_Form_senden","enviar"
-"View_AnzeigeMelden",""
+"View_AnzeigeMelden","denunciar el anuncio"
 "View_gesendet","Tu mensaje ha sido enviado. Si la persona que ha publicado este anuncio tiene interés en hacer un Tándem contigo, te contactará a ti directamente."
 "View_nichtGesendet","Tu mensaje no se ha podido enviar. Probablemente la dirección de email que nos has proporcionado sea incorrecta."
 "View_email_subject","%s-Sprach-Tandem: Tienes un mensaje nuevo"
@@ -186,20 +186,49 @@ Saludos,
 "deleteDataset_Title","%s- Intercambio de idiomas - ¿ Está seguro de que quiere borrar el anuncio?"
 "editDataset","Los cambios en tu anuncio has sido realizados"
 "editDataset_Title","%s- <intercambio de idiomas - Editar anuncio"
-"Report_Title",""
-"Statistik_Title",""
-"Title",""
+"Report_Title","%- Intercambio de idioma - Crear un anuncio"
+"Statistik_Title","%-Intercambio de Idioma - Estadística "
+"Title","%s-Intercambio de idioma"
 "Report_Form_email","correo electrónico ( opcional) "
 "Report_Form_email_nochmal","Repetir el correo electrónico"
 "Report_Form_name","Nombre (opcional)"
 "Report_Form_text","Por favor describa porqué desea reportar este anuncio"
 "Report_Form_senden","enviar"
-"Report_textabove",""
-"Report_gesendet",""
-"Report_nichtGesendet",""
+"Report_textabove","El %s- Intercambio de idioma propone una comunicación libre de discriminación. En caso de experiencias desagradables por favor háganoslo saber. "
+"Report_gesendet","Mensaje enviado"
+"Report_nichtGesendet","Mensaje enviado"
 "Report_zurück","espalda"
-"Report_email_subject",""
-"Report_email",""
-"Reminder_email",""
+"Report_email_subject","%s-intercambio de idiomas - anuncio denunciado"
+"Report_email","Hola,
+
+fue denunciado un anuncio:
+
+de: %s
+
+correo electrónico: %s
+
+motivo: %s
+
+Este anuncio fue denunciado:
+%s (%s)
+
+%s"
+"Reminder_email","¡Hola %s,
+
+ le deseamos que el %s- Intercambio de idioma sea exitoso y divertido!
+
+Cordialmente
+
+%s- Equipo de intercambio de idiomas
+
+
+
+Puede borrar su oferta ingresando al siguiente link:
+%s
+
+Puede editar su oferta ingresando al siguiente link:
+%s
+Para preguntas y sugerencias nos puede contactar a través de la siguiente dirección de correo electrónico:
+%s"
 "Reminder_subject","%s-Sprach-Tandem: Tu anuncio"
-"Edit_ok",""
+"Edit_ok","Datos guardados"

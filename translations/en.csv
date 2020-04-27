@@ -198,12 +198,23 @@ The %s Language Tandem Team"
 "Report_Form_name","Your Name"
 "Report_Form_text","Describe, why you want to report the advert, please."
 "Report_Form_senden","send"
-"Report_textabove",""
+"Report_textabove","At %s Language Tandem, we try to create a space without discrimination. Please feel free to contact us if you have any bad experiences."
 "Report_gesendet","Message sent!"
 "Report_nichtGesendet","Message sent!"
 "Report_zurück","back"
 "Report_email_subject","%s Language Tandem - Advert reported"
-"Report_email",""
+"Report_email","Hello,
+
+an advert was reported:
+
+by: %s
+
+reason: %s
+
+This advert was reported:
+%s (%s)
+
+%s"
 "Reminder_email","Hello %s,
 
 We wish you good luck and a lots of fun at the %s Language Tandem!
