@@ -287,3 +287,25 @@ function scheduleReminder($label)
         createLog();
     }
 }
+
+
+function sign($s)
+{
+    return hash_hmac('sha256', $s, $GLOBALS['secret']);
+}
+
+
+function csrfProtection()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (!isset($_POST['csrf_token']) or sign($_POST['csrf_token']) !== $_COOKIE['csrf_token']) {
+            writeLog('CSRF mismatch post:'.$_POST['csrf_token'].' cookie:'.$_COOKIE['csrf_token']);
+            http_response_code(403);
+            die();
+        }
+    }
+
+    $token = bin2hex(random_bytes(5));
+    $GLOBALS['csrf_token'] = $token;
+    setcookie('csrf_token', sign($token));
+}

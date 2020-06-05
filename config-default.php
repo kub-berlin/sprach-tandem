@@ -13,6 +13,7 @@ $external_css = "https://$domain/static/style-%s.css";
 $logfile = './tandem.log';
 $errorMessage = 'Sorry, something went wrong...';
 $organisationName = 'Some Organisation';
+$secret = 'changeme';
 
 //##############################
 //

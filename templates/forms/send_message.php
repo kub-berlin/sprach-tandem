@@ -1,4 +1,6 @@
 <form method="POST" >
+    <input type="hidden" name="csrf_token" value="<?php e($GLOBALS['csrf_token']) ?>" />
+
     <p class=form_above><?php e($label['View_Form_ausfuellen']) ?></p>
 
     <table class="form_table" role="presentation">

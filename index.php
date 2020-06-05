@@ -39,6 +39,7 @@ global $server;
 $server = db_connectDB();
 
 if ($server != null) {
+    csrfProtection();
     scheduleReminder($label);
     db_clearOldDatasets($server);
     db_clearUnreleasedDatasets($server);
