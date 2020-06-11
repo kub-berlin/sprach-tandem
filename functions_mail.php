@@ -62,7 +62,7 @@ function send_notification_add($to, $name, $id, $hash, $label)
         $GLOBALS['email_orga']
     );
 
-    $gesendet = sendEmail($to, ($subject), ($body), 'noreply@'.$GLOBALS['domain']);
+    $gesendet = sendEmail($to, $subject, $body, 'noreply@'.$GLOBALS['domain']);
     writeLog('send_notification_add: Email senden: '.$gesendet);
     return $gesendet;
 }
@@ -84,7 +84,7 @@ function send_notification_view($to, $nameTo, $nameFrom, $spracheAng, $spracheGe
         $GLOBALS["organisationName"]
     );
 
-    $gesendet = sendEmail($to, ($subject), ($body), $email);
+    $gesendet = sendEmail($to, $subject, $body, $email);
     writeLog('send_notification_view: Email senden: '.$gesendet);
     return $gesendet;
 }
