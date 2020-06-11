@@ -30,7 +30,7 @@
         </tr>
         <tr class=areYouHuman>
             <th><label for="message_areYouHuman">NICHT ausfüllen/do NOT fill in</label></th>
-            <td><input type="text" name="areYouHuman" id="message_areYouHuman" value="<?php e($_POST['areYouHuman']) ?>" /></td>
+            <td><input type="text" name="areYouHuman" id="message_areYouHuman" value="" /></td>
         </tr>
         <tr>
             <th><label for="message_text"><?php e($label['View_Form_text']) ?></label></th>
