@@ -16,7 +16,7 @@ TO DOS
 
 mb_internal_encoding("UTF-8");
 include './functions.php';
-$label = setLanguage(htmlentities($_GET['lang']));
+$label = setLanguage(htmlentities($_GET['lang'] || $default_lang));
 
 ?><!DOCTYPE html>
 <html

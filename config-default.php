@@ -14,6 +14,7 @@ $logfile = './tandem.log';
 $errorMessage = 'Sorry, something went wrong...';
 $organisationName = 'Some Organisation';
 $secret = 'changeme';
+$default_lang = 'de';
 
 //##############################
 //
