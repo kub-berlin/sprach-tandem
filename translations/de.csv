@@ -236,3 +236,14 @@ Sie können Ihr Angebot unter dem folgenden Link bearbeiten:
 Bei Fragen und Anregungen können Sie sich unter der folgenden Email-Adresse bei uns melden: %s"
 Reminder_subject,%s-Sprach-Tandem: Ihre Anzeige
 Edit_ok,Daten gespeichert
+Feedback_title,Erfahrungsbericht
+Feedback_intro,"Erzählen Sie uns, welche Erfahrungen Sie mit dem Sprach-Tandem gemacht haben:"
+Feedback_frage1,"Haben Sie eine eigene Anzeige beim Sprach-Tandem aufgegeben?"
+Feedback_frage2,"Hat sich eine Person auf Ihre Anzeige gemeldet?"
+Feedback_frage3,"Haben Sie auf eine Anzeige beim Sprach-Tandem geantwortet?"
+Feedback_frage4,"War die Kommunikation respektvoll?"
+Feedback_frage5,"Haben Sie sich mit einer Person für ein Sprach-Tandem getroffen?"
+Feedback_frage6,"Sind die Treffen mit Sprach-Tandem-Partner*innen gut gelaufen?"
+Feedback_frage7,"Wenn Sie wollen, können Sie mehr zu den Erfahrungen schreiben:"
+Feedback_frage8,"Wo haben Sie sich mit Ihren Sprach-Tandem-Partner*innen getroffen?"
+Feedback_senden,senden

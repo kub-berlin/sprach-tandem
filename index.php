@@ -16,7 +16,7 @@ TO DOS
 
 mb_internal_encoding("UTF-8");
 include './functions.php';
-$label = setLanguage(htmlentities($_GET['lang'] || $default_lang));
+$label = setLanguage(htmlentities(isset($_GET['lang']) ? $_GET['lang'] : $default_lang));
 
 ?><!DOCTYPE html>
 <html
@@ -74,6 +74,9 @@ if ($server != null) {
             break;
         case 'report':
             actionReport($label);
+            break;
+		case 'feedback':
+            actionFeedback($label);
             break;
         default:
             actionTable($label);
