@@ -122,6 +122,25 @@ function send_reminder($to, $name, $id, $hash, $label)
     );
 
     $gesendet = sendEmail($to, $subject, $body, 'noreply@'.$GLOBALS['domain']);
-    writeLog('send_notification_add: Email senden: '.$gesendet);
+    writeLog('send_notification_reminder: Email senden: '.$gesendet);
     return $gesendet;
 }
+
+function send_feedback($to, $label)
+{
+    $subject = "Feedback Formular Sprach-Tandem";
+    $body = $label['Feedback_frage1'].": ".$_POST['frage1']."\n".
+			$label['Feedback_frage2'].": ".$_POST['frage2']."\n".
+			$label['Feedback_frage3'].": ".$_POST['frage3']."\n".
+			$label['Feedback_frage4'].": ".$_POST['frage4']."\n".
+			$label['Feedback_frage5'].": ".$_POST['frage5']."\n".	
+			$label['Feedback_frage6'].": ".$_POST['frage6']."\n".
+			$label['Feedback_frage7'].": ".$_POST['frage7']."\n";
+	print $to;
+	print $subject;
+	print $body;
+    $gesendet = sendEmail($to, $subject, $body, 'noreply@'.$GLOBALS['domain']);
+    writeLog('send_feedback: Email senden: '.$gesendet);
+    return $gesendet;
+}
+
