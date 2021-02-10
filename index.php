@@ -75,7 +75,7 @@ if ($server != null) {
         case 'report':
             actionReport($label);
             break;
-		case 'feedback':
+        case 'feedback':
             actionFeedback($label);
             break;
         default:
