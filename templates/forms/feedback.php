@@ -40,11 +40,18 @@
         </p>
 		<p>
             <?php e($label['Feedback_frage6']) ?></br>
-            <textarea name="frage6" id="frage6" required cols="50" rows="10" style="width: 100%"><?php e($_POST['frage6']) ?></textarea>
+			<input type="radio" id="frage6Ja" name="frage5" value="ja" <?php e($_POST['frage6']) == 'ja' ? 'checked' : ''?>>
+			<label for="frage6Ja"><?php e($label['deleteDataset_button_yes']) ?></label>
+			<input type="radio" id="frage6Nein" name="frage6" value="nein" <?php e($_POST['frage6']) != 'ja' ? 'checked' : ''?>>
+			<label for="frage6Nein"><?php e($label['deleteDataset_button_no']) ?></label>
         </p>
 		<p>
             <?php e($label['Feedback_frage7']) ?></br>
             <textarea name="frage7" id="frage7" required cols="50" rows="10" style="width: 100%"><?php e($_POST['frage7']) ?></textarea>
+        </p>
+		<p>
+            <?php e($label['Feedback_frage8']) ?></br>
+            <textarea name="frage8" id="frage8" required cols="50" rows="10" style="width: 100%"><?php e($_POST['frage8']) ?></textarea>
         </p>
 
 
