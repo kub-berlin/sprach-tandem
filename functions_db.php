@@ -35,7 +35,7 @@ function db_disconnectDB($pdo)
 function db_createTandemTable($pdo)
 {
     $sql = "CREATE TABLE IF NOT EXISTS {$GLOBALS['db_table_name']} (
-        `{$GLOBALS['db_colName_id']}` INT AUTO_INCREMENT PRIMARY KEY UNIQUE KEY NOT NULL,
+        `{$GLOBALS['db_colName_id']}` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
         `{$GLOBALS['db_colName_name']}` VARCHAR(50) NOT NULL,
         `{$GLOBALS['db_colName_alter']}` VARCHAR(25) NOT NULL,
         `{$GLOBALS['db_colName_ort']}` VARCHAR(50) NOT NULL,
