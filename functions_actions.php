@@ -320,6 +320,7 @@ function actionFeedback($label)
                 or $_POST['frage5'] != ''
                 or $_POST['frage6'] != ''
                 or $_POST['frage7'] != ''
+				or $_POST['frage8'] != ''
             )) {
         $senden = true;
 

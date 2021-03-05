@@ -136,6 +136,7 @@ function send_feedback($to, $label)
             $label['Feedback_frage5'].": ".$_POST['frage5']."\n".
             $label['Feedback_frage6'].": ".$_POST['frage6']."\n".
             $label['Feedback_frage7'].": ".$_POST['frage7']."\n";
+			$label['Feedback_frage8'].": ".$_POST['frage8']."\n";
     $gesendet = sendEmail($to, $subject, $body, 'noreply@'.$GLOBALS['domain']);
     writeLog('send_feedback: Email senden: '.$gesendet);
     return $gesendet;
