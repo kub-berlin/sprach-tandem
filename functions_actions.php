@@ -123,6 +123,7 @@ function actionView($label)
     }
 }
 
+
 //##############################
 //
 //   ACTION EDIT
@@ -171,6 +172,7 @@ function actionEdit($label)
     }
 }
 
+
 //##############################
 //
 //   ACTION DELETE
@@ -218,12 +220,12 @@ function actionRelease($label)
     }
 }
 
+
 //##############################
 //
 //   ACTION STATISTIC
 //
 //#############################
-
 
 function actionStatistic($label)
 {
@@ -245,6 +247,7 @@ function actionStatistic($label)
 
     include 'templates/stat.php';
 }
+
 
 //##############################
 //
