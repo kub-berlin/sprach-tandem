@@ -122,6 +122,6 @@ function send_reminder($to, $name, $id, $hash, $label)
     );
 
     $gesendet = sendEmail($to, $subject, $body, 'noreply@'.$GLOBALS['domain']);
-    writeLog('send_notification_add: Email senden: '.$gesendet);
+    writeLog('send_notification_reminder: Email senden: '.$gesendet);
     return $gesendet;
 }
