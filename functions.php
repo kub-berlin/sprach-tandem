@@ -307,5 +307,9 @@ function csrfProtection()
 
     $token = bin2hex(random_bytes(5));
     $GLOBALS['csrf_token'] = $token;
-    setcookie('csrf_token', sign($token));
+    setcookie('csrf_token', sign($token), array(
+        'expires' => time() + 86400,
+        'httponly' => true,
+        'samesite' => 'Strict',
+    ));
 }
