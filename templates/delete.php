@@ -11,7 +11,7 @@
             <?php icon(l10nDirection('prev', $label)) ?>
             <?php e($label['deleteDataset_button_no']) ?>
         </a>
-        <button type="submit" name="delete">
+        <button name="delete">
             <?php icon('trash') ?>
             <?php e($label['deleteDataset_button_yes']) ?>
         </button>

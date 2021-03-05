@@ -90,7 +90,7 @@
             <?php icon(l10nDirection('prev', $label)) ?>
             <?php e($label['zurueck']) ?>
         </a>
-        <button type="submit" name="send" id="add_send" value="send">
+        <button name="send" id="add_send" value="send">
             <?php icon('send') ?>
             <?php e($label['Add_senden']) ?>
         </button>

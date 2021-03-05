@@ -46,7 +46,7 @@
     </table>
 
     <p>
-        <button type="submit">
+        <button>
             <?php icon('send') ?>
             <?php e($label['View_Form_senden']) ?>
         </button>

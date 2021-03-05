@@ -27,7 +27,7 @@
     </table>
 
     <p>
-        <button type="submit" name="send" value="send">
+        <button name="send" value="send">
             <?php icon('send') ?>
             <?php e($label['Report_Form_senden']) ?>
         </button>

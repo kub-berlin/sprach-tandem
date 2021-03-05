@@ -20,7 +20,7 @@
             </select>
         </label>
 
-        <button type="submit">
+        <button>
             <?php icon('funnel') ?>
             <?php e($label['Table_filtern']) ?>
         </button>
