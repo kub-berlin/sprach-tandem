@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <th><label for="message_text"><?php e($label['View_Form_text']) ?></label></th>
-            <td><textarea name="text" id="message_text" required cols="50" rows="10" style="width: 100%" ><?php e($_POST['text']) ?></textarea></td>
+            <td><textarea name="text" id="message_text" required cols="50" rows="10"><?php e($_POST['text']) ?></textarea></td>
         </tr>
     </table>
 

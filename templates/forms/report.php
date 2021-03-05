@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <th><label for="report_text"><?php e($label['Report_Form_text']) ?></label></th>
-            <td><textarea name="text" id="report_text" required cols="50" rows="10" style="width: 100%"><?php e($_POST['text']) ?></textarea></td>
+            <td><textarea name="text" id="report_text" required cols="50" rows="10"><?php e($_POST['text']) ?></textarea></td>
         </tr>
     </table>
 

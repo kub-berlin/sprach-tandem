@@ -27,6 +27,6 @@
     </tr>
     <tr>
         <th><?php e($label['View_beschreibung']) ?></th>
-        <td><textarea cols="50" rows="10" readonly style="width: 100%"><?php e($zeile[$GLOBALS['db_colName_beschreibung']]) ?></textarea></td>
+        <td><textarea cols="50" rows="10" readonly><?php e($zeile[$GLOBALS['db_colName_beschreibung']]) ?></textarea></td>
     </tr>
 </table>

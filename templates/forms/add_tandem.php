@@ -69,7 +69,7 @@
 
         <tr>
             <th><label for="add_text"><?php e($label['Add_beschreibung']) ?></label></th>
-            <td><textarea name="text" id="add_text" required cols="50" rows="10" style="width: 100%"><?php e($_POST['text']) ?></textarea></td>
+            <td><textarea name="text" id="add_text" required cols="50" rows="10"><?php e($_POST['text']) ?></textarea></td>
         </tr>
 
         <tr class=areYouHuman>
