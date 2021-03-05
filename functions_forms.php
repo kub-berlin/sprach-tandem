@@ -51,3 +51,11 @@ function reportForm($label)
     // Formulareintragungen liegen (noch) nicht vor
     include 'templates/forms/report.php';
 }
+
+function feedbackForm($label)
+{
+    setDefaultParams(array('frage1', 'frage2', 'frage3', 'frage4', 'frage5', 'frage6', 'frage7', 'frage8'));
+
+    // Formulareintragungen liegen (noch) nicht vor
+    include 'templates/forms/feedback.php';
+}

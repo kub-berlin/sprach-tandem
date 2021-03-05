@@ -301,3 +301,41 @@ function actionReport($label)
         include 'templates/report.php';
     }
 }
+
+//##############################
+//
+//   ACTION FEEDBACK
+//
+//#############################
+
+
+function actionFeedback($label)
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'
+            and (
+                $_POST['frage1'] != ''
+                or $_POST['frage2'] != ''
+                or $_POST['frage3'] != ''
+                or $_POST['frage4'] != ''
+                or $_POST['frage5'] != ''
+                or $_POST['frage6'] != ''
+                or $_POST['frage7'] != ''
+            )) {
+        $senden = true;
+
+        $label_mail = setLanguage('de');
+
+        $to = $GLOBALS['email_orga'];
+        print "senden";
+        $gesendet = send_feedback(
+            $to,
+            $label_mail
+        );
+            
+        if (!$gesendet) {
+            http_response_code(500);
+        }
+    }
+
+    include 'templates/feedback.php';
+}
