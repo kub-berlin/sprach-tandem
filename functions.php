@@ -161,6 +161,8 @@ function setLanguage($sprache)
         $ret = getLabel('ar');
     } elseif (strstr($sprache, 'es')) {
         $ret = getLabel('es');
+    } elseif (strstr($sprache, 'ru')) {
+        $ret = getLabel('ru');
     } else {
         $ret = getLabel('de');
     }
