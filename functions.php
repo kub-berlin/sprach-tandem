@@ -115,7 +115,7 @@ function readcsv($file)
     };
     $lines = array();
     while (!feof($file_handle)) {
-        $lines[] = (fgetcsv($file_handle, 2048, ','));
+        $lines[] = fgetcsv($file_handle, 2048, ',');
     }
     fclose($file_handle);
     return $lines;
@@ -125,7 +125,7 @@ function getLabel($lang)
 {
     $fallback = readcsv("translations/de.csv");
 
-    // security: do not allow hackers open arbitrary files
+    // security: do not allow hackers to open arbitrary files
     if (strlen($lang) == 2) {
         $t_data = readcsv("translations/$lang.csv");
     } else {
