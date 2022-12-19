@@ -33,7 +33,11 @@ wir freuen uns, dass Sie eine Anzeige beim %s-Sprach-Tandem aufgegeben haben. Bi
 
 Interessierte können Sie nun über unser Portal kontaktieren. Wir leiten Ihnen Anfragen mit den Kontaktdaten weiter. Sie entscheiden dann, ob Sie in direkten Kontakt treten möchten.
 
-Wir empfehlen Ihnen für die ersten Treffen einen unserer vorgeschlagenen Orte zu nutzen. Diese finden Sie auf der Homepage.
+Das Sprach-Tandem von der KuB möchte einen Austausch ohne Diskriminierungen ermöglichen. Uns ist wichtig, dass die Grenzen der anderen Personen respektiert werden.
+Das Sprach-Tandem ist kein Ort für sexuelle Inhalte! Es ist keine Partner*innen-Börse!
+Es kann passieren, dass sich eine Person nicht an die Regeln hält. Bitte geben Sie deshalb keine wichtige Daten an Personen, die sie nicht kennen. Geben Sie ihre Adresse, Telefonnummer und Namen nur weiter, wenn Sie der anderen Person vertrauen können.
+Es ist sicherer, wenn das erste Treffen online stattfindet. Das geht zum Beispiel bei Jitsi: http://meet.systemli.org.
+Sollten Sie bei Ihren Treffen negative Erfahrungen machen, melden Sie sich bitte bei: sprachtandem@kub-berlin.org
 
 Wir wünschen Ihnen viel Erfolg und viel Spaß beim %s-Sprach-Tandem!
 
@@ -97,7 +101,7 @@ Es wurde folgende Nachricht bei uns für Sie hinterlassen:
 %s
 
 
-Wir wünschen Ihnen viel Spaß beim ersten Treffen
+Wir wünschen Ihnen viel Spaß beim ersten Treffen. Wir empfehlen, dass Ihr erstes Sprach-Tandem-Treffen online stattfindet. Das geht zum Beispiel bei Jitsi oder Skype. Wenn Sie sich mit einer unbekannten Person zum ersten Mal Treffen, empfehlen wir einen öffentlichen Ort, wo Sie nicht allein sind.
 
 Beste Grüße
 
@@ -221,11 +225,8 @@ Reminder_email,"Hallo %s,
 
 Wir wünschen Ihnen weiterhin viel Erfolg und viel Spaß beim %s-Sprach-Tandem!
 
-Beste Grüße
-
-%s-Sprach-Tandem-Team
-
-
+Welche Erfahrungen haben Sie mit dem Sprach-Tandem gemacht? Sie können uns ihre Erfahrungen mitteilen:
+%s
 
 Sie können Ihr Angebot unter dem folgenden Link löschen:
 %s
@@ -233,6 +234,21 @@ Sie können Ihr Angebot unter dem folgenden Link löschen:
 Sie können Ihr Angebot unter dem folgenden Link bearbeiten:
 %s
 
-Bei Fragen und Anregungen können Sie sich unter der folgenden Email-Adresse bei uns melden: %s"
+Bei Fragen und Anregungen können Sie sich bei uns melden: %s
+
+Beste Grüße
+
+%s-Sprach-Tandem-Team"
 Reminder_subject,%s-Sprach-Tandem: Ihre Anzeige
 Edit_ok,Daten gespeichert
+Feedback_title,Erfahrungsbericht
+Feedback_intro,"Erzählen Sie uns, welche Erfahrungen Sie mit dem Sprach-Tandem gemacht haben:"
+Feedback_frage1,"Haben Sie eine eigene Anzeige beim Sprach-Tandem aufgegeben?"
+Feedback_frage2,"Hat sich eine Person auf Ihre Anzeige gemeldet?"
+Feedback_frage3,"Haben Sie auf eine Anzeige beim Sprach-Tandem geantwortet?"
+Feedback_frage4,"War die Kommunikation respektvoll?"
+Feedback_frage5,"Haben Sie sich mit einer Person für ein Sprach-Tandem getroffen?"
+Feedback_frage6,"Sind die Treffen mit Sprach-Tandem-Partner*innen gut gelaufen?"
+Feedback_frage7,"Wenn Sie wollen, können Sie mehr zu den Erfahrungen schreiben:"
+Feedback_frage8,"Wo haben Sie sich mit Ihren Sprach-Tandem-Partner*innen getroffen?"
+Feedback_senden,senden
