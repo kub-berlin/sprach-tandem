@@ -8,11 +8,11 @@
 "Table_col_spracheGes","Idioma buscado"
 "Table_col_datum","Publicado el"
 "Table_col_ort","Sitio"
-"Table_filter_alle","todos/todas"
+"Table_filter_alle","todo"
 "Add_intro","¿No has encontrado ningún anuncio adecuado? En este caso puedes registrar en la lista el tipo de Tándem que desearías."
 "Add_name","Nombre"
 "Add_email","E-mail"
-"Add_email_nochmal","Repetir E-mail"
+"Add_email_nochmal","Repetir e-mail"
 "Add_alter","Edad"
 "Add_ort","Domicilio"
 "Add_geschlecht","Sexo"
@@ -28,27 +28,32 @@
 "Add_email_subject","%s-Sprach-Tandem: Tu anuncio"
 "Add_notification_email","Hola %s,
 
-nos alegramos de que hayas publicado un anuncio en %s-Sprach-Tandem. Haz click en éste link para activar tu oferta:
-%s											
-Los interesados podrán contactar contigo a través de nuestro portal. Nosotros te vamos a transmitir las peticiones que recibas, con los datos de las personas que deseen ponerse en contacto contigo. Tu puedes decidir luego si quieres tener contacto directo con ellos.
+nos alegramos de que haya puesto un anuncio en %s-Sprach-Tandem. Haga clic aquí para activar su oferta:
+%s
 
-Para el primer encuentro con tu Tándem, te recomendamos que utilices los sitios que proponemos y que puedes encontrar en nuestra página web.
+Los interesados ya pueden ponerse en contacto con usted a través de nuestro portal. Le remitiremos las consultas con los datos de contacto. Entonces usted decide si quiere ponerse en contacto directo.
 
-¡Te deseamos mucho éxito en el %s-Sprach-Tandem!
+El tándem de KuB quiere facilitar un intercambio sin discriminación. Es importante para nosotros que se respeten los límites de la otra persona.
+El Sprach-Tandem no es un lugar para contenidos sexuales. No se trata de un intercambio de parejas.
+Puede ocurrir que una persona no respete las normas. Por lo tanto, no dé información importante a personas que no conoce. Sólo de su dirección, número de teléfono y nombre cuando sienta que puede confiar en la otra persona.
+Es más seguro que el primer encuentro tenga lugar en línea. Puedes hacerlo con Jitsi, por ejemplo: http://meet.systemli.org.
+Si tiene experiencias negativas durante sus reuniones, póngase en contacto con: sprachtandem@kub-berlin.org
 
-Saludos,
+Le deseamos mucho éxito y mucha diversión con el %s-Sparch-Tandem!
+
+Saludos cordiales
 
 %s-Sprach-Tandem-Team
 
 
 
-Puedes borrar tu oferta a través del siguiente link:
+Puede eliminar su oferta en el siguiente enlace:
 %s
 
-Puedes modificar tu oferta a través del siguiente link:
+Puede editar su oferta en el siguiente enlace:
 %s
 
-Si tienes qualquier pregunta o sugerencia, puedes escribirnos a: %s"
+Si tiene alguna pregunta o sugerencia, puede ponerse en contacto con nosotros en la siguiente dirección de correo electrónico: %s"
 "Add_datenschutz","Concuerdo con que mis datos como por ejemplo mi nombre y mi dirección de correo electrónico se guarden en el sistema. Estos datos solo serán usados para el intercambio de idiomas que el KuB ofrece "
 "Add_ausfuellen","Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
 "Add_Title","poner un anuncio"
@@ -75,7 +80,7 @@ Ahora recibirás un e-mail con un link para activar tu anuncio. Cuando hagas cli
 "View_Form_email","Dirección de E-mail"
 "View_Form_email_nochmal","Repetir E-mail"
 "View_Form_text","Tu mensaje"
-"View_Form_nachrichtAn","Mandar un mensaje a "
+"View_Form_nachrichtAn","Enviar mensaje a "
 "View_Form_ausfuellen","Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
 "View_Form_senden","enviar"
 "View_AnzeigeMelden","denunciar el anuncio"
@@ -84,7 +89,7 @@ Ahora recibirás un e-mail con un link para activar tu anuncio. Cuando hagas cli
 "View_email_subject","%s-Sprach-Tandem: Tienes un mensaje nuevo"
 "View_notification_email","Hola %s,
 
-%s está interesado en hacer un Tándem contigo (%s-%s).
+%s está interesado en hacer un Tándem %s-%s contigo.
 
 Edad: %s
 Sexo: %s
@@ -92,12 +97,15 @@ Domicilio: %s
 Dirección de E-Mail: %s
 
 Nos ha dejado este mensaje para ti:
-						
+
 %s
-						Pasadlo muy bien en vuestro primer encuentro!
+
+
+Pasadlo muy bien en vuestro primer encuentro! Le recomendamos que la primera reunión de intercambio de idioma sea online; puede ser, por ejemplo, a través de Jitsi o Skype. Si se va a encontrar por primera vez con una persona desconocida, le recomendamos hacerlo en un lugar público donde no se encuentre solo/a.
 
 Saludos,
-						%s-Sprach-Tandem-Team"
+
+%s-Sprach-Tandem-Team"
 "View_datenschutz","Concuerdo con que mis datos como por ejemplo mi nombre y mi dirección de correo electrónico se guarden en el sistema. Estos datos solo serán usados para el intercambio de idiomas que el KuB ofrece"
 "sprache_afrikaans","Afrikaans"
 "sprache_albanisch","Albanés"
@@ -217,18 +225,20 @@ Este anuncio fue denunciado:
 
  le deseamos que el %s- Intercambio de idioma sea exitoso y divertido!
 
-Cordialmente
-
-%s- Equipo de intercambio de idiomas
-
-
+¿Qué experiencias tiene con el intercambio de idiomas? Aquí puede contarnos sobre sus experiencias personales:
+%s
 
 Puede borrar su oferta ingresando al siguiente link:
 %s
 
 Puede editar su oferta ingresando al siguiente link:
 %s
+
 Para preguntas y sugerencias nos puede contactar a través de la siguiente dirección de correo electrónico:
-%s"
+%s
+
+Cordialmente
+
+%s- Equipo de intercambio de idiomas"
 "Reminder_subject","%s-Sprach-Tandem: Tu anuncio"
 "Edit_ok","Datos guardados"

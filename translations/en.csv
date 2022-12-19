@@ -28,28 +28,29 @@
 "Add_email_subject","%s Language Tandem: Your advert"
 "Add_notification_email","Hello %s,
 
-We are glad that you placed an advert in the %s Language Tandem. Click here to activate your offer: 
+We are happy that you have posted an advert on %s-Language-Tandem. To activate your offer, please click here:
 %s
 
-People who are interested can now contact you through our portal. We will forward any request with the contact details to you. Then it is up to you to decide if to get into direkt contact.
+People interested in your offer can now contact you via our portal. We will forward requests with contact details to you. Then you will be able to decide whether to conatct the person directly.
 
-For the first meetings we recommend one of our meeting suggestions. You can find them on our homepage.
+Language Tandem provided by KuB aims to enable interactions free of discrimination. It matters to us that personal privacy and boundaries are respected. Sexual content is not appropriate for Language Tandem! It is not a platform for finding a partner! It can happen that someone does not abide by the rules. Therefore, please don't give any important data to people you don't know. Only provide your address, phone number or name if you trust the other person. It is safer to have your first meeting online. You can use platforms like Jitsi: http://meet.systemli.org
+If you have any negative experiences at a meeting, please report this to: sprachtandem@kub-berlin.org
 
-We wish you good luck and a lots of fun at the %s Language Tandem!
+We wish you lots of success and fun with %s-Language-Tandem!
 
-Best regards
+Best wishes,
 
-The %s Language Tandem Team
+%s-Language-Tandem-Team
 
 
 
-You can deactivate your offer using the following link:
+You can delete your advert via the following link:
 %s
 
-You can edit your offer using the following link:
+You can edit your advert via the following link:
 %s
 
-If you have any questions of recommendations you cann write an email to: %s"
+If you have questions or suggestions, please contact us via the following email address: %s"
 "Add_datenschutz","I agree that my data such as name and email address will be saved. This data will only be used to drive the KuB Language Tandem. "
 "Add_ausfuellen","Please fill in all fields, enter a correct e-mail address and accept the privacy terms."
 "Add_Title","Add Advert"
@@ -76,7 +77,7 @@ Now you will receive an e-mail from us, including an activation link for your ad
 "View_Form_email","Your e-mail address"
 "View_Form_email_nochmal","Repeat e-mail adress"
 "View_Form_text","Your Message"
-"View_Form_nachrichtAn","Send Message to "
+"View_Form_nachrichtAn","Send message to"
 "View_Form_ausfuellen","Please fill in all fields, enter a valid email addess and accept the data security requirements."
 "View_Form_senden","send"
 "View_AnzeigeMelden","report advert"
@@ -85,23 +86,23 @@ Now you will receive an e-mail from us, including an activation link for your ad
 "View_email_subject","%s Language Tandem: You have a new message"
 "View_notification_email","Hello %s,
 
-%s is interested in a language tandem (%s-%s) with you.
+%s is interested in starting a language tandem with you.
 
 Age: %s
 Gender: %s
-Place of residency: %s
-E-mail address: %s
+Place of Residency: %s
+Email address: %s
 
-The following message has been left for you: 
+They left the following message for you:
 
 %s
 
 
-We wish you both a lot of fun with your first meeting.
+We wish you fun with your first meeting. We recommend that you hold your first language tandem meeting online. You can use Jitsi or Skype to do so. If you meet an unknown person for the first time, we recommend you use a public location, where you won't be alone.
 
-Best regards
+Best wishes,
 
-The %s Language Tandem Team"
+%s-Language-Tandem-Team"
 "View_datenschutz","I agree that my data such as name and email address will be saved. This data will only be used to drive the KuB Language Tandem."
 "sprache_afrikaans","Afrikaans"
 "sprache_albanisch","Albanian"
@@ -217,20 +218,21 @@ This advert was reported:
 %s"
 "Reminder_email","Hello %s,
 
-We wish you good luck and a lots of fun at the %s Language Tandem!
+We hope you continue to have fun and success with %s-Language-Tandem!
 
-Best regards
-
-The %s Language Tandem Team
-
-
-
-You can deactivate your offer using the following link:
+What kind of experiences have you had with Language Tandem so far? You can share your experiences with us here:
 %s
 
-You can edit your offer using the following link:
+You can delete your advert via the following link:
 %s
 
-If you have any questions of recommendations you cann write an email to: %s"
+You can edit your advert via the following link:
+%s
+
+If you have questions or suggestions, you can contact us via: %s
+
+Best wishes,
+
+%s-Language-Tandem-Team"
 "Reminder_subject","%s Sprach Tandem: Your advert"
 "Edit_ok","Data saved"
