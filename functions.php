@@ -114,8 +114,8 @@ function readcsv($file)
         echo 'Error opening file '.$file.'.';
     };
     $lines = array();
-    while (!feof($file_handle)) {
-        $lines[] = fgetcsv($file_handle, 2048, ',');
+    while (($entry = fgetcsv($file_handle, 2048, ',')) !== false) {
+        $lines[] = $entry;
     }
     fclose($file_handle);
     return $lines;
