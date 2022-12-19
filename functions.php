@@ -144,7 +144,6 @@ function getLabel($lang)
 
     $ret['dir'] = ($ret['lang'] == 'fa' or $ret['lang'] == 'ar') ? 'rtl' : 'ltr';
 
-    asort($ret);
     return $ret;
 }
 
