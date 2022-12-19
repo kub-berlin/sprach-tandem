@@ -113,6 +113,7 @@ function readcsv($file)
     if (empty($file_handle)) {
         echo 'Error opening file '.$file.'.';
     };
+    $lines = array();
     while (!feof($file_handle)) {
         $lines[] = (fgetcsv($file_handle, 2048, ','));
     }
@@ -131,6 +132,7 @@ function getLabel($lang)
         return;
     }
 
+    $ret = array();
     foreach ($t_data as $i => $tstring) {
         $key = str_replace(' ', '', $tstring[0]);
         if ($tstring[1] != '') {
