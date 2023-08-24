@@ -26,7 +26,7 @@ $label = setLanguage(htmlentities(isset($_GET['lang']) ? $_GET['lang'] : $defaul
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
     <link rel="stylesheet" type="text/css" href="<?php e(sprintf($GLOBALS['external_css'], $label['dir'])) ?>" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <title><?php e(sprintf($label['Title'], $GLOBALS['organisationName'])) ?></title>
@@ -83,5 +83,6 @@ if ($server != null) {
 }
 ?>
 
+    <script src="embed.js" type="module"></script>
 </body>
 </html>
