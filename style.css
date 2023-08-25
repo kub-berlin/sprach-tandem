@@ -1,12 +1,21 @@
 @charset "UTF-8";
 
-html {
-	background-color: white;
-	overflow-y: auto;
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	/* body.scrollHeight must report actual height for embed.js
+	 * padding-block will include make sure that there are no stray margins of
+	 * child elements
+	 */
+	margin-inline: auto;
+	padding-block: 0.5em;
 }
 
-body {
-	padding: 0;
+html {
+	background-color: white;
 }
 
 .form_above {
