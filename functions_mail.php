@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
 
-require_once 'Mail.php';
-
 /* ===================================
 #
 #   E-Mail
@@ -32,8 +30,8 @@ function sendEmail($to, $subject, $body, $replyto, $debug = 0)
     if ($debug) {
         array_push($headers, "BCC: {$GLOBALS['email_orga']}");
     }
-    $mail = mail($to, $subject, $body, implode("\n", $headers));
-    if (PEAR::isError($mail)) {
+    $success = mail($to, $subject, $body, implode("\n", $headers));
+    if (!$success) {
         if ($GLOBALS['debug'] == 1) {
             echo "<p>in function sendEmail: ".$mail->getMessage() ."</p>";
         }
