@@ -304,3 +304,37 @@ function actionReport($label)
         include 'templates/report.php';
     }
 }
+
+
+//##############################
+//
+//   ACTION FEEDBACK
+//
+//#############################
+
+function actionFeedback($label)
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' and (
+        $_POST['frage1'] != ''
+        or $_POST['frage2'] != ''
+        or $_POST['frage3'] != ''
+        or $_POST['frage4'] != ''
+        or $_POST['frage5'] != ''
+        or $_POST['frage6'] != ''
+        or $_POST['frage7'] != ''
+        or $_POST['frage8'] != ''
+    )) {
+        $senden = true;
+
+        $label_mail = setLanguage('de');
+
+        $to = $GLOBALS['email_orga'];
+        $gesendet = send_feedback($to, $label_mail);
+
+        if (!$gesendet) {
+            http_response_code(500);
+        }
+    }
+
+    include 'templates/feedback.php';
+}
