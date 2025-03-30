@@ -31,9 +31,9 @@
 We are happy that you have posted an advert on %s-Language-Tandem. To activate your offer, please click here:
 %s
 
-People interested in your offer can now contact you via our portal. We will forward requests with contact details to you. Then you will be able to decide whether to conatct the person directly.
+People interested in your offer can now contact you via our portal. We will forward requests with contact details to you. Then you will be able to decide whether to contact the person directly.
 
-Language Tandem provided by KuB aims to enable interactions free of discrimination. It matters to us that personal privacy and boundaries are respected. Sexual content is not appropriate for Language Tandem! It is not a platform for finding a partner! It can happen that someone does not abide by the rules. Therefore, please don't give any important data to people you don't know. Only provide your address, phone number or name if you trust the other person. It is safer to have your first meeting online. You can use platforms like Jitsi: http://meet.systemli.org
+Language Tandem provided by KuB aims to enable interactions free of discrimination. It matters to us that personal privacy and boundaries are respected. Sexual content is not appropriate for Language Tandem! It is not a platform for finding a partner! It can happen that someone does not abide by the rules. Therefore, please don't give any important data to people you don't know. Only provide your address, phone number or name if you trust the other person. It is safer to have your first meeting online. You can use platforms like Jitsi: https://meet.systemli.org
 If you have any negative experiences at a meeting, please report this to: sprachtandem@kub-berlin.org
 
 We wish you lots of success and fun with %s-Language-Tandem!
@@ -50,7 +50,8 @@ You can delete your advert via the following link:
 You can edit your advert via the following link:
 %s
 
-If you have questions or suggestions, please contact us via the following email address: %s"
+If you have questions or suggestions, please contact us via the following email address:
+%s"
 "Add_datenschutz","I agree that my data such as name and email address will be saved. This data will only be used to drive the KuB Language Tandem. "
 "Add_ausfuellen","Please fill in all fields, enter a correct e-mail address and accept the privacy terms."
 "Add_Title","Add Advert"
@@ -86,7 +87,7 @@ Now you will receive an e-mail from us, including an activation link for your ad
 "View_email_subject","%s Language Tandem: You have a new message"
 "View_notification_email","Hello %s,
 
-%s is interested in starting a language tandem with you.
+%s is interested in starting a language tandem %s-%s with you.
 
 Age: %s
 Gender: %s
@@ -210,6 +211,8 @@ an advert was reported:
 
 by: %s
 
+email: %s
+
 reason: %s
 
 This advert was reported:
@@ -236,3 +239,14 @@ Best wishes,
 %s-Language-Tandem-Team"
 "Reminder_subject","%s Sprach Tandem: Your advert"
 "Edit_ok","Data saved"
+"Feedback_title","Experience report"
+"Feedback_intro","Tell us about your experiences with the language tandem:"
+"Feedback_frage1","Did you create an advert at language tandem?"
+"Feedback_frage2","Did someone respond to your advert?"
+"Feedback_frage3","Did you respond to a language tandem advert?"
+"Feedback_frage4","Was the communication respectful?"
+"Feedback_frage5","Did you meet someone for a language tandem?"
+"Feedback_frage6","Did the meetings with language tandem partners go well?"
+"Feedback_frage7","If you want, you can write more about the experience:"
+"Feedback_frage8","Where did you meet with your language tandem partners?"
+"Feedback_senden","send"

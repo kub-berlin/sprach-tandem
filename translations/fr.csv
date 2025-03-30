@@ -1,18 +1,18 @@
 "lang","fr"
 "dateFormat","d.m.Y"
-"Table_intro","Dans cette liste, tu peux consulter les annonces actuelles. Si tu en trouves une qui corresponde à tes critères, tu peux simplement envoyer un e-mail."
+"Table_intro","Dans cette liste, tu peux consulter les annonces actuelles. Si tu en trouves une qui correspond à tes critères, tu peux simplement envoyer un e-mail."
 "Table_filtern","Filtrer"
 "Table_Title ","Tableau"
 "Table_col_name","Nom"
-"Table_col_spracheAng","Langue offerte"
+"Table_col_spracheAng","Langue proposée"
 "Table_col_spracheGes","Langue recherchée"
 "Table_col_datum","Inséré le"
 "Table_col_ort","Lieu de domicile"
 "Table_filter_alle","tout"
-"Add_intro","Tu n´as pas trouvé l´annonce que tu cherchais? Place une annonce toi-même!"
+"Add_intro","Tu n'as pas trouvé l'annonce que tu cherchais? Poste toi-même une annonce!"
 "Add_name","Ton nom"
 "Add_email","Ton e-mail"
-"Add_email_nochmal","Répétez e-mail"
+"Add_email_nochmal","Répète ton e-mail"
 "Add_alter","Ton âge"
 "Add_ort","Ton lieu de domicile"
 "Add_geschlecht","Ton sexe"
@@ -21,34 +21,12 @@
 "Add_skills_1","ça va"
 "Add_skills_2","bon"
 "Add_skills_3","très bon"
-"Add_spracheAng","Langue offerte"
+"Add_spracheAng","Langue proposée"
 "Add_spracheGes","Langue recherchée"
 "Add_beschreibung","Quelques informations sur toi-même"
 "Add_senden","envoyer"
 "Add_email_subject","Tandem linguistique de la %s: ton annonce"
-"Add_notification_email","Salut %s,
-
-tu as placé une annonce dans le cadre du tandem linguistique de la %s. Clique ici pour l'activer:
-%s
-
-Les personnes intéressées par ton annonce peuvent désormais te contacter à travers notre site. Nous te faisons parvenir leurs demandes avec leurs contacts. Tu décides ensuite si tu veux les contacter personnellement
-
-Pour une première rencontre, nous te conseillons un des lieux mentionnés sur notre site.
-
-Nous te souhaitons bonne chance avec le tandem linguistique de la %s!
-
-Meilleures salutations,
-
-Le team du tandem linguistique de la %s
-
-
-Tu peux supprimer ton annonce sous ce lien:
-%s
-
-Tu peux actualiser ton annonce sous ce lien:
-%s
-					
-Pour toute question et remarque, tu peux nous contacter: %s"
+"Add_notification_email",""
 "Add_datenschutz","J'accepte que mes données, comme par exemple mon nom et mon adresse e-mail, soient enregistrées. Ces données ne seront utilisées que dans le cadre du tandem linguistique de la KuB."
 "Add_ausfuellen","Remplis toutes les cases, utilise un e-mail valide et accepte les conditions de protection des données personnelles."
 "Add_Title","Poster une annonce"
@@ -64,40 +42,24 @@ Tu vas recevoir un e-mail avec un lien pour activer ton annonce. Si tu cliques s
 "View_skills_2","bon"
 "View_skills_3","très bon"
 "View_ort","Lieu de domicile"
-"View_spracheAng","Langue offerte"
+"View_spracheAng","Langue proposée"
 "View_spracheGes","Langue recherchée"
 "View_beschreibung","Informations"
-"View_Form_name","Ton Nom"
+"View_Form_name","Ton nom"
 "View_Form_alter","Ton âge"
 "View_Form_geschlecht","Ton sexe"
 "View_Form_ort","Ton lieu de domicile"
 "View_Form_email","Ton e-mail"
-"View_Form_email_nochmal","Répétez e-mail"
+"View_Form_email_nochmal","Répète ton e-mail"
 "View_Form_text","Ton message"
-"View_Form_nachrichtAn","Envoyer un message à "
+"View_Form_nachrichtAn","Envoyer un message à"
 "View_Form_ausfuellen","Remplis toutes les cases, utilise un e-mail valide et accepte les conditions de protection des données personnelles."
 "View_Form_senden","envoyer"
 "View_AnzeigeMelden","Signaler une annonce"
-"View_gesendet","Ton message a été envoyé. Si la personne qui a placé cette annonce est intéressée par un tandem avec toi, elle te contactera directement."
+"View_gesendet","Ton message a été envoyé. Si la personne qui a écrit cette annonce est intéressée par un tandem avec toi, elle te contactera directement."
 "View_nichtGesendet","Ton message n'a pas pu être envoyé. L'adresse e-mail que tu as indiquée n'est probablement pas correcte."
 "View_email_subject","Tandem linguistique de la %s: tu as reçu un message"
-"View_notification_email","Salut %s,
-
-%s iest intéressé par un tandem linguistique (%s-%s) avec toi.
-
-Ager: %s
-Sexe: %s
-Lieu de domicile: %s
-e-mail: %s
-
-Le message suivant t'a été envoyé: 
-%s
-
-						Nous vous souhaitons bonne chance pour votre première rencontre.
-
-Meilleures salutations,
-
-Le team du tandem linguistique de la %s"
+"View_notification_email",""
 "View_datenschutz","J'accepte que mes données, comme par exemple mon nom et mon adresse e-mail, soient enregistrées. Ces données ne seront utilisées que dans le cadre du tandem linguistique de la KuB."
 "sprache_afrikaans","Afrikaans"
 "sprache_albanisch","Albanaise"
@@ -213,22 +175,17 @@ Cette annonce à été signalée:
 %s (%s)
 
 %s"
-"Reminder_email","Bonjour %s,
-
-Nous vous souhaite beaucoup de succès et de plaisir avec le Tandem linguistique de la %s!
-
-Cordialement
-
-L'équipe du Tandem linguistique de la %s
-
-
-
-Vous pouvez effacer votre offre sous ce lien:
-%s
-
-Vous pouvez éditer votre offre sous ce lien:
-%s
-
-Si vous avec des questions ou des remarques, n'hésitez pas à nous contacter à cette adresse: %s"
+"Reminder_email",""
 "Reminder_subject","Tandem linguistique de la %s: ton annonce"
 "Edit_ok","Données enregistrées"
+"Feedback_title","Rapport de suivi"
+"Feedback_intro","Raconte-nous quelles ont été tes expériences avec le tandem linguistique:"
+"Feedback_frage1","As-tu posté ta propre annonce de tandem linguistique?"
+"Feedback_frage2","Est-ce que quelqu'un⸱e t'a contacté⸱e suite à ton annonce?"
+"Feedback_frage3","As-tu répondu à une annonce de tandem linguistique?"
+"Feedback_frage4","La communication a-t-elle été respectueuse?"
+"Feedback_frage5","As-tu rencontré quelqu'un⸱e en personne pour un tandem linguistique?"
+"Feedback_frage6","Les rencontres se sont-elles bien passées?"
+"Feedback_frage7","Si tu le souhaites, tu peux nous en dire plus sur ton expérience:"
+"Feedback_frage8","Où vous êtes-vous rencontré⸱e⸱s avec ton/ta partenaire de tandem linguistique?"
+"Feedback_senden","envoyer"

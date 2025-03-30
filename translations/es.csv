@@ -26,34 +26,7 @@
 "Add_beschreibung","Cuéntanos un poco sobre tí"
 "Add_senden","enviar"
 "Add_email_subject","%s-Sprach-Tandem: Tu anuncio"
-"Add_notification_email","Hola %s,
-
-nos alegramos de que haya puesto un anuncio en %s-Sprach-Tandem. Haga clic aquí para activar su oferta:
-%s
-
-Los interesados ya pueden ponerse en contacto con usted a través de nuestro portal. Le remitiremos las consultas con los datos de contacto. Entonces usted decide si quiere ponerse en contacto directo.
-
-El tándem de KuB quiere facilitar un intercambio sin discriminación. Es importante para nosotros que se respeten los límites de la otra persona.
-El Sprach-Tandem no es un lugar para contenidos sexuales. No se trata de un intercambio de parejas.
-Puede ocurrir que una persona no respete las normas. Por lo tanto, no dé información importante a personas que no conoce. Sólo de su dirección, número de teléfono y nombre cuando sienta que puede confiar en la otra persona.
-Es más seguro que el primer encuentro tenga lugar en línea. Puedes hacerlo con Jitsi, por ejemplo: http://meet.systemli.org.
-Si tiene experiencias negativas durante sus reuniones, póngase en contacto con: sprachtandem@kub-berlin.org
-
-Le deseamos mucho éxito y mucha diversión con el %s-Sparch-Tandem!
-
-Saludos cordiales
-
-%s-Sprach-Tandem-Team
-
-
-
-Puede eliminar su oferta en el siguiente enlace:
-%s
-
-Puede editar su oferta en el siguiente enlace:
-%s
-
-Si tiene alguna pregunta o sugerencia, puede ponerse en contacto con nosotros en la siguiente dirección de correo electrónico: %s"
+"Add_notification_email",""
 "Add_datenschutz","Concuerdo con que mis datos como por ejemplo mi nombre y mi dirección de correo electrónico se guarden en el sistema. Estos datos solo serán usados para el intercambio de idiomas que el KuB ofrece "
 "Add_ausfuellen","Por favor, rellena todas las casillas, proporciona una dirección de E-mail váilda i acepta las condiciones de privacidad de datos."
 "Add_Title","poner un anuncio"
@@ -242,3 +215,14 @@ Cordialmente
 %s- Equipo de intercambio de idiomas"
 "Reminder_subject","%s-Sprach-Tandem: Tu anuncio"
 "Edit_ok","Datos guardados"
+"Feedback_title",""
+"Feedback_intro",""
+"Feedback_frage1",""
+"Feedback_frage2","¿Ha respondido alguien a su anuncio?"
+"Feedback_frage3",""
+"Feedback_frage4","¿La comunicación fue respetuosa?"
+"Feedback_frage5","¿Has quedado con una persona para hacer tándem?"
+"Feedback_frage6","¿Fueron bien las reuniones con sus compañeros/ res/ ras  del tándem ?"
+"Feedback_frage7","Si usted desea, puede escribir más sobre su experiencia:"
+"Feedback_frage8",""
+"Feedback_senden","enviar"
